@@ -1,0 +1,20 @@
+\section{Requirements for Structured Publication of Study Models}
+
+An LCA study result is ultimately an assertion that, for some input data known as the ``model,'' the delivery of a particuar reference flow %of products or services
+is associated with a certain amount of environmental impact or impact potential.  Structured publication of a model by itself is simply documentation of the model's design.  On the other hand, structured publication of the model together with the result constitutes an assertion that the model and the result correspond.  The fundamental objective of structured publication is to enable a data user to validate that assertion.
+
+As discussed in the introduction, a structured publication %of a study model
+must achieve the dual requirements of human interpretability and machine readability.  %In the space of modern communications, t
+This is often accomplished using linked semantic data \citep{Bizer_2009}, in which an object to be interpreted is signified by a link to a resource on the World Wide Web, typically referred to as a Uniform Resource Identifier (URI) or a hyperlink.  The resource at the end of the link functions as a point of agreement: both study author and data user can follow it from anywhere on the Internet to obtain the same information.  The content pointed to by the hyperlink, along with context provided by \emph{other} references to the same resource, gives meaning to the information and allows it to be curated by the study authors and other members of the community \citep{Khan_2011}.  Semantic data are structured by reference to knowledge models called ontologies, which describe the relationships among different types of entities \citep{Madin2008}.  
+Some preliminary descriptions of the entity types involved in LCA computation, and their relationships to one another, have recently been developed \citep{Ciroth_Srocka_2014, Janowicz_WOP_2015, Kuczenski_JCP_2016}.
+
+However, the existence of semantic data resources is not enough by itself to establish the reproducibility of a model or result: it must also be clear how the information is used to generate the result.  A \emph{research object} \citep{Bechhofer_2013} is an aggregation of linked references, combined with a structure or system for converting the information into the scientific model for reproducing the result.  In order to develop a research object that can encapsulate the publication of an LCA study, it is necessary to identify the computation to be performed, and then supply the data necessary to perform it. The following objectives will be used to guide the this development:
+
+\begin{enumerate}
+\item \emph{Linked Data Foundation}.  Human interpretation of the publication should rely on the use of references to shared resources identified by URIs or hyperlinks.
+\item \emph{Computation}.  The role of the publication in an LCA computation should be clear.  If the publication includes a result, it should be clear how the result was obtained.
+\item \emph{Attribution}.  The publication should distinguish information attributable to the author from information attributable to other sources.
+\item \emph{Completeness}.  The publication should contain all the parts of the model necessary to accomplish the goal.  
+\item \emph{Conciseness}.  The publication should includes the smallest amount of information necessary to accomplish the goal.
+\item \emph{Flexibility}.  The publication form should accommodate a variety of levels of disclosure and transparency.
+\end{enumerate}

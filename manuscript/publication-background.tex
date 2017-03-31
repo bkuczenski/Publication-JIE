@@ -1,0 +1,42 @@
+\section{Supporting Data for Foreground Publication}
+
+The previous section explained how foreground LCA models could be published precisely by authors in a manner that would allow them to be reproduced by readers or data users.  Reproducing study results, however, requires those data users to have access to background LCI data and characterization data as well.  This section discusses those aspects of LCA publishing.
+
+
+\subsection{Background database publication and aggregation by reference}
+
+The key characteristic of the foreground model is that it describes references to background data sets but explicitly excludes the background data sets themselves.  There are four main reasons for this exclusion:
+
+\begin{enumerate}
+\item License.  Most background LCI databases are proprietary (if still "public" under this paper's working definition), and licensing restrictions prohibit data users from republishing them.  
+
+\item Attribution.  Foreground data sets describe the system being directly modeled by the study author, and the author's report is thereby the authoritative source of information about them. In contrast, background data sets describe systems that have been modeled by a separate agency.  If the objective of a publication is to allow a reader to accurately interpret or reproduce the result, this aim is better accomplished by allowing the reader to obtain information from the authoritative source than to obtain it second-hand from the study author.
+
+\item Size.  While foreground data sets tend to be sparse, because foreground processes tend to have a limited number of dependencies and emissions, background data sets are full.  Given a strongly connected background database, any emission that appears anywhere in the background will have a nonzero exchange value in every background LCI result.  Because of the scale of information, it is inconvenient to reproduce it all.
+
+\item Invariance.  In current practice, background data sets are prepared infrequently and used in many applications.  The major inventory data providers, Thinkstep and Ecoinvent, generally update their databases approximately once per year.  Many databases do not receive regular updates at all.  It would be redundant and error-prone for authors to reproduce the data sets every time they are used.
+\end{enumerate}
+
+Accurate representation of background data sets is still required to meet the objectives of study publication, but for the above reasons it would be inconvenient or inappropriate for a study author to reproduce them in full.  The remedy proposed in this article is for study authors to simply reproduce background data sets \emph{by reference}, naming them with sufficient precision to allow a study reader to access them.  Taking this approach, however, requires that the study reader own a license for any proprietary data used.
+
+One way around this problematic situation is for LCI data providers to offer ``aggregation by reference'' as a service to their licensees.  Under such a service, a study author could populate the entity map with linked references to background data sets, and data providers would allow readers of those studies to compute LCI or LCIA results for the linked data sets on demand.  This system offers considerable advantages over current practice:
+
+\begin{itemize}
+  \item Data providers would be situated as the sole authoritative sources for results derived from their data.  This has the dual effects of giving readers confidence in the correctness of the results and ensuring that the data providers continue to occupy an indispensible role in study preparation and review.
+
+ \item Data providers would be able to directly control access to their intellectual property.  A given query for an aggregation result could be answered in different ways depending on the credentials of the user making the query.  
+
+ \item Data providers would be liberated from the need to provide database updates \emph{en bloc} to their users.  Individual data sets could be revised and updated internally, and results generated from queries from data users would always contain the latest input data.  Alternatively, studies that made reference to a specific data version could be answered using those specific versions rather than the latest data.
+
+ \item Queries could be answered contextually, with responses varying depending on the geography of the reference, on intermediate flow characteristics, or on other ad hoc criteria.
+\end{itemize}
+
+
+\subsection{Characterization data and LCIA methodology publication}
+
+One potentially significant source of irreproducibility in LCA is the redundant implementation of life cycle impact assessment methodologies by different software providers \citep{Speck_2015,Herrmann_2015}.  This has numerous drawbacks.  First, the reimplementation introduces the possibility for errors and discrepancies.  Second, the labor of revising and updating characterization factors is multiplied because every implementation must be updated separately.  Third, different implementations may be out of sync with each other.  Finally, the reimplementations may themselves not be easily reviewed when studies using them are reviewed.
+
+These shortcomings can be addressed through structured publication of characterization factors using a linked data foundation like the one proposed in this article for inventory models.  Many LCIA methodology providers publish their methods on the Web in machine-readable formats such as spreadsheets, but these publications lack the reference to shared semantic data that would identify distinct flows in common with other implementations. If the information were provided as a ``characterization on demand'' service to LCA software providers, in which LCIA method providers published a list of references to elementary flows denoted with linked data URIs.  Software makers or their users could submit a query to the LCIA method provider for a characterization factor for a given flow, and the provider would respond with the requested information.
+
+This approach would foster the development of software supporting reliable and consistent, platform-independent web-based LCA computations.  {\red The providers would have the ability to write software to automatically validate their in-house characterization factors and keep them up to date.  Study authors and reviewers would be able to use the service to validate structured inventory publications and verify published LCIA results.  
+}

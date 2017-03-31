@@ -1,0 +1,35 @@
+\section{Aggregation of Foreground Models}
+
+\input{fig_aggregation}
+
+This section describes what data points must be reported in order to generate a structured publication of a foreground model in various stages of aggregation.  In each case, full publication must include the two components already introduced: the entity map, used to and enumerate the matrix rows and columns; and the tabular data, used to populate the matrices.  For complete fidelity to the model, each non-zero entry in any matrix should be represented in the tabular data.   If results are included, the transparency of the publication can be improved by reporting the characterization vector as well.  Note that the reference flows of each foreground node are implicit in Eq.~6 and should not be replicated in the tabular data. Different aggregation forms are illustrated in Figure~\ref{fig:aggregation}.
+
+\subsection{Unit Process Inventory}
+
+A unit process makes up a single shared column of $A_f$, $A_d$, and $B_f$, as depicted in Figure~\ref{fig:aggregation}(a).  Publication formats for unit processes already exist, the most well-known being the ILCD and Ecospold XML formats.  Current LCA software is based on the principle of the unit process as the sole consensus format for structured publication, although current formats do not uniformly distinguish between foreground flows, dependencies, and emissions.  The entity map must include at least one foreground flow, which is the reference flow of the process, and corresponds to the column of $A_f$ to which it belongs.  Multi-functional processes can also be expressed, but a reference exchange must still be selected before the process can be entered into a foreground matrix.  Other co-products should in this case be listed as additional foreground flows in the entity map, and their exchange values included in the tabulated data; absent further specification, these flows would be interpreted as cutoff flows.
+
+\subsection{Foreground}
+
+See Figure~\ref{fig:aggregation}(b).  A foreground can be viewed as a linked set of unit processes.  In the mode of structured publication as a research object, the entries in the unit process inventories must be segregated into foreground exchanges (entries in $A_f$), background dependencies (entries in $A_d$), and emissions (entries in $B_f$).  A foreground or foreground fragment comprises these three complete matrices, all having a common set of columns.  A  publication in this vein would allow a data user to completely reproduce the study fragment.  A foreground fragment is also the smallest publication unit that can fully express an allocation treatment, because such treatment requires the involvement of multiple unit processes, either for the purposes of partitioning, co-product substitution, or system expansion.  The two examples presented above show foreground publications.
+
+\subsection{Aggregated Foreground}
+
+See Figure~\ref{fig:aggregation}(c). Any collection of foreground nodes can also be expressed in aggregated form by performing a row-wise weighted sum of the foreground columns.  This is equivalent to multiplying the $A_d$ and $B_f$ matrices by $\tilde{\mathbf{x}}$ to yield $\tilde{\mathbf{a}}_d$ and $\tilde{\mathbf{b}}_f$.
+The foreground vector $\tilde{\mathbf{a}}_f$ is obtained by selecting all the elements of $\tilde{\mathbf{x}} - \tilde{\mathbf{y}}$ that represent input, output, or cutoff flows.  A publication of the aggregated foreground is identical to the publication of a unit process, except that the result was derived through aggregation.  As in the unit process case, the reference flow should appear in the entity map but the reference output should not be reported in the tabular data.
+
+\subsection{Partial Background Aggregation}
+
+See Figure~\ref{fig:aggregation}(d). This approach is useful when an author wishes not to disclose certain dependency relationships in the foreground but still wants to publish a complete, reproducible model.  The aggregated dependency vector is split into two parts that sum to the original:
+\begin{equation}
+ \tilde{\mathbf{a}}_d = \tilde{\mathbf{a}}_{d,priv} + \tilde{\mathbf{a}}_d'
+\end{equation}
+The disclosed dependencies $\tilde{\mathbf{a}}_d'$ are reported, and the private dependencies $\tilde{\mathbf{a}}_{d,priv}$ are replaced with a private impact score $\tilde{s}_{x,priv}$, computed from corresponding life cycle inventories from the background database.  Foreground emissions can still be reported separately, or they can be characterized and combined with the private score as appropriate.  This approach allows the author to limit the disclosure of confidential information; however, the reader will still learn how large of an impact can be attributed to the undisclosed portion.  It isimpossible to discern the makeup of the private dependency vector from the private impact score.
+
+\subsection{Full Background Aggregation}
+
+See Figure~\ref{fig:aggregation}(e). In this approach, all dependency information is concealed through replacement with an impact score derived from the background life cycle inventory.  In this publication, foreground emissions are still reported separately, along with any foreground inputs, outputs, and cutoffs.  For a marginal increase in transparency, the full background inventory can be reported as $\tilde{\mathbf{b}}_x$.  However, taking this approach significantly increases the size of the publication because the background inventory vector is full (not sparse).  Full background aggregation is most commonly practiced
+
+\subsection{Full LCI}
+
+See Figure~\ref{fig:aggregation}(f). Here, all foreground information is concealed and only the aggregated life cycle inventory vector $\tilde{\mathbf{b}}$ is reported.  The life cycle inventory $\tilde{\mathbf{b}}$ provides the most aggregated form of the study that can still be independently validated with an external characterization vector $\mathbf{e}$.  
+

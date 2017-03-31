@@ -1,0 +1,38 @@
+\def\fgmatrix{32pt}%
+\def\coordstep{8pt}%
+\def\depmatrix{120pt}%
+\def\bmatrix{60pt}%
+
+
+%\newpsstyle{exchplot}{framearc=0.15,linestyle=solid,linewidth=1pt,strokeopacity=0,fillstyle=solid,opacity=0.36,fillcolor=black}
+%\newpsstyle{exchplot}{framearc=0.15,linestyle=solid,linewidth=0.6pt,fillstyle=solid,fillcolor=gray,opacity=0.15}
+
+
+\begin{pspicture}(0,0)(1.5,10)\showgrid
+  \pnode[0,-16pt](0.75,8){paf}
+  \pnode(0.75,1.5){pbf}
+
+  
+  \pnode(0.75,9.9){pTitle}
+  %\pnode(0.5,9.9){pLabel}
+
+  \rput[t](pTitle){\parbox{4cm}{\centering f. {\small LCI}}}
+  %\rput[tr](pLabel){\large c.}
+
+  %% \rput(pad){\newmatrix{nad}{\depmatrix}{\coordstep}}
+  %% \leftlabel{nad}{$\tilde{a}_d'$}
+  \rput(pbf){\newmatrix{nbx}{\bmatrix}{\coordstep}}
+  \leftlabel{nbx}{$\tilde{b}$}
+
+  \aggfg{paf}{naf}
+
+
+  %% \rput(pbx){\newmatrix{nbx}{\bmatrix}{\coordstep}}
+  %% \leftlabel{nbx}{$\tilde{b}_x$}
+
+  \psframe[style=upr]([angle=180]nbx|[angle=-90]nbx)([angle=0]nbx|[angle=90]nbx)
+  
+  %% \refs{nAf}{\coordstep}{4}
+  
+  
+\end{pspicture}

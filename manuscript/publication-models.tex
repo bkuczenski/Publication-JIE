@@ -1,0 +1,9 @@
+\section{Constructing Foreground Publications}
+
+According to the definition in the previous section, the foreground of an LCA study is defined through its relationship with the background: the foreground depends on the background, but the background does not depend on the foreground.  In this section, I assume a study background is drawn from one or several background databases, each of which have been independently published as a collection of aggregated LCI results for background processes.  I show how 
+
+
+A foreground can be thought of as the vertices of a directed graph.  Each node in the graph represents a process, and each edge in the graph represents a flow between processes.  When the
+
+
+both a process and a flow of that process's reference product.  The Af matrix reports the interconnections (exchanges) between the nodes in a foreground model or portion of a model.  Each entry a_ij in the matrix represents the exchange of a flow between foreground nodes i and j.  The ith column describes the characteristics of the process occurring at the ith node.  Similarly, the ith row represents the demand (or alternative supply) for the ith reference product.  Thus an entry in position a_ij indicates that thee process in column j requires a_ij amount of the reference product i, per unit of reference product j produced.  When the foreground technology matrix I-Af is constructed and inverted, the ith column of the inverse reports the activity levels of the foreground nodes that result from a unit demand for the ith node.  For the canonical foreground, x~ is the first column of (I-Af)^{-1}.

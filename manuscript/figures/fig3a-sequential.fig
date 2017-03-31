@@ -1,0 +1,57 @@
+\def\fgmatrix{72pt}%
+\def\coordstep{18pt}%
+
+%% plan:
+% matrix 4x4
+% index labels 1-4 along top
+% reference box with y~
+% exchange boxes
+% tree diagram
+%
+%
+
+\begin{pspicture}(0,1)(6,6)%\showgrid
+  \pnode(3,3.55){pMatrix}
+  \pnode(0.36,1.55){pTree}
+  \pnode(3,5.5){pTitle}
+  \pnode(0.5,5.5){pLabel}
+
+  \rput[br](pLabel){\large a.}
+  
+  \rput(pMatrix){
+    \pnode(0,0){pAf}
+    
+    \rput(pAf){\newmatrix{nAf}{\fgmatrix}{\fgmatrix}}
+    \colindex{nAf}{\coordstep}{4}
+
+    \leftlabel{nAf}{$A_f$}
+
+    \refs{nAf}{\coordstep}{4}
+    {\large \canonicalref{nAf}{\coordstep}}
+    %\plotmatrix[\coordstep]{refplot}{nAf}{1}{1}
+  }
+
+  \rput(pTree){\footnotesize
+    \psset{xunit=1.4cm, style=standard, nodesep=2pt}
+    \pnode(0,0){p4}
+    \pnode(1,0){p3}
+    \pnode(2,0){p2}
+    \pnode(3,0){p1}
+    \pnode(3.8,0){pref}
+
+    \rput(p4){\circlenode{n4}{4}}
+    \rput(p3){\circlenode{n3}{3}}
+    \rput(p2){\circlenode{n2}{2}}
+    \rput(p1){\circlenode{n1}{1}}
+    \rput(pref){\rnode{nref}{$\tilde{y}$}}
+
+    \ncline{->}{n1}{nref}
+  }
+  \rput[B](pTitle){Sequential Model}
+
+  \labelconnect[$k_3$]{nAf}(4,3){\plotframe{exchplot}}
+  \labelconnect[$k_2$]{nAf}(3,2){\plotframe{exchplot}}
+  \labelconnect[$k_1$]{nAf}(2,1){\plotframe{exchplot}}
+
+  
+\end{pspicture}

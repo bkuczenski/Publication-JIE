@@ -1,0 +1,37 @@
+\section{Interpreting the Research Object}
+
+The product systems are provided as ``research objects'' that take the form of Excel spreadsheets.  The spreadsheets are provided in the supplementary information accompanying the paper.  Each example is also illustrated with a table in the body of the paper.
+The spreadsheets allow a data user to interpret, validate, and re-create the foreground study.  Each spreadsheet contains an entity map, a table of LCIA category scores, a set of data matrices, and a set of aggregation results.  The aggregation results can be computed from the data tables, and the LCIA results can be computed from the aggregation results.  
+
+\subsection{The Entity Map}
+
+The ``EntityMap'' tab describes each entity in the model, broken into five sections: characterization quantities (for LCIA); foreground nodes; background dependencies; cutoff flows; and elementary flows.  Each entity is given an identifying key that is used to represent the entity in the data tables.  In addition to the key, each entity has four core properties:
+\begin{itemize}
+\item The \emph{origin} defines the data resource from which the entity was derived.  In an ideal case, the origin would be a URI of a namespace on the Semantic Web.  Since the research object is itself the data resource that defines the foreground, the origin for foreground nodes is simply ``Foreground.''
+\item The \emph{identifier} is unique with respect to the origin.  The identifier should allow a data user to find the entity's dataset when consulting the origin's namespace. Ideally, the origin and the identifier together form a URI for the entity.   In principle a data user should be able to retrieve the correct entity using only the origin and the identifier fields.
+\item Each entity has a \emph{reference unit} that defines how numeric values should be interpreted.
+\item Each entity also has a \emph{name} for convenient interpretation of the entity.  
+\end{itemize}
+
+Each entity type (aside from characterization quantities) has additional descriptive fields:
+\begin{itemize}
+\item The \emph{flow direction} describes the direction of each flow with respect to the entity being defined.  Foreground flows, background dependencies, cutoff flows and elementary flows all have directions.
+\item Foreground nodes also have a \emph{flow name} that reports the name of the reference flow emanating from the node.
+\item Background dependencies also have a \emph{reference flow} that tells which of the process's reference outputs is being used.  In the case of multi-output background processes, this field is necessary to identify the appropriate allocation result.
+  \item Cutoff and elementary flows also have a \emph{compartment} that describes which environmental compartment the flow is exchanged with. For cutoff flows, the compartment may be used to document some kind of classification of the flow.
+\end{itemize}
+Note that cutoff flows and elementary flows are both included in the foreground emission matrix, $B_f$, because they are mathematically equivalent.  In other words, ``emissions'' can be interpreted to include any flows that are exterior to the technology matrix, including resource extraction, environmental releases, and cutoffs.
+
+\subsection{LCIA Scores}
+
+The ``LciaScores'' tab has one data column for each LCIA method included in the entity map.  The rows of data include:
+\begin{itemize}
+\item \texttt{s\_tilde}, for $\tilde{s}$, the total LCIA result for the product system;
+\item \texttt{sf\_tilde}, for $\tilde{s}_f = \mathbf{e}\times B_f \times \tilde{\mathbf{x}}$, the sum of characterized foreground emissions;
+\item \texttt{sx\_tilde}, for $\tilde{s}_x = \mathbf{e}\times B_x \times A_d \times \tilde{\mathbf{x}}$, the sum of characterized background emissions;
+  \item One row for each background dependency, reporting the unit impact score of the named dependency. These values can be validated by consulting the original LCI database provider.
+\end{itemize}
+
+\subsection{Data Sheets}
+
+After the entity map and the LCIA results, the spreadsheet includes worksheets that report the contents of the $E$, $A_f$, $A_d$, and $B_f$ matrices, as well as the aggregation results $\tilde{\mathbf{x}}$, $\tilde{\mathbf{a}}_d$, and $\tilde{\mathbf{b}}_f$.  The aggregation results can be validated from the data tables using Eqs.~6 and~8 in the main paper.  The data sheets can be presented in sparse format, which contains three columns: a row key, a column key, and a data value, where the row and column keys each correspond to an entity on the entity map.  Alternately, the data sheets can be presented in full format, in which the top row contains a list of column keys, the first column contains a list of row keys, and the data region include nonzero values at the intersection of the corresponding row and column keys (zero valued cells are left blank.)

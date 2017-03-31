@@ -1,0 +1,112 @@
+\def\fgmatrix{126pt}%
+\def\coordstep{14pt}%
+\def\subfragmatrix{42pt}%
+
+\begin{pspicture}(0.5,-1)(7,10)\showgrid
+  \pnode(3.75,6.65){pMatrix}
+  \rput(6.7,0.25){
+    \pnode(0,2.5){pTreeA}
+    \pnode(0,0.5){pTreeB}
+    \pnode(0,-0.75){pTreeC}
+  }
+  \pnode(3.75,9.5){pTitle}
+  \pnode(1.5,9.5){pLabel}
+
+  \rput[br](pLabel){\large c.}
+  
+  \rput(pMatrix){
+    \pnode(0,0){pAf}
+    
+    \rput(pAf){\newmatrix{nAf}{\fgmatrix}{\fgmatrix}}
+    {\scriptsize \colindex{nAf}{\coordstep}{9}}
+    \refs{nAf}{\coordstep}{9}
+
+    \leftlabel{nAf}{$A_f$}
+    
+    \canonicalref{nAf}{\coordstep}
+    %\plotmatrix[\fgstep]{refplot}{nAf}{1}{1}
+
+    \plotmatrix[\coordstep]{\newmatrix{nFrag}{\subfragmatrix}{\subfragmatrix}}{nAf}{7}{7}
+    \canonicalref[\hskip \coordstep $y_0$]{nFrag}{\coordstep}
+
+    \plotmatrix[\coordstep]{\newmatrix{nCutoff}{\coordstep}{\coordstep}}{nAf}{9}{9}
+    \canonicalref[$y_1$]{nCutoff}{\coordstep}
+
+    \matrixvline{nAf}{5}
+    \matrixvline{nAf}{8}
+    \matrixhline{nAf}{5}
+    \matrixhline{nAf}{8}
+
+  }
+  \psset{style=standard,nodesep=2pt}
+
+  \rput(pTreeA){
+    \psset{unit=1.5cm}
+    \pnode(0,0){pref}
+    \cnode(-1,0){1}
+    \cnode(-2,0){2}
+    \rput(p2){
+      \pnode(1;225){py0}
+    }
+    \cnode(-3,0){3}
+    \rput(p3){
+      \bnode(1;135){4}
+      \bnode(1;180){5}
+      \pnode(1;225){py1}
+    }
+
+    \rput(pref){\rnode{nref}{$\tilde{y}$}}
+
+    \rput(py0){\rnode{ny0}{$y_0$}}
+    \rput(py1){\rnode{ny1}{$y_1$}}
+
+    \ncline{->}{n1}{nref}
+    \ncline{->}{ny0}{n2}
+    \ncline{->}{ny1}{n3}
+  }
+
+  \rput(pTreeB){
+    \psset{unit=1.5cm} 
+    \pnode(0,0){pref}
+    \cnode(-1,0){6}
+    \cnode(-2,0){7}
+    \rput(p7){
+      \pnode(1;225){py1a}
+    }
+    \bnode(-3,0){8}
+    
+    \rput(pref){\rnode{nref}{$y_0$}}
+
+    \rput(py1a){\rnode{ny1a}{$y_1$}}
+
+    \ncline{->}{n6}{nref}
+    \ncline{->}{ny1a}{n7}
+  }
+
+  \rput(pTreeC){
+    \psset{unit=1.5cm} 
+    \pnode(0,0){pref}
+    \cnode(-1,0){9}
+    \rput(pref){\rnode{nref}{$y_1$}}
+    \ncline{->}{n9}{nref}
+  }
+
+  \psset{nodesep=0pt}
+  
+  \connect{nAf}(2,1){\psdots[dotsize=5pt](0,0)}
+  \connect{nAf}(3,2){\psdots[dotsize=5pt](0,0)}
+  \connect{nAf}(4,3){\psdots[dotsize=5pt](0,0)}
+  \connect{nAf}(5,3){\psdots[dotsize=5pt](0,0)}
+
+  \plotmatrix[\coordstep]{\pscircle{3pt}}{nAf}{6}{2}
+  \plotmatrix[\coordstep]{\pscircle{3pt}}{nAf}{9}{3}
+  
+  \connect{nAf}(7,6){\psdots[dotsize=5pt](0,0)}
+  \connect{nAf}(8,7){\psdots[dotsize=5pt](0,0)}
+
+  \plotmatrix[\coordstep]{\pscircle{3pt}}{nAf}{9}{7}
+  
+  \rput[B](pTitle){Foreground Fragments}
+
+  
+\end{pspicture}%

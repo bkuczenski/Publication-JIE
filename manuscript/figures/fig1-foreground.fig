@@ -1,0 +1,187 @@
+\def\dimt{1pt}
+\def\dimm{47pt}
+\def\dimn{70pt}
+\def\dimp{26pt}
+\def\dimone{1pt}
+
+\def\cornerskip{8pt}
+
+\def\adequation{%
+  \pnode([angle=-90,nodesep=13pt]nad){pEquation}
+}
+\def\topequation{%
+  \pnode(0,0.1){pEquation}
+}
+\def\bottomequation{%
+  \pnode(0,-0.8){pEquation}
+}
+
+\begin{pspicture}(0,-1)(16,9)\showgrid
+  \sffamily
+  \pnode(0.7,0.7){pStilde}
+  %\largeequal{pStilde}{pEmgn}
+  \pnode[.5,0](pStilde){pEleft}
+
+  %% begin drawing
+
+  % E matrix
+  \rput[lB](pEleft){\newmatrix{nE}{\dimt}{\dimm}}
+  \leftlabel{nE}{$\mathbf{e}$}
+
+  %\leftbrace{nE}{$t$}{ptlabel}
+  \topbrace{nE}{$m$}{pEtopBr}
+  \pnode[0,6pt]([angle=90]nE){pEtopBr}
+
+  % b vector - bottom-left
+  \pnode[\cornerskip,\cornerskip]([angle=0]nE|[angle=90]nE){pblb}
+  \rput[lb](pblb){\newmatrix{nb}{\dimm}{\dimone}}
+  \leftbrace{nb}{~}{pBleftBr}
+  \toplabel{nb}{$\tilde{\mathbf{b}}_x$}
+
+  % E x b
+  \matrixtimes{pEtopBr}{pBleftBr}{nEBtimes}
+  \rput[b]([angle=90,nodesep=3pt]nEBtimes){\parbox{5cm}{\centering\small
+      Emissions~~~}}
+
+  % B matrix - left of b
+  \topequation
+  \newequal{nb}{pB}
+
+  \rput[l](pB){\newmatrix[$B_x$]{nB}{\dimm}{\dimn}}
+  \topbrace{nB}{$n$}{pBtopBr}
+  \bottomlabel{nB}{\scriptsize Background LCI database}
+
+  %% <<<<<<<<<
+  % I matrix
+  \pnode[\cornerskip,1.4cm]([angle=0]nB|[angle=90]nB){padlb}
+  \rput[lb](padlb){\newImatrix{nX}{\dimn}}
+  \leftbrace{nX}{~}{padleftBr}
+
+  % B x I
+  \matrixtimes{pBtopBr}{padleftBr}{nBXtimes}
+  \rput[b]([angle=90,nodesep=3pt]nBXtimes){\parbox{5cm}{\centering\small
+      Background\\
+  processes}}
+
+  \adequation
+  \newequal[~]{[angle=0]nX}{pad}
+  \rput(pOp){$\times$} % HACK!
+
+  \rput[l](pad){\newmatrix{nad}{\dimn}{\dimone}}
+  \toplabel{nad}{\blue$\tilde{\mathbf{a}}_d$}
+  \fillmatrix[foreground]{nad}
+
+  \rput[r](nad|nB){\newmatrix{nbf}{\dimm}{\dimone}}
+
+  \newequal[~]{[angle=0]nad}{pAd}
+  \rput(pOp){$=$} % HACK!
+
+  %% % ad~ vector
+  %% \pnode[\cornerskip,1.4cm]([angle=0]nB|[angle=90]nB){padlb}
+  %% \rput[lb](padlb){\newmatrix{nad}{\dimn}{\dimone}}
+  %% \fillmatrix[foreground]{nad}
+
+  %% \leftbrace{nad}{~}{padleftBr}
+  %% \toplabel{nad}{\blue$\tilde{\mathbf{a}}_d$}
+
+  %% % B x ad~
+  %% \matrixtimes{pBtopBr}{padleftBr}{nBXtimes}
+  %% \rput[b]([angle=90,nodesep=3pt]nBXtimes){\parbox{5cm}{\centering\small
+  %%     Background\\
+  %% processes}}
+  %% % B matrix - left of b
+  %% \adequation
+  %% \newequal{nad}{pX}
+
+  %% \rput[l](pX){\newImatrix{nX}{\dimn}}
+
+  %% \rput[r]([angle=0]nX|nB){\newmatrix{nbf}{\dimm}{\dimone}}
+
+  %% \topequation
+  %% \newequal[~]{[angle=0]nX}{pAd}
+  %% \rput(pOp){$\times$} % HACK!
+
+  \rput[l](pAd){\newmatrix[\blue$A_d$]{nAd}{\dimn}{\dimp}}
+  \topbrace{nAd}{$p$}{pAdtopBr}
+  \fillmatrix[foreground]{nAd}
+
+  % x~ vector
+  \pnode[\cornerskip,.7cm]([angle=0]nAd|[angle=90]nAd){pxlb}
+  \rput[lb](pxlb){\newmatrix{nxtilde}{\dimp}{\dimone}}
+  \leftbrace{nxtilde}{~}{pxleftBr}
+  \toplabel{nxtilde}{$\tilde{\mathbf{x}}$}
+
+  % * x x~
+  \matrixtimes{pAdtopBr}{pxleftBr}{nADtimes}
+  \rput[br]([angle=90,nodesep=3pt]nADtimes){\small
+      Foreground  flows}
+
+  % Af and y~
+  % B matrix - left of b
+  \newequal[]{nxtilde}{pAf}
+  \rput[B](pOp){$=$} % HACK
+
+  \rput[l](pAf){\newmatrix[\scriptsize$I-${\blue$A_f$}]{nAf}{\dimp}{\dimp}}
+  \fillmatrix[foreground]{nAf}
+  {\scriptsize \invertmatrix{nAf}}
+  \newequal[]{[angle=0]nAf}{py}
+  \rput[B](pOp){$\times$} % HACK
+  \rput(py){$\tilde{\mathbf{y}}$}
+  %\bottomlabel{nAf}{\scriptsize Foreground}
+
+  % bf~ vector - aligned with I
+  \rput[B](nX|nB){$+$}
+  \toplabel{nbf}{\blue$\tilde{\mathbf{b}}_f$}
+  \fillmatrix[foreground]{nbf}
+
+  \topequation
+  \newequal{nbf}{pfoo}
+  \pnode([angle=180]nAd|nbf){pBf}
+  \rput[l](pBf){\newmatrix[\blue$B_f$]{nBf}{\dimm}{\dimp}}
+  \pcline[style=timesline]([angle=90,nodesep=3pt]nBf)([angle=-90,nodesep=3pt]nAd)
+  \fillmatrix[foreground]{nBf}
+
+  
+  % summary equation
+  
+  \bottomequation
+  \rput[B](pStilde|pEquation){\large $\tilde{s} =$}
+  \rput[B](nEBtimes|pEquation){ $\mathbf{e}\times \left(\phantom{B}\right.$}
+  \rput[B](nb|pEquation){$\tilde{\mathbf{b}}_x$}
+  \rput[B](nX|pEquation){$+$}
+  
+  \rput[B](nbf|pEquation){ $\tilde{\mathbf{b}}_f$}
+  \rput[B](nBf|pEquation){ $ \left.\phantom{B}\right)$}
+
+  \topequation
+  \rput[B](nb|pEquation){$\tilde{\mathbf{b}}_x$}
+  \rput[B](nB|pEquation){$B_x \times I \times \tilde{\mathbf{a}}_d$}
+  \rput[B](nbf|pEquation){ $\tilde{\mathbf{b}}_f$}
+  \rput[B](nBf|pEquation){ $B_f \times \tilde{\mathbf{x}}$}
+
+  \adequation
+%  \rput[B](nad|pEquation){$\tilde{\mathbf{a}}_d$}
+%  \rput[B](nX|pEquation){$A_d \times \tilde{\mathbf{x}}$}
+
+    % narrative
+
+  {\psset{style=standard,linecolor=blue,nodesep=2pt}
+  \rput([angle=0]nAf|[angle=90]nxtilde){\pnode(0,0.7){pFU}}
+  \pnode(nad|pFU){pAL}
+  \pnode(nB|pFU){pLCI}
+  \rput(nE|[angle=90]nb){\pnode(0,0.7){pLCIA}}
+
+  \rput(pFU){\rnode{nFU}{\blue Foreground\phantom{j}}}
+  %\rput(pAL){\rnode{nAL}{\blue Foreground}}
+  \rput(pLCI){\rnode{nLCI}{\centering\blue Background}}
+  \rput(pLCIA){\rnode{nLCIA}{\blue LCIA}}
+  \rput[l]([angle=0]nAd){\parbox{3.5cm}{\centering\blue Background dependencies}}
+  \rput[l]([angle=0]nBf){\parbox{3cm}{\centering\blue Foreground emissions}}
+
+  \ncline{->}{nFU}{nLCI}
+  %\ncline{->}{nAL}{nLCI}
+  \ncangle[angleA=180,angleB=90]{->}{nLCI}{nLCIA}
+  }
+
+  
+\end{pspicture}

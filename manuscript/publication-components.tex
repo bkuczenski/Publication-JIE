@@ -1,0 +1,18 @@
+\subsection{Components of a Study}
+
+The formulation shown in Figure~\ref{fig:foreground} shows four distinct data types in an LCA foreground study: 
+
+\begin{itemize}
+\item \textbf{Foreground flows}: (Rows and columns of $A_f$; rows of $\tilde{\mathbf{y}}$; columns of $A_d$ or  $B_f$) The foreground flows show how the model is constructed.  The foreground itself is made up of a collection of nodes.  Each node represents both a process and that process's reference product (flow).  The node weight vector $\tilde{\mathbf{x}}$ indicates the activity levels of all foreground nodes within the system boundary resulting from a particular (or canonical) final demand.  It also expresses the magnitudes of product flows emanating from the foreground processes themselves.  
+    
+\item \textbf{Background processes}: (rows of $A_d$ or $\tilde{\mathbf{a}}_d$; columns of $B_x$) The background processes show how the dependencies of the foreground on the industrial system are resolved to specific inventory data.
+  
+ \item \textbf{Elementary flows}: (columns of $\mathbf{e}$, rows of $B_f$ or $\tilde{\mathbf{b}}_f$; rows of $B_x$ or $\tilde{\mathbf{b}}_x$)  Elementary flows cross the nature-technosphere boundary and generate environmental or social impacts.
+
+ \item \textbf{Characterization quantities}: (rows of $E$ or identity of $\mathbf{e}$)  These indicate the impact assessment measurements (or impact category indicators) reported in the study.
+\end{itemize}
+
+The collection of foreground nodes and their reference flows expresses a de facto definition of the scope of the model, which is enclosed by an implicit system boundary.  %Most published studies disclose at least the structure of their foreground models by providing a graphical system diagram in the LCA report.  These ``box-and-arrow'' diagrams can be interpreted as graphs and used to produce an adjacency matrix that shows the locations of non-zero elements of Af.  However, the model disclosed in the graph may be a simplified form of the actual model, and the adjacency matrix itself is not sufficient to reproduce the matrix unless the exchange values themselves are also explicitly reported.  
+
+The foreground matrices $A_f$, $A_d$, and $B_f$ together include all the study-specific information.  Assuming a data user had access to $B_x$ and $\mathbf{e}$, the three foreground matrices would allow a reader to reproduce the result.  If the foreground data were omitted, the result could be reproduced from the intermediate aggregation results: $\tilde{\mathbf{a}}_d$ and $\tilde{\mathbf{b}}_f$.
+

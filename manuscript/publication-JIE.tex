@@ -1,0 +1,91 @@
+\documentclass[12pt]{article}
+
+\input{formatting}
+
+\usepackage{tabularx}
+\usepackage[round]{natbib}
+\bibliographystyle{authordate_bk}
+
+%\thispagestyle{empty}
+
+\input{psstyle}
+\input{draw-matrices}
+\newpsstyle{refplot}{framearc=0.1,linestyle=dashed,fillstyle=none,linecolor=gray, dash=3.3pt 2pt}
+\def\refbox{\psframebox[style=refplot,framesep=0pt]{\rule{0pt}{4pt}\rule{4pt}{0pt}}}
+\def\dependency{\psframebox[framesep=0pt]{\rule{2pt}{2pt}}}
+
+
+\title{Structured Publication of Life Cycle Assessment Models and Results}
+\author{Brandon Kuczenski\\
+Institute for Social, Behavioral, and Economic Research\\
+University of California, Santa Barbara}
+\date{\mydate\today}
+
+%\usepackage{lineno}
+\let\showgrid\relax
+
+
+\def\mainpaper{
+
+  \maketitle
+  %\emph{For submission to the Journal of Industrial Ecology; February 2017}
+
+  \input{publication-abstract}
+
+  \doublespacing
+
+  \input{publication-intro}
+  
+  \input{publication-objective}
+  
+  \input{publication-method}
+  
+  \input{publication-components}
+
+  \input{publication-foreground}
+
+  \input{publication-example}
+  
+  \input{publication-discussion}
+  
+  \input{publication-conclusion}
+
+  \input{publication-acknowledgments}
+
+  \singlespacing
+  \bibliography{jabref}
+}
+
+\def\supporting{
+  \renewcommand{\thefigure}{S\arabic{figure}}
+  \renewcommand{\thetable}{S\arabic{table}}
+
+  \maketitle
+
+  \begin{center}
+    \Large Supporting Information
+  \end{center}
+
+  \doublespacing
+
+  \input{publication-si-spreadsheet}
+
+  \input{publication-forms}
+  
+  \input{publication-si-recipe}
+  \singlespacing
+  \bibliography{jabref}
+}
+
+\def\unused{
+  \input{publication-background}
+}
+
+\begin{document}
+
+%\mainpaper
+\supporting
+
+%% %\unused
+
+\end{document}

@@ -1,0 +1,95 @@
+\def\dimt{1pt}
+\def\dimm{47pt}
+\def\dimn{72pt}
+\def\dimp{12pt}
+\def\dimone{1pt}
+
+\def\cornerskip{8pt}
+
+\begin{pspicture}(0,-1)(16,7)\showgrid
+  \sffamily
+  \pnode(0,-0.85){pEquation}
+  \pnode(1,0.5){pStilde}
+  %\largeequal{pStilde}{pEmgn}
+  \pnode[1.5,0](pStilde){pEleft}
+
+  %% begin drawing
+
+  % E matrix
+  \rput[lB](pEleft){\newmatrix{nE}{\dimt}{\dimm}}
+  \leftlabel{nE}{$\mathbf{e}$}
+  
+  %\leftbrace{nE}{$t$}{ptlabel}
+  \topbrace{nE}{$m$}{pEtopBr}
+  \bottomlabel{nE}{\footnotesize Characterization vector}
+
+  % b vector - bottom-left
+  \pnode[\cornerskip,0.75cm]([angle=0]nE|[angle=90]nE){pblb}
+  \rput[lb](pblb){\newmatrix{nb}{\dimm}{\dimone}}
+  \leftbrace{nb}{~}{pBleftBr}
+  \toplabel{nb}{$\mathbf{b}$}
+
+  % E x b
+  \matrixtimes{pEtopBr}{pBleftBr}{nEBtimes}
+  \rput[b]([angle=90,nodesep=3pt]nEBtimes){\parbox{5cm}{\centering\small
+      Emissions~~~}}
+
+  % B matrix - left of b
+  \newequal{nb}{pB}
+
+  \rput[l](pB){\newmatrix[$B$]{nB}{\dimm}{\dimn}}
+  \topbrace{nB}{$n$}{pBtopBr}
+  \bottomlabel{nB}{\footnotesize Elementary flow matrix}
+
+  % x vector
+  \pnode[\cornerskip,\cornerskip]([angle=0]nB|[angle=90]nB){pxlb}
+  \rput[lb](pxlb){\newmatrix{nx}{\dimn}{\dimone}}
+  \leftbrace{nx}{~}{pXleftBr}
+  \toplabel{nx}{$\mathbf{x}$}
+
+  % B x X
+  \matrixtimes{pBtopBr}{pXleftBr}{nBXtimes}
+  \rput[b]([angle=90,nodesep=3pt]nBXtimes){\parbox{5cm}{\centering\small
+      Product flows%\\
+      %Activity levels
+  }}
+  % B matrix - left of b
+  \newequal{nx}{pX}
+
+  \rput[l](pX){\newmatrix[$X=I-A'$]{nX}{\dimn}{\dimn}}
+  \invertmatrix{nX}
+  \bottomlabel{nX}{\footnotesize Technology matrix}
+
+  \newequal[$\times$]{[angle=0]nX}{py}
+
+  \rput[l](py){\newmatrix{ny}{\dimn}{\dimone}}
+  \toplabel{ny}{$\mathbf{y}$}
+  \bottomlabel{ny}{\parbox{5cm}{\centering\footnotesize |\\ Final demand}}
+
+  % summary equation
+  
+  \rput[B](pStilde|pEquation){\large $s =$}
+  \rput[B](nEBtimes|pEquation){ $\mathbf{e}\times \mathbf{b}$}
+  \rput[B](nBXtimes|pEquation){ $\mathbf{e}\times B \times \mathbf{x}$}
+  \rput[B](nX|pEquation){ $\mathbf{e}\times B \times (I-A')^{-1}$}
+  \rput[B](py|pEquation){ $\mathbf{y}$}
+
+  % narrative
+
+  {\psset{style=standard,linecolor=blue,nodesep=2pt}
+  \rput([angle=90]ny){\pnode(0,0.7){pFU}}
+  \pnode(nx|pFU){pAL}
+  \pnode(nb|pFU){pLCI}
+  \rput([angle=180]nE|nb){\pnode(-0.7,0){pLCIA}}
+
+  \rput(pFU){\rnode{nFU}{\blue Functional unit\phantom{j}}}
+  \rput(pAL){\rnode{nAL}{\blue Activity levels}}
+  \rput(pLCI){\rnode{nLCI}{\blue LCI}}
+  \rput(pLCIA){\rnode{nLCIA}{\blue LCIA}}
+
+  \ncline{->}{nFU}{nAL}
+  \ncline{->}{nAL}{nLCI}
+  \ncangle[angleA=180,angleB=90]{->}{nLCI}{nLCIA}
+  }
+  
+\end{pspicture}

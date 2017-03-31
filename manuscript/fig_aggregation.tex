@@ -1,0 +1,24 @@
+\begin{figure}
+  \def\aggfg#1#2{%
+    \rput[b](#1){\newmatrix{#2}{16pt}{\coordstep}}
+    \leftlabel{#2}{$\tilde{a}_f$}
+    \refs{#2}{\coordstep}{1}
+         {\scriptsize  \canonicalref{#2}{\coordstep}}
+     \plotmatrix[\coordstep]{\plotframe{upr}}{naf}{2}{1}
+  }
+
+  
+  \begin{center}
+    \begin{pspicture}(0,-1)(16.5,10)\showgrid
+      \let\showgrid\relax
+      \rput[tl](0,10){\input{figures/fig4a-unitprocess.fig}}
+      \rput[tl](2.7,10){\input{figures/fig4b-foreground.fig}}
+      \rput[tl](5.4,10){\input{figures/fig4c-agg-foreground.fig}}
+      \rput[tl](8.1,10){\input{figures/fig4d-partial-bg-agg.fig}}
+      \rput[tl](11.6,10){\input{figures/fig4e-full-agg.fig}}
+      \rput[tl](15.1,10){\input{figures/fig4f-lci.fig}}
+    \end{pspicture}
+    \caption{Publication structures for different forms of foreground aggregation.}
+    \label{fig:aggregation}
+  \end{center}
+\end{figure}

@@ -1,0 +1,92 @@
+\def\fgmatrix{32pt}%
+\def\coordstep{8pt}%
+\def\depmatrix{120pt}%
+\def\bmatrix{60pt}%
+
+
+%\newpsstyle{exchplot}{framearc=0.15,linestyle=solid,linewidth=1pt,strokeopacity=0,fillstyle=solid,opacity=0.36,fillcolor=black}
+%\newpsstyle{exchplot}{framearc=0.15,linestyle=solid,linewidth=0.6pt,fillstyle=solid,fillcolor=gray,opacity=0.15}
+
+
+\begin{pspicture}(0.65,0)(3.35,10)\showgrid
+  \pnode(2,8){pAf}
+  \pnode(2,5){pAd}
+  \pnode(2,1.5){pBf}
+  \pnode(2,9.9){pTitle}
+  %\pnode(0.5,9.9){pLabel}
+
+  \rput[t](pTitle){b. {\small Foreground}}
+  %\rput[tr](pLabel){\large b.}
+
+  \rput(pAf){\newmatrix{nAf}{\fgmatrix}{\fgmatrix}}
+  \leftlabel{nAf}{$A_f$}
+  \rput(pAd){\newmatrix{nAd}{\depmatrix}{\fgmatrix}}
+  \leftlabel{nAd}{$A_d$}
+  \rput(pBf){\newmatrix{nBf}{\bmatrix}{\fgmatrix}}
+  \leftlabel{nBf}{$B_f$}
+
+  \refs{nAf}{\coordstep}{4}
+  {\scriptsize  \canonicalref{nAf}{\coordstep}}
+
+  \newpsstyle{upline}{linestyle=dashed,linecolor=black,dash=6pt 0.8pt,linewidth=0.6pt}
+  
+  %% \matrixvline[style=upline]{nAf}{1}
+  %% \matrixvline[style=upline]{nAf}{2}
+
+  %% \matrixvline[style=upline]{nAd}{1}
+  %% \matrixvline[style=upline]{nAd}{2}
+
+  %% \matrixvline[style=upline]{nBf}{1}
+  %% \matrixvline[style=upline]{nBf}{2}
+
+  %{\scriptsize \plotmatrix[\coordstep]{$j$}{nAf}{0}{2}}
+  
+  %% Af
+  \plotmatrix[\coordstep]{\plotframe{upr}}{nAf}{2}{1}
+  \plotmatrix[\coordstep]{\plotframe{upr}}{nAf}{4}{3}
+
+  \plotmatrix[\coordstep]{\plotframe{upr}}{nAf}{3}{2}
+  \plotmatrix[\coordstep]{\plotframe{upr}}{nAf}{4}{2}
+
+  %% Ad
+  % col 1
+  \plotmatrix[\coordstep]{\plotframe{upr}}{nAd}{1}{1}
+  \plotmatrix[\coordstep]{\plotframe{upr}}{nAd}{2}{1}
+  \plotmatrix[\coordstep]{\plotframe{upr}}{nAd}{3}{1}
+
+  % col 2
+  \plotmatrix[\coordstep]{\plotframe{upr}}{nAd}{3}{2}
+  \plotmatrix[\coordstep]{\plotframe{upr}}{nAd}{7}{2}
+  \plotmatrix[\coordstep]{\plotframe{upr}}{nAd}{11}{2}
+  \plotmatrix[\coordstep]{\plotframe{upr}}{nAd}{12}{2}
+
+  % col 3
+  \plotmatrix[\coordstep]{\plotframe{upr}}{nAd}{15}{3}
+    
+  % col 4
+  \plotmatrix[\coordstep]{\plotframe{upr}}{nAd}{2}{4}
+  \plotmatrix[\coordstep]{\plotframe{upr}}{nAd}{6}{4}
+  \plotmatrix[\coordstep]{\plotframe{upr}}{nAd}{9}{4}
+
+  %% Bf
+  % col 2
+  \plotmatrix[\coordstep]{\plotframe{upr}}{nBf}{2}{2}
+  \plotmatrix[\coordstep]{\plotframe{upr}}{nBf}{3}{2}
+  \plotmatrix[\coordstep]{\plotframe{upr}}{nBf}{4}{2}
+  \plotmatrix[\coordstep]{\plotframe{upr}}{nBf}{6}{2}
+
+  % col 3
+  \plotmatrix[\coordstep]{\plotframe{upr}}{nBf}{2}{3}
+  \plotmatrix[\coordstep]{\plotframe{upr}}{nBf}{3}{3}
+  \plotmatrix[\coordstep]{\plotframe{upr}}{nBf}{4}{3}
+  \plotmatrix[\coordstep]{\plotframe{upr}}{nBf}{5}{3}
+  \plotmatrix[\coordstep]{\plotframe{upr}}{nBf}{7}{3}
+
+  % col 4
+  \plotmatrix[\coordstep]{\plotframe{upr}}{nBf}{2}{4}
+  \plotmatrix[\coordstep]{\plotframe{upr}}{nBf}{3}{4}
+  \plotmatrix[\coordstep]{\plotframe{upr}}{nBf}{4}{4}
+  \plotmatrix[\coordstep]{\plotframe{upr}}{nBf}{6}{4}
+
+  
+\end{pspicture}

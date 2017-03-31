@@ -1,0 +1,109 @@
+\def\fgmatrix{32pt}%
+\def\coordstep{8pt}%
+\def\depmatrix{120pt}%
+\def\bmatrix{60pt}%
+
+
+%\newpsstyle{exchplot}{framearc=0.15,linestyle=solid,linewidth=1pt,strokeopacity=0,fillstyle=solid,opacity=0.36,fillcolor=black}
+%\newpsstyle{exchplot}{framearc=0.15,linestyle=solid,linewidth=0.6pt,fillstyle=solid,fillcolor=gray,opacity=0.15}
+
+
+\begin{pspicture}(0.3,0)(3.8,10)\showgrid
+  \pnode[0,-16pt](2.7,8){paf}
+  \pnode(2.7,5){pad}
+  \pnode(2.7,1.5){pbf}
+
+  \pnode(1.3,1.5){pbx}
+  
+  \pnode(1.3,-0.5){psx}
+
+  \pnode(1.88,9.9){pTitle}
+  %\pnode(0.5,9.9){pLabel}
+
+  \rput[t](pTitle){\parbox{3.3cm}{\centering e. {\small Full Background Aggregation}}}
+  %\rput[tr](pLabel){\large c.}
+
+  \rput(pad){\newmatrix{nad}{\depmatrix}{\coordstep}}
+  %\leftlabel{nad}{$\tilde{a}_d'$}
+  \rput(pbf){\newmatrix{nbf}{\bmatrix}{\coordstep}}
+  \leftlabel{nbf}{$\tilde{b}_f$}
+
+  \aggfg{paf}{naf}
+  %\rput[b](paf){\newmatrix{naf}{\coordstep}{\coordstep}}
+  %\leftlabel{naf}{$\tilde{a}_f$}
+  %\refs{naf}{\coordstep}{1}
+  %{\scriptsize  \canonicalref{naf}{\coordstep}}
+
+
+  \rput(pbx){\newmatrix{nbx}{\bmatrix}{\coordstep}}
+  \leftlabel{nbx}{$\tilde{b}_x$}
+  % color it blue
+  \fillmatrix{nbx}
+
+  \rput(psx){\newmatrix{nsx}{\coordstep}{\coordstep}}
+  \leftlabel{nsx}{$\tilde{s}_x$}
+  % color it blue
+  \fillmatrix{nsx}
+  
+  \ncline[style=timesline]{-}{nbx}{nsx}
+  \bput(0.5){\em and~/~or~}
+  \aput(0.5){\scriptsize $e \times \tilde{b}_x$}
+
+  
+  %% \matrixvline[style=upline]{nAf}{1}
+  %% \matrixvline[style=upline]{nAf}{2}
+
+  %% \matrixvline[style=upline]{nAd}{1}
+  %% \matrixvline[style=upline]{nAd}{2}
+
+  %% \matrixvline[style=upline]{nBf}{1}
+  %% \matrixvline[style=upline]{nBf}{2}
+
+  %{\scriptsize \plotmatrix[\coordstep]{$j$}{nAf}{0}{2}}
+  
+  %% %% Af
+  %% \plotmatrix[\coordstep]{\plotframe{upr}}{nAf}{2}{1}
+  %% \plotmatrix[\coordstep]{\plotframe{upr}}{nAf}{4}{3}
+
+  %% \plotmatrix[\coordstep]{\plotframe{upr}}{nAf}{3}{2}
+  %% \plotmatrix[\coordstep]{\plotframe{upr}}{nAf}{4}{2}
+
+  %% %% Ad
+  %% % col 1
+  %% \plotmatrix[\coordstep]{\plotframe{upr}}{nad}{1}{1}
+  %% \plotmatrix[\coordstep]{\plotframe{upr}}{nad}{2}{1}
+  %% \plotmatrix[\coordstep]{\plotframe{upr}}{nad}{3}{1}
+
+  %% \plotmatrix[\coordstep]{\plotframe{exchplot}}{nad}{7}{1}
+  \plotmatrix[\coordstep]{\pnode(0,0){pagg1}}{nad}{7}{1}
+
+  % labels
+  \pcangle[style=timesline,angleB=90]{-}(pagg1)([angle=90]nbx)
+  %% \pcangle[style=timesline,angleB=90]{-}(pagg2)([angle=90]nbx)
+
+  \rput(nbx|pagg1){\rput[b](0,3pt){\scriptsize $B_x\times\tilde{a}_{d}$}}
+  
+
+  %% \plotmatrix[\coordstep]{\plotframe{upr}}{nad}{11}{1}
+  %% \plotmatrix[\coordstep]{\plotframe{upr}}{nad}{12}{1}
+
+  %% \plotmatrix[\coordstep]{\plotframe{exchplot}}{nad}{15}{1}
+  %% \plotmatrix[\coordstep]{\pnode(0,0){pagg2}}{nad}{15}{1}
+
+  %% \plotmatrix[\coordstep]{\plotframe{upr}}{nad}{6}{1}
+  %% \plotmatrix[\coordstep]{\plotframe{upr}}{nad}{9}{1}
+
+  %% \plotmatrix[\coordstep]{\plotframe{upr}}{nadagg}{7}{1}
+  %% \plotmatrix[\coordstep]{\plotframe{upr}}{nadagg}{15}{1}
+
+  %% Bf
+  % col 2
+  \plotmatrix[\coordstep]{\plotframe{upr}}{nbf}{2}{1}
+  \plotmatrix[\coordstep]{\plotframe{upr}}{nbf}{3}{1}
+  \plotmatrix[\coordstep]{\plotframe{upr}}{nbf}{4}{1}
+  \plotmatrix[\coordstep]{\plotframe{upr}}{nbf}{6}{1}
+
+  \plotmatrix[\coordstep]{\plotframe{upr}}{nbf}{5}{1}
+  \plotmatrix[\coordstep]{\plotframe{upr}}{nbf}{7}{1}
+  
+\end{pspicture}
