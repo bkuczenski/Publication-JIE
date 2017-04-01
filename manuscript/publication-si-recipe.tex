@@ -1,4 +1,12 @@
+\
 \section{LCIA Case Study: Marine Eutrophication}
+\renewcommand{\bottomfraction}{.8}
+\begin{table}[b]
+  \footnotesize\sffamily
+  \caption{ReCiPe Marine Eutrophication, Midpoint, kg N-equivalent}
+  \label{table:recipe}
+  \input{lcia_table}
+\end{table}
 
 In the Organic Potatoes example presented in the text, the product system was characterized with respect to six different LCIA methods, all representing different implementations of the ReCiPe Marine Eutrophication midpoint indicator, measured in kg N-equivalents.  Ecoinvent's LCIA implementation is available by request from the Ecoinvent Centre; it has not changed since 2014. The ReCiPe method has been implemented according to the Individualist (I), Hierarchist (H), and Egalitarian (E) modes specified in the methodology; in addition, the (E) and (H) methods have been reimplemented in a way that omits long-term emissions.  The European Life Cycle Database's reference implementation of marine eutrophication was last updated in 2011.  The dataset cites the 2008 version of ReCiPe.
 
@@ -9,15 +17,9 @@ Briefly, the implementations correspond on many significant flows but differ on 
 \item While all methods characterize ammonia to air and ammonium ion to water, only ILCD characterizes ammonia to water and ammonium to air.
 \item Where Ecoinvent characterizes ``nitrogen oxides'', ILCD separately characterizes nitrogen dioxide and nitrogen monoxide.  Since neither are present in the Ecoinvent data sets, the ILCD method will miss these flows entirely.
 \item Ecoinvent includes characterizations for two different forms of elemental nitrogen, but ILCD is characterized with respect to a third flow, which is likely a synonym.  As a consequence, the ILCD implementation will not capture elemental nitrogen emissions from Ecoinvent datasets.
-\item Cyanide emissions are only included in ``without long-term'', and do not appear in the ``long-term'' emissions nor in ILCD.
-\item Nitrite is omitted from the ``long-term'' characterization but included in ``without long-term.''
+\item Cyanide and nitrite emissions are only included in ``without long-term'', and do not appear in the ``long-term'' emissions.  Cyanide emissions do not appear at all in ILCD.
 \item The characterization for nitrogen oxides in ``without long-term'' is a factor of 10 smaller than it is in ``long term.''
 \end{itemize}
 This example demonstrates how independent reimplementation of LCIA methods can produce inaccurate and/or inconsistent results.
 
-\begin{table}
-  \footnotesize\sffamily
-  \caption{ReCiPe Marine Eutrophication, Midpoint, kg N-equivalent}
-  \input{lcia_table}
-\end{table}
 

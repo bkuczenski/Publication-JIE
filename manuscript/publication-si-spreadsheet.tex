@@ -18,9 +18,9 @@ Each entity type (aside from characterization quantities) has additional descrip
 \item The \emph{flow direction} describes the direction of each flow with respect to the entity being defined.  Foreground flows, background dependencies, cutoff flows and elementary flows all have directions.
 \item Foreground nodes also have a \emph{flow name} that reports the name of the reference flow emanating from the node.
 \item Background dependencies also have a \emph{reference flow} that tells which of the process's reference outputs is being used.  In the case of multi-output background processes, this field is necessary to identify the appropriate allocation result.
-  \item Cutoff and elementary flows also have a \emph{compartment} that describes which environmental compartment the flow is exchanged with. For cutoff flows, the compartment may be used to document some kind of classification of the flow.
+  \item Elementary flows also have a \emph{compartment} that describes which environmental compartment the flow is exchanged with. This is used to determine the correct characterization factor.
 \end{itemize}
-Note that cutoff flows and elementary flows are both included in the foreground emission matrix, $B_f$, because they are mathematically equivalent.  In other words, ``emissions'' can be interpreted to include any flows that are exterior to the technology matrix, including resource extraction, environmental releases, and cutoffs.
+Note that cutoff flows and elementary flows are both included in the foreground emission matrix, $B_f$, because they are mathematically equivalent.  In other words, ``emissions'' can be interpreted to include any flows that are exterior to the technology matrix, including resource withdrawals, environmental releases, and cutoffs.
 
 \subsection{LCIA Scores}
 

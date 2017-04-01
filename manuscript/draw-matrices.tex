@@ -1,3 +1,7 @@
+\newpsstyle{refplot}{framearc=0.1,linestyle=dashed,fillstyle=none,linecolor=gray, dash=3.3pt 2pt}
+\def\refbox{\psframebox[style=refplot,framesep=0pt]{\rule{0pt}{4pt}\rule{4pt}{0pt}}}
+\def\dependency{\psframebox[framesep=0pt]{\rule{2pt}{2pt}}}
+
 \def\equalskip{14pt}
 
 \newgray{matrixgray}{0.22}
@@ -15,6 +19,7 @@
 \newpsstyle{exchplot}{framearc=0.15,linestyle=solid,linewidth=0.6pt,fillstyle=solid,fillcolor=gray,opacity=0.15}
 \newpsstyle{upr}{framearc=0.15,linestyle=none,linewidth=1.6pt,fillstyle=solid,fillcolor=blue,opacity=0.65}
 \newpsstyle{foreground}{linewidth=2pt,linecolor=blue,strokeopacity=0.8,fillstyle=solid,fillcolor=steelblue,opacity=0.15}
+\newpsstyle{foreground-over}{linewidth=2pt,linecolor=blue,strokeopacity=0,fillstyle=solid,fillcolor=lightblue,opacity=0}
 
 
 \newcommand{\newequal}[3][$=$]{%
