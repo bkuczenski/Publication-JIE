@@ -101,9 +101,11 @@
   %% \newequal[~]{[angle=0]nX}{pAd}
   %% \rput(pOp){$\times$} % HACK!
 
-  \rput[l](pAd){\newmatrix[\blue$A_d$]{nAd}{\dimn}{\dimp}}
+  \rput[l](pAd){\newmatrix[]{nAd}{\dimn}{\dimp}}
   \topbrace{nAd}{$p$}{pAdtopBr}
   \fillmatrix[foreground]{nAd}
+  \fillmatrix[foreground-over]{nAd}
+  \rput(nAd){\blue$A_d$}
 
   % x~ vector
   \pnode[\cornerskip,.7cm]([angle=0]nAd|[angle=90]nAd){pxlb}
@@ -121,8 +123,10 @@
   \newequal[]{nxtilde}{pAf}
   \rput[B](pOp){$=$} % HACK
 
-  \rput[l](pAf){\newmatrix[\scriptsize$I-${\blue$A_f$}]{nAf}{\dimp}{\dimp}}
+  \rput[l](pAf){\newmatrix[]{nAf}{\dimp}{\dimp}}
   \fillmatrix[foreground]{nAf}
+  \fillmatrix[foreground-over]{nAf}
+  \rput(nAf){\scriptsize$I-${\blue$A_f$}}
   {\scriptsize \invertmatrix{nAf}}
   \newequal[]{[angle=0]nAf}{py}
   \rput[B](pOp){$\times$} % HACK
@@ -137,9 +141,11 @@
   \topequation
   \newequal{nbf}{pfoo}
   \pnode([angle=180]nAd|nbf){pBf}
-  \rput[l](pBf){\newmatrix[\blue$B_f$]{nBf}{\dimm}{\dimp}}
+  \rput[l](pBf){\newmatrix[~]{nBf}{\dimm}{\dimp}}
   \pcline[style=timesline]([angle=90,nodesep=3pt]nBf)([angle=-90,nodesep=3pt]nAd)
   \fillmatrix[foreground]{nBf}
+  \fillmatrix[foreground-over]{nBf}
+  \rput(nBf){\blue$B_f$}
 
   
   % summary equation
