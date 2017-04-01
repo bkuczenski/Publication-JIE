@@ -1,10 +1,12 @@
 \section{Examples}
 
-The product system models in most LCAs can be described as foreground studies (Eq.~\ref{eqn:foreground}).  In fact, LCI databases contain product systems that can also be modeled as foreground studies because they describe products that are not required by the background.  In this section, two product systems selected from LCI databases are used to illustrate the concept of structured publication.  The systems selected because are complex enough to illustrate the premise but simple enough to review easily.
+LCI databases often contain product systems that can be modeled as foreground studies because they describe products that are not required by the background.  In this section, two product systems selected from LCI databases are used to illustrate the concept of structured publication.  The systems selected because are complex enough to illustrate the premise but simple enough to review easily.
 
-Each system is illustrated as a table that shows the foreground model, cutoff flows, background dependencies and foreground emissions included in the system.  The table omits numeric data from most of the table for clarity. Instead, a black square indicates the presence of a nonzero value.  Aggregation results $\tilde{\mathbf{x}}$, $\tilde{\mathbf{a}}_d$, and $\tilde{\mathbf{b}}_f$ are also reported.  The systems are also reproduced as structured publications in the supplementary materials, formatted as Excel spreadsheets.
+Each system is illustrated as a table that shows the foreground model, cutoff flows, background dependencies and foreground emissions included in the system.  Aggregation results $\tilde{\mathbf{x}}$, $\tilde{\mathbf{a}}_d$, and $\tilde{\mathbf{b}}_f$ are also reported.  The table omits numeric data from most of the table for clarity. Instead, a black square indicates the presence of a nonzero value.  The systems are also reproduced as structured publications in the supplementary materials, formatted as Excel spreadsheets.
 
 \subsection{US LCI: Secondary Aluminum}
+
+\input{fig_uslci}
 
 The US LCI database contains a small background system of 39 processes, as well as 395 foreground product systems that range in size from one to 83 foreground flows.
 %The largest, ``paper, freesheet, coated, at mill'' makes reference to 34 of the 39 background processes.
@@ -15,18 +17,16 @@ The system also reports several direct emissions, mainly from the aluminum proce
 
 The structured publication of the secondary aluminum model includes a total of 47 data points about 36 entities.  The $A_f$, $A_d$, and $B_f$ matrices are reported in sparse format, along with the aggregation vectors. In the publication, LCIA scores are reported for several impact indicators drawn from the Ecoinvent reference LCIA implementation.\footnote{The Ecoinvent LCIA factors are not published, but are available from the Ecoinvent Centre. The name of the file used in the current study is \texttt{LCIA implementation v3.1 2014\_08\_13.xlsx}.}    The $E$ matrix is also partially reproduced: entries are only reported if they match flows that appear in the foreground.
 
-\input{fig_uslci}
-
 \subsection{Ecoinvent: Organic Potatoes}
 
 \input{fig_ecoinvent}
 
-Ecoinvent version 3 is provided in three different system models that reflect different linking strategies.  The example is drawn from the ``Allocation: Point of substitution'' or APOS model, which includes 11,420 processes that produce 12,966 product flows.  Of these, 10,282 are background flows and the rest are foreground flows.
+Ecoinvent version 3 is provided in three different system models that reflect different linking strategies.  The example is drawn from the ``Allocation at the point of substitution'' or APOS model, which includes 11,420 processes that produce 12,966 product flows.  Of these, 10,282 are background flows and the rest are foreground flows.
 
-The example system reports production of organic potatoes supplied to the global market (Table \ref{table:potato}).  The foreground includes nine nodes, of which six (nodes 3 through 8) form a strongly connected component associated with the production of potato seeds.  The Ecoinvent database's use of ``markets'' as mixer processes is evident in the table: node 0 is a mixer process that combines Swiss (``CH'') production (node 1) weighted at 2.4\%  with rest-of-World (``RoW'') production (node 2) weighted at 97.6\%.  That same market split (2.4 / 97.6) can also be seen in nodes 7 and 8.
+The example system reports production of organic potatoes supplied to the global market (Table \ref{table:potato}).  The foreground includes nine nodes, of which six (nodes 3 through 8) form a cyclic dependency associated with the production of potato seeds.  The Ecoinvent database's use of ``markets'' as mixer processes is evident in the table: node 0 is a mixer process that combines Swiss (``CH'') production (node 1) weighted at 2.4\%  with rest-of-World (``RoW'') production (node 2) weighted at 97.6\%.  That same market split (2.4 / 97.6) can also be seen in nodes 7 and 8.
 
 Nodes 4 and 5, which make seeds ready ``for setting,'' are mixed by node 8. Although nodes 4 and 5 are geographically distinguished (CH vs RoW), both can be seen to consume potato seed from the global market.
 
 Looking at the dependency and emission lists, the different ``signatures'' of different kinds of processes can be seen: nodes 1, 2, 3, and 6 are clearly agricultural processes that require irrigation, tillage, manure and so on.  Nodes 0 and 7 are visible as market processes, their only requirements being transport processes.  Nodes 4 and 5 each consume electricity and require use of a ``multi-storey building.''  Taken together, the CH-locality processes appear to use CH irrigation and electricity supply but are otherwise similar to their RoW counterparts.  The product model includes no cutoff flows.
 
-The structured publication of the organic potato model reports the $A_f$, $A_d$, and $B_f$ matrices in full rather than sparse format to enable a more accessible visual review.  In addition, the $E$ matrix is reported in full, for all emissions found in the model, rather than only the emissions found in the foreground.  This enables the publication to be used to visually evaluate different implementations of the same impact assessment method in the context of the inventory model (Ecoinvent vs ILCD implementations of ReCiPe Midpoint marine eutrophication; see supplementary materials for details).
+The structured publication of the organic potato model reports the $A_f$, $A_d$, and $B_f$ matrices in full rather than sparse format to enable a more visually immediate review.  In addition, the $E$ matrix is reported in full, for all emissions found in the model, rather than only the emissions found in the foreground.  This enables the publication to be used to visually evaluate different implementations of the same impact assessment method in the context of the inventory model (Ecoinvent vs ILCD implementations of ReCiPe Midpoint marine eutrophication; see supplementary materials for details).

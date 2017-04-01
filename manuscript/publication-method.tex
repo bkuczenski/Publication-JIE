@@ -1,24 +1,26 @@
 \subsection{Mathematical Formulation of an LCA study}
 
-At the heart of this article is a precise formulation of an LCA \emph{foreground study}, as distinct from (though likely dependent on) an LCI database, hybrid or input-output database, or software system.  The study formulation relies on the observation that LCA data sets can be ordered based on their dependency on one another \citep{Kuczenski_JLCA_2015}.  Background databases generally contain cyclic dependencies, and so it is not useful to publish unit-level descriptions of background processes unless they are all published as a group.
-In contrast, foreground systems often %can be found to
-depend on background systems, while the background systems do not %show a reciprocal dependency
-depend on the foreground.  Because of this it is possible to describe foreground systems precisely %how foreground systems depend on the background database
-without including the background.
+Collections of LCA datasets can be partially ordered based on their dependency on one another \citep{Kuczenski_JLCA_2015}.  This observation allows for a formal distinction between foreground systems and background systems. A foreground system has a dependency on an LCI database, hybrid or input-output database, or software system, whereas the background system does not have a reciprocal dependency on the foreground.  Because of this, it is possible to describe foreground systems precisely %how foreground systems depend on the background database
+without including the background in the description.  This section develops a precise formulation of an LCA \emph{foreground study}, which is used as the computational basis for the research object.
 
-We begin with the classic formulation of an LCA problem \citep{Heijungs2002}:
+%% Background databases generally contain cyclic dependencies, and so it is not useful to publish unit-level descriptions of background processes unless they are all published as a group.
+%% In contrast, foreground systems often %can be found to
+%% depend on background systems, while the background systems do not %show a reciprocal dependency
+%% depend on the foreground.  Because of this 
+
+We begin with the classic formulation of the LCA problem \citep{Heijungs2002}:
 \begin{equation}
 s = \mathbf{e} \times B \times A^{-1} \times \mathbf{y}
 \end{equation}
 where $A$ is the technology matrix, $B$ is the environmental intervention or emission matrix, $\mathbf{e}$ is a vector of characterization factors, $\mathbf{y}$ is the externally specified final demand, and $s$ is the numerical impact score or category indicator.   For simplicity, we will consider the computation of a single impact result.  However, it is straightforward to imagine the more typical case, in which $E$ is a matrix of characterization vectors, and $\mathbf{s}$ is a vector of results.
 
-\input{fig_lca}
-It can be shown that, under conditions typical for LCA databases, the technology matrix can be represented equivalently in the input-output format, in which the technology matrix is actually the combination of separate supply and use tables, each of which has been normalized to a unit of output \citep{Suh_JIE_2010, Pauliuk_2015_framework}:
+It can be shown that, under conditions typical for LCA databases, the technology matrix can be represented as an input-output database, which is made up of separate supply and use tables, each of which has been normalized to a unit of output \citep{Suh_JIE_2010, Pauliuk_2015_framework}:
 \begin{equation}
 s = \mathbf{e} \times B \times \left(I - A'\right)^{-1} \times \mathbf{y}
 \label{eqn:leontief}
 \end{equation}
 Here $A'$ represents the \emph{direct requirements matrix}, where each column of values reports the necessary inputs (positive values) and generated non-reference outputs (negative values) per unit of a process's reference output.  The conditions under which this system is solvable, particularly with respect to different strategies for handling co-production, have been discussed extensively \citep{Majeau_Bettez_2014}.  Eq.~\ref{eqn:leontief} is visualized in Figure~\ref{fig:lca}. 
+\input{fig_lca}
 
 The direct requirements matrix also describes a directed graph, in which each column is a node, and nonzero entries of $A'$ define edges between nodes.  This graph can be partially ordered based on the directions of the edges, so the foreground can be identified as the set of processes earliest in the ordering, on which the background does not depend.  An appropriately ordered $A'$ matrix can be written in block-triangular form:
 \begin{equation}
@@ -38,24 +40,26 @@ A_f &  0 \\
 A_d & 0 
    \end{array}\right];\;\;\;  B = \left[\begin{array}{cc} B_f & B_x \end{array}\right ]
 \end{equation}
-where $B_x = B* \times (I - A*)^{-1}$ is a background LCI database, which can be prepared in advance by a background database maintainer, as is currently common practice.  In this case, Eq.~\ref{eqn:leontief} can be written so that the computationally costly foreground and background inversions can be performed separately:
+where $B_x = B* \times (I - A*)^{-1}$ is a background LCI database.  It is currently common practice for $B_x$ to be prepared in advance by a background database maintainer.  In this case, Eq.~\ref{eqn:leontief} can be written so that the computationally costly foreground and background inversions can be performed separately:
 \begin{equation}
 s = \mathbf{e} \times (B_f + B_x\times A_d) \times (I - A_f)^{-1} \times \mathbf{y}_f
 \label{eqn:study}
 \end{equation}
 
-where $\mathbf{y_f}$ represents final demand of the foreground processes only.  Eq.~\ref{eqn:study} is visualized in Figure~\ref{fig:foreground}.  This formulation shows that given access to the background database $B_x$, the study results can be fully reproduced using only the submatrices $A_f$, $A_d$, and $B_f$, as well as the characterization vector $\mathbf{e}$.  %The foreground, which represents the activities and processes that are directly within the scope of the study, can be fully defined by its graph topology ($A_f$); its dependency on the background ($A_d$); and its direct emissions ($B_f$).
+where $\mathbf{y_f}$ represents final demand of the foreground processes only.  Eq.~\ref{eqn:study} is visualized in Figure~\ref{fig:foreground}.  This formulation shows that given access to the background database $B_x$ and the characterization vector $\mathbf{e}$, the study results can be fully reproduced using only the submatrices $A_f$, $A_d$, and $B_f$.  %The foreground, which represents the activities and processes that are directly within the scope of the study, can be fully defined by its graph topology ($A_f$); its dependency on the background ($A_d$); and its direct emissions ($B_f$).
 
-The foreground graph $A_f$ can be distilled into a vector of foreground activity levels for the foreground nodes, which determine the magnitude of dependencies and emissions for a particular output, case, or scenario.  With the functional unit for one study formulation given as $\tilde{\mathbf{y}}$, the foreground activity levels can be given as:
+The foreground graph $A_f$ can be distilled into a vector of activity levels for the foreground nodes, which determine the magnitude of dependencies and emissions for a particular output.  With the functional unit for one study formulation given as $\tilde{\mathbf{y}}$, the foreground activity levels can be given as:
 \begin{equation}
 \tilde{\mathbf{x}} = (I - A_f)^{-1} \times \tilde{\mathbf{y}}
 \label{eqn:inv}
 \end{equation}
+Although the variable $\tilde{\mathbf{x}}$ can be computed through matrix inversion as expressed in Eq.~\ref{eqn:inv}, often matrix inversion is not required.  If the foreground does not include any feedback loops, then the activity levels of foreground can be determined simply by traversing the graph \citep{Bapat_LAA_2013}, which can be performed in linear computational time with respect to the number of foreground links.
+
 For a typical foreground study, a ``canonical'' $\tilde{\mathbf{y}}$ may be suggested in which the first foreground node produces the functional unit as output:
 \begin{equation}
 \tilde{\mathbf{y}} =  [ 1,\, 0,\, 0 ,\,\ldots,\, 0]^{T}
 \end{equation}
-Although the variable $\tilde{\mathbf{x}}$ can be computed through matrix inversion as expressed in Eq.~\ref{eqn:inv}, often matrix inversion is not required.  If the foreground does not include any feedback loops, then the activity levels of foreground can be determined simply by traversing the graph \citep{Bapat_LAA_2013}, which can be performed in linear computational time with respect to the number of foreground links.  In the canonical case the vector $\tilde{\mathbf{x}}$ is the first column of the matrix $(I-A_f)^{-1}$  and can be computed by traversal of the foreground tree beginning on the first node.
+In the canonical case the vector $\tilde{\mathbf{x}}$ is the first column of the matrix $(I-A_f)^{-1}$  and can be computed by traversal of the foreground tree beginning on the first node.
 
 The node weights $\tilde{\mathbf{x}}$ can be used to describe an \emph{aggregated foreground}, which generates the same results as the fully expanded foreground:
 \begin{equation}

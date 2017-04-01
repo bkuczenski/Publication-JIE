@@ -5,19 +5,21 @@
 Generally, any directed graph can be represented in $A_f$, but some fundamental designs are common.  Some simple foreground models are shown in Figure~\ref{fig:fragments}.  The first (a) is a sequential model, in which each node requires one foreground input and generates one output. This model is equivalent to a ``gate to gate'' model.  Here the weights $k_i$ indicate the amount of the preceding reference flow that is required by the subsequent node.  Figure~\ref{fig:fragments}(b) shows an additive model, in which the outputs of several foreground nodes are added together, equivalent to a ``mixer'' or a horizontal average.  In this arrangement the weights %represent the relative weights of each input, and
 should add up to a unit output of the reference node. 
 
-\subsection{Model fragments and foreground inputs and outputs}
+\subsubsection{Model fragments and foreground inputs and outputs}
 
-Conventionally, the foreground flows are entirely inside the system boundary: they are produced by one foreground node and consumed by one or more others.  In the conventional case, the only product flow which crosses the implicit system boundary is the reference flow, which provides the functional unit of the study given in $\tilde{\mathbf{y}}$.  By implication, the difference $\tilde{\mathbf{x}} - \tilde{\mathbf{y}}$ represents the magnitudes of interior flows within the foreground. 
+Conventionally, the foreground flows are entirely inside the system boundary: they are produced by one foreground node and consumed by one or more others.  In this case, the only product flow which crosses the implicit system boundary is the reference flow, which provides the functional unit of the study given in $\tilde{\mathbf{y}}$.  By implication, the difference $\tilde{\mathbf{x}} - \tilde{\mathbf{y}}$ represents the magnitudes of interior flows within the foreground. 
    
-However, these flows may not all necessarily be interior.  Most complex life cycle models involve nested model designs, in which low-level model components are encapsulated within higher-level models.  A foreground matrix that describes an incomplete life cycle model could be called a model ``fragment.''  In model fragments, some foreground flows represent product flows consumed within the fragment but not produced there, or vice versa. These flows represent inputs and outputs to the foreground model that are not further exchanged among the foregrond nodes, but neither are they terminated to a background process or emitted into the environment.  Thus input/output flows can be detected by identifying foreground flows that show up as row entries but have no column entries.
-
-The input/output flows provide a mechanism to link separate foreground fragments together.  Two foreground models that both specify foreground flows with the same identity can be linked together simply by combining their entries in a common set of $A_f$, $A_d$, and $B_f$ matrices.  Similarly, large foregrounds can be easily partitioned into fragments simply by selectively including or excluding columns of $A_f$, $A_d$, and $B_f$ in different publications.
-In isolation from other foreground models, input/output flows may be considered to be ``cutoff flows'' that must be terminated by a data user.
+However, not all these flows are necessarily interior.  Most complex life cycle models involve nested model designs, in which low-level model components are encapsulated within higher-level models.  A foreground matrix that describes an incomplete life cycle model could be called a model ``fragment.''  In model fragments, some foreground flows represent product flows consumed within the fragment but not produced there, or vice versa. These flows represent inputs and outputs to the foreground model that may be produced or consumed by other foreground systems.
+%are not further exchanged among the foregrond nodes, but neither are they terminated to a background process or emitted into the environment.  Thus
+Input/output flows can be detected by identifying foreground flows that show up as row entries but have no column entries in the $A_f$, $A_d$, or $B_f$ matrices.  If there is no other foreground system that connects to an input/output flow, it may be considered to be a ``cutoff flow'' that is excluded from the model scope.
+%
+%%The input/output flows provide a mechanism to link separate foreground fragments together.  Two foreground models that both specify foreground flows with the same identity can be linked together simply by combining their entries in a common set of $A_f$, $A_d$, and $B_f$ matrices.  Similarly,
+%%In isolation from other foreground models, input/output flows may be considered to be ``cutoff flows'' that must be terminated by a data user.
 
 An example of foreground composed of fragments is illustrated in Figure 3(c).  Here, the nodes labeled 1--5 represent one fragment, which generates the foreground's canonical reference flow $\tilde{y}$. This fragment requires two interior flows from separate fragments ($y_0$ and $y_1$), and has two cutoff flows (4 and 5).  The reference $y_0$ is supplied by a second fragment, made up of nodes 6-8.  The reference $y_1$ is supplied by another fragment made of only one node (9). The reference flow $y_1$ is consumed in two different places by the other fragments.
 
 
-\subsection{Foreground Dependencies and Foreground Emissions}
+\subsubsection{Foreground Dependencies and Foreground Emissions}
 
 While the $A_f$ matrix establishes exchanges of foreground flows, these exhanges have no environmental impacts and only serve to compute the activity levels of the foreground nodes themselves.  The quantifiable impacts from these nodes arise either from their dependency on background processes or their direct environmental emissions.  
 
@@ -32,7 +34,7 @@ A structured publication could include any of these elements, bundled into a res
 \item \emph{tabular data} which enables the data user to construct the matrices and perform the computation;
 \item an \emph{entity map}, which allows for precise interpretation of the elements of the study.
 \end{itemize}
-These two components are discussed below.
+%These two components are discussed below.
 
 %%Moreover, 
 
@@ -50,7 +52,7 @@ These two components are discussed below.
 
 The objective for reproducibility of computation can be achieved with reference to the formulation in Equations~\ref{eqn:study}--\ref{eqn:lci}.  The publication contents can include any of the intermediate results, or all of them from end to end.  These components are all vectors or matrices, and it is easy to produce a machine-readable rendition of a vector or matrix.  Of innumerable possible formats, two broad subtypes deserve explicit mention: ``full'' representation and ``sparse'' representation.  A full representation of a matrix is a literal grid of numbers, such as a spreadsheet.  The spreadsheet can be equivalently represented as a delimited file, where each row is a single line of the file (e.g. separated by newlines), and the cells within the row are separated by a delimiter such as a comma.
 
-The sparse representation assumes the matrix is largely zeros, and only reports the non-zero elements.  A sparse representation could also take the form of a delimited file, except each line would contain exactly three entries: the row index, column index, and value of the non-zero matrix entry.  Given that the matrices being represented are largely made up of zeros, the sparse approach is preferable to the full one.  The exception is $B_x$ or any column thereof, which is likely to contain no non-zero entries.  Publication of $B_x$ is a special case that will be discussed in a later section.
+The sparse representation assumes the matrix is largely zeros, and only reports the non-zero elements.  A sparse representation could also take the form of a delimited file, except each line would contain exactly three entries: the row index, column index, and value of the non-zero matrix entry.  Given that the matrices being represented are largely made up of zeros, the sparse approach is preferable to the full one.  %The exception is $B_x$ or any column thereof, which is likely to contain no non-zero entries.  Publication of $B_x$ is a special case that will be discussed in a later section.
 
 The data tabulation described here is, ultimately, optional: for reasons of privacy, an author may wish to conceal some or all data points, or include the data points but exclude the actual data values.  This is allowable if it is consistent with the author's goal, and it will accordingly limit the ability of a data user to reproduce the model. 
 
@@ -68,11 +70,12 @@ The entity map must provide some minimal information about the entities in each 
     % and does not necessarily relate to any other publication, there are no restrictions on how the individual flows should be named. T
     %It is also not necessary for the foreground flows to be mapped to anything outside the model. Rather,
 \item \textbf{Background processes}: A properly identified background data set should correspond to a distinct aggregated unit process dataset from a background data provider.  The reference units of the background processes should already be part of the background data publication and do not need to be reproduced in the foreground publication except for clarity.  
+\item \textbf{Cutoff flows}: Cutoff flows are explicit exclusions from the system boundary.  They may represent inputs or outputs from the foreground that are produced by another foreground system, or they may represent dependencies for which no background process is available.  Thus, they are semantically similar to foreground flows. They may or may not make reference to externally defined entities.  However, complex foreground models can be published in parts by making shared reference to a set of cutoff flows.
 \item \textbf{Elementary flows}: The best practices for identifying elementary flows are a matter of ongoing discussion and research.  At minimum, each elementary flow should be identified in terms of (1) its chemical composition, using a reference nomenclature, CAS number, chemical formula, or other concrete identifier; and (2) the environmental compartment with which it is being exchanged.  Geographic locale may also be a part of an elementary flow specification.  However, if the flow originates in the foreground, the locale may be inferred from the locale of the originating foreground node.
   \item \textbf{Characterization quantities}: The LCIA characterization method is already required to be unambiguously reported in current LCA practice.  If a structured publication includes results, it should also include a link to an authoritative reference for the method(s) computed.  
 \end{itemize}
 
 
-The entity map should include all of the foreground flows, background processes, elementary flows, and characterization quantities referred to in the publication.  Taken together, the entity map provides a working formal definition of the scope of the model.  Even in the absence of the numerical data that make up the input matrices or aggregation results, this \emph{functional scope} can be used as a basis to describe the contents of the model and formally state the system boundary of the foreground.
+The entity map should include all of the foreground flows, background processes, cutoff flows, elementary flows, and characterization quantities referred to in the publication.  Taken together, the entities in the map provide a working formal definition of the scope of the model.  Even in the absence of the numerical data that make up the input matrices or aggregation results, this \emph{functional scope} can be used as a basis to describe the contents of the model and formally state the system boundary of the foreground.
 
 The entity map also provides a template for empirically-generated LCA studies: once the flows are enumerated, an observer can simply report the flow magnitudes observed over a reference period, and use it to construct an LCA study.
