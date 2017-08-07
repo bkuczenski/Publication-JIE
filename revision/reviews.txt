@@ -1,0 +1,123 @@
+==========
+Mon Aug 07 10:15:07 -0700 2017
+
+Reviewer(s)' Comments to Author:
+Reviewer: 1
+
+Comments to the Author
+This is a potentially important paper, and it may have a great influence on the - usually poor - reporting of case studies. However, the paper suffers from quite a few flaws, mostly mathematical. Through this, I stopped reading at some point, and first ask the author to make his work better understandable. I am happy to have a closer look after that.
+
+1. Dependency and ordering. Page 5, line 54 states that foreground processes are dependent on background processes but not the other way around. Hance the processes can be partially ordered. The validity of these statements depend on the meaning of the word "dependent". If I do an LCA on milk, I can draw the data for carton production from a background database, so there is a flow (carton) from background to foreground. But I will use waste treatment data from the background, so there is a flow (waste carton) from forgeround to background. I acknowledge that some databases phrase the latter situation as the provision of a waste treatment service from the background to the foreground. But this is of course not necessarily the case. Another example is the so-called integrated hybrid IOA-LCA, where all quadrants contain non-zero cells.
+
+2. Most equations contain a cross (x) for matrix and vector multiplication. Please do not, as this suggests a cross product (see https://en.wikipedia.org/wiki/Cross_product), which is entirely different.
+
+3. Why do you start using "classic formulation ... Heijungs & Suh", but use different symbols (y for f, s for h), which are moreover confusing (because s means something different to Heijungs & Suh).
+
+4. The notation in eq (1) has y as a column vector and e as a row vector. It would be better to adopt one convention (please make it column vectors), and write a row vector with a transpose symbol, eg superscript T or prime (OK, prime will not be convenient because you need it for other purposes).
+
+5. What is the reason of rewriting eq (1) into eq (2)? As I see it, it only complicates, because every appearance of "A^-1" now reads "(I-A')^-1". And, as shown below, you yourself start confusing the two notations as well (as shown below). If you take "classical LCA" as claimed, please use process-based LCA, so eq (1). Is eq (2) in any way advantageous?
+
+6. Page 6, line 40 speaks about "solvable" but there is nothing to solve for in eq (1) or (2). You probably mean "is computable" or "exists".
+
+7. Figure 1 contains undefined symbols. e.g., "X=I-A'" (is X supposed to be A?). And udefined vectors x and b.
+
+8. Page 6, line 49 makes a promising connection to graphs. Please add a few references to graphs, preferably in LCA.
+
+9. Page 6, lines 51-55, again the partial ordering and dependency.
+
+10. When you apparently define A'=I-A, and start to partition A' in eq (3), it seems logical to me to use the prime also for blocks, so A'_f, A'_d, A'*. By the way, would A_b (for background) not be more intuitive than A*?
+
+11. Eq (3) contains B', but so far (eq (1) and (2)) we had only B, not B'. What's up? It also contradicts the text in page 7, line 41. And it contradicts eq (4). Just a typo?
+
+12. Page 7, line 49 until page 9, line  4, "The following formulation is equivalent to Eq. 3: ... where Bx=B*..." Please supply a proof (you may use an appendix for that).
+
+13. Similar for page 9, line 6: "Eq. 2 can be written ...", this needs a proof.
+
+14. Eq (5) and page 9, line 16 mention y_f, "final demand of the foreground processes". I guess you partition y into [y_f, 0], correct? Please do so explicitly.
+
+15. Page 9 line 16 states that "Eq. 5 is visualized in Figure 2". OK, but Figure 2 contains different symbols, e.g. s^tilde instead of s. And what is the identity matrix in the middle of the figure doing? It is not in Eq (5).
+
+16. y^tilde is in page 9, line 26 "the functional unit for one study". That is not really helpful, because I want to know how y^tilde relates to y and/or y_f.
+
+17. Very implicitly, Figure 1 defined x=(I-A')^-1*y. Eq (6) seems to extend this by adding tildes to y and to x. Do y and x represent a general case, and y^tilde and x^tilde a specific case?
+
+18. Page 9, line 38 states that the foreground needs no matrix inversion, because you can "traverse the graph". Can you specify concrete formulas. The PhD thesis of Andreas Ciroth (https://depositonce.tu-berlin.de/bitstream/11303/660/1/Dokument_20.pdf, unfortunately in German only) is doing something like that on page 18, but I have never been able to understand this fully. Please define in an operational way, so that I can in principle implement it (just like eq (1) can be implemented). Same for the "can be computed" on page 9 line 54. Or perhaps: is this computational trick needed anyhow? It now seems to interrupt the flow of the argument, so better put it in a footnote or final discussion.
+
+19. Page 9 line 45 loosely introduces the term "canonical", without any clear definition. Quickly after, on page 9, line 54 it is used as if it is clear ("In the canonical case"), which it is not.
+
+20. Page 6 line 49 described LCA as a "directed graph", but apparently in page 10 line 3 the graph is also a weighted graph, becasue there are "node weights". Please expand.
+
+At this point, I felt lost and stopped reading. This is not laziness; I still think the paper is promising. It is just not clear and precise enough. Please invest your time in improving the manuscript.
+
+
+
+Reviewer: 2
+
+Comments to the Author
+Review for  Manuscript Number: 17-JIE-5665
+
+Title: Structured Publication of Life Cycle Assessment Models and Results
+
+Overview:
+
+The author describes a new procedure for extracting process, output levels, system linkages, and emissions data from LCA projects to facilitate archiving, sharing, reuse, and reproducibility of LCA and LCIA results. His starting point is the common division of an LCA project into the compilation of a foreground product system and its linking with a background database (either LCI or process). For that general case he provides a sound mathematical description and a guideline and examples of how to extract and format crucial LCA results, including the output levels of all foreground processes, the emissions from the foreground system, and the emissions from the background system. Due to its mathematical rigor and the timeliness of its content the manuscript has the potential to be of great value to the community, and it is therefore well suited for publication in JIE.
+
+It is clear that the solutions proposed here need to be further tested and refined, and that procedure will require a community effort. Potential flaws should not preclude publication at this stage. Still, I have some concerns regarding the proposed future workflow of inventory sharing, and I would like to ask the author for some revisions of the work to anticipate some of the challenges that will arise and to clarify the description of the procedure to make it unambiguous and clear to the vast majority of LCA practitioners.
+
+Major issues:
+
++ The level of detail at which the results are shared determines the types of analysis that others can perform. When only total background emissions are shared a contribution or structural path analysis is rendered impossible. Next to figure S1 (which is great and should be moved to the main paper), there should be a table listing the types of analysis that can be performed depending on the level of detail at which the results are reported. In the present manuscript this relation is hardly mentioned at all, which leaves the reader unclear regarding the actual value of sharing the results in the proposed format. Right now, most LCA studies are close to useless when being compared to others because of complete lack of transparency. From that state we have a ladder of improvements to make, and that ladder should be described in detail and linked to the different aggregation steps.
+
++ I am missing emphasis on the classification of processes, products, and emissions. Reporting the full names of the data objects (processes, products, elementary flows) is important, but how can a software or a human establish a safe link to a background database? Example: In openLCA every single data point has an UUID, and when a foreground system is exported from openLCA the UUIDs of the background products are included. That ensures the 1:1 recreation of the full product system with a different user and the same background database version.
+How does such UUID-ing work with GaBi or ecoinvent itself? I don’t know, but we need to provide for unique labelling of data points across databases and computation platforms.
+
++ Background processes and entire databases come in different versions, but I did not find any specification of versions of background datasets in the description of the data sharing framework. Version clarity is crucial to reproducibility.
+
++ In LCA each process has a specified reference product. When data are exchanged, both the processes and their respective reference products need to be reported as part of the entity map. How does that requirement affect the examples in Figures 4 and 5?
+
++ Throughout the manuscript there is a slight lack of clearness regarding the distinction between flows and coefficients, the difference between the Heijungs and Suh A-matrix and the Leontief-type A-matrix, and the question of which results can be reproduced from which aggregation level or results. More clarity will greatly help the readers less familiar with the computational structure of LCS to grasp the ideas presented here.
+
++ Just a general feeling I had when reading the manuscript: There is a lot of generic description on the importance of metadata and the difference between matrix-data and sparse data and the structuring of data in general. That is all fine but I miss the discussion of the real problems, which in my opinion are version conflicts (how can we point to the actual versions of each single data point used in the original study?) and matching concerns (what info do we need to provide so that any common LCA software will be able to link flows labelled “Output: Phosphate [water, ground-]” or “harvesting, by complete harvester, potatoes (ha) [GLO]” automatically to the right background data? [‘right’ in the sense of the data that were used in the original study])
+
++ The expected consequences for data providers, data users, database providers, and software developers should be mapped out in more detail. Where are the bottlenecks in setting up this process?
+
+Minor comments:
+
+P4L29: Please also refer to the allocation problem (co-production) and to the crediting problem (material or waste enter different product systems), and cite some relevant literature here.
+
+P6L13ff: “An LCA study result is ultimately an assertion that, for some input data known as the “model,”…”  1) That describes Attributional LCA, please specify. 2) please rephrase the start of this sentence, as it is unclear how (input) data can be a model.
+
+P8L31: Please also cite DOI 10.1111/jiec.12142 (Majeau-Bettez et al. 2014) here for the link between supply and use tables and input-output models in LCA.
+
+P8L40: “generated non-reference outputs (negative values)” Only for some constructs. In the case of partitioning allocation there are no negative inflows as input requirements are split so that only single output process descriptions result.
+
+Equations 3 and 4 are not equivalent. Equ. 4 cannot be used for a structural path analysis, for example, as it contains aggregate information only. Please be more specific.
+
+P11L22: “The foreground graph Af can be distilled into a vector of…” please use more scientific language here. A_f is not a graph but a description of a graph, and distilling reminds me of other things than science…
+
+Figure S1 provides a very good summary of the different aggregation steps; consider moving it to the main paper.
+
+There are two A-matrices in LCA: One is the Suh and Heijungs matrix of flows and the other one is the matrix of technical coefficients. Please distinguish better between the two, e.g., on P12L45, where you write about flows in the A_f matrix, but it should read ‘coefficients in the A_f matrix’.
+
+P13L31: Only aggregated results can be reproduced from the aggregated foreground. Please make this limitation explicit.
+
+P31L41: “Generally, any directed graph can be represented in Af ,…” That is not correct. Af can only contain bipartite graphs with a 1:1 correspondence between industries and nodes, that means, an industrial inventory (SUT) after allocation. Cf. DOI 10.1111/jiec.12306 for the argument.
+
+Figures 4 and 5: Units are missing. Is the rightmost column the row sum of the detailed exchange table? Please provide more explanations in the Table caption. The symbols A_f, B_f, etc. that are frequently used in the text should be displayed here as well.
+
+
+
+Reviewer: 3
+
+Comments to the Author
+Review of the article “Structured Publication of Life Cycle Assessment Models and Results” 17-JIE-5665 by Kuczenski
+
+The objective of the article is clear and the case for it well made. Despites minor mistakes the article is also well written. However, the article focuses on a very specific aspect of LCA and the results might be more suitable for the Int. J LCA. That said I found the paper interesting and I have some general comments which focus mostly on the discussion.
+As I understand it, the author decomposes a typical LCA in its mathematical formulation between foreground and background systems, to separate the modeling choices and primary data from LCI databases and LCIA methods. While this is not new, the proposal is to disclose the foreground system in such a way as to make the results easily reproducible and machine readable.
+The mathematical formulation is straightforward and shows a minimal set of data which should be included in a “research object”.
+Specific comments in order of decreasing importance
+1)      Page 17 line 12: To my knowledge, this short sentence question the potential usefulness of the approach developed in the article. Data confidentiality in the proposed research object should be discussed more thoroughly, in particular with respect to the current critical review process in ISO LCA.
+2)      Page 17 line 40: Similarly, data confidentiality might result in a very sparse entity map. Can such a research object be organized in order to safeguard confidentiality and allow reproducibility of the results?
+3)      Page 24 line 26: This is where it gets interesting, especially when the readers move to the supplementary information and pages 44 and 45, sections 2.4 and 2.5. Here the proposed research object is compared to current practice and the aggregation of foreground results for the sake of confidentiality.
+
+The added value of the proposed structured publication of results from a machine reading perspective is obvious. However its value added for the review process, comparison across models, benchmarking, etc. in the context of private data must be addressed from the outset. Otherwise the relevance and practicality of the proposed structure seems unclear.

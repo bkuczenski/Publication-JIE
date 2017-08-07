@@ -1,0 +1,19 @@
+==========
+Mon Aug 07 10:15:07 -0700 2017
+
+Let's just revisit the review comments:
+
+R1- [Suh] math complaints. 
+
+Fair enough. Take out the Heijungs formulation and just stick to the IO model. Clean up the equations where indicated.
+
+
+
+R2- [Pauliuk] complimentary. talk more about practical issues and less about technical issues.
+
+
+
+R3- [???] confidentiality.  elevate privacy discussion? that would be a major rewrite-- and would thus qualify the paper for resubmission
+Discuss critical review more. this is key.
+
+ok. some thoughts to think about.
