@@ -17,3 +17,17 @@ R3- [???] confidentiality.  elevate privacy discussion? that would be a major re
 Discuss critical review more. this is key.
 
 ok. some thoughts to think about.
+
+--------
+Tue 2017-08-08 10:11:26 -0700
+
+Today I again have an abbreviated hour because of a phone call at 11.  But 40 minutes is better than 18 minutes.  and the point of the background project is to make routine incremental progress.
+
+So the broad plan is :
+
+ (a) clean up the math.  Possibly introduce something specific about privacy
+ (b) choose a section to move out of the main paper completely
+ (c) move back in the SI discussion about different aggregation forms
+
+Now we will re-read the comments and the paper, starting with R3.
+
