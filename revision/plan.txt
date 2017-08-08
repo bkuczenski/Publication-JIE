@@ -31,3 +31,7 @@ So the broad plan is :
 
 Now we will re-read the comments and the paper, starting with R3.
 
+----
+
+next I will quick-read the paper to find text that pokes out to be moved or reclassified.
+

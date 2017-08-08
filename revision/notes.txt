@@ -1,0 +1,22 @@
+Just an overview of this folder:
+
+plan.txt is a prepend file with current strategy.
+notes.txt is an append file with progress.
+
+==========
+Tue Aug 08 10:34:49 -0700 2017
+
+Page/word count audit
+
+Section 1: 2.5 pages, 869 words
+Section 2: 11 pages, ~3300 words, 3 figures, lots of equations
+Section 3: 2.5 pages, 807 words, 2 tables
+Section 4: 5- pages, 1508 words
+Section 5: 1+ page, 424 words
+
+Supplementary Section 2: 3 pages, 845 words, 1 figure
+
+I maybe want to move the examples into SI?  need to get the examples running again, and that means migrating lca-matrix stuff. and engaging with the current tabular stuff.
+
+[and wasn't there supposed to be an antelope paper this summer? to say nothing of an antelope server??]
+

@@ -1,0 +1,28 @@
+==========
+Tue Aug 08 10:15:39 -0700 2017
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+R1-
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+R2-
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+R3-
+
+Why JIE and not JLCA? short reason- better community for 'scary new' ideas. but I can't just say that...
+
+(1) Page 17 line 12: To my knowledge, this short sentence question the potential usefulness of the approach developed in the article. Data confidentiality in the proposed research object should be discussed more thoroughly, in particular with respect to the current critical review process in ISO LCA.
+
+We take the author to refer to page 17 of the PDF proof, which is manuscript page 15.  Line 12 reads "...for reasons of privacy, an author may wish to conceal some or all data points, or include the data points but exclude the actual data values. This is allowable if it is consistent with the author’s goal, and it will accordingly limit the ability of a data user to reproduce the model."
+
+Definitely. OK.
+
+
+
+
+(2) Page 17 line 40: Similarly, data confidentiality might result in a very sparse entity map. Can such a research object be organized in order to safeguard confidentiality and allow reproducibility of the results?
+
