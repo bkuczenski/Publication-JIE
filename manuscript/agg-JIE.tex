@@ -1,0 +1,91 @@
+\documentclass[12pt]{article}
+
+\input{formatting}
+
+\usepackage{tabularx}
+\usepackage[round]{natbib}
+\bibliographystyle{authordate_bk}
+
+%\thispagestyle{empty}
+
+\input{psstyle}
+\input{draw-matrices}
+
+
+\title{Structured Representation of Aggregated Product System Models in Life Cycle Assessment}
+\author{Brandon Kuczenski\\
+Institute for Social, Behavioral, and Economic Research\\
+University of California, Santa Barbara}
+\date{\mydate\today}
+
+%\usepackage{lineno}
+\let\showgrid\relax
+
+
+\def\mainpaper{
+
+  \maketitle
+  %\emph{For submission to the Journal of Industrial Ecology; February 2017}
+
+  \input{agg-abstract}
+
+  \doublespacing
+
+  \input{agg-intro}
+  
+  \input{publication-objective}
+  
+  \input{publication-method}
+  
+  \input{publication-components}
+
+  \input{publication-foreground}
+
+  \input{publication-example}
+  
+  \input{publication-discussion}
+  
+  \input{publication-conclusion}
+
+  \input{publication-acknowledgments}
+
+  \singlespacing
+  \bibliography{jabref}
+}
+
+\def\supporting{
+  \renewcommand{\thefigure}{S\arabic{figure}}
+  \renewcommand{\thetable}{S\arabic{table}}
+
+  \maketitle
+
+  \begin{center}
+    \Large Supporting Information
+  \end{center}
+
+  \doublespacing
+
+  \input{publication-si-spreadsheet}
+
+  \input{publication-forms}
+  
+  \input{publication-si-recipe}
+  
+  \input{publication-si-openaccess}
+
+  \singlespacing
+  %\bibliography{jabref}
+}
+
+\def\unused{
+  \input{publication-background}
+}
+
+\begin{document}
+
+%\mainpaper
+\supporting
+
+%% %\unused
+
+\end{document}

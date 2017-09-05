@@ -1,4 +1,16 @@
 ==========
+Tue Sep 05 13:25:26 -0700 2017
+
+oy oy oy.
+
+The new plan is to reconceptualize the paper about "Structured aggregation" instead of "structured publication." That is a more minimal publishable unit. Then I will be able to excise roughly half the discussion content.
+
+So, let's get started.
+
+
+
+
+==========
 Mon Aug 07 10:15:07 -0700 2017
 
 Let's just revisit the review comments:

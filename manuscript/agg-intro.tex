@@ -1,0 +1,64 @@
+\section{Introduction}
+
+Life cycle assessment (LCA) is a standard methodology to estimate the potential environmental impacts of products or services by modeling the network of industrial processes that must occur to deliver 
+them to a consumer.  The technique is well-established, widely practiced, and draws on an extensive body of standardization and scholarship.
+Increasingly, the results of LCA studies are appearing in environmental declarations, corporate sustainability reports, and product marketing information.  LCA is also gaining prominence as a tool for developing and evaluating environmental policy.  
+%
+At the core of an LCA study is a model of a ``product system,'' which represents a collection of ``processes $\ldots$ performing one or more defined functions'', that describes the life cycle of a product \citep{iso14044}.  Product system models encode information about how products are manufactured, distributed, used by the consumer, and what happens to them after they are disposed.  A product system can be divided into a foreground, which denotes the portions of the life cycle whose operations are directly modeled by the study, and a background, which represents the global industrial system \citep{SETAC_inventory_1998}.  While the foreground is often modeled from direct observation or other primary data, background processes are typically drawn from a life cycle inventory (LCI) database prepared by a third party.
+
+Although there has been considerable effort to normalize and harmonize 
+LCI database design methodology and data interchange \citep{UNEP_2011, JRC_ILCD_ELCD_2013, Mila_e_Canals_2015, Ingwersen_JLCA_2015}, less attention has been paid to harmonizing product system models.  These models are often highly complex and include countless modeling decisions, approximations, and assumptions made by a study author \citep{Lloyd2007, reap2008_I}.  Consequently, while comparative evaluations can be made regarding alternative cases or scenarios within a single study, comparisons across studies are much more challenging \citep{Heath2012, Henriksson2014}.  Even when relatively simple and homogeneous systems are considered, wide variations can be found in the results of studies from different authors \citep{van_der_Harst_2013, Turconi_2013}.
+A lack of transparency in reporting, particularly regarding definitions of study scope and system boundary,
+is a crucial challenge to the interpretation of results in comparative analysis \citep{Cleary2009, Laurent_2014}.
+One consequence is the high cost and uneven rigor of critical review, in which the complexities of LCA come face to face with the limitations of current practice \citep{Curran2014}.  
+
+
+As LCA gains prominence, particularly in the policy realm, these problems become more acute.  If LCA is to be used in policy, it will necessarily have the effect of recommending certain product systems, technologies, or approaches at the expense of others; yet in that event it is critically important that there be a consensus among stakeholders that the quantitative results are credible and well-supported \citep{Rainville_2015, McManus_2015}.  As noted above, this level of consensus is hard to realize, in part because of the conflicting implications inherent in different analytic modes.
+Other factors such as allocation strategy \citep{Pelletier_2014} can also render study findings unreliable or highly contingent.  Plevin et al.\ famously observed in the strongest terms that careless reporting of attributional LCA study results can distort the significance of findings in a policy context \citep{Plevin_2013}, a shortcoming that can be found in other modes as well \citep{Brandao_2014}.  In the scope of Environmental Product Declarations (EPDs), studies within an industry are supposed to be rendered comparable by adhering to a common product category rule (PCR) \citep{Fet_2006}.  However, this prescription is insufficient to ensure the comparability of different declarations, even if they use the same PCR \citep{Modahl_2012}.  Moreover, PCRs are often themselves not unique and can include wide variations in scope and boundary requirements \citep{Subramanian_2012}, leading to ambiguity.  
+
+\endinput
+
+Some thoughts to put together and rearrange:
+
+ * The task of computing life cycle impact assessment (LCIA) results from a product system model is often described as an ``aggregation,'' in which the data in large, sparse models are combined through linear algebra operations into a small set of numeric scores.  
+ 
+ * In the process of aggregating the models, much of the information about their construction is lost.  This is partly by design, in order to protect the privacy of the input data \citep[Ch. 3]{UNEP_2011}.
+
+
+
+% \citep{Kuczenski_2017}.
+
+ * However, that same feature is also a shortcoming when considered from the perspective of study transparency, replication, and extension.  
+
+
+ * Although several equivalent methods for computing aggregated LCI and/or LCIA results have been described in the literature (Suh 2005; Lenzen 2007), the computational representation of product system models, and the generation of aggregated results, remains steadfastly software-specific.
+
+
+
+
+ * When a study is reviewed, it is often the written documentation and \emph{not} the product system model itself that is the object of review.  
+
+  - In current practice, it is the responsibility of the study author to ensure that the written report accurately describes the model.  
+
+  - Because the model itself may not be available for review, it is impossible for a reviewer to directly evaluate the author's claim that the model is accurately represented.
+
+  - Because the representation of product system models is software-specific, it is also not generally possible to recreate a product system modeled in one software system in a separate software system.  
+
+ * Documents such as ISO reports, PCRs, or EPDs are uniformly \textit{unstructured}, meaning their interpretation must be secured by a human reading text and graphical images such as system boundary diagrams, but cannot be expressed to a machine.  
+
+ * 
+
+
+\oldinput
+
+A common theme in all these controversies is the inability for authors and their readers to formally agree on the structure and content of the product system model.  In the scope of academic research, the transparency of techniques and reproducibility of results are paramount concerns \citep{Mesirov_2010}.  But reproducibility of a computation requires a distinction between the computing algorithm and the input data \citep{Buckheit_1995, Fomel_2009}; contemporary LCA lacks this distinction.  While the ostensible input to an LCIA computation is a product system model, this input cannot be separated from the computational environment used to author it.  Instead, models are distilled into written documents describing LCA results, be they academic papers, ISO reports, PCRs or EPDs.  These are uniformly \textit{unstructured}, meaning their interpretation must be secured by a human reading text and graphical images such as system boundary diagrams, but cannot be expressed to a machine.  
+
+The objective of \textit{structured} publication, on the other hand, is to enable the reader of a publication to automatically interpret its contents and, ideally, reproduce its results.  Such a publication is both machine-readable and easily human-interpretable.  In this paper, I propose a framework for the structured publication of product system models in LCA that achieves these dual requirements.  
+
+
+\cruft
+
+
+
+
+%% \textit{Publication}, for the purpose of this article, means disclosing sufficient detail to allow a reader to reproduce an LCA result, or all or part of the model that produced it.  I begin with a set of objectives for structured publication of a study model. Then I show how a simple analytic formulation of study structure can meet these objectives.   I provide examples of structured formulations of studies drawn from the US LCI and Ecoinvent databases.  %% 75 words
