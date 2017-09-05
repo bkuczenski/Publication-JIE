@@ -20,3 +20,44 @@ I maybe want to move the examples into SI?  need to get the examples running aga
 
 [and wasn't there supposed to be an antelope paper this summer? to say nothing of an antelope server??]
 
+==========
+Thu Aug 10 10:14:15 -0700 2017
+
+Pauliuk's critique is substantial and his requests are demanding.
+
+He wants LESS OF:
+
+ - discussion about structuring data
+ - 
+
+he wants MORE OF:
+
+ - aggregation forms
+ - version control
+ - reference product designation / "matching"
+ - which results can be produced from which aggregation level
+ - consequences for data providers, data users, db providers, software developers
+
+I am beginning to think the paper needs to be split in two-- one about formulating LCA foreground studies, and the other about structured publication
+
+that is a depressing finding, because it increases the amount of work I do by about a factor of 10.
+
+Thu 2017-08-10 11:26:59 -0700
+
+But let's look it over. We could bring back the aggregation forms, and talk about private data, and talk about multioutput processes + allocation, and keep the examples, if we carved out -- well, if we carved out the heart of the paper and put it into a new paper.  Specifically: 
+"Requirements for structured publication..."
+"Publishing a foreground model"
+and the whole discussion
+
+so then, what is the point of the paper?  
+
+The first is to represent studies in a structured way; the second is to publish them in a reproducible way.
+
+to represent different aggregation forms, and to particularly focus on private results and allocations. I would really like to show how multioutput processes can be split up explicitly.
+for this I should follow Pauliuk's referral...
+
+And that just leaads to M-B 2014, which I don't want to get into. Fine to keep the allocation commentary as it is and simply make consistency with Stefan's recommendations.
+
+The only way to go forward on this is to actually start revising the paper and bring the aggregation section back in from the SI.
+ok, later.
+

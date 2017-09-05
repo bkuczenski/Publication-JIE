@@ -7,7 +7,20 @@ R1-
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-R2-
+R2- Pauliuk
+
+"... sound mathematical description and a guideline and examples of how to extract and format crucial LCA results ...  well suited for publication in JIE."
+
+* Right now, most LCA studies are close to useless when being compared to others because of complete lack of transparency. From that state we have a ladder of improvements to make, and that ladder should be described in detail and linked to the different aggregation steps.
+
+" ... we need to provide for unique labelling of data points across databases and computation platforms."
+
+" version clarity"
+
+" reference products"
+
+Difference between Heijungs and Leontief style matrices
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
