@@ -66,3 +66,41 @@ Wed Sep 13 11:15:58 -0700 2017
 
 Pizzol, M.; Scotti, M.; Thomsen, M., Network Analysis as a tool for assessing environmental sustainability: Applying the ecosystem perspective to a Danish Water Management System. Journal of Environmental Management 2013, 118, (0), 21-31.
 
+==========
+Mon Sep 18 13:57:16 -0700 2017
+
+What does the paper need to do?  Recap after audio-recording thoughts. (6:30)
+
+ - Introduction: Problematize the state of affairs: unreproducible, unreviewable LCA
+
+ - Objectives: what problem should structured aggregation solve?
+
+   * We need to be able to precisely describe our models
+     = we need to precisely state the scope of the model
+     = we need to say how different nodes are connected-- how different flows are terminated
+     = we need to say what inventory data are used for each node
+
+   * We need to do so without having to reproduce background databases which are (a) very large and (b) proprietary
+     = however, we are using those background databases so we need to refer to them
+
+   * We need to be able to conceal parts of the models that would expose confidential information
+     = aggregation is commonly used for this purpose (as documented) but it is not usually done in a transparent way (even if the transparency is only internal)
+
+   * We need to be able to disclose modelling details that are required to evaluate the quality of the study
+     = critical review usually focuses on the report, but the results are generated from the model
+     = adaptation and extension of studies is similar to review, except more intensive because the model must be reproduced
+     = During review or adaptation, lacking a formal description of the model being adapted, a data user will need to intensively interpret the written report, which is costly and error prone.
+     = meta-analysis is the same
+
+
+
+
+ - Approach:
+   1. Define aggregation, making reference to the classical (graph / Peters 2007) formulation and using Fig 1
+   2. Lay out foreground aggregation (Fig 2)- improvement because of concision
+   3. Talk about aggregation forms (Fig S1)
+   4. Present private aggregation (new figure)
+  
+ - Discussion
+
+

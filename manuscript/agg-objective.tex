@@ -1,0 +1,48 @@
+\section{Formalizing LCA Study Aggregation}
+
+The task of computing life cycle impact assessment (LCIA) results from a product system model is often described as an ``aggregation,'' in which the data in large, sparse models are combined through linear algebra operations into a small set of numeric scores.  Although several equivalent methods for computing aggregated LCI and/or LCIA results have been described in the literature \citep{Suh_2005, Peters_2007}, the computational representation of and exchange of product system models, and the generation of aggregated results, remains software-specific.  
+
+The practice of reporting the results of an LCA study implies the existence of two parties with different information: the study Author has full knowledge of the product system model; and the Reader only has knowledge of what the Author has disclosed.  Obviously, the level of detail of the disclosure will determine how much of the computation can be reproduced by the Reader.  In this context, the Reader will want to know the answers to various questions about the model, which we will call \emph{review objectives}.  At the same time the Author will be limited in what she can disclose, which we will call \emph{disclosure constraints}.  The purpose of the framework is to give form to the disclosure so that the requirements of various review objectives, and restrictions associated with various disclosure contraints, can be evaluated clearly.
+
+In the context of this paper, an ``LCA Study'' should be understood as any aggregation of data under consideration, from a single-operation unit process to a full ISO-style product LCA.  The framework should meet the following objectives:
+
+\begin{itemize}
+\item \textbf{Computability}. The result should be computed using only the disclosure, plus resources available to the reader.  The computation should follow the consensus understanding of process LCA computation.
+\item \textbf{Completeness / Minimality}.  The computation should use all of the information provided in the disclosure.
+\item \textbf{Reproducibility}.  The result obtained by the reader should match the result provided by the author.
+\item \textbf{Authority}.  The disclosure should include only information for which the author is responsible.
+\item \textbf{Autonomy}.  The disclosure should exclude information that is owned by a third party.
+\item \textbf{Privacy}.  The disclosure should protect information that is held in confidence by the author.
+
+
+
+Let's say the author (whom we'll call Alice) wishes to make a disclosure to the reader (whom we'll call Rob) that would enable the reader to \emph{automatically} reproduce a given numerical result.  
+
+The framework advanced in this paper aims to specify the contents of a \emph{minimal disclosure} by the author that would enable the reader to  reproduce 
+
+
+
+A framework for formally describing the product system model must meet the following objectives:
+\begin{itemize}
+\item \textbf{Transparency}.  It must be possible for a reader to identify the contents of the model (i.e. the selection of data sets) and the structure of the model (i.e. the way the data sets are connected).
+\item \textbf{Reproducibility}.  If the reader has possession of the same input data, then she may use  
+
+A framework to formally describe product system models and compute aggregation results 
+
+
+
+should meet the following objectives:
+
+\begin{itemize}
+\item It must be possible for a data to  reconstruct
+
+
+
+
+
+
+known as ``foreground studies,'' in which the results depend on a background database but the background database does not depend on the result.  
+
+The framework can be applied to a common subclass of LCA studies, ``foreground studies''.  
+
+
