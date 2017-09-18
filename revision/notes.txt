@@ -61,3 +61,8 @@ And that just leaads to M-B 2014, which I don't want to get into. Fine to keep t
 The only way to go forward on this is to actually start revising the paper and bring the aggregation section back in from the SI.
 ok, later.
 
+==========
+Wed Sep 13 11:15:58 -0700 2017
+
+Pizzol, M.; Scotti, M.; Thomsen, M., Network Analysis as a tool for assessing environmental sustainability: Applying the ecosystem perspective to a Danish Water Management System. Journal of Environmental Management 2013, 118, (0), 21-31.
+

@@ -18,7 +18,27 @@ Other factors such as allocation strategy \citep{Pelletier_2014} can also render
 
 \endinput
 
+What is the point of the new paper?
+
+
 Some thoughts to put together and rearrange:
+
+ * A common theme in all these controversies is the inability for authors and their readers to formally agree on the structure and content of the product system model.  
+
+ * Although the general structure for life cycle assessment can be formally stated, there is no current practice for formally describing the product system model and thus, no formal mechanisms for interpretation or review of published LCA studies.  
+
+ * When a study is reviewed, it is often the written documentation and \emph{not} the product system model itself that is the object of review.  
+
+  - In current practice, it is the responsibility of the study author to ensure that the written report accurately describes the model.  
+
+  - Because the model itself may not be available for review, it is impossible for a reviewer to directly evaluate the author's claim that the model is accurately represented.
+
+
+or for distinguishing between the foreground and the background of a model.
+
+
+
+
 
  * The task of computing life cycle impact assessment (LCIA) results from a product system model is often described as an ``aggregation,'' in which the data in large, sparse models are combined through linear algebra operations into a small set of numeric scores.  
  
@@ -31,18 +51,18 @@ Some thoughts to put together and rearrange:
  * However, that same feature is also a shortcoming when considered from the perspective of study transparency, replication, and extension.  
 
 
- * Although several equivalent methods for computing aggregated LCI and/or LCIA results have been described in the literature (Suh 2005; Lenzen 2007), the computational representation of product system models, and the generation of aggregated results, remains steadfastly software-specific.
+ * Although several equivalent methods for computing aggregated LCI and/or LCIA results have been described in the literature (Suh 2005; Lenzen 2007), the computational representation of product system models, and the generation of aggregated results, remains software-specific. 
+
+ * Because of the nature of the computation, it is straightforward to provide varying degrees of 
+
+The aim of this paper is to present a consistent and reproducible formulation of LCA foreground models, and to focus on the aggregation step 
 
 
 
 
- * When a study is reviewed, it is often the written documentation and \emph{not} the product system model itself that is the object of review.  
 
-  - In current practice, it is the responsibility of the study author to ensure that the written report accurately describes the model.  
 
-  - Because the model itself may not be available for review, it is impossible for a reviewer to directly evaluate the author's claim that the model is accurately represented.
 
-  - Because the representation of product system models is software-specific, it is also not generally possible to recreate a product system modeled in one software system in a separate software system.  
 
  * Documents such as ISO reports, PCRs, or EPDs are uniformly \textit{unstructured}, meaning their interpretation must be secured by a human reading text and graphical images such as system boundary diagrams, but cannot be expressed to a machine.  
 
