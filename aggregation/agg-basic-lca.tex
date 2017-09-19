@@ -1,0 +1,21 @@
+\section{Mathematical Formulation of LCA}
+
+Because the objective of the framework is to validate a computation, we begin by providing a mathematical formulation of the LCA problem.  An LCA computation is performed over a collection of linked unit processes, each of which describes a single operation or reference product.  The task of LCA can be described in two steps: determining the required outputs of each process; and determining the environmental impacts of each process.  If the processes are assumed to be linear, the problem can be written in terms of matrix algebra.  There are two common formulations: the ``technology matrix'' approach and the ``input-output'' or Leontief approach \citep{Suh_2002, Pauliuk_2015}.  Although the two models are understood to be equivalent, the input-output approach is computationally more efficient because it lends itself to iterative solution \citep{Peters_2007}.  That formulation may be stated:
+\begin{equation}
+s = \mathbf{e}^T \cdot B \cdot \left(I - A\right)^{-1} \cdot \mathbf{y}
+\label{eqn:leontief}
+\end{equation}
+Here $A$ represents the \emph{direct requirements matrix}, where each column of values reports the necessary inputs (positive values) and generated non-reference outputs (negative values) per unit of a process's reference output; $B$ is the environmental intervention or emission matrix; and $\mathbf{e}$ is a column vector of characterization factors for the environmental emissions with respect to a given impact assessment method.  In this model, $\mathbf{y}$ is the externally specified final demand, which is the product or service whose delivery is to be assessed, and $s$ is the numerical impact score or category indicator.  
+
+The term $(I-A)$ is equivalent to the normalized technology matrix, i.e. the difference between the supply and use tables in classical input-output analysis, $(V'-U)$ \citep{Suh_2010}.  The conditions under which this matrix has an inverse, particularly with respect to different strategies for handling co-production, have been discussed extensively \citep{Suh_2010, Majeau_Bettez_2014}.  Eq.~\ref{eqn:leontief} is visualized in Figure~\ref{fig:lca}. 
+\input{fig_lca}
+
+In classical LCA, the matrices $A$ (or $I-A$) and $B$ are called a life cycle inventory database (LCIDB), and the functional unit of a study is given by the final demand vector $\mathbf{y}$.  Intermediate results of this computation include:
+\begin{itemize}
+\item $\mathbf{x} = \left(I-A\right)^{-1}\cdot\mathbf{y}$, the activity level vector;
+\item $\mathbf{b} = B\cdot\mathbf{x}$, the life cycle inventory;
+\item $s = \mathbf{e}^T\cdot\mathbf{b}$, the life cycle impact category indicator, the study result.
+\end{itemize}
+For simplicity, we will consider the computation of a single impact result.  However, it is straightforward to imagine the more typical case, in which $E$ is a matrix of characterization vectors, and $\mathbf{s}$ is a vector of results.
+
+This formulation is equivalent to the implementations of all major LCA software systems, some of which provide the capacity to export the $A$ and $B$ matrices for a given study model.  However, the contents of commercial LCIDBs are proprietary and subject to licensing restrictions, and moreover are the same for all users.  Thus exporting $A$ and $B$ violates our authority and primacy objectives.  Additionally, replicating the entire LCIDB is cumbersome because of the large size of the matrices.   As a consequence, the matrix formulation in Eq.~\ref{eqn:leontief} is unsuitable as a disclosure framework.

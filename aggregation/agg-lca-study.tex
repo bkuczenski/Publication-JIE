@@ -1,0 +1,14 @@
+\section{Foreground Study}
+
+In practice, most LCA studies contain foreground information that is not present in a background database, and LCA software systems generally allow users to augment the standard LCIDBs with foreground models.  In consideration of our disclosure objectives, a disclosure should be limited to the foreground of a study and exclude the background.  Because background databases are prepared independently of any study, their computational results do not depend on the studies in which they are used.  However, the foreground systems themselves cannot be computed without the background.  Thus the dependency relationships among processes in a life cycle model allow the processes to be sorted into foreground and background groups, and an $A$ matrix augmented with foreground information can be partially ordered to group foreground processes together \citep{Kuczenski_JLCA_2015}.  An appropriately ordered $A$ matrix can be written in block-triangular form:
+\begin{equation}
+A = \left[\begin{array}{cc}
+A_f & 0 \\
+A_d &  A*
+  \end{array}
+\right];\;\;\;  B = \left[\begin{array}{cc} B_f & B*   \end{array}\right]
+\label{eqn:foreground}
+\end{equation}
+
+\input{fig_foreground}
+In this case, the submatrix $A_f$ represents the foreground; $A*$ represents the background, and the rectangular matrix $A_d$ represents the dependency of the foreground on the background.  The ordered $B$ matrix is similarly partitioned into $B_f$, which includes foreground emissions, and $B*$ which includes background emissions. The constitutive characteristic of this formulation is that the background system does not depend on the foreground, allowing for the submatrix in the top right corner of Eq.~\ref{eqn:foreground} to be zero.  As long as this is the case, all computations regarding the background are invariant with respect to any foreground, and they can be computed in advance.\footnote{It should be noted that this condition does not hold for so-called ``integrated hybrid'' models, in which all quadrants contain non-zero cells.  The approach presented here applies only to LCA studies in which the background system is invariant with respect to the foreground, a class that includes the vast majority of LCA case studes.}  

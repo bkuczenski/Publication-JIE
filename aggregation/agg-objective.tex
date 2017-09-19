@@ -2,18 +2,27 @@
 
 The task of computing life cycle impact assessment (LCIA) results from a product system model is often described as an ``aggregation,'' in which the data in large, sparse models are combined through linear algebra operations into a small set of numeric scores.  Although several equivalent methods for computing aggregated LCI and/or LCIA results have been described in the literature \citep{Suh_2005, Peters_2007}, the computational representation of and exchange of product system models, and the generation of aggregated results, remains software-specific.  
 
-The practice of reporting the results of an LCA study implies the existence of two parties with different information: the study Author has full knowledge of the product system model; and the Reader only has knowledge of what the Author has disclosed.  Obviously, the level of detail of the disclosure will determine how much of the computation can be reproduced by the Reader.  In this context, the Reader will want to know the answers to various questions about the model, which we will call \emph{review objectives}.  At the same time the Author will be limited in what she can disclose, which we will call \emph{disclosure constraints}.  The purpose of the framework is to give form to the disclosure so that the requirements of various review objectives, and restrictions associated with various disclosure contraints, can be evaluated clearly.
+The practice of reporting the results of an LCA study implies the existence of two parties with different information: the study Author has full knowledge of the product system model; and the Reader only has knowledge of what the Author has disclosed.  Obviously, the level of detail of the disclosure will determine how useful the computation will be to the Reader.  In this context, the Reader will want to know the answers to various questions about the model, which we will call \emph{review objectives}.  At the same time the Author will be limited in what she can disclose, which we will call \emph{disclosure constraints}.  The purpose of the framework is to give form to the disclosure so that the requirements of various review objectives, and restrictions associated with various disclosure contraints, can be evaluated clearly.
 
-In the context of this paper, an ``LCA Study'' should be understood as any aggregation of data under consideration, from a single-operation unit process to a full ISO-style product LCA.  The framework should meet the following objectives:
+In the context of this paper, an ``LCA Study'' should be understood as any aggregation of data under consideration, from a single-operation unit process to a full ISO-style product LCA.  Furthermore, the aggregation can be computed at any level: a foreground (inventory) result; a background (accumulated life cycle inventory) result; or a computed LCIA score.  These different levels are discussed in detail in the following sections.  
 
+On the basis of transparency, the framework should meet the following objectives:
 \begin{itemize}
-\item \textbf{Computability}. The result should be computed using only the disclosure, plus resources available to the reader.  The computation should follow the consensus understanding of process LCA computation.
+\item \textbf{Computability}. The result should be computed using only the disclosure, plus resources available independently to the Reader.  The computation should follow the consensus understanding of process LCA computation.
 \item \textbf{Completeness / Minimality}.  The computation should use all of the information provided in the disclosure.
-\item \textbf{Reproducibility}.  The result obtained by the reader should match the result provided by the author.
-\item \textbf{Authority}.  The disclosure should include only information for which the author is responsible.
-\item \textbf{Autonomy}.  The disclosure should exclude information that is owned by a third party.
-\item \textbf{Privacy}.  The disclosure should protect information that is held in confidence by the author.
+\item \textbf{Reproducibility}.  The result obtained by the Reader should match the result provided by the Author.
+\end{itemize}
+One key objective of disclosure is to inspect the work of the Author.  Consequently, the disclosure should be made up of the Author's own work product and should exclude, for instance, data that were drawn from a reference database or other independent source and used in an unmodified form.  The purpose of this is twofold: to focus the efforts of the Reader on the work of the Author, and to enable the Reader to obtain and inspect the third-party data independently, thus ensuring its integrity.
+\begin{itemize}
+\item \textbf{Authority}.  The disclosure should include only information for which the Author is responsible.
+\item \textbf{Primacy}.  The disclosure should exclude information that is made available by a third party.
+\end{itemize}
+In addition, because of the ubiquity of confidential and sensitive information in LCA, any operational disclosure framework must also meet the following:
+\begin{itemize}
+\item \textbf{Privacy}.  The disclosure should protect information that is held in confidence by the Author.
+\end{itemize}
 
+\endinput
 
 
 Let's say the author (whom we'll call Alice) wishes to make a disclosure to the reader (whom we'll call Rob) that would enable the reader to \emph{automatically} reproduce a given numerical result.  
