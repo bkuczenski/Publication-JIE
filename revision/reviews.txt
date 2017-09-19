@@ -9,27 +9,27 @@ This is a potentially important paper, and it may have a great influence on the 
 
 1. Dependency and ordering. Page 5, line 54 states that foreground processes are dependent on background processes but not the other way around. Hance the processes can be partially ordered. The validity of these statements depend on the meaning of the word "dependent". If I do an LCA on milk, I can draw the data for carton production from a background database, so there is a flow (carton) from background to foreground. But I will use waste treatment data from the background, so there is a flow (waste carton) from forgeround to background. I acknowledge that some databases phrase the latter situation as the provision of a waste treatment service from the background to the foreground. But this is of course not necessarily the case. Another example is the so-called integrated hybrid IOA-LCA, where all quadrants contain non-zero cells.
 
-2. Most equations contain a cross (x) for matrix and vector multiplication. Please do not, as this suggests a cross product (see https://en.wikipedia.org/wiki/Cross_product), which is entirely different.
+X2. Most equations contain a cross (x) for matrix and vector multiplication. Please do not, as this suggests a cross product (see https://en.wikipedia.org/wiki/Cross_product), which is entirely different.
 
-3. Why do you start using "classic formulation ... Heijungs & Suh", but use different symbols (y for f, s for h), which are moreover confusing (because s means something different to Heijungs & Suh).
+X3. Why do you start using "classic formulation ... Heijungs & Suh", but use different symbols (y for f, s for h), which are moreover confusing (because s means something different to Heijungs & Suh).
 
-4. The notation in eq (1) has y as a column vector and e as a row vector. It would be better to adopt one convention (please make it column vectors), and write a row vector with a transpose symbol, eg superscript T or prime (OK, prime will not be convenient because you need it for other purposes).
+X4. The notation in eq (1) has y as a column vector and e as a row vector. It would be better to adopt one convention (please make it column vectors), and write a row vector with a transpose symbol, eg superscript T or prime (OK, prime will not be convenient because you need it for other purposes).
 
-5. What is the reason of rewriting eq (1) into eq (2)? As I see it, it only complicates, because every appearance of "A^-1" now reads "(I-A')^-1". And, as shown below, you yourself start confusing the two notations as well (as shown below). If you take "classical LCA" as claimed, please use process-based LCA, so eq (1). Is eq (2) in any way advantageous?
+X5. What is the reason of rewriting eq (1) into eq (2)? As I see it, it only complicates, because every appearance of "A^-1" now reads "(I-A')^-1". And, as shown below, you yourself start confusing the two notations as well (as shown below). If you take "classical LCA" as claimed, please use process-based LCA, so eq (1). Is eq (2) in any way advantageous?
 
-6. Page 6, line 40 speaks about "solvable" but there is nothing to solve for in eq (1) or (2). You probably mean "is computable" or "exists".
+X6. Page 6, line 40 speaks about "solvable" but there is nothing to solve for in eq (1) or (2). You probably mean "is computable" or "exists".
 
-7. Figure 1 contains undefined symbols. e.g., "X=I-A'" (is X supposed to be A?). And udefined vectors x and b.
+X7. Figure 1 contains undefined symbols. e.g., "X=I-A'" (is X supposed to be A?). And udefined vectors x and b.
 
 8. Page 6, line 49 makes a promising connection to graphs. Please add a few references to graphs, preferably in LCA.
 
 9. Page 6, lines 51-55, again the partial ordering and dependency.
 
-10. When you apparently define A'=I-A, and start to partition A' in eq (3), it seems logical to me to use the prime also for blocks, so A'_f, A'_d, A'*. By the way, would A_b (for background) not be more intuitive than A*?
+X10. When you apparently define A'=I-A, and start to partition A' in eq (3), it seems logical to me to use the prime also for blocks, so A'_f, A'_d, A'*. By the way, would A_b (for background) not be more intuitive than A*?
 
-11. Eq (3) contains B', but so far (eq (1) and (2)) we had only B, not B'. What's up? It also contradicts the text in page 7, line 41. And it contradicts eq (4). Just a typo?
+X11. Eq (3) contains B', but so far (eq (1) and (2)) we had only B, not B'. What's up? It also contradicts the text in page 7, line 41. And it contradicts eq (4). Just a typo?
 
-12. Page 7, line 49 until page 9, line  4, "The following formulation is equivalent to Eq. 3: ... where Bx=B*..." Please supply a proof (you may use an appendix for that).
+X12. Page 7, line 49 until page 9, line  4, "The following formulation is equivalent to Eq. 3: ... where Bx=B*..." Please supply a proof (you may use an appendix for that).
 
 13. Similar for page 9, line 6: "Eq. 2 can be written ...", this needs a proof.
 

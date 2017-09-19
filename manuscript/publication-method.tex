@@ -45,7 +45,6 @@ where $B_x = B* \times (I - A*)^{-1}$ is a background LCI database.  It is curre
 s = \mathbf{e} \times (B_f + B_x\times A_d) \times (I - A_f)^{-1} \times \mathbf{y}_f
 \label{eqn:study}
 \end{equation}
-
 where $\mathbf{y_f}$ represents final demand of the foreground processes only.  Eq.~\ref{eqn:study} is visualized in Figure~\ref{fig:foreground}.  This formulation shows that given access to the background database $B_x$ and the characterization vector $\mathbf{e}$, the study results can be fully reproduced using only the submatrices $A_f$, $A_d$, and $B_f$.  %The foreground, which represents the activities and processes that are directly within the scope of the study, can be fully defined by its graph topology ($A_f$); its dependency on the background ($A_d$); and its direct emissions ($B_f$).
 
 The foreground graph $A_f$ can be distilled into a vector of activity levels for the foreground nodes, which determine the magnitude of dependencies and emissions for a particular output.  With the functional unit for one study formulation given as $\tilde{\mathbf{y}}$, the foreground activity levels can be given as:

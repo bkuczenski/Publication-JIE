@@ -56,7 +56,7 @@
   % B matrix - left of b
   \newequal{nx}{pX}
 
-  \rput[l](pX){\newmatrix[$X=I-A'$]{nX}{\dimn}{\dimn}}
+  \rput[l](pX){\newmatrix[$I-A$]{nX}{\dimn}{\dimn}}
   \invertmatrix{nX}
   \bottomlabel{nX}{\footnotesize Technology matrix}
 
@@ -71,7 +71,7 @@
   \rput[B](pStilde|pEquation){\large $s =$}
   \rput[B](nEBtimes|pEquation){ $\mathbf{e}\times \mathbf{b}$}
   \rput[B](nBXtimes|pEquation){ $\mathbf{e}\times B \times \mathbf{x}$}
-  \rput[B](nX|pEquation){ $\mathbf{e}\times B \times (I-A')^{-1}$}
+  \rput[B](nX|pEquation){ $\mathbf{e}\times B \times (I-A)^{-1}$}
   \rput[B](py|pEquation){ $\mathbf{y}$}
 
   % narrative

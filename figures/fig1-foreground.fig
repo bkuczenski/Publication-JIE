@@ -61,7 +61,7 @@
   \matrixtimes{pBtopBr}{padleftBr}{nBXtimes}
   \rput[b]([angle=90,nodesep=3pt]nBXtimes){\parbox{5cm}{\centering\small
       Background\\
-  processes}}
+  flows}}
 
   \adequation
   \newequal[~]{[angle=0]nX}{pad}
@@ -110,8 +110,9 @@
   % x~ vector
   \pnode[\cornerskip,.7cm]([angle=0]nAd|[angle=90]nAd){pxlb}
   \rput[lb](pxlb){\newmatrix{nxtilde}{\dimp}{\dimone}}
+  \fillmatrix[foreground]{nxtilde}
   \leftbrace{nxtilde}{~}{pxleftBr}
-  \toplabel{nxtilde}{$\tilde{\mathbf{x}}$}
+  \toplabel{nxtilde}{\blue$\tilde{\mathbf{x}}$}
 
   % * x x~
   \matrixtimes{pAdtopBr}{pxleftBr}{nADtimes}
