@@ -7,7 +7,7 @@ Reviewer: 1
 Comments to the Author
 This is a potentially important paper, and it may have a great influence on the - usually poor - reporting of case studies. However, the paper suffers from quite a few flaws, mostly mathematical. Through this, I stopped reading at some point, and first ask the author to make his work better understandable. I am happy to have a closer look after that.
 
-1. Dependency and ordering. Page 5, line 54 states that foreground processes are dependent on background processes but not the other way around. Hance the processes can be partially ordered. The validity of these statements depend on the meaning of the word "dependent". If I do an LCA on milk, I can draw the data for carton production from a background database, so there is a flow (carton) from background to foreground. But I will use waste treatment data from the background, so there is a flow (waste carton) from forgeround to background. I acknowledge that some databases phrase the latter situation as the provision of a waste treatment service from the background to the foreground. But this is of course not necessarily the case. Another example is the so-called integrated hybrid IOA-LCA, where all quadrants contain non-zero cells.
+...1. Dependency and ordering. Page 5, line 54 states that foreground processes are dependent on background processes but not the other way around. Hance the processes can be partially ordered. The validity of these statements depend on the meaning of the word "dependent". If I do an LCA on milk, I can draw the data for carton production from a background database, so there is a flow (carton) from background to foreground. But I will use waste treatment data from the background, so there is a flow (waste carton) from forgeround to background. I acknowledge that some databases phrase the latter situation as the provision of a waste treatment service from the background to the foreground. But this is of course not necessarily the case. Another example is the so-called integrated hybrid IOA-LCA, where all quadrants contain non-zero cells.
 
 X2. Most equations contain a cross (x) for matrix and vector multiplication. Please do not, as this suggests a cross product (see https://en.wikipedia.org/wiki/Cross_product), which is entirely different.
 
@@ -21,9 +21,9 @@ X6. Page 6, line 40 speaks about "solvable" but there is nothing to solve for in
 
 X7. Figure 1 contains undefined symbols. e.g., "X=I-A'" (is X supposed to be A?). And udefined vectors x and b.
 
-8. Page 6, line 49 makes a promising connection to graphs. Please add a few references to graphs, preferably in LCA.
+0008. Page 6, line 49 makes a promising connection to graphs. Please add a few references to graphs, preferably in LCA.
 
-9. Page 6, lines 51-55, again the partial ordering and dependency.
+...9. Page 6, lines 51-55, again the partial ordering and dependency.
 
 X10. When you apparently define A'=I-A, and start to partition A' in eq (3), it seems logical to me to use the prime also for blocks, so A'_f, A'_d, A'*. By the way, would A_b (for background) not be more intuitive than A*?
 
@@ -31,21 +31,21 @@ X11. Eq (3) contains B', but so far (eq (1) and (2)) we had only B, not B'. What
 
 X12. Page 7, line 49 until page 9, line  4, "The following formulation is equivalent to Eq. 3: ... where Bx=B*..." Please supply a proof (you may use an appendix for that).
 
-13. Similar for page 9, line 6: "Eq. 2 can be written ...", this needs a proof.
+???13. Similar for page 9, line 6: "Eq. 2 can be written ...", this needs a proof.
 
-14. Eq (5) and page 9, line 16 mention y_f, "final demand of the foreground processes". I guess you partition y into [y_f, 0], correct? Please do so explicitly.
+X14. Eq (5) and page 9, line 16 mention y_f, "final demand of the foreground processes". I guess you partition y into [y_f, 0], correct? Please do so explicitly.
 
-15. Page 9 line 16 states that "Eq. 5 is visualized in Figure 2". OK, but Figure 2 contains different symbols, e.g. s^tilde instead of s. And what is the identity matrix in the middle of the figure doing? It is not in Eq (5).
+X15. Page 9 line 16 states that "Eq. 5 is visualized in Figure 2". OK, but Figure 2 contains different symbols, e.g. s^tilde instead of s. And what is the identity matrix in the middle of the figure doing? It is not in Eq (5).
 
-16. y^tilde is in page 9, line 26 "the functional unit for one study". That is not really helpful, because I want to know how y^tilde relates to y and/or y_f.
+X16. y^tilde is in page 9, line 26 "the functional unit for one study". That is not really helpful, because I want to know how y^tilde relates to y and/or y_f.
 
-17. Very implicitly, Figure 1 defined x=(I-A')^-1*y. Eq (6) seems to extend this by adding tildes to y and to x. Do y and x represent a general case, and y^tilde and x^tilde a specific case?
+X17. Very implicitly, Figure 1 defined x=(I-A')^-1*y. Eq (6) seems to extend this by adding tildes to y and to x. Do y and x represent a general case, and y^tilde and x^tilde a specific case?
 
-18. Page 9, line 38 states that the foreground needs no matrix inversion, because you can "traverse the graph". Can you specify concrete formulas. The PhD thesis of Andreas Ciroth (https://depositonce.tu-berlin.de/bitstream/11303/660/1/Dokument_20.pdf, unfortunately in German only) is doing something like that on page 18, but I have never been able to understand this fully. Please define in an operational way, so that I can in principle implement it (just like eq (1) can be implemented). Same for the "can be computed" on page 9 line 54. Or perhaps: is this computational trick needed anyhow? It now seems to interrupt the flow of the argument, so better put it in a footnote or final discussion.
+00018. Page 9, line 38 states that the foreground needs no matrix inversion, because you can "traverse the graph". Can you specify concrete formulas. The PhD thesis of Andreas Ciroth (https://depositonce.tu-berlin.de/bitstream/11303/660/1/Dokument_20.pdf, unfortunately in German only) is doing something like that on page 18, but I have never been able to understand this fully. Please define in an operational way, so that I can in principle implement it (just like eq (1) can be implemented). Same for the "can be computed" on page 9 line 54. Or perhaps: is this computational trick needed anyhow? It now seems to interrupt the flow of the argument, so better put it in a footnote or final discussion.
 
-19. Page 9 line 45 loosely introduces the term "canonical", without any clear definition. Quickly after, on page 9, line 54 it is used as if it is clear ("In the canonical case"), which it is not.
+X19. Page 9 line 45 loosely introduces the term "canonical", without any clear definition. Quickly after, on page 9, line 54 it is used as if it is clear ("In the canonical case"), which it is not.
 
-20. Page 6 line 49 described LCA as a "directed graph", but apparently in page 10 line 3 the graph is also a weighted graph, becasue there are "node weights". Please expand.
+00020. Page 6 line 49 described LCA as a "directed graph", but apparently in page 10 line 3 the graph is also a weighted graph, becasue there are "node weights". Please expand.
 
 At this point, I felt lost and stopped reading. This is not laziness; I still think the paper is promising. It is just not clear and precise enough. Please invest your time in improving the manuscript.
 

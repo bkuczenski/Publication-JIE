@@ -26,7 +26,7 @@
 
   % E matrix
   \rput[lB](pEleft){\newmatrix{nE}{\dimt}{\dimm}}
-  \leftlabel{nE}{$\mathbf{e}$}
+  \leftlabel{nE}{$\mathbf{e}^T$}
 
   %\leftbrace{nE}{$t$}{ptlabel}
   \topbrace{nE}{$m$}{pEtopBr}
@@ -152,8 +152,8 @@
   % summary equation
   
   \bottomequation
-  \rput[B](pStilde|pEquation){\large $\tilde{s} =$}
-  \rput[B](nEBtimes|pEquation){ $\mathbf{e}\times \left(\phantom{B}\right.$}
+  \rput[B](pStilde|pEquation){\large $s =$}
+  \rput[B](nEBtimes|pEquation){ $\mathbf{e}^T\times \left(\phantom{B}\right.$}
   \rput[B](nb|pEquation){$\tilde{\mathbf{b}}_x$}
   \rput[B](nX|pEquation){$+$}
   
