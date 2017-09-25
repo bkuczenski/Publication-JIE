@@ -1,11 +1,8 @@
 \section{Foreground Study}
 
-In practice, most LCA studies contain foreground information that is not present in a background database, and LCA software systems generally allow users to augment the standard LCIDBs with foreground models.  In consideration of our objectives, a disclosure should be limited to the foreground of a study and exclude the background.  The simplest conceivable foreground is simply what is given as the final demand, in other words the list of background processes invoked by the study and their activity levels.  For clarity, I introduce a ``canonical'' final demand vector in which the first entry is 1 and all successive entries are 0:
-\begin{equation}
-\tilde{\mathbf{y}} =  [ 1,\, 0,\, 0 ,\,\ldots,\, 0]^{T}
-\label{eqn:canonical_y}
-\end{equation}
-The $A$ and $B$ matrices can be augmented with the $\mathbf{y]$ vector and a $\mathbf{0}$ vector respectively, to generate the same results using the canonical $\tilde{\mathbf{y}}$:
+In practice, most LCA studies contain foreground information that is not present in a background database, and LCA software systems generally allow users to augment the standard LCIDBs with foreground models.  To meet our disclosure objectives, it is important to be able to distinguish foreground content from background content in the computation.  Because background databases are prepared independently of any study, their computational results do not vary across the studies in which they are used.  However, the foreground systems themselves cannot be computed without the background.  Put another way, the foreground depends on the background but the background does not depend on the foreground.  This condition allows the processes in an LCIDB to be partially ordered to group foreground processes together \citep{Kuczenski_JLCA_2015}.  
+
+The simplest conceivable foreground is simply what is given as the final demand $\mathbf{y}$, in other words the list of background processes invoked by the study and their activity levels.  For an LCA computation as expressed in Eq.~\ref{eqn:leontief}, the same result can be obtained by relocating the $\mathbf{y}$ vector into an augmented $A$ matrix, augmenting the $B$ matrix with a vector of zeros, and replacing the final demand with a vector $\tilde{\mathbf{y}}$ in which the first entry is 1 and all successive entries are 0:
 \begin{eqnarray}
 s &= \mathbf{e}^T\times B\times\left(I-A\right)^{-1}\times\mathbf{y} \\
  &= \mathbf{e}^{T}\times\tilde{B}\times\left(I-\tilde{A}\right)^{-1}\times\tilde\mathbf{y}\\
@@ -14,21 +11,24 @@ s &= \mathbf{e}^T\times B\times\left(I-A\right)^{-1}\times\mathbf{y} \\
  \mathbf{y} & A
   \end{array}\right]\\
 \tilde{B} &= \left[\begin{array}{cc} \mathbf{0} & B\right]  \end{array}
+\tilde{\mathbf{y}} &=  [ 1,\, 0,\, 0 ,\,\ldots,\, 0]^{T}\\
 \label{eqn:canonical}
 \end{eqnarray}
-This is intuitively true because the canonical $\tilde{\mathbf{y}}$ selects the first column of the augmented $\tilde{A}$ matrix as the ``final demand,'' but the ``direct requirements'' of that column are precisely the final demand from the prior, un-augmented $A$ matrix.  It can easily be shown that the first equality in Eq.~\ref{eqn:canonical} holds for any $\mathbf{y}$.  \textit{author's note: if need be, a proof for this equality can be provided in the electronic supplementary information.}
+It can easily be shown that the first equality in Eq.~\ref{eqn:canonical} holds for any $\mathbf{y}$.  \textit{author's note: a proof for this equality is provided in the electronic supplementary information.}  This is intuitively true because the $\tilde{\mathbf{y}}$ selects the first column of the augmented $\tilde{A}$ matrix as the ``final demand,'' but the ``direct requirements'' of that column are precisely the final demand from the prior, un-augmented $A$ matrix.  
 
-Of course, most studies have a more elaborate foreground than simply the demand for processes in the background database.  To meet our disclosure objectives, it is important to be able to distinguish foreground content from background content in the computation.  Because background databases are prepared independently of any study, their computational results do not vary across all the studies in which they are used.  However, the foreground systems themselves cannot be computed without the background.  Put another way, the foreground depends on the background but the background does not depend on the foreground.  This condition allows the processes in an LCIDB to be sorted into foreground and background groups.  The processes an LCIDB containing both a foreground and a background can then be partially ordered to group foreground processes together \citep{Kuczenski_JLCA_2015}.  
+Of course, most studies have a more elaborate foreground than simply the demand for processes in the background database, and in these cases the $A$ and $B$ matrices can be further augmented with additional foreground content.  For clarity in this paper, I will call the augmented $\tilde{A}$ and $\tilde{B}$ matrices an \emph{LCA foreground study}, for which $\tilde{\mathbf{y}}$ is the \emph{canonical} functional unit.  
 
-Thus a foreground study can be written in block-triangular form, using the canonical functional unit $\tilde{\mathbf{y}}$, as follows:
-\begin{equation}
-\tilde{A} = \left[\begin{array}{cc}
+In a canonical LCA foreground study, the foreground content always appears to the left of the background content; the first column delivers the study's functional unit; and the background does not depend on the foreground.
+An LCA foreground study can be written in block-triangular form:
+\begin{eqnarray}
+\tilde{A} &= \left[\begin{array}{cc}
 A_f & 0 \\
 A_d &  A
   \end{array}
-\right];\;\;\;  \tilde{B} = \left[\begin{array}{cc} B_f & B   \end{array}\right]
+\right]\\
+  \tilde{B} &= \left[\begin{array}{cc} B_f & B   \end{array}\right]
 \label{eqn:foreground}
-\end{equation}
+\end{eqnarray}
 
 \input{fig_foreground}
 In this case, the submatrix $A_f$ represents the foreground (the first column of which delivers the functional unit of the study); $A$ represents the background, and the rectangular matrix $A_d$ represents the dependency of the foreground on the background.  The ordered $\tilde{B}$ matrix is similarly partitioned into $B_f$, which includes foreground emissions, and $B$ which includes background emissions. The constitutive characteristic of this formulation is that the submatrix in the top right corner of $\tilde{A}$ is zero.  As long as this is the case, all computations regarding the background are invariant with respect to any foreground, and they can be computed in advance.\footnote{It should be noted that this condition does not hold for so-called ``integrated hybrid'' models, in which all quadrants contain non-zero cells.  The approach presented here applies only to LCA studies in which the background system is invariant with respect to the foreground. This class includes the vast majority of LCA case studes, and very likely includes all case studies prepared using commercial LCA software.}
