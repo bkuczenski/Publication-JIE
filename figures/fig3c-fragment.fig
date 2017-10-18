@@ -12,7 +12,7 @@
   \pnode(3.75,9.5){pTitle}
   \pnode(1.5,9.5){pLabel}
 
-  \rput[br](pLabel){\large c.}
+  \rput[br](pLabel){\large d.}
   
   \rput(pMatrix){
     \pnode(0,0){pAf}

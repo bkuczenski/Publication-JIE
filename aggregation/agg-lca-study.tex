@@ -3,18 +3,18 @@
 In practice, most LCA studies contain foreground information that is not present in a background database, and LCA software systems generally allow users to augment the standard LCIDBs with foreground models.  To meet our disclosure objectives, it is important to be able to distinguish foreground content from background content in the computation.  Because background databases are prepared independently of any study, their computational results do not vary across the studies in which they are used.  However, the foreground systems themselves cannot be computed without the background.  Put another way, the foreground depends on the background but the background does not depend on the foreground.  This condition allows the processes in an LCIDB to be partially ordered to group foreground processes together \citep{Kuczenski_JLCA_2015}.  
 
 The simplest conceivable foreground is simply what is given as the final demand $\mathbf{y}$, in other words the list of background processes invoked by the study and their activity levels.  For an LCA computation as expressed in Eq.~\ref{eqn:leontief}, the same result can be obtained by relocating the $\mathbf{y}$ vector into an augmented $A$ matrix, augmenting the $B$ matrix with a vector of zeros, and replacing the final demand with a vector $\tilde{\mathbf{y}}$ in which the first entry is 1 and all successive entries are 0:
-\begin{eqnarray}
-s &= \mathbf{e}^T\times B\times\left(I-A\right)^{-1}\times\mathbf{y} \\
- &= \mathbf{e}^{T}\times\tilde{B}\times\left(I-\tilde{A}\right)^{-1}\times\tilde\mathbf{y}\\
-\tilde{A} &= \left[\begin{array}{cc}
+\begin{equation}
+  \begin{array}{cc}
+s =& \mathbf{e}^T\times B\times\left(I-A\right)^{-1}\times\mathbf{y} \\
+ =& \mathbf{e}^{T}\times\tilde{B}\times\left(I-\tilde{A}\right)^{-1}\times\tilde{\mathbf{y}}
+  \end{array}
+  \label{eqn:canonical}
+\end{equation}
+where $\tilde{A} = \left[\begin{smallmatrix}
  0 & 0 \\
  \mathbf{y} & A
-  \end{array}\right]\\
-\tilde{B} &= \left[\begin{array}{cc} \mathbf{0} & B\right]  \end{array}
-\tilde{\mathbf{y}} &=  [ 1,\, 0,\, 0 ,\,\ldots,\, 0]^{T}\\
-\label{eqn:canonical}
-\end{eqnarray}
-It can easily be shown that the first equality in Eq.~\ref{eqn:canonical} holds for any $\mathbf{y}$.  \textit{author's note: a proof for this equality is provided in the electronic supplementary information.}  This is intuitively true because the $\tilde{\mathbf{y}}$ selects the first column of the augmented $\tilde{A}$ matrix as the ``final demand,'' but the ``direct requirements'' of that column are precisely the final demand from the prior, un-augmented $A$ matrix.  
+  \end{smallmatrix}\right]$, $\tilde{B} = [ \mathbf{0},\, B ]$, and $\tilde{\mathbf{y}} =  [ 1,\, 0,\, 0 ,\,\ldots,\, 0]^{T}$.
+It can easily be shown that Eq.~\ref{eqn:canonical} holds for any $\mathbf{y}$.  \textit{author's note: a proof for this equality is provided in the electronic supplementary information.}  This is intuitively true because the $\tilde{\mathbf{y}}$ selects the first column of the augmented $\tilde{A}$ matrix as the ``final demand,'' but the ``direct requirements'' of that column are precisely the final demand from the prior, un-augmented $A$ matrix.  
 
 Of course, most studies have a more elaborate foreground than simply the demand for processes in the background database, and in these cases the $A$ and $B$ matrices can be further augmented with additional foreground content.  For clarity in this paper, I will call the augmented $\tilde{A}$ and $\tilde{B}$ matrices an \emph{LCA foreground study}, for which $\tilde{\mathbf{y}}$ is the \emph{canonical} functional unit.  
 
