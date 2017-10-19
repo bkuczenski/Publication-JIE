@@ -35,22 +35,43 @@ University of California, Santa Barbara}
 
   {\red http://pubs.acs.org/doi/pdf/10.1021/acs.est.5b01558}
 
-  \input{agg-intro}
+  \input{agg-intro}  % motivations
   
-\section{Formalizing LCA Study Aggregation}
+\section{Formalizing LCA Studies}
 
-  \input{agg-objective}
+  \input{agg-objective}  % Authors, Readers, review objectives, disclosure constraints
   
-  \input{agg-basic-lca}
+  \input{agg-basic-lca}  % basic Leontief model
   
-  \input{agg-lca-study}
+  \input{agg-lca-study}  % foreground JLCA model
 
-  \input{agg-agg}
+  \input{agg-disclosure} % disclosure requirements satisfied
 
-\section{Reviewing LCA Studies}
+\section{Reviewing Product System Models}
 
-  \input{agg-review}
+Objectives in critical review vary with the study and the reviewer, but they generally include consistency with the ISO 14044 standard, the validity of methods, appropriateness of data used, correctness of interpretations, and transparency of reporting \citep[Section 6.1]{iso14044}.  Although the object of critical review is typically a written report, the use of a structured disclosure of study design introduces the possibility that reviewers can inspect the model itself and even verify the computations and reported results.  This section discusses how a disclosure in the format described above can enable robust review of a product system model.  Note that, for purposes of critical review, the objective for data privacy can be omitted because the reviewer may be granted privileged access to confidential data.
 
+  \input{agg-foreground} % Af and graph/matrix equivalency
+  
+  \input{agg-deps}       % Ad and Bf
+
+\section{Protecting Privacy through Aggregation}
+
+  \input{agg-agg}        % notation for full aggregation
+
+%  \input{agg-pagg}       % notation for partial aggregation
+
+%  \input{agg-forms}      % the elusive Figure 4
+
+\section{Discussion}
+
+%  \input{agg-review}     % review objectives
+
+%  \input{agg-privacy}    % disclosure constraints
+
+%  \input{agg-semantic}   % the need for stable references
+
+\section{Conclusion} 
 
 
   %% \input{publication-foreground}

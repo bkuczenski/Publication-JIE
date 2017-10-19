@@ -1,8 +1,8 @@
-    \begin{pspicture}(0,-7)(6,11)\showgrid
+    \begin{pspicture}(0,-7)(14,11)\showgrid
       \small
       \rput[tl](0,11){\input{../figures/fig3a-sequential.fig}}
       \rput[bl](0,0){\input{../figures/fig3b-additive.fig}}
       \rput[bl](0,-5.5){\input{../figures/fig3n-cyclic.fig}}
       %\rput[tl](6,12){\input{fig3c-unitprocess.fig}}
-%      \rput[br](14,-3){\input{../figures/fig3c-fragment.fig}}
+      \rput[br](14,-3){\input{../figures/fig3c-fragment.fig}}
     \end{pspicture}
