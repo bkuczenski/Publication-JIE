@@ -1,4 +1,4 @@
-\section{Foreground Study}
+\subsection{Foreground Study}
 
 In practice, most LCA studies contain foreground information that is not present in a background database, and LCA software systems generally allow users to augment the standard LCIDBs with foreground models.  To meet our disclosure objectives, it is important to be able to distinguish foreground content from background content in the computation.  Because background databases are prepared independently of any study, their computational results do not vary across the studies in which they are used.  However, the foreground systems themselves cannot be computed without the background.  Put another way, the foreground depends on the background but the background does not depend on the foreground.  This condition allows the processes in an LCIDB to be partially ordered to group foreground processes together \citep{Kuczenski_JLCA_2015}.  
 
@@ -48,33 +48,4 @@ Using the ordered matrices, Eq.~\ref{eqn:leontief} can be written so that the co
 s = \mathbf{e}^T \times (B_f + B_x\times A_d) \times (I - A_f)^{-1} \times \tilde{\mathbf{y}}
 \label{eqn:study}
 \end{equation}
-
-This formulation shows that given access to the background database $B_x$ and the characterization vector $\mathbf{e}$, the study results can be fully reproduced using only the submatrices $A_f$, $A_d$, and $B_f$.  Eq.~\ref{eqn:study} is visualized in Figure~\ref{fig:foreground}, with the background technology matrix $A$, having been subsumed into $B_x$, represented by an identity matrix $I$.  
-
-An important intermediate result is the vector of activity levels for the foreground nodes $\tilde{\mathbf{x}}$, also visualized in Figure~\ref{fig:foreground}:
-\begin{equation}
-\tilde{\mathbf{x}} = (I - A_f)^{-1} \times \tilde{\mathbf{y}}
-\label{eqn:inv}
-\end{equation}
-This vector can be used to describe an \emph{aggregated foreground}, which generates the same results as the fully expanded foreground:
-\begin{equation}
-\begin{array}{rl}
-    \tilde{\mathbf{b}}_f & = B_f \times \tilde{\mathbf{x}} \\
-    \tilde{\mathbf{a}}_d & = A_d \times \tilde{\mathbf{x}} \\
-    \tilde{\mathbf{b}}_x & = B_x \times \tilde{\mathbf{a}}_d
-\end{array}
-\label{eqn:agg}
-\end{equation}
-
-These vectors summarize the contents of the foreground without disclosing its detailed structure.  The aggregated dependency vector $\tilde{\mathbf{a}}_d$ has the same dimension as the background database, and the aggregated emission vector $\tilde{\mathbf{b}}_f $has the same dimension as the elementary flow matrix.  The dependency vector can be transformed into an elementary flow vector by multiplying by $B_x$.  The result of the study $s$ is the sum of foreground and background impact scores:
-
-\begin{equation}
-\begin{array}{rl}
-   \tilde{\mathbf{b}} & = \tilde{\mathbf{b}}_f + \tilde{\mathbf{b}}_x \\
-   s &= \mathbf{e}^T \times \tilde{\mathbf{b}} \\
-   & = \mathbf{e}^T \times \tilde{\mathbf{b}}_f + \mathbf{e}^T \times \tilde{\mathbf{b}}_x \\
-   &= \tilde{s}_f + \tilde{s}_x
-\end{array}
-\label{eqn:lci}
-\end{equation}
-
+Eq.~\ref{eqn:study} is visualized in Figure~\ref{fig:foreground}, with the background technology matrix $A$, having been subsumed into $B_x$, represented by an identity matrix $I$.  
