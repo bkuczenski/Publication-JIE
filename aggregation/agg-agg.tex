@@ -2,20 +2,6 @@
 
 Often the contents of the foreground
 
-An important intermediate result is the vector of activity levels for the foreground nodes $\tilde{\mathbf{x}}$, also visualized in Figure~\ref{fig:foreground}:
-\begin{equation}
-\tilde{\mathbf{x}} = (I - A_f)^{-1} \times \tilde{\mathbf{y}}
-\label{eqn:inv}
-\end{equation}
-This vector can be used to describe an \emph{aggregated foreground}, which generates the same results as the fully expanded foreground:
-\begin{equation}
-\begin{array}{rl}
-    \tilde{\mathbf{b}}_f & = B_f \times \tilde{\mathbf{x}} \\
-    \tilde{\mathbf{a}}_d & = A_d \times \tilde{\mathbf{x}} \\
-    \tilde{\mathbf{b}}_x & = B_x \times \tilde{\mathbf{a}}_d
-\end{array}
-\label{eqn:agg}
-\end{equation}
 
 These vectors summarize the contents of the foreground without disclosing its detailed structure.  The aggregated dependency vector $\tilde{\mathbf{a}}_d$ has the same dimension as the background database, and the aggregated emission vector $\tilde{\mathbf{b}}_f $has the same dimension as the elementary flow matrix.  The dependency vector can be transformed into an elementary flow vector by multiplying by $B_x$.  The result of the study $s$ is the sum of foreground and background impact scores:
 
@@ -30,16 +16,6 @@ These vectors summarize the contents of the foreground without disclosing its de
 \end{equation}
 
 
-
-\subsubsection{Model fragments and subsystem boundaries}
-
-
-The nodes that make up the foreground of an LCA study describe an implicit system boundary
-
-Most complex
-
-
-\section{Preparing and Reviewing Aggregation Results}
 
 
 

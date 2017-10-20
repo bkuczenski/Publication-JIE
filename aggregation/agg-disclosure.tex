@@ -1,8 +1,8 @@
 \subsection{Disclosure of Study Design}
 
-The foreground matrix $A_f$, dependency matrix $A_d$, and foreground emission matrix $B_f$ now contain all study-specific information.  Assuming that the appropriate background LCIDB $B_x$, and the vector of characterization factors $\mathbf{e}$, are available and held in common between the author and the reader, then a disclosure that precisely describes $A_f$, $A_d$ and $B_f$ is sufficient to reproduce the study result, as formulated in Eq.~\ref{eqn:study}.  These three submatrices together are referred to as the product system model, or PSM.
+The foreground matrix $A_f$, dependency matrix $A_d$, and foreground emission matrix $B_f$ now contain all study-specific information.  Assuming that the appropriate background LCIDB $B_x$, and the vector of characterization factors $\mathbf{e}$, are available and held in common between the author and the reader, then a disclosure that precisely describes $A_f$, $A_d$ and $B_f$ is sufficient to reproduce the study result, as formulated in Eq.~\ref{eqn:study}.  These three submatrices together can be considered a complete representation of the PSM.
 
-This set of three submatrices can be used to represent the PSM; thus, the problem of how to disclose an LCA study design is reduced to the problem of how to communicate the contents of these submatrices accurately.  Recognizing that all three matrices are likely to be sparse (that is, that most of the entries are zero), the most efficient disclosure would be to only report non-zero entries.  A sparse matrix can be represented by a list of 3-tuples indicating (row, column, value) for each non-zero entry.  Thus, a formal disclosure of the PSM can be stated in six parts:
+Thus, the problem of how to disclose an LCA study design is reduced to the problem of how to communicate the contents of these submatrices accurately.  Recognizing that all three matrices are likely to be sparse (that is, that most of the entries are zero), the most efficient disclosure would be to only report non-zero entries.  A sparse matrix can be represented by a list of 3-tuples indicating (row, column, value) for each non-zero entry.  Thus, a formal disclosure of the PSM can be stated in six parts:
 \begin{enumerate}[label={\em d-\roman*}., ref={\em d-\roman*}]
 \item\label{itm:fg} An ordered list of foreground nodes (rows/columns of $A_f$);
 \item\label{itm:bg} An ordered list of background flows, making reference to a particular background database (rows of $A_d$, mapping to columns of $B_x$);
@@ -16,7 +16,7 @@ A disclosure containing these six elements satisfies most of the requirements es
 \begin{itemize}
   \item The result is \textbf{computable} using Eq.~\ref{eqn:study};
   \item the computation is \textbf{complete} and \textbf{minimal} because all components are required and no superfluous components are included;
-  \item The results are \textbf{reproducible} if the reader is able to accurately interpret the author's references to $B_x$ and $\mathbf{e}$;
+  \item The results are \textbf{reproducible} if the reader is able to accurately interpret the author's references in \ref{itm:bg} and \ref{itm:em};
   \item The disclosure includes only information for which the author can claim \textbf{authority};
   \item The disclosure includes only information for which the study is the \textbf{primary} source.
 \end{itemize}
