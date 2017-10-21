@@ -1,0 +1,16 @@
+  \def\aggfg#1#2{%
+    \rput[b](#1){\newmatrix{#2}{16pt}{\coordstep}}
+    \leftlabel{#2}{$\tilde{a}_f$}
+    \refs{#2}{\coordstep}{1}
+         {\scriptsize  \canonicalref{#2}{\coordstep}}
+     \plotmatrix[\coordstep]{\plotframe{upr}}{naf}{2}{1}
+  }
+    \begin{pspicture}(0,0)(16.5,10)\showgrid
+      \let\showgrid\relax
+      \rput[tl](0,10){\input{../figures/fig4a-unitprocess.fig}}
+      \rput[tl](2.7,10){\input{../figures/fig4b-foreground.fig}}
+      \rput[tl](5.4,10){\input{../figures/fig4c-agg-foreground.fig}}
+      \rput[tl](8.1,10){\input{../figures/fig4dn-partial-bg-agg.fig}}
+      \rput[tl](11.6,10){\input{../figures/fig4en-full-agg.fig}}
+      \rput[tl](15.1,10){\input{../figures/fig4f-lci.fig}}
+    \end{pspicture}

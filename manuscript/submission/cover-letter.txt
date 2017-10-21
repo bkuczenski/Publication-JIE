@@ -1,0 +1,17 @@
+==========
+Sun Apr 02 16:03:04 -0700 2017
+
+
+To the editors:
+
+Please review the attachedsubmission, "Structured publication of life cycle assessment models and results," for publication as a research article in the Journal of Industrial Ecology.  The paper describes how LCA studies can be formally described in a manner that allows readers and data users to automatically interpret the study models and reproduce the results. 
+
+Although LCA is widely practiced for evaluating the environmental significance of industrial systems, there are a number of controversies surrounding the interpretation and reproducibility of LCA studies. This paper proposes a mathematical framework that allows studies to be published efficiently and precisely by separating the contributions of study authors from the background inventory data, and by providing a mapping of the "entities" (specific processes and flows) used in the study to linked data references published on the Web. A publication prepared according to the proposed framework is both human- and machine-readable, software independent, and easily validated. If adopted, the proposed framework would simplify both the authoring and the reviewing of LCA studies, and could dramatically improve the transparency with which LCA practitioners can communicate their work. 
+
+The paper contains 7,200 words exclusive of the bibliography, and includes five figures. The supporting information to accompany the paper includes two example structured publications of LCA studies drawn from the US LCI and Ecoinvent databases, provided as Excel spreadsheets. In addition, the full software for generating the examples is freely available on the web (in python). The manuscript itself, as well as documentation of the prepared examples, is available on github at the address: http://github.com/bkuczenski/Publication-JIE
+
+I acknowledge that the paper is over-length and have been given permission to submit by Dr. Lifset. I would welcome feedback from the editor and/or reviewers regarding sections that can be shortened.
+
+I believe this paper makes an important contribution to the ongoing dialogue within industrial ecology regarding the transparency and reproducibility of research. I believe the Journal of Industrial Ecology is the best outlet for thorough review and dissemination of the enclosed research. I look forward to your response.
+
+Brandon Kuczenski

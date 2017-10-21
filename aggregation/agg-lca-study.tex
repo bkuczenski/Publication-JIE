@@ -16,6 +16,7 @@ where $\tilde{A} = \left[\begin{smallmatrix}
   \end{smallmatrix}\right]$, $\tilde{B} = [ \mathbf{0},\, B ]$, and $\tilde{\mathbf{y}} =  [ 1,\, 0,\, 0 ,\,\ldots,\, 0]^{T}$.
 It can easily be shown that Eq.~\ref{eqn:canonical} holds for any $\mathbf{y}$.  \textit{author's note: a proof for this equality is provided in the electronic supplementary information.}  This is intuitively true because the $\tilde{\mathbf{y}}$ selects the first column of the augmented $\tilde{A}$ matrix as the ``final demand,'' but the ``direct requirements'' of that column are precisely the final demand from the prior, un-augmented $A$ matrix.  
 
+\input{fig_foreground}
 Of course, most studies have a more elaborate foreground than simply the demand for processes in the background database, and in these cases the $A$ and $B$ matrices can be further augmented with additional foreground content.  An LCA study augmented with foreground information can be written in block-triangular form:
 \begin{equation}
 \tilde{A} = \left[\begin{array}{cc}
@@ -27,7 +28,6 @@ A_d &  A
 \label{eqn:foreground}
 \end{equation}
 Here, the submatrix $A_f$ represents the foreground (the first column of which delivers the functional unit of the study); $A$ represents the background, and the rectangular matrix $A_d$ represents the dependency of the foreground on the background.  The ordered $\tilde{B}$ matrix is similarly partitioned into $B_f$, which includes foreground emissions, and $B$ which includes background emissions. The constitutive characteristic of this formulation is that the submatrix in the top right corner of $\tilde{A}$ is zero.  As long as this is the case, all computations regarding the background are invariant with respect to any foreground, and they can be computed in advance.
-\input{fig_foreground}
 
 For clarity, I will call the augmented $\tilde{A}$ and $\tilde{B}$, in which the foreground content always appears to the left of the background content; the first column delivers the study's functional unit; and the background does not depend on the foreground; to be a \emph{canonical LCA foreground study}, for which $\tilde{\mathbf{y}}$ is the canonical functional unit.  This formulation can be applied to the vast majority of LCA case studes, and very likely to all case studies prepared using commercial LCA software.  However, it does not apply for so-called ``integrated hybrid'' models, in which all quadrants contain non-zero cells (for instance, \cite{Gibon_2016}).
 

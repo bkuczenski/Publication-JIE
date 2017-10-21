@@ -1,21 +1,31 @@
-\subsection{Foreground Aggregation}
+\subsection{Forms of Aggregation}
 
-Often the contents of the foreground
+Figure~\ref{fig:foreground} illustrates the LCA computation in various successive aggregation steps, from full matrices to vectors to a scalar value.  The level of aggregation provided in a disclosure will constrain what review objectives can be met by the reader of a study.  Different aggregation forms are illustrated in Figure~\ref{fig:aggregation}.
 
+\subsubsection{Unit Process Inventory}
 
-These vectors summarize the contents of the foreground without disclosing its detailed structure.  The aggregated dependency vector $\tilde{\mathbf{a}}_d$ has the same dimension as the background database, and the aggregated emission vector $\tilde{\mathbf{b}}_f $has the same dimension as the elementary flow matrix.  The dependency vector can be transformed into an elementary flow vector by multiplying by $B_x$.  The result of the study $s$ is the sum of foreground and background impact scores:
+A unit process makes up a single shared column of $A_f$, $A_d$, and $B_f$, as depicted in Figure~\ref{fig:aggregation}(a).  Documentation of unit processes is specified in ISO 14048, and several compliant formats exist, the most well-known being the ILCD and Ecospold XML formats.  ISO 14048 specifies a distinction between intermediate and elementary flows, but does not include the concept of a model foreground.  In a matrix representation, each unit process must have exactly one reference flow, which corresponds to its row and column in $A_f$.
 
+\input{fig_aggregation}
+
+\subsubsection{Complete Foreground}
+
+See Figure~\ref{fig:aggregation}(b).  A foreground can be viewed as a linked set of unit processes.  The collection of processes themselves make up the foreground of the study, and so exchanges among them are recorded in $A_f$, and exchanges outside the foreground are represented in $A_d$ or $B_f$.  A complete foreground represents the full disclosure of a model, and a reader can replicate and extend it independently.  Any co-production treatment, such as an allocation or system expansion, can only be fully expressed as a foreground model, because it intrinsically involves a collection of linked unit processes.
+
+\subsubsection{Aggregated Foreground}
+
+See Figure~\ref{fig:aggregation}(c). Any collection of foreground nodes can also be expressed in aggregated form by performing the computations in Eq.~\ref{eqn:agg}.  A publication of the aggregated foreground is identical to the publication of a unit process, except that the result was derived through aggregation.  As in the unit process case, the aggregated foreground has exactly one reference flow, which is $\tilde{\mathbf{y}}$.  The aggregated foreground still reports explicit links between the model and a background database.
+
+\subsubsection{Partial Background Aggregation}
+
+See Figure~\ref{fig:aggregation}(d).  Using this approach, the author can replace portions of the
+The aggregated dependency vector is split into two parts that sum to the original:
 \begin{equation}
-\begin{array}{rl}
-   \tilde{\mathbf{b}} & = \tilde{\mathbf{b}}_f + \tilde{\mathbf{b}}_x \\
-   s &= \mathbf{e}^T \times \tilde{\mathbf{b}} \\
-   & = \mathbf{e}^T \times \tilde{\mathbf{b}}_f + \mathbf{e}^T \times \tilde{\mathbf{b}}_x \\
-   &= \tilde{s}_f + \tilde{s}_x
-\end{array}
-\label{eqn:lci}
+ \tilde{\mathbf{a}}_d = \tilde{\mathbf{a}}_{d,priv} + \tilde{\mathbf{a}}_d'
 \end{equation}
+The disclosed dependencies $\tilde{\mathbf{a}}_d'$ are reported, and the private dependencies $\tilde{\mathbf{a}}_{d,priv}$ are replaced with an aggregated background inventory derived from the background database, $\tilde{\mathbf{b}}_{x,agg}$.  This approach can be used when a reader lacks access to the background inventory sets referred to in $\tilde{\mathbf{a}}_{d,priv}$, or when the author wishes not to disclose the private dependencies.  Foreground emissions $\tilde{\mathbf{b}}_f$ can be reported separately from the aggregation result, but often in current practice they are not distinguished from the background flows.  
 
+\subsubsection{Full Background Aggregation and LCI}
 
-
-
+See Figure~\ref{fig:aggregation}(e) and (f). At this level of aggregation, the entire dependency vector is replaced with an aggregated life cycle inventory vector $\tilde{\mathbf{b}}_x$ derived from the background LCIDB.  The reader no longer requires access to any background database to perform the computation, but all dependency information is concealed.  Again, foreground emissions are often not distinguished from the aggregation result.  The life cycle inventory $\tilde{\mathbf{b}}$ provides the most aggregated form of the study that can still be independently validated with an external characterization vector $\mathbf{e}$.  
 
