@@ -5,10 +5,10 @@
   %%        {\scriptsize  \canonicalref{#2}{\coordstep}}
   %%    \plotmatrix[\coordstep]{\plotframe{upr}}{naf}{2}{1}
   %% }
-    \begin{pspicture}(0,0)(16.5,11.5)\showgrid
+    \begin{pspicture}(0,0)(16.5,11.5)%\showgrid
       %\let\showgrid\relax
       \rput[bl](0.5,0){\input{../figures/fig5a-private-study.fig}}
-      \rput[bl](4.5,0){\input{../figures/fig5b-partition.fig}}
+      \rput[bl](4.22,0){\input{../figures/fig5b-partition.fig}}
       \rput[bl](13.5,0){\input{../figures/fig5c-disclosure.fig}}
       %\rput[tl](2.7,10){\input{../figures/fig4b-foreground.fig}}
       %\rput[tl](5.4,10){\input{../figures/fig4c-agg-foreground.fig}}

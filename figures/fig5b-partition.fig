@@ -16,9 +16,9 @@
   %\pnode(0.5,9.9){pLabel}
   \pnode(3.5,0){pmidpoint}
   \pnode(4.5,11){pTitle}
-  \pnode(4.8,0){pPrivate}
-  \pnode(7.6,0){pSum}
-  \pnode(8.2,0){pAgg}
+  \pnode(4.6,0){pPrivate}
+  \pnode(7.4,0){pSum}
+  \pnode(8.1,0){pAgg}
   
   \pnode(pPrivate|pxtilde){pxtpriv}
   \pnode(pPrivate|pAd){pAdpriv}
@@ -37,7 +37,7 @@
 
   \rput(pxtilde){\newmatrix{xtilde}{\coordstep}{\fgmatrix}}
   \leftlabel{xtilde}{$\tilde{\mathbf{x}}_{pub}$}
-  \toplabel{xtilde}{\small \em Public partition}
+  \toplabel{xtilde}{\small \em Public}
 
   \rput(pAdpriv){\newmatrix{nAdpriv}{\depmatrix}{\fgmatrix}}
   \leftlabel{nAdpriv}{$+$}
@@ -47,7 +47,7 @@
   %\leftlabel{nBfpriv}{$B_{f,priv}$}
   \rput(pxtpriv){\newmatrix{xtpriv}{\coordstep}{\fgmatrix}}
   \leftlabel{xtpriv}{$\tilde{\mathbf{x}}$}
-  \toplabel{xtpriv}{\small \em Private partition}
+  \toplabel{xtpriv}{\small \em Private}
 
   \rput(pbagg){\newmatrix{bagg}{\bmatrix}{\coordstep}}
   \rput[tl]([nodesep=1.5pt,angle=0]bagg|[angle=90]bagg){$\mathbf{b}_{agg}$}
