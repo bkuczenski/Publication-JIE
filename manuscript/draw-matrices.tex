@@ -12,12 +12,14 @@
 \newpsstyle{timesline}{linewidth=0.6pt,linecolor=gray,linestyle=dashed,dash=3pt 2pt}
 
 \newpsstyle{vline}{linestyle=solid,linewidth=0.6pt,linecolor=darkgray}
+\newpsstyle{vshade}{linestyle=solid,linecolor=brickred,strokeopacity=0.15}
 
 \newpsstyle{upline}{linestyle=dashed,linecolor=black,dash=6pt 0.8pt,linewidth=0.6pt}
 
 \newpsstyle{refplot}{framearc=0.1,linestyle=dashed,fillstyle=none,linecolor=gray, dash=3.3pt 2pt}
 \newpsstyle{exchplot}{framearc=0.15,linestyle=solid,linewidth=0.6pt,fillstyle=solid,fillcolor=gray,opacity=0.15}
 \newpsstyle{upr}{framearc=0.15,linestyle=none,linewidth=1.6pt,fillstyle=solid,fillcolor=blue,opacity=0.65}
+\newpsstyle{upred}{framearc=0.15,linestyle=none,linewidth=1.6pt,fillstyle=solid,fillcolor=brickred,opacity=0.65}
 \newpsstyle{foreground}{linewidth=2pt,linecolor=blue,strokeopacity=0.8,fillstyle=solid,fillcolor=steelblue,opacity=0.15}
 \newpsstyle{foreground-over}{linewidth=2pt,linecolor=blue,strokeopacity=0,fillstyle=solid,fillcolor=lightblue,opacity=0}
 
@@ -105,7 +107,32 @@
     \psline[#1]([angle=180]#2|0,-#3)([angle=0]#2|0,-#3)
   }
 }
-  
+
+\newcommand{\matrixvshade}[3][style=vshade]{
+  %% #1 - style
+  %% #2 - matrix node name
+  %% #3 - column
+  \rput([angle=180]#2){
+    \psset{unit=\coordstep}
+    \rput(#3,0){
+      \rput(-0.5,0){
+        \psline[#1,linewidth=\coordstep](0,0|[angle=-90]#2)(0,0|[angle=90]#2)
+      }
+    }
+  }
+}
+
+\newcommand{\matrixhshade}[3][style=vshade]{
+  %% #1 - style
+  %% #2 - matrix node name
+  %% #3 - column
+  \rput([angle=90]#2){
+    \psset{unit=\coordstep}
+    \rput(0,0.5){
+      \psline[#1,linewidth=\coordstep]([angle=180]#2|0,-#3)([angle=0]#2|0,-#3)
+    }
+  }
+}
 
 \newcommand{\canonicalref}[3][$\tilde{y}$]{%
   %% #1 - label (\tilde{y})

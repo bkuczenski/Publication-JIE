@@ -1,0 +1,164 @@
+\def\fgmatrix{40pt}%
+\def\coordstep{8pt}%
+\def\depmatrix{120pt}%
+\def\bmatrix{70pt}%
+
+
+%\newpsstyle{exchplot}{framearc=0.15,linestyle=solid,linewidth=1pt,strokeopacity=0,fillstyle=solid,opacity=0.36,fillcolor=black}
+%\newpsstyle{exchplot}{framearc=0.15,linestyle=solid,linewidth=0.6pt,fillstyle=solid,fillcolor=gray,opacity=0.15}
+
+
+\begin{pspicture}(0.65,0)(3,11.4)%\showgrid
+  \pnode(2,9.5){pAf}
+  \pnode(2,7.6){pxtilde}
+  \pnode(2,5){pAd}
+  \pnode(2,1.5){pBf}
+  %\pnode(0.5,9.9){pLabel}
+  \pnode(2,11){pTitle}
+  
+  \rput[t](pTitle){c. {\small Disclosed Model}}
+  %\rput[tr](pLabel){\large a.}
+
+  \rput(pAf){\newmatrix{nAf}{\fgmatrix}{\fgmatrix}}
+  \leftlabel{nAf}{$A_{f,pub}$}
+  \rput(pAd){\newmatrix{nAd}{\depmatrix}{\fgmatrix}}
+  \leftlabel{nAd}{$A_{d,pub}$}
+  \rput(pBf){\newmatrix{nBf}{\bmatrix}{\fgmatrix}}
+  \leftlabel{nBf}{$B_{f,pub}$}
+  \rput[tl]([nodesep=1.5pt,angle=0]nBf|[angle=90]nBf){$\mathbf{b}_{agg}$}
+
+  \rput(pxtilde){\newmatrix{xtilde}{\coordstep}{\fgmatrix}}
+  \leftlabel{xtilde}{$\tilde{\mathbf{x}}_{pub}$}
+
+  %\rput(pAdpriv){\newmatrix{nAdpriv}{\depmatrix}{\fgmatrix}}
+  %\leftlabel{nAdpriv}{$A_{d,priv}$}
+  %\rput(pBfpriv){\newmatrix{nBfpriv}{\bmatrix}{\fgmatrix}}
+  %\leftlabel{nBfpriv}{$B_{f,priv}$}
+  %\rput(pxtpriv){\newmatrix{xtpriv}{\coordstep}{\fgmatrix}}
+  %\leftlabel{xtpriv}{$\tilde{\mathbf{x}}$}
+
+  %% \rput(pbagg){\newmatrix{bagg}{\bmatrix}{\coordstep}}
+  %% \rput[bl]([angle=0]bagg|[angle=90]bagg){$\mathbf{b}_{agg}$}
+  %% \fillmatrix[upred]{bagg}
+
+  %%\rput(pSum|[angle=180]bagg){\circlenode{nSum}{\scriptsize{$+$}}}
+  
+  %\rput(pSum){\sumnode[nSum]}
+
+  %% \pcangle[style=timesline,angleB=90]{-}([angle=0]nAdpriv)([angle=90]nSum)
+  %% \aput(0.65){\footnotesize$B_x\times A_{d,priv}\times\tilde{\mathbf{x}}$}
+  %% \pcline[style=timesline]{-}([angle=0]nBfpriv)([angle=180]nSum)
+  %% \aput(0.5){\footnotesize$B_{f,priv}\times\tilde{\mathbf{x}}$}
+  %% \pcline[style=timesline]{-}([angle=0]nSum)([angle=180]bagg)
+
+  
+  %% \plotmatrix[\coordstep]{\plotframe{upr}}{xtilde}{1}{1}
+  %% \plotmatrix[\coordstep]{\plotframe{upr}}{xtilde}{1}{2}
+  %% \plotmatrix[\coordstep]{\plotframe{upr}}{xtilde}{1}{3}
+  %% \plotmatrix[\coordstep]{\plotframe{upr}}{xtilde}{1}{4}
+  %% %\plotmatrix[\coordstep]{\plotframe{exchplot}}{xtilde}{1}{5}
+  %% %\plotmatrix[\coordstep]{\plotframe{exchplot}}{xtilde}{1}{6}
+  %% %\plotmatrix[\coordstep]{\plotframe{exchplot}}{xtilde}{1}{7}
+
+  \multido{\ni=1+1}{4}{
+    \plotmatrix[\coordstep]{\plotframe{upr}}{xtilde}{1}{\ni}
+  }
+  \def\redone{\scriptsize\darkred 1}
+  \plotmatrix[\coordstep]{\redone}{xtilde}{1}{5}
+
+  \refs{nAf}{\coordstep}{5}
+  {\scriptsize  \canonicalref{nAf}{\coordstep}}
+
+  %% \matrixvshade{nAf}{5}
+  %% \matrixvshade{nAf}{6}
+  %% \matrixvshade{nAf}{7}
+  %% \matrixhshade{nAf}{5}
+  %% \matrixhshade{nAf}{6}
+  %% \matrixhshade{nAf}{7}
+
+  %% \matrixvshade{nAd}{5}
+  %% \matrixvshade{nAd}{6}
+  %% \matrixvshade{nAd}{7}
+  %% \matrixhshade{nAd}{12}
+
+  %% \matrixvshade{nBf}{5}
+  %% \matrixvshade{nBf}{6}
+  %% \matrixvshade{nBf}{7}
+
+  \plotmatrix[\coordstep]{\plotframe{upr}}{nAf}{2}{1}
+  \plotmatrix[\coordstep]{\plotframe{upr}}{nAf}{3}{2}
+  \plotmatrix[\coordstep]{\plotframe{upr}}{nAf}{4}{3}
+  \plotmatrix[\coordstep]{\redone}{nAf}{5}{1}
+
+  %% \plotmatrix[\coordstep]{\plotframe{upred}}{nAf}{6}{5}
+  %% \plotmatrix[\coordstep]{\plotframe{upred}}{nAf}{7}{6}
+
+  % col 1
+  \plotmatrix[\coordstep]{\plotframe{upr}}{nAd}{1}{1}
+  \plotmatrix[\coordstep]{\plotframe{upr}}{nAd}{2}{1}
+  \plotmatrix[\coordstep]{\plotframe{upr}}{nAd}{3}{1}
+
+  % col 2
+  \plotmatrix[\coordstep]{\plotframe{upr}}{nAd}{3}{2}
+  \plotmatrix[\coordstep]{\plotframe{upr}}{nAd}{7}{2}
+  \plotmatrix[\coordstep]{\plotframe{upr}}{nAd}{11}{2}
+  %\plotmatrix[\coordstep]{\plotframe{upred}}{nAdpriv}{12}{2}
+
+  % col 3
+  \plotmatrix[\coordstep]{\plotframe{upr}}{nAd}{15}{3}
+    
+  % col 4
+  \plotmatrix[\coordstep]{\plotframe{upr}}{nAd}{2}{4}
+  \plotmatrix[\coordstep]{\plotframe{upr}}{nAd}{6}{4}
+  \plotmatrix[\coordstep]{\plotframe{upr}}{nAd}{9}{4}
+
+  %% % col 5
+  %% \plotmatrix[\coordstep]{\plotframe{upred}}{nAdpriv}{4}{5}
+  %% \plotmatrix[\coordstep]{\plotframe{upred}}{nAdpriv}{6}{5}
+  %% \plotmatrix[\coordstep]{\plotframe{upred}}{nAdpriv}{12}{5}
+
+  %% % col 6
+  %% \plotmatrix[\coordstep]{\plotframe{upred}}{nAdpriv}{5}{6}
+  %% \plotmatrix[\coordstep]{\plotframe{upred}}{nAdpriv}{6}{6}
+
+  %% % col 7
+  %% \plotmatrix[\coordstep]{\plotframe{upred}}{nAdpriv}{15}{7}
+  %% \plotmatrix[\coordstep]{\plotframe{upred}}{nAdpriv}{6}{7}
+
+
+  %% Bf
+  % col 2
+  \plotmatrix[\coordstep]{\plotframe{upr}}{nBf}{2}{2}
+  \plotmatrix[\coordstep]{\plotframe{upr}}{nBf}{3}{2}
+  \plotmatrix[\coordstep]{\plotframe{upr}}{nBf}{4}{2}
+  \plotmatrix[\coordstep]{\plotframe{upr}}{nBf}{6}{2}
+
+  % col 3
+  \plotmatrix[\coordstep]{\plotframe{upr}}{nBf}{2}{3}
+  \plotmatrix[\coordstep]{\plotframe{upr}}{nBf}{3}{3}
+  \plotmatrix[\coordstep]{\plotframe{upr}}{nBf}{4}{3}
+  \plotmatrix[\coordstep]{\plotframe{upr}}{nBf}{5}{3}
+  \plotmatrix[\coordstep]{\plotframe{upr}}{nBf}{7}{3}
+
+  % col 4
+  \plotmatrix[\coordstep]{\plotframe{upr}}{nBf}{2}{4}
+  \plotmatrix[\coordstep]{\plotframe{upr}}{nBf}{3}{4}
+  \plotmatrix[\coordstep]{\plotframe{upr}}{nBf}{4}{4}
+  \plotmatrix[\coordstep]{\plotframe{upr}}{nBf}{6}{4}
+
+  % col 5
+  \matrixvshade[linecolor=brickred,strokeopacity=0.65]{nBf}{5.08} % linestyle=solid,linecolor=brickred,strokeopacity=0.65
+  %\matrixvline{nBf}{4}
+  
+  %% % col 5
+  %% \plotmatrix[\coordstep]{\plotframe{upred}}{nBfpriv}{6}{5}
+
+  %% % col 6
+  %% \plotmatrix[\coordstep]{\plotframe{upred}}{nBfpriv}{7}{6}
+  %% \plotmatrix[\coordstep]{\plotframe{upred}}{nBfpriv}{8}{6}
+
+  %% % col 7
+  %% \plotmatrix[\coordstep]{\plotframe{upred}}{nBfpriv}{7}{7}
+  %% \plotmatrix[\coordstep]{\plotframe{upred}}{nBfpriv}{8}{7}
+
+\end{pspicture}
