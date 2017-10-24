@@ -29,17 +29,17 @@ A_d &  A
 \end{equation}
 Here, the submatrix $A_f$ represents the foreground (the first column of which delivers the functional unit of the study); $A$ represents the background, and the rectangular matrix $A_d$ represents the dependency of the foreground on the background.  The ordered $\tilde{B}$ matrix is similarly partitioned into $B_f$, which includes foreground emissions, and $B$ which includes background emissions. The constitutive characteristic of this formulation is that the submatrix in the top right corner of $\tilde{A}$ is zero.  As long as this is the case, all computations regarding the background are invariant with respect to any foreground, and they can be computed in advance.
 
-For clarity, I will call the augmented $\tilde{A}$ and $\tilde{B}$, in which the foreground content always appears to the left of the background content; the first column delivers the study's functional unit; and the background does not depend on the foreground; to be a \emph{canonical LCA foreground study}, for which $\tilde{\mathbf{y}}$ is the canonical functional unit.  This formulation can be applied to the vast majority of LCA case studes, and very likely to all case studies prepared using commercial LCA software.  However, it does not apply for so-called ``integrated hybrid'' models, in which all quadrants contain non-zero cells (for instance, \cite{Gibon_2016}).
+For clarity, I will call the augmented $\tilde{A}$ and $\tilde{B}$, in which the foreground content always appears to the left of the background content; the first column delivers the study's functional unit; and the background does not depend on the foreground; to be an \emph{LCA foreground study}, for which $\tilde{\mathbf{y}}$ is the canonical functional unit.  This formulation can be applied to the vast majority of LCA case studes, and very likely to all case studies prepared using commercial LCA software.  However, it does not apply for so-called ``integrated hybrid'' models, in which all quadrants contain non-zero cells (for instance, \cite{Gibon_2016}).
 
 It is currently common practice for background database maintainers to pre-compute the life cycle inventory results for their databases.  Using the notation $B_x = B \times (I - A)^{-1}$ to represent the pre-computed background LCI database, Eq.s~\ref{eqn:foreground} can be rewritten as:
 \begin{equation}
- \tilde{A} = \left[\begin{array}{cc} 
+ \tilde{A}_{flat} = \left[\begin{array}{cc} 
 A_f &  0 \\
 A_d & 0 
-   \end{array}\right];\;\;\;  \tilde{B} = \left[\begin{array}{cc} B_f & B_x \end{array}\right ]
+   \end{array}\right];\;\;\;  \tilde{B}_{flat} = \left[\begin{array}{cc} B_f & B_x \end{array}\right ]
 \label{eqn:fg_bg}
 \end{equation}
-The proof of the equivalency of Eq.s~\ref{eqn:foreground} and \ref{eqn:fg_bg} is provided in the supplementary materials.  In this form, the main content of the LCIDB has been removed from the $\tilde{A}$ matrix, and the only information remaining there pertains to the study foreground.  Furthermore, the final demand vector has been replaced with a canonical functional unit and no longer needs to be explicitly reported.
+The proof of the equivalency of Eq.s~\ref{eqn:foreground} and \ref{eqn:fg_bg} is provided in the supplementary materials.  In this form, the main content of the LCIDB has been removed from the $\tilde{A}$ matrix, and the only information remaining in $\tilde{A}_{flat}$ pertains to the study foreground.  Furthermore, the final demand vector has been replaced with a canonical functional unit and no longer needs to be explicitly reported.
 
 Using the ordered matrices, Eq.~\ref{eqn:leontief} can be written so that the computationally costly foreground and background inversions can be performed separately:
 \begin{equation}

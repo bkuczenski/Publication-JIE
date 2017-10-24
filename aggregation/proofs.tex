@@ -117,7 +117,7 @@ thus completing the proof.
 
 Equation 5 in the manuscript is derived from Equation 4.
 
-We begin by computing $(I-\tilde{A})^{-1}$, again taking advantage of the matrix's block triangularity.  Find $Q$ such that:
+We begin by computing $(I-\tilde{A}_{flat})^{-1}$, again taking advantage of the matrix's block triangularity.  Find $Q$ such that:
 \begin{equation}
   \left[\begin{array}{cc} (I-A_f) & 0 \\ -A_d & I\end{array}\right]\times
   \left[\begin{array}{cc} (I-A_f)^{-1} & 0 \\ Q & I\end{array}\right] =
@@ -131,7 +131,7 @@ It can be seen that $Q=A_d\times(I-A_f)^{-1}$ is a necessary condition to satisf
 
 Substituting this into the LCA system equation:
 \begin{align}
-  s =\;& \mathbf{e}^T\times \tilde{B}\times(I-\tilde{A})^{-1}\tilde{\mathbf{y}}\\
+  s =\;& \mathbf{e}^T\times \tilde{B}_{flat}\times(I-\tilde{A}_{flat})^{-1}\tilde{\mathbf{y}}\\
   =\;& \mathbf{e}^T\times \left[\begin{array}{cc} B_f & B_x \end{array}\right]\times
   \left[\begin{array}{cc} (I-A_f)^{-1} & 0 \\ A_d\times(I-A_f)^{-1} & I \end{array}\right]
   \times\left[\begin{array}{c} \tilde{\mathbf{y}}_f \\ \mathbf{0}\end{array}\right]
