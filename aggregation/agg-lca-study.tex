@@ -39,16 +39,17 @@ A_d & 0
    \end{array}\right];\;\;\;  \tilde{B} = \left[\begin{array}{cc} B_f & B_x \end{array}\right ]
 \label{eqn:fg_bg}
 \end{equation}
-The proof of the equivalency of Eq.s~\ref{eqn:foreground} and \ref{eqn:fg_bg} is provided in the supplementary information to \cite{Kuczenski_JLCA_2015}.  In this form, the main content of the LCIDB has been removed from the $\tilde{A}$ matrix, and the only information remaining there pertains to the study foreground.  Furthermore, the final demand vector has been replaced with a canonical functional unit and no longer needs to be explicitly reported.
+The proof of the equivalency of Eq.s~\ref{eqn:foreground} and \ref{eqn:fg_bg} is provided in the supplementary materials.  In this form, the main content of the LCIDB has been removed from the $\tilde{A}$ matrix, and the only information remaining there pertains to the study foreground.  Furthermore, the final demand vector has been replaced with a canonical functional unit and no longer needs to be explicitly reported.
 
-Using the ordered matrices, Eq.~\ref{eqn:leontief} can be written so that the computationally costly foreground and background inversions can be performed separately:\footnote{For a demonstration of this equivalence, the reader is again directed to \cite{Kuczenski_JLCA_2015}.}
+Using the ordered matrices, Eq.~\ref{eqn:leontief} can be written so that the computationally costly foreground and background inversions can be performed separately:
 \begin{equation}
-s = \mathbf{e}^T \times (B_f + B_x\times A_d) \times (I - A_f)^{-1} \times \tilde{\mathbf{y}}
+s = \mathbf{e}^T \times (B_f + B_x\times A_d) \times (I - A_f)^{-1} \times \tilde{\mathbf{y}}_f
 \label{eqn:study}
 \end{equation}
+where $\tilde{\mathbf{y}}_f$ is a canonical functional unit vector having the same rank as $A_f$. Eq.~\ref{eqn:study} is derived in the supplementary materials.
 Eq.~\ref{eqn:study} is visualized in Figure~\ref{fig:foreground}, with the background technology matrix $A$, having been subsumed into $B_x$, represented by an identity matrix $I$.  
 
-The activity levels of the foreground nodes are represented by $\tilde{\mathbf{x}}$, which is the result of $\tilde{\mathbf{y}}$ selecting the first column of $(I-A_f)^{-1}$.
+The activity levels of the foreground nodes are represented by $\tilde{\mathbf{x}}$, which is the result of $\tilde{\mathbf{y}}_f$ selecting the first column of $(I-A_f)^{-1}$.
 %% An important intermediate result is the vector of activity levels for the foreground nodes $\tilde{\mathbf{x}}$, also visualized in Figure~\ref{fig:foreground}:
 %% \begin{equation}
 %% \tilde{\mathbf{x}} = (I - A_f)^{-1} \times \tilde{\mathbf{y}}

@@ -25,7 +25,7 @@
   \leftlabel{nAd}{$A_{d,pub}$}
   \rput(pBf){\newmatrix{nBf}{\bmatrix}{\fgmatrix}}
   \leftlabel{nBf}{$B_{f,pub}$}
-  \rput[tl]([nodesep=1.5pt,angle=0]nBf|[angle=90]nBf){$\mathbf{b}_{agg}$}
+  \rput[tl]([nodesep=1.5pt,angle=0]nBf|[angle=90]nBf){$\mathbf{b}_{priv}$}
 
   \rput(pxtilde){\newmatrix{xtilde}{\coordstep}{\fgmatrix}}
   \leftlabel{xtilde}{$\tilde{\mathbf{x}}_{pub}$}

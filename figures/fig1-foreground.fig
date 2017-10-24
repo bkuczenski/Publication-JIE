@@ -131,7 +131,7 @@
   {\scriptsize \invertmatrix{nAf}}
   \newequal[]{[angle=0]nAf}{py}
   \rput[B](pOp){$\times$} % HACK
-  \rput(py){$\tilde{\mathbf{y}}$}
+  \rput(py){$\tilde{\mathbf{y}}_f$}
   %\bottomlabel{nAf}{\scriptsize Foreground}
 
   % bf~ vector - aligned with I

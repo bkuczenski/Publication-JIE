@@ -13,7 +13,7 @@
   \pnode(2,7.6){pxtilde}
   \pnode(2,5){pAd}
   \pnode(2,1.5){pBf}
-  \pnode(2,11){pTitle}
+  \pnode(2.3,11){pTitle}
   %\pnode(0.5,9.9){pLabel}
 
   \rput[t](pTitle){a. {\small Private Foreground}}

@@ -15,7 +15,7 @@
   \pnode(2,1.5){pBf}
   %\pnode(0.5,9.9){pLabel}
   \pnode(3.5,0){pmidpoint}
-  \pnode(4.5,11){pTitle}
+  \pnode(2.6,11){pTitle}
   \pnode(4.6,0){pPrivate}
   \pnode(7.4,0){pSum}
   \pnode(8.1,0){pAgg}
@@ -50,7 +50,7 @@
   \toplabel{xtpriv}{\small \em Private}
 
   \rput(pbagg){\newmatrix{bagg}{\bmatrix}{\coordstep}}
-  \rput[tl]([nodesep=1.5pt,angle=0]bagg|[angle=90]bagg){$\mathbf{b}_{agg}$}
+  \rput[tl]([nodesep=1.5pt,angle=0]bagg|[angle=90]bagg){$\mathbf{b}_{priv}$}
   \fillmatrix[upred]{bagg}
 
   %\show\cnode
@@ -86,6 +86,15 @@
   \matrixhshade{nAf}{5}
   \matrixhshade{nAf}{6}
   \matrixhshade{nAf}{7}
+
+  \matrixvshade{nAd}{5}
+  \matrixvshade{nAd}{6}
+  \matrixvshade{nAd}{7}
+  \matrixhshade{nAd}{12}
+
+  \matrixvshade{nBf}{5}
+  \matrixvshade{nBf}{6}
+  \matrixvshade{nBf}{7}
 
   \matrixvshade{nAdpriv}{5}
   \matrixvshade{nAdpriv}{6}
