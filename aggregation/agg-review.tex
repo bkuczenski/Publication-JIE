@@ -1,5 +1,27 @@
-\subsection{Critical Review of PSMs}
+\subsection{Documentation and Critical Review of PSMs}
 
-When a study result is published in an aggregated form, it is the responsibility of the critical reviewer to validate the aggregation result. 
+The product system model (PSM) represents the product of an analyst's labor to perform an LCA.  It contains all study-specific information about what processes are modeled, how those processes exchange flows with one another, and what background datasets have been selected.
+
+In current practice, this model is then documented as a written report, and the report can be both critically reviewed and distributed to data users, but this process introduces significant interpretive challenges.  It also results in the model being frozen to a particular configuration or set of configurations from which the results are generated.
+
+When a study result is published in an aggregated form, often it is beyond the capacity of the critical reviewer to validate the aggregation result, even if the reviewer has privileged access to confidential materials used in preparing the report. 
+
+This paper presents a possible solution by providing a mathematical formalization of the foreground of an LCA study and a functional specification for disclosing the PSM.  A data user or critical reviewer with access to the six disclosure elements, and also adequate access to background datasets and elementary flows used in the model, can reproduce the LCA computation in Eq.~\ref{eqn:study}, and ensure the reported result is correct.  Once equipped with the PSM, the reviewer or data user can potentially go much further, adding or removing elements from the model, altering dataset selections, and applying other impact assessment methods.
+
+
+If a study containing confidential information is partitioned into public and private partitions as in Eq.~\ref{eqn:private} and Fig.~\ref{fig:private}, then the results of the computation can be validated without including private data in the disclosure.  The reviewer must be granted access to both the public and private partitions in order to confirm that the partitioning is valid according to Eq.~\ref{eqn:partition}, and that $\mathbf{b}_{priv}$ was computed correctly; however, it is not thought possible for a reader to discern any information about $A_{d,priv}$ or $B_{f,priv}$ solely from $\mathbf{b}_{priv}$.
+
+A further advantage to this approach is that the reader can evaluate easily what fraction of the overall impact score is accounted for by the public versus the private portions of the model.  A ``disclosure completeness'' metric $\varphi$ can be defined as the fraction of the overall score which is accounted for by the disclosed portion of the PSM:
+\begin{equation}
+  \varphi =  \frac{\mathbf{e}^T\cdot(\mathbf{b} - \mathbf{b}_{priv})}{\mathbf{e}^T\cdot\mathbf{b}} = 1 - \frac{\mathbf{e}^T\cdot\mathbf{b}_{priv}}{\mathbf{e}^T\cdot\mathbf{b}}
+  \label{eqn:metric}
+\end{equation}
+where $\mathbf{b}$ is the complete life cycle inventory.  The value of this metric can provide an indication of the level of transparency of the disclosure with respect to a given impact category indicator.  The author may relax the disclosure constraints by reporting the locations of some or all non-zero entries in $A_{d,priv}$ and $B_{f,priv}$ but not disclosing their values.
+
+
+
+
+
+
 
 

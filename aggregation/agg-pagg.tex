@@ -16,16 +16,7 @@ The $A_d$ and $B_f$ matrices are then partitioned into two components that sum t
 This is illustrated in Fig.~\ref{fig:private}b.  Substituted back into Eq.~\ref{eqn:study}, the private portions are aggregated into a private life cycle inventory vector $\mathbf{b}_{priv}$, while the public portions remain disaggregated:
 \begin{align}
   s =\; & \mathbf{e}^T\times\left((B_{f,pub} + B_{f,priv}) + B_x\times (A_{d,pub} + A_{d,priv})\right)\times\tilde{\mathbf{x}}\\
-  =\; & \mathbf{e}^T\times\left((B_{f,pub} + B_x\times A_{d,pub})\times\tilde{\mathbf{x}} + \mathbf{b}_{priv}\right)\\
+  =\; & \mathbf{e}^T\times\left((B_{f,pub} + B_x\times A_{d,pub})\times\tilde{\mathbf{x}} + \mathbf{b}_{priv}\right)\label{eqn:private}\\
   \mathbf{b}_{priv} =\; & (B_{f,priv} + B_x\times A_{d,priv})\times \tilde{\mathbf{x}}
 \end{align}
-Any foreground nodes that are completely contained within the private partition can be omitted from the disclosed foreground.  The aggregation result can then be included as a separate foreground node with a unit weight, and the aggregated inventory vector included as the corresponding column of $B_f$.  This is illustrated in Fig.~\ref{fig:private}c.  
-
-
-The reviewer must be granted access to both the public and private partitions in order to confirm that the partitioning is valid according to Eq.~\ref{eqn:partition}, and that $\mathbf{b}_{priv}$ was computed correctly; however, it is not thought possible for a reader to discern any information about $A_{d,priv}$ or $B_{f,priv}$ solely from $\mathbf{b}_{priv}$.  An advantage to this approach is that the reader can evaluate easily what fraction of the overall impact score is accounted for by the public versus the private portions of the model.  A ``disclosure completeness'' metric $\varphi$ can be defined as the fraction of the overall score which is accounted for by the disclosed portion of the PSM:
-\begin{equation}
-  \varphi =  \frac{\mathbf{e}^T\cdot(\mathbf{b} - \mathbf{b}_{priv})}{\mathbf{e}^T\cdot\mathbf{b}} = 1 - \frac{\mathbf{e}^T\cdot\mathbf{b}_{priv}}{\mathbf{e}^T\cdot\mathbf{b}}
-  \label{eqn:metric}
-\end{equation}
-where $\mathbf{b}$ is the complete life cycle inventory.  The value of this metric can provide an indication of the level of transparency of the disclosure with respect to a given impact category indicator.  The author may relax the disclosure constraints by reporting the locations of some or all non-zero entries in $A_{d,priv}$ and $B_{f,priv}$ but not disclosing their values.
-
+Any foreground nodes that are completely contained within the private partition can be omitted from the disclosed foreground.  The aggregation result can then be included as a separate foreground node with a unit weight, and the aggregated inventory vector included as the corresponding column of $B_f$.  This is illustrated in Fig.~\ref{fig:private}c.  The 
