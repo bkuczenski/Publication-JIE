@@ -30,6 +30,10 @@
   \rput(pxtilde){\newmatrix{xtilde}{\coordstep}{\fgmatrix}}
   \leftlabel{xtilde}{$\tilde{\mathbf{x}}_{pub}$}
 
+  \plotmatrix[\coordstep]{\pnode(0,0){ptarget}}{nBf}{1}{5}
+  \pcarc[style=standard,style=dashed,arcangle=20]{<-}(ptarget|[angle=-90]nBf)([angle=-90]bagg)
+
+        
   %\rput(pAdpriv){\newmatrix{nAdpriv}{\depmatrix}{\fgmatrix}}
   %\leftlabel{nAdpriv}{$A_{d,priv}$}
   %\rput(pBfpriv){\newmatrix{nBfpriv}{\bmatrix}{\fgmatrix}}

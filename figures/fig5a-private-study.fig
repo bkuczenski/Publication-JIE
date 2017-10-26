@@ -59,6 +59,7 @@
 
   \plotmatrix[\coordstep]{\plotframe{upr}}{nAf}{6}{5}
   \plotmatrix[\coordstep]{\plotframe{upr}}{nAf}{7}{6}
+  \plotmatrix[\coordstep]{\plotframe{upr}}{nAf}{5}{7}
 
   % col 1
   \plotmatrix[\coordstep]{\plotframe{upr}}{nAd}{1}{1}
