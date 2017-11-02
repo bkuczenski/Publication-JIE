@@ -1,26 +1,17 @@
-\subsection{Documentation and Critical Review of PSMs}
+%\subsection{Documentation and Critical Review of PSMs}
 
-The product system model (PSM) represents the product of an analyst's labor to perform an LCA.  It contains all study-specific information about what processes are modeled, how those processes exchange flows with one another, and what background datasets have been selected.
-
-The current practice of documenting the model with a written report sharply limits the ability of readers to interpret and reuse the data.  It also results in the model being frozen to a particular configuration or set of configurations at the time the results are generated.  Any review objectives involving sensitivity of the model to parameter variations and/or alternative scenarios are limited to the selections considered by the author.
-
-When a study result is published in an aggregated form, often it is beyond the capacity of the critical reviewer to validate the aggregation result, even if the reviewer has privileged access to confidential materials used in preparing the report. 
-
-This paper presents a possible solution by providing a mathematical formalization of the foreground of an LCA study and a functional specification for disclosing the PSM.  A data user or critical reviewer with access to the six disclosure elements, and also adequate access to background datasets and elementary flows used in the model, can reproduce the LCA computation in Eq.~\ref{eqn:study}, and ensure the reported result is correct.  Once equipped with the PSM, the reviewer or data user can potentially go much further, adding or removing elements from the model, altering dataset selections, and applying other impact assessment methods.
+%%The product system model (PSM) represents the product of an analyst's labor to perform an LCA.  It contains all study-specific information about what processes are modeled, how those processes exchange flows with one another, and what background datasets have been selected.
 
 \subsection{Comparative Review: Formalizing Scope and System Boundary}
 
-The disclosure of a PSM contains six elements, including three lists and three tables of sparse matrix data.  While the numeric data are required to critically evaluate and reproduce the study results, substantial information about the study design can be found in the list of background dependencies (\ref{itm:bg})and emissions (\ref{itm:em}).  These lists report all the distinct sources of environmental impacts in the model.  The cutoff flows, which are foreground nodes that have no nonzero entries in $A_f$, $A_d$, or $B_f$, report on the other hand what aspects were explicitly excluded from the model.
+The disclosure of a PSM contains six parts, including three lists and three tables of sparse matrix data.  While the numeric data are required to critically evaluate and reproduce the study results, substantial information about the study design can be found in the list of background dependencies (\ref{itm:bg}) and emissions (\ref{itm:em}).  These lists report all the distinct sources of environmental impacts in the model.  The cutoff flows, which are foreground nodes that have no nonzero entries in $A_f$, $A_d$, or $B_f$, report on the other hand what aspects were explicitly excluded from the model.
 
-Together, these lists can be considered a functional definition of the study scope that can be used to conduct a qualitative comparison of multiple studies by different authors.  
-
+Together, these lists can be considered a functional definition of the study scope that can be used to conduct a qualitative comparison of multiple studies by different authors.  Background database choice, dataset selection, and version information can all be made available in disclosure item~\ref{itm:bg}, thereby streamlining what is presently a highly interpretive and labor-intensive process of extracting this information from written text.  Similarly, the set of elementary flows explicitly modeled in the study foreground (item~\ref{itm:em}) expose whether any study-specific modeling of direct emissions was performed and what flows were included.
 
 
 \subsection{Privacy and Partial Aggregation} 
 
-Partial aggregation is already used in practice to conceal private data, but the
-
-If a study containing confidential information is partitioned into public and private partitions as in Eq.~\ref{eqn:private} and Fig.~\ref{fig:private}, then the results of the computation can be validated without including private data in the disclosure.  The reviewer must be granted access to both the public and private partitions in order to confirm that the partitioning is valid according to Eq.~\ref{eqn:partition}, and that $\mathbf{b}_{priv}$ was computed correctly; however, it is not thought possible for a reader to discern any information about $A_{d,priv}$ or $B_{f,priv}$ solely from $\mathbf{b}_{priv}$.
+Partial aggregation is already used in practice to conceal private data, but current practices used to generate aggregated results from input model configurations do not provide a way for a reviewer to validate the aggregation.  In contrast, if a study containing confidential information is partitioned into public and private partitions as in Eq.~\ref{eqn:private} and Fig.~\ref{fig:private}, then the results of the computation can be validated directly.  To achieve this, the reviewer must be granted access to both the public and private partitions in order to confirm that the partitioning is valid according to Eq.~\ref{eqn:partition}, and that $\mathbf{b}_{priv}$ was computed correctly.  However, and the private data can still be withheld from the disclosure.  
 
 A further advantage to this approach is that the reader can evaluate easily what fraction of the overall impact score is accounted for by the public versus the private portions of the model.  A ``disclosure completeness'' metric $\varphi$ can be defined as the fraction of the overall score which is accounted for by the disclosed portion of the PSM:
 \begin{equation}
@@ -29,10 +20,13 @@ A further advantage to this approach is that the reader can evaluate easily what
 \end{equation}
 where $\mathbf{b}$ is the complete life cycle inventory.  The value of this metric can provide an indication of the level of transparency of the disclosure with respect to a given impact category indicator.  The author may relax the disclosure constraints by reporting the locations of some or all non-zero entries in $A_{d,priv}$ and $B_{f,priv}$ but not disclosing their values.
 
+\subsection{Attacks on Privacy}
 
+It is not thought possible for a reader to discern any information about a disaggregated system solely from an aggregated disclosure such as $\mathbf{b}_{priv}$ \citep[Ch. 3]{UNEP_2011}, although that assumption has never been rigorously tested.  Compressed sensing is a signal processing technique that seeks solutions to an underdetermined linear system, in which there are more unknowns than equations, based on the assumption that the solution is sparse \citep{Donoho_2006}.  A form of linear optimization called ``basis pursuit'' can be used to try to detect the signal.
 
-
-
-
-
-
+In the LCA case, if the private LCI result $\mathbf{b}_{priv}$ includes inventory data from a background database but no foreground emissions, then it can be written as:
+\begin{equation}
+  \mathbf{b}_{priv} = B_x\times \mathbf{a}_{d,priv}
+\end{equation}
+Typically this equation is highly underdetermined (In ecoinvent, for instance, $B_x$ has roughly 1,800 rows and over 12,000 columns).  If the private input $\mathbf{a}_{d,priv}$ is highly sparse, and the identity of $B_x$ is known, then $\mathbf{a}_{d,priv}$ may be vulnerable to a basis pursuit attack.  Further research is required to evaluate whether this attack can be implemented in a real situation, and how it may be defended against.  
+%10.1109/TIT.2006.871582

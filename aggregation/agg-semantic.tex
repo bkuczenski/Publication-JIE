@@ -1,14 +1,9 @@
-\subsection{Avoiding Ambiguous Disclosures}
+\subsection{Stable Semantic References to Study Elements}
 
+In actuality, while it is easy to reproduce a set of sparse matrices, there is considerable potential for ambiguity
+in identifying the background datasets and emissions to which those matrix entries correspond.
+It is necessary for the entries in disclosure items~\ref{itm:bg} and \ref{itm:em} to be unambiguous and easy to interpret.  Entries in \ref{itm:bg}, which represent rows in $A_d$, must clearly identify the originating database, version, and configuration, along with the precise dataset, that dataset's reference flow, and the dimension (reference quantity or unit) of that flow.  In addition, the sign of the numeric entry in $A_d$ must be consistent with the implementation of the background dataset.  Similar requirements also hold for entries in \ref{itm:em}, which represent rows in $B_f$.  Current research has revealed widespread challenges to finding consistency on the identities of elementary flows \citep{Edelen_2017}.
 
+In order to achieve the transparency and reproducibility promised by this disclosure framework, it must be possible for study authors and readers to agree on the meaning of those references.  This is often accomplished using linked semantic data \citep{Bizer_2009}, in which an object to be interpreted is signified by a link to a resource on the World Wide Web, typically referred to as a Uniform Resource Identifier (URI) or a hyperlink.  The resource at the end of the link functions as a point of agreement: both study author and data user can follow it from anywhere on the Internet to obtain the same information.  The content pointed to by the hyperlink, along with context provided by \emph{other} references to the same resource, gives meaning to the information and allows it to be curated by the study authors and other members of the community \citep{Khan_2011}.   % Semantic data are structured by reference to knowledge models called ontologies, which describe the relationships among different types of entities \citep{Madin2008}.  Some preliminary descriptions of the entity types involved in LCA computation, and their relationships to one another, have recently been developed \citep{Ciroth_Srocka_2014, Janowicz_WOP_2015, Kuczenski_JCP_2016}.
 
-
-
-either the column of $B_x$, or the scalar value that corresponds to the dot product of this column with $\mathbf{e}$
-
-
-Multiple background databases
-
-
-\subsection{Stable Semantic References}
-
+Before the goal of easily reproducible foreground models can be realized, the linked data foundation must be laid.  Background database providers should ensure that their users have access to \emph{stable semantic references} for publicly available datasets that distinguish database, version, configuration, dataset, and product flow to which the reference refers.  These references should take the form of URIs that can be accessed using any browser and can provide a reader with documentary information describing the dataset, the quantitative dimension of the reference flow, and a mechanism for the reader to obtain access to the data.  Similarly, LCIA method providers should ensure that their methods make use of stable semantic references to elementary flows and contexts.
