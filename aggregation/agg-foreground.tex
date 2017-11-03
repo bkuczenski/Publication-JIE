@@ -1,8 +1,7 @@
-\subsection{Interpreting the Foreground}
 
-The foreground of an LCA study is a collection of nodes that represent points in the inventory model where flows are exchanged.  The foreground matrix $A_f$ describes in precise terms what components are included in the product system and how they connect to one another.  The foreground is modelled as a weighted directed graph in which there is a 1:1 correspondence between nodes and product flows.  The foreground matrix $A_f$ reports the adjacency and weights of edges in the graph, and thus describes the relationships among these nodes.  These nodes typically represent unit processes, but they can also indicate exchanges across an implicit system boundary that encloses the foreground.
+\section{Foreground Configurations}
 
-A reviewer with access to items \ref{itm:fg} and \ref{itm:af} in the disclosure would be able to construct $A_f$ and automatically create a process-flow diagram, annotated with information about each node.  Generally, the foreground matrix $A_f$ can represent any process-flow model with a 1:1 correspondence between processes and flows, i.e. any allocated supply-and-use table, but some fundamental designs are common.  Some simple foreground models are shown in Figure~\ref{fig:fragments}.  
+Figure~\ref{fig:fragments} illustrates the structure of some basic foreground configurations.  Most product system models would include many of these elements mixed together.  A reviewer with access to items \ref{itm:fg} and \ref{itm:af} in the disclosure would be able to construct $A_f$ and automatically create a process-flow diagram, annotated with information about each node.
 
 \input{fig_fragments}
 

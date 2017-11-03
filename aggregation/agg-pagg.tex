@@ -4,7 +4,7 @@
 
 Often, a study author may wish to make a partial disclosure of a PSM that retains the privacy of confidential data, while still permitting comprehensive critical review of the complete model.  In this case it is necessary to grant a reviewer privileged access to the private data in order to meet the review objectives.  The study formulation in Eq.~\ref{eqn:study} may be used to partition a foreground into public and private portions in order to comply with any applicable constraints on what may be disclosed.  The approach is illustrated in Figure~\ref{fig:private}.
 
-The first step is to identify the constraints on the disclosure.  In the framework presented here, constraints may include the locations or values of any subset of nonzero entries in the $A_d$ and $B_f$ matrices, as well as any subset of nodes in $A_f$.  Fig.~\ref{fig:private}a shows a PSM in which disclosure constraints are indicated by shaded regions of the matrices.  In this case the nodes represented by the three rightmost columns of $A_f$, as well as one entire row of $A_d$, are to remain secret.
+The first step is to identify the constraints on the disclosure.  In the framework presented here, constraints may include the locations or values of any subset of nonzero entries in the $A_d$ and $B_f$ matrices, as well as any subset of nodes in $A_f$.  Fig.~\ref{fig:private}a shows a PSM in which disclosure constraints are indicated by shaded regions of the matrices.  In this case the nodes represented by the three rightmost columns of $A_f$, as well as one entire row of $A_d$, are to remain secret.  
 
 The $A_d$ and $B_f$ matrices are then partitioned into two components that sum to the original:
 \begin{equation}\begin{aligned}
@@ -19,4 +19,6 @@ This is illustrated in Fig.~\ref{fig:private}b.  Substituted back into Eq.~\ref{
   =\; & \mathbf{e}^T\times\left((B_{f,pub} + B_x\times A_{d,pub})\times\tilde{\mathbf{x}} + \mathbf{b}_{priv}\right)\label{eqn:private}\\
   \mathbf{b}_{priv} =\; & (B_{f,priv} + B_x\times A_{d,priv})\times \tilde{\mathbf{x}}
 \end{align}
-Any foreground nodes that are completely contained within the private partition can be omitted from the disclosed foreground.  The aggregation result can then be included as a separate foreground node with a unit weight, and the aggregated inventory vector included as the corresponding column of $B_f$.  This is illustrated in Fig.~\ref{fig:private}c.  The 
+Any foreground nodes that are completely contained within the private partition can be omitted from the disclosed foreground.  The aggregation result can then be included as a separate foreground node with a unit weight, and the aggregated inventory vector included as the corresponding column of $B_f$.  This is illustrated in Fig.~\ref{fig:private}c.  
+
+The author may relax the disclosure constraints by reporting the locations of some or all non-zero entries in $A_{d,priv}$ and $B_{f,priv}$ but not disclosing their values. This would enable a reader to understand \emph{that} a certain background process or emission was included in the model, but not to know \emph{how much} was included.

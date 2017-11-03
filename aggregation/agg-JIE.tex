@@ -53,8 +53,10 @@ University of California, Santa Barbara}
 
 Objectives in critical review vary with the study and the reviewer, but they generally include consistency with the ISO 14044 standard, the validity of methods, appropriateness of data used, correctness of interpretations, and transparency of reporting \citep[Section 6.1]{iso14044}.  Although the object of critical review is typically a written report, the use of a structured disclosure of a PSM introduces the possibility that reviewers can inspect the model itself and even verify the computations and reported results.  This section discusses how a disclosure in the format described above can enable robust review of a product system model.  Note that, for purposes of critical review, the objective for data privacy can be omitted because the reviewer may be granted privileged access to confidential data.  We return to the data privacy requirement in the next section.
 
-  \input{agg-foreground} % Af and graph/matrix equivalency
-  
+\subsection{Interpreting the Foreground}
+
+The foreground of an LCA study is a collection of nodes that represent points in the inventory model where flows are exchanged.  The foreground matrix $A_f$ describes in precise terms what components are included in the product system and how they connect to one another.  The foreground is modelled as a weighted directed graph in which there is a 1:1 correspondence between nodes and product flows.  The foreground matrix $A_f$ reports the adjacency and weights of edges in the graph, and thus describes the relationships among these nodes.  These nodes typically represent unit processes, but they can also indicate exchanges across an implicit system boundary that encloses the foreground.  Generally, the foreground matrix $A_f$ can represent any process-flow model with a 1:1 correspondence between processes and flows, i.e. any allocated supply-and-use table, but some fundamental designs are common.  Some simple foreground models are shown in the supplementary materials.
+
   \input{agg-deps}       % Ad and Bf
 
 \section{Foreground Aggregation}
@@ -112,7 +114,9 @@ This paper presents a possible solution by providing a mathematical formalizatio
 
   \input{agg-requirements}
 
-  \input{../publication/publication-example}
+  \input{agg-foreground} % Af and graph/matrix equivalency
+  
+  \input{../manuscript/publication-example}
   
 %  \input{publication-si-spreadsheet}
 
