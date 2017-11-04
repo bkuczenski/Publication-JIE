@@ -19,6 +19,7 @@ This is illustrated in Fig.~\ref{fig:private}b.  Substituted back into Eq.~\ref{
   =\; & \mathbf{e}^T\times\left((B_{f,pub} + B_x\times A_{d,pub})\times\tilde{\mathbf{x}} + \mathbf{b}_{priv}\right)\label{eqn:private}\\
   \mathbf{b}_{priv} =\; & (B_{f,priv} + B_x\times A_{d,priv})\times \tilde{\mathbf{x}}
 \end{align}
-Any foreground nodes that are completely contained within the private partition can be omitted from the disclosed foreground.  The aggregation result can then be included as a separate foreground node with a unit weight, and the aggregated inventory vector included as the corresponding column of $B_f$.  This is illustrated in Fig.~\ref{fig:private}c.  
+Any foreground nodes that are completely contained within the private partition can be omitted from the disclosed foreground.  The aggregation result can then be included as a separate foreground node with a unit weight, and the aggregated inventory vector included as the corresponding column of $B_f$.  This is illustrated in Fig.~\ref{fig:private}c.
 
-The author may relax the disclosure constraints by reporting the locations of some or all non-zero entries in $A_{d,priv}$ and $B_{f,priv}$ but not disclosing their values. This would enable a reader to understand \emph{that} a certain background process or emission was included in the model, but not to know \emph{how much} was included, which may jointly satisfy review objectives and disclosure constraints in some cases.
+
+The author may relax the disclosure constraints by reporting the locations of some or all non-zero entries in $A_{d,priv}$ and $B_{f,priv}$ but not disclosing their values, or disclosing a range that includes the actual value.  This would enable a reader to understand \emph{that} a certain background process or emission was included in the model (and checked by the critical reviewer) without knowing how much, which may jointly satisfy review objectives and disclosure constraints in some cases.  
