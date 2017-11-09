@@ -135,7 +135,7 @@
   %\bottomlabel{nAf}{\scriptsize Foreground}
 
   % bf~ vector - aligned with I
-  \rput[B](nX|nB){$+$}
+  %\rput[B](nX|nB){$+$}
   \toplabel{nbf}{\blue$\tilde{\mathbf{b}}_f$}
   \fillmatrix[foreground]{nbf}
 
