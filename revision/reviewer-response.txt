@@ -1,25 +1,92 @@
 ==========
 Tue Aug 08 10:15:39 -0700 2017
 
+Many thanks to the anonymous reviewers for their close review of my manuscript.  Based in part on their recommendations I have significantly revised the manuscript.  Every section after the introduction has been either reworked or newly created.  I have narrowed the scope to concentrate on structured representation of product system models, and to exclude many aspects of publishing those models that were present in the first draft.  With this narrowing of scope I have been able to add new focus areas on private or confidential information in the model and on implications for critical review, both of which were highlighed by Reviewer #3.  I have also thoroughly revised the mathematical development to be clearer and more precise in accordance with the suggestions from reviewer #1, which were highly appropriate, and I hope that the reviewer can now make it to the end of the text.
+
+Below I respond to the reviewers' comments individually.  Page and line numbers refer to the revised manuscript.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 R1-
 
+In general, the mathematics have been cleaned up extensively, and I adopted almost all of the reviewer's suggestions.  The notation should be self-consistent throughout the manuscript (though not, unfortunately, consistent with Heijungs and Suh) and all symbols are properly introduced and defined.  The supplementary information also includes proofs or derivations for all equations for which this is necessary.  Finally, I have attempted to introduce the "canonical" LCA foreground study (p. X, l xx) in a way that is both easy to understand and useful for the development.  The comments were very helpful (and in some cases, such as in observing my misuse of the cross product notation, a bit embarrassing).  I believe the mathematical development has been greatly strengthened in the revision, and I hope the changes make the manuscript more intelligible to the reviewer and ultimately to readers.  
+
+1. Dependency and ordering. Page 5, line 54 states that foreground processes are dependent on background processes but not the other way around. Hance the processes can be partially ordered. The validity of these statements depend on the meaning of the word "dependent"....
+
+Thank you for this observation.  In the revised manuscript I have emphasized that "dependent on x" means "x is required to perform the LCA computation."  In this sense, the foreground of the study depends on the background but not vice-versa.  This is explained at p.X, l XX.
+
+... Another example is the so-called integrated hybrid IOA-LCA, where all quadrants contain non-zero cells.
+
+I added discussion of integrated hybrid models to the section on LCA foreground studies, p. X, l XX.
+
+2. Most equations contain a cross (x) for matrix and vector multiplication. Please do not
+
+Thank you for pointing out this error. I have corrected the notation.
+
+3. Why do you start using "classic formulation ... Heijungs & Suh", but use different symbols (y for f, s for h), which are moreover confusing (because s means something different to Heijungs & Suh).
+
+I have removed the reference to Heijungs and Suh's notation.
+
+4. The notation in eq (1) has y as a column vector and e as a row vector. It would be better to adopt one convention (please make it column vectors), and write a row vector with a transpose symbol...
+
+I have done as the reviewer suggests, both in the text and in the figures.
+
+5. What is the reason of rewriting eq (1) into eq (2)? As I see it, it only complicates, because every appearance of "A^-1" now reads "(I-A')^-1"....
+
+Reviewer #2 also commented on this confusing aspect.  I have adopted the input-output notation exclusively in the revision, because it is more convenient to represent the ordering in terms of a normalized adjacency graph than a technology matrix.  The complication to which the reviewer objects is no longer present, because I no longer introduce the "classical" technology matrix formulation at all.  
+
+Comments 6-11 are either not applicable in the revision because of notation changes and editing.
+
+Comments 12-13: proofs have been provided for both these relations, which are between equations 3 and 4, and equations 1 and 5 respectively in the new manuscript.
+
+Comments 14-17 and 19 have also been accounted for through improved notation.
+
+In these passages, I have used the tilde modifier to represent any LCI database that is made up of a background database augmented with foreground content and appropriately ordered so that the foreground is to the left / above the background.  The "canonical" functional unit is now the functional unit that selects a unit output of the first column of the technology matrix.  The x-tilde, y-tilde, and y_f vectors are defined explicitly on p. X l xx, p.X l xx, and p.X l xx respectively.  
+
+Comment 18 ... states that the foreground needs no matrix inversion, because you can "traverse the graph". Can you specify concrete formulas...
+
+The passage has been removed.  However, the equivalency is quite interesting.  There is a useful treatment in Bapat and Ghorbani, 2014 in Linear Algebra and Applications (DOI: 10.1016/j.laa.2013.03.002), hereafter BG14.  It is not easy to make the analogy because technology matrices, though derivable from bipartite graphs, are not themselves bipartite.  The bipartite graph in BG14 theorem 1 essentially can be imagined to correspond to an LCI database in supply/use form, and the adjacency matrix A in BG14 theorem 1 is the normalized technology matrix that is derived from the supply and use matrices.
+
+The traversal process cannot be stated easily as concrete formulas because it is essentially algorithmic (the proof in BG14 is by induction).  But the algorithm is the same as what is used to iteratively compute the matrix inverse from the direct requirements matrix.  Sequential multiplications of a unit demand vector by the technology matrix represent sequential steps in a traversal of the graph.  Every nonzero value in the resulting multiplication will be the product of the exchange values that have been traversed, i.e. the node weight of the node that has been arrived at in the traversal.  If this matrix is sparse and acyclic (lower-triangular), then the traversal will end after a finite number of multiplications that cannot exceed the rank of the matrix.  The sum of these vectors will report the accumulated weights of each node that was traveled through during the traversal, in the same way that the total requirements matrix can be derived by an infinite sum of powers of the direct requirements matrix.  But the infinite sum is not required if the graph has no cycles.
+
+Ultimately, the requirement that the foreground has no cycles is overly limiting and not necessary, so I removed it.
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-R2- Pauliuk
+R2- Pauliuk (he disclosed his identity to me)
 
 "... sound mathematical description and a guideline and examples of how to extract and format crucial LCA results ...  well suited for publication in JIE."
 
+Thank you for your constructive review.  In my revision I have steered away from the practical implications of sharing models, which are complex and include challenges that I was unable to address in the prior draft, and focused more on the mathematical framework that would allow these challenges to be addressed in the future.  Thus the scope of the manuscript has been reduced.  One advantage of this is that I could focus more on aspects that relate to the quality of the disclosure-- namely, in discerning how varying levels of transparency can be achieved through different partial aggregation strategies.  This also allowed me to strongly consider the implications for critical review, as requested by Reviewer #3.
+
++ The level of detail at which the results are shared determines the types of analysis that others can perform. When only total background emissions are shared a contribution or structural path analysis is rendered impossible. Next to figure S1 (which is great and should be moved to the main paper), there should be a table listing the types of analysis that can be performed depending on the level of detail at which the results are reported.
+
+I did move the supplemental figure to the main text; however, I did not explicitly list "the types of analysis that can be performed" because I could not imagine making such a list comprehensive.  However, in the revision I introduce the concepts of 'review objectives' and 'disclosure constraints' on p. X l xx.  While I do not explicitly mention structural path analysis, this form of analysis is really not applicable to foreground studies because the 'structural paths' are explicit in the patterns of nonzero entries in the foreground.  SPA essentially provides a method for contribution analysis that is important in relatively dense and cyclically dependent input-output networks (as discussed in Peters 2007; DOI: 10.1016/j.ecolmodel.2006.07.041) but largely superfluous in foreground networks of the type described in the manuscript.  
+ 
 * Right now, most LCA studies are close to useless when being compared to others because of complete lack of transparency. From that state we have a ladder of improvements to make, and that ladder should be described in detail and linked to the different aggregation steps.
 
-" ... we need to provide for unique labelling of data points across databases and computation platforms."
+I agree with this assessment.  In the revision I emphasize the creation of a "disclosure" in which a portion of the model (up to the entire model) is explicitly reported, while other portions can be held back.  The idea is that this, if adopted, will advance the quality of reporting of LCAs and "move us up the ladder".
 
-" version clarity"
++ I am missing emphasis on the classification of processes, products, and emissions. Reporting the full names of the data objects (processes, products, elementary flows) is important, but ... we need to provide for unique labelling of data points across databases and computation platforms."
 
-" reference products"
+"... version clarity ..."
 
-Difference between Heijungs and Leontief style matrices
+"... reference products ..."
+
+I agree, the problem of reaching agreement on the meaning of descriptors is quite challenging.  The prior version of the manuscript depended on this problem being solved; in the revision, the manuscript is able to elucidate this requirement as an implication of the work without necessarily providing a solution.  The discussion section entitled "stable semantic references to study elements" provides an explicit statement of these requirements, and they are also addressed in the Supplementary materials.
+
++ Throughout the manuscript there is a slight lack of clearness regarding the distinction between flows and coefficients, the difference between the Heijungs and Suh A-matrix and the Leontief-type A-matrix, and the question of which results can be reproduced from which aggregation level or results. More clarity will greatly help the readers less familiar with the computational structure of LCS to grasp the ideas presented here.
+
+I have tried to take this advice to heart in the revision, particularly with the introduction of "Reviewable Private Aggregation" and the new Figure 4.
+
++ Just a general feeling I had when reading the manuscript: There is a lot of generic description on the importance of metadata.... but I miss the discussion of the real problems ... matching concerns ... to link flows ... automatically to the right background data.... "
+
+Again, I have tried to take this advice to heart, but to some extent I have reduced the scope of the manuscript to exclude some of these concerns.  Again the section on "Stable semantic references" is meant to be a call to the community to consider precisely these problems and develop collective solutions.
+
++ The expected consequences for data providers, data users, database providers, and software developers should be mapped out in more detail. Where are the bottlenecks in setting up this process?
+
+In the revised manuscript, these implications are no longer in scope.  The idea of structured disclosure of product system models is directed at modellers and report authors; it will ultimately bear on software makers but that is a matter to be addressed later.
+
 
 
 
