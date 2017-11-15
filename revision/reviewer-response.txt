@@ -53,7 +53,7 @@ Ultimately, the requirement that the foreground has no cycles is overly limiting
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-R2- Pauliuk (he disclosed his identity to me)
+R2- 
 
 "... sound mathematical description and a guideline and examples of how to extract and format crucial LCA results ...  well suited for publication in JIE."
 
@@ -87,7 +87,52 @@ Again, I have tried to take this advice to heart, but to some extent I have redu
 
 In the revised manuscript, these implications are no longer in scope.  The idea of structured disclosure of product system models is directed at modellers and report authors; it will ultimately bear on software makers but that is a matter to be addressed later.
 
+Minor comments:
 
++ Please also refer to the allocation problem (co-production) and to the crediting problem (material or waste enter different product systems), and cite some relevant literature here.
+
+Factors such as co-production strategy (Finnveden_1999, Pelletier_2014) can also render study findings unreliable or highly contingent.
+
++ P6L13ff: “An LCA study result is ultimately an assertion that, for some input data known as the “model,”…”  1) That describes Attributional LCA, please specify. 2) please rephrase the start of this sentence, as it is unclear how (input) data can be a model.
+
+The comment has been updated to read: "An LCA study result is ultimately an assertion that for some constructed PSM, the delivery of a particular reference flow is associated with a certain amount of environmental impact or potential impact."  The applicability of the statement is not limited to attributional LCA.
+
++ P8L31: Please also cite DOI 10.1111/jiec.12142 (Majeau-Bettez et al. 2014) here for the link between supply and use tables and input-output models in LCA.
+
+This is now done.
+
++ P8L40: “generated non-reference outputs (negative values)” Only for some constructs. In the case of partitioning allocation there are no negative inflows as input requirements are split so that only single output process descriptions result.
+
+Noted in a footnote.
+
++ Equations 3 and 4 are not equivalent. Equ. 4 cannot be used for a structural path analysis, for example, as it contains aggregate information only. Please be more specific.
+
+Updated to read "...equivalency of results derived from Eq.s 3 and 4..."
+
++ P11L22: “The foreground graph Af can be distilled into a vector of…” please use more scientific language here. A_f is not a graph but a description of a graph, and distilling reminds me of other things than science…
+
+The passage has been removed.
+
++ Figure S1 provides a very good summary of the different aggregation steps; consider moving it to the main paper.
+
+Thank you for the compliment and the suggestion; this has been done in the revision.
+
++ There are two A-matrices in LCA: One is the Suh and Heijungs matrix of flows and the other one is the matrix of technical coefficients. Please distinguish better between the two, e.g., on P12L45, where you write about flows in the A_f matrix, but it should read ‘coefficients in the A_f matrix’.
+
+In the revision, only the Leontief matrix is used. Other passages have been updated or removed.
+
++ P13L31: Only aggregated results can be reproduced from the aggregated foreground. Please make this limitation explicit.
+
+Noted: "The aggregated result can also be computed from the aggregated foreground..." (p. X l x)
+
++ P31L41: “Generally, any directed graph can be represented in Af ,…” That is not correct. Af can only contain bipartite graphs with a 1:1 correspondence between industries and nodes, that means, an industrial inventory (SUT) after allocation. Cf. DOI 10.1111/jiec.12306 for the argument.
+
+Noted: "Generally, the foreground matrix $A_f$ can represent any process-flow model with a 1:1 correspondence between processes and flows, i.e. any allocated supply-and-use table..."
+
++ Figures 4 and 5: Units are missing. Is the rightmost column the row sum of the detailed exchange table? Please provide more explanations in the Table caption. The symbols A_f, B_f, etc. that are frequently used in the text should be displayed here as well.
+
+These exhibits have been moved into the supplementary materials.
+NEED MORE FINISH HERE
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
