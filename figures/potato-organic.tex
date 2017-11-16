@@ -1,61 +1,62 @@
 market for potato, organic [GLO]
 
+
 {\scriptsize\sffamily
-\begin{tabularx}{\textwidth}{|>{\hangindent=2ex}X|c@{~}c@{~}c@{~}c@{~}c@{~}c@{~}c@{~}c@{~}c@{~}|c|}
+\begin{tabularx}{\textwidth}{|>{\hangindent=3ex}X|c@{~}c@{~}c@{~}c@{~}c@{~}c@{~}c@{~}c@{~}c@{~}|c|}
 \hline
-(node) Foreground flow \rule[-3pt]{0pt}{12pt} & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & \\ 
+(node) Foreground flows -- $A_f$ \rule[-3pt]{0pt}{12pt} & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & \\ 
 \hline
-(0) potato, organic (kg) [GLO] & \refbox  &  &  &  &  &  &  &  &  & \\ 
-(1) potato, organic (kg) [CH] & 0.024 & \refbox  &  &  &  &  &  &  &  & \\ 
-(2) potato, organic (kg) [RoW] & 0.976 &  & \refbox  &  &  &  &  &  &  & \\ 
-(3) potato seed, organic, at farm (kg) [RoW] &  &  &  & \refbox  &  &  &  & 0.976 &  & \\ 
-(4) potato seed, organic, for setting (kg) [CH] &  &  &  &  & \refbox  &  &  &  & 0.024 & \\ 
-(5) potato seed, organic, for setting (kg) [RoW] &  &  &  &  &  & \refbox  &  &  & 0.976 & \\ 
-(6) potato seed, organic, at farm (kg) [CH] &  &  &  &  &  &  & \refbox  & 0.024 &  & \\ 
-(7) potato seed, organic, at farm (kg) [GLO] &  &  &  &  &    1 &    1 &  & \refbox  &  & \\ 
-(8) potato seed, organic, for setting (kg) [GLO] &  & 0.11 & 0.11 & 0.16 &  &  & 0.16 &  & \refbox  & \\ 
+(0) potato, organic [GLO] (kg) & \refbox  &  &  &  &  &  &  &  &  & \\ 
+(1) potato, organic [CH] (kg) & 0.024 & \refbox  &  &  &  &  &  &  &  & \\ 
+(2) potato, organic [RoW] (kg) & 0.976 &  & \refbox  &  &  &  &  &  &  & \\ 
+(3) potato seed, organic, at farm [CH] (kg) &  &  &  & \refbox  & 0.024 &  &  &  &  & \\ 
+(4) potato seed, organic, at farm [GLO] (kg) &  &  &  &  & \refbox  &    1 &    1 &  &  & \\ 
+(5) potato seed, organic, for setting [RoW] (kg) &  &  &  &  &  & \refbox  &  &  & 0.976 & \\ 
+(6) potato seed, organic, for setting [CH] (kg) &  &  &  &  &  &  & \refbox  &  & 0.024 & \\ 
+(7) potato seed, organic, at farm [RoW] (kg) &  &  &  &  & 0.976 &  &  & \refbox  &  & \\ 
+(8) potato seed, organic, for setting [GLO] (kg) &  & 0.11 & 0.11 & 0.16 &  &  &  & 0.16 & \refbox  & \\ 
 \hline
-Foreground Node Weights $\tilde{x}$ &    1 & 0.024 & 0.976 & 0.128 & 0.00315 & 0.128 & 0.00315 & 0.131 & 0.131& \\ 
+Foreground Node Weights $\tilde{x}$ &    1 & 0.024 & 0.976 & 0.00315 & 0.131 & 0.128 & 0.00315 & 0.128 & 0.131& \\ 
 \hline
 \hline
-Background Dependencies \rule[-3pt]{0pt}{12pt} & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & $\tilde{a_d}$\\ 
+Background Dependencies -- $A_d$ \rule[-3pt]{0pt}{12pt} & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & $\tilde{a_d}$\\ 
 \hline
-transport, freight train (metric ton*km) [GLO] & \dependency &  &  &  &  &  &  & \dependency &  & 0.138\\ 
-irrigation (m3) [CH] &  & \dependency &  &  &  &  & \dependency &  &  & 0.000426\\ 
-tillage, hoeing and earthing-up, potatoes (ha) [GLO] &  & \dependency & \dependency & \dependency &  &  & \dependency &  &  & 0.000101\\ 
-potato planting (ha) [GLO] &  & \dependency & \dependency & \dependency &  &  & \dependency &  &  & 5.04e-05\\ 
-solid manure loading and spreading, by hydraulic loader and spreader (kg) [GLO] &  & \dependency & \dependency & \dependency &  &  & \dependency &  &  & 0.717\\ 
-electricity, low voltage (kWh) [CH] &  &  &  &  & \dependency &  &  &  &  & 0.00023\\ 
-potato grading (kg) [GLO] &  & \dependency & \dependency & \dependency &  &  & \dependency &  &  &  1.13\\ 
-transport, freight, light commercial vehicle (metric ton*km) [GLO] & \dependency &  &  &  &  &  &  & \dependency &  & 0.0258\\ 
-tillage, harrowing, by spring tine harrow (ha) [GLO] &  & \dependency & \dependency & \dependency &  &  & \dependency &  &  & 5.04e-05\\ 
-tillage, ploughing (ha) [GLO] &  & \dependency & \dependency & \dependency &  &  & \dependency &  &  & 5.04e-05\\ 
-electricity, low voltage (kWh) [GLO] &  &  &  &  &  & \dependency &  &  &  & 0.00933\\ 
-transport, freight, lorry, unspecified (metric ton*km) [GLO] & \dependency &  &  &  &  &  &  & \dependency &  & 0.404\\ 
-green manure, organic, until March (ha) [GLO] &  & \dependency & \dependency & \dependency &  &  & \dependency &  &  & 5.04e-05\\ 
-building, multi-storey (m3) [GLO] &  &  &  &  & \dependency & \dependency &  &  &  & 5.24e-06\\ 
-liquid manure spreading, by vacuum tanker (m3) [GLO] &  & \dependency & \dependency & \dependency &  &  & \dependency &  &  & 0.000565\\ 
-application of plant protection product, by field sprayer (ha) [GLO] &  & \dependency & \dependency & \dependency &  &  & \dependency &  &  & 0.000222\\ 
-transport, freight, sea, transoceanic ship (metric ton*km) [GLO] & \dependency &  &  &  &  &  &  & \dependency &  & 0.525\\ 
-potato haulm cutting (ha) [GLO] &  & \dependency & \dependency & \dependency &  &  & \dependency &  &  & 5.04e-05\\ 
-transport, tractor and trailer, agricultural (metric ton*km) [GLO] &  & \dependency & \dependency & \dependency &  &  & \dependency &  &  & 0.00113\\ 
-harvesting, by complete harvester, potatoes (ha) [GLO] &  & \dependency & \dependency & \dependency &  &  & \dependency &  &  & 5.04e-05\\ 
-tillage, currying, by weeder (ha) [GLO] &  & \dependency & \dependency & \dependency &  &  & \dependency &  &  & 0.000101\\ 
-transport, freight, inland waterways, barge (metric ton*km) [GLO] & \dependency &  &  &  &  &  &  & \dependency &  & 0.0857\\ 
-copper oxide (kg) [GLO] &  & \dependency & \dependency & \dependency &  &  & \dependency &  &  & 0.000107\\ 
-tillage, harrowing, by rotary harrow (ha) [GLO] &  & \dependency & \dependency & \dependency &  &  & \dependency &  &  & 5.04e-05\\ 
-irrigation (m3) [GLO] &  &  & \dependency & \dependency &  &  &  &  &  & 0.0173\\ 
+building, multi-storey [GLO] (m3) &  &  &  &  &  & \dependency & \dependency &  &  & 5.24e-06\\ 
+electricity, low voltage [GLO] (kWh) &  &  &  &  &  & \dependency &  &  &  & 0.00933\\ 
+potato haulm cutting [GLO] (ha) &  & \dependency & \dependency & \dependency &  &  &  & \dependency &  & 5.04e-05\\ 
+tillage, hoeing and earthing-up, potatoes [GLO] (ha) &  & \dependency & \dependency & \dependency &  &  &  & \dependency &  & 0.000101\\ 
+transport, tractor and trailer, agricultural [GLO] (metric ton*km) &  & \dependency & \dependency & \dependency &  &  &  & \dependency &  & 0.00113\\ 
+transport, freight, light commercial vehicle [GLO] (metric ton*km) & \dependency &  &  &  & \dependency &  &  &  &  & 0.0258\\ 
+tillage, ploughing [GLO] (ha) &  & \dependency & \dependency & \dependency &  &  &  & \dependency &  & 5.04e-05\\ 
+green manure, organic, until March [GLO] (ha) &  & \dependency & \dependency & \dependency &  &  &  & \dependency &  & 5.04e-05\\ 
+transport, freight, lorry, unspecified [GLO] (metric ton*km) & \dependency &  &  &  & \dependency &  &  &  &  & 0.404\\ 
+transport, freight train [GLO] (metric ton*km) & \dependency &  &  &  & \dependency &  &  &  &  & 0.138\\ 
+transport, freight, inland waterways, barge [GLO] (metric ton*km) & \dependency &  &  &  & \dependency &  &  &  &  & 0.0857\\ 
+copper oxide [GLO] (kg) &  & \dependency & \dependency & \dependency &  &  &  & \dependency &  & 0.000107\\ 
+tillage, harrowing, by spring tine harrow [GLO] (ha) &  & \dependency & \dependency & \dependency &  &  &  & \dependency &  & 5.04e-05\\ 
+potato planting [GLO] (ha) &  & \dependency & \dependency & \dependency &  &  &  & \dependency &  & 5.04e-05\\ 
+solid manure loading and spreading, by hydraulic loader and spreader [GLO] (kg) &  & \dependency & \dependency & \dependency &  &  &  & \dependency &  & 0.717\\ 
+potato grading [GLO] (kg) &  & \dependency & \dependency & \dependency &  &  &  & \dependency &  &  1.13\\ 
+tillage, harrowing, by rotary harrow [GLO] (ha) &  & \dependency & \dependency & \dependency &  &  &  & \dependency &  & 5.04e-05\\ 
+harvesting, by complete harvester, potatoes [GLO] (ha) &  & \dependency & \dependency & \dependency &  &  &  & \dependency &  & 5.04e-05\\ 
+transport, freight, sea, transoceanic ship [GLO] (metric ton*km) & \dependency &  &  &  & \dependency &  &  &  &  & 0.525\\ 
+liquid manure spreading, by vacuum tanker [GLO] (m3) &  & \dependency & \dependency & \dependency &  &  &  & \dependency &  & 0.000565\\ 
+electricity, low voltage [CH] (kWh) &  &  &  &  &  &  & \dependency &  &  & 0.00023\\ 
+irrigation [GLO] (m3) &  &  & \dependency &  &  &  &  & \dependency &  & 0.0173\\ 
+tillage, currying, by weeder [GLO] (ha) &  & \dependency & \dependency & \dependency &  &  &  & \dependency &  & 0.000101\\ 
+application of plant protection product, by field sprayer [GLO] (ha) &  & \dependency & \dependency & \dependency &  &  &  & \dependency &  & 0.000222\\ 
+irrigation [CH] (m3) &  & \dependency &  & \dependency &  &  &  &  &  & 0.000426\\ 
 \hline
-Foreground Emissions \rule[-3pt]{0pt}{12pt} & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & $\tilde{b_f}$\\ 
+Foreground Emissions -- $B_f$ \rule[-3pt]{0pt}{12pt} & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & $\tilde{b_f}$\\ 
 \hline
-Input: Occupation, construction site [natural resource, land] &  &  &  &  & \dependency & \dependency &  &  &  & 2.1e-06\\ 
-Input: Transformation, from unspecified [natural resource, land] &  &  &  &  & \dependency & \dependency &  &  &  & 1.05e-06\\ 
-Input: Transformation, to industrial area [natural resource, land] &  &  &  &  & \dependency & \dependency &  &  &  & 1.05e-06\\ 
-Input: Energy, gross calorific value, in biomass [natural resource, biotic] &  & \dependency & \dependency & \dependency &  &  & \dependency &  &  &  3.87\\ 
-Output: Phosphate [water, ground-] &  & \dependency & \dependency & \dependency &  &  & \dependency &  &  & 6.25e-06\\ 
-Output: Cadmium, ion [water, ground-] &  & \dependency & \dependency & \dependency &  &  & \dependency &  &  & 1.14e-09\\ 
-Output: Zinc, ion [water, ground-] &  & \dependency & \dependency & \dependency &  &  & \dependency &  &  & 1.35e-06\\ 
-Output: Nitrate [water, ground-] &  & \dependency & \dependency & \dependency &  &  & \dependency &  &  & 0.00696\\ 
+Input: Occupation, construction site [natural resource, land] (m2*year) &  &  &  &  &  & \dependency & \dependency &  &  & 2.1e-06\\ 
+Input: Transformation, from unspecified [natural resource, land] (m2) &  &  &  &  &  & \dependency & \dependency &  &  & 1.05e-06\\ 
+Input: Transformation, to industrial area [natural resource, land] (m2) &  &  &  &  &  & \dependency & \dependency &  &  & 1.05e-06\\ 
+Input: Energy, gross calorific value, in biomass [natural resource, biotic] (MJ) &  & \dependency & \dependency & \dependency &  &  &  & \dependency &  &  3.87\\ 
+Output: Phosphate [water, ground-] (kg) &  & \dependency & \dependency & \dependency &  &  &  & \dependency &  & 6.25e-06\\ 
+Output: Cadmium, ion [water, ground-] (kg) &  & \dependency & \dependency & \dependency &  &  &  & \dependency &  & 1.14e-09\\ 
+Output: Zinc, ion [water, ground-] (kg) &  & \dependency & \dependency & \dependency &  &  &  & \dependency &  & 1.35e-06\\ 
+Output: Nitrate [water, ground-] (kg) &  & \dependency & \dependency & \dependency &  &  &  & \dependency &  & 0.00696\\ 
 $\ldots$ (31 rows omitted) &  &  &  &  &  &  &  &  & \\ 
 \hline
 \end{tabularx}

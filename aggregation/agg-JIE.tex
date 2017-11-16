@@ -37,7 +37,7 @@ University of California, Santa Barbara}
   \input{agg-abstract}
 
   \doublespacing
-  \linenumbers
+  %\linenumbers
 
 %  {\red http://pubs.acs.org/doi/pdf/10.1021/acs.est.5b01558}
 
@@ -94,6 +94,8 @@ When an LCA study result is computed, the foreground and background matrices are
 }
 
 \def\supporting{
+  \setcounter{figure}{0}
+  \setcounter{table}{0}
   \renewcommand{\thefigure}{S\arabic{figure}}
   \renewcommand{\thetable}{S\arabic{table}}
 
@@ -111,7 +113,7 @@ When an LCA study result is computed, the foreground and background matrices are
 
   \input{agg-foreground} % Af and graph/matrix equivalency
   
-  \input{../manuscript/publication-example}
+  \input{publication-example}
   
 %  \input{publication-si-spreadsheet}
 
@@ -131,8 +133,8 @@ When an LCA study result is computed, the foreground and background matrices are
 
 \begin{document}
 
-\mainpaper
-%\supporting
+%\mainpaper
+\supporting
 
 %% %\unused
 

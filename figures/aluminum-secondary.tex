@@ -1,57 +1,57 @@
 Aluminum, secondary, ingot, from automotive scrap, at plant [RNA]
 
+
 {\scriptsize\sffamily
-\begin{tabularx}{\textwidth}{|>{\hangindent=2ex}X|c@{~}c@{~}c@{~}c@{~}|c|}
+\begin{tabularx}{\textwidth}{|>{\hangindent=3ex}X|c@{~}c@{~}c@{~}c@{~}|c|}
 \hline
-\everypar{\hangindent1em \hangafter1}
-(node) Foreground flow \rule[-3pt]{0pt}{12pt} & 0 & 1 & 2 & 3 & \\ 
+(node) Foreground flows -- $A_f$ \rule[-3pt]{0pt}{12pt} & 0 & 1 & 2 & 3 & \\ 
 \hline
-(0) Aluminum, secondary, ingot, from automotive scrap, at plant (kg) [RNA] & \refbox  &  &  &  & \\ 
-(1) Aluminum recovery, transport, to plant (kg) [RNA] & 1.03 & \refbox  &  &  & \\ 
-(2) Quicklime, at plant (kg) [RNA] & 2.35e-05 &  & \refbox  &  & \\ 
-(3) Limestone, at mine (kg) [RNA] &  &  & 1.87 & \refbox  & \\ 
+(0) Aluminum, secondary, ingot, from automotive scrap, at plant [RNA] (kg) & \refbox  &  &  &  & \\ 
+(1) Aluminum recovery, transport, to plant [RNA] (kg) & 1.03 & \refbox  &  &  & \\ 
+(2) Quicklime, at plant [RNA] (kg) & 2.35e-05 &  & \refbox  &  & \\ 
+(3) Limestone, at mine [RNA] (kg) &  &  & 1.87 & \refbox  & \\ 
 \hline
 Foreground Node Weights $\tilde{x}$ &    1 & 1.03 & 2.35e-05 & 4.39e-05& \\ 
 \hline
-Input: CUTOFF Disposal, solid waste, unspecified, to sanitary landfill [CUTOFF Flows] & \dependency &  & \dependency &  & 0.0842\\ 
-Input: CUTOFF Filter media, at plant [CUTOFF Flows] & \dependency &  &  &  & 4.79e-05\\ 
-Input: CUTOFF Lube oil, at plant [CUTOFF Flows] & \dependency &  &  &  & 8.75e-07\\ 
-Input: CUTOFF Treatment gases, unspecified, at plant [CUTOFF Flows] & \dependency &  &  &  & 0.003\\ 
-Input: CUTOFF Alloying additives, at plant [CUTOFF Flows] & \dependency &  &  &  & 0.021\\ 
-Input: CUTOFF Chemicals, unspecified, used for wastewater treatment [CUTOFF Flows] & \dependency &  &  &  & 0.008\\ 
-Input: CUTOFF Grain refiners, at plant [CUTOFF Flows] & \dependency &  &  &  & 0.0003\\ 
-Input: CUTOFF Treatment salts, unspecified, at plant [CUTOFF Flows] & \dependency &  &  &  & 0.009\\ 
-Input: CUTOFF Packaging, unspecified, at plant [CUTOFF Flows] & \dependency &  &  &  & 1.67e-05\\ 
-Input: CUTOFF Aluminum scrap, automotive [CUTOFF Flows] & \dependency &  &  &  &  1.03\\ 
+Input: CUTOFF Disposal, solid waste, unspecified, to sanitary landfill [CUTOFF Flows] (kg) & \dependency &  & \dependency &  & 0.0842\\ 
+Input: CUTOFF Filter media, at plant [CUTOFF Flows] (kg) & \dependency &  &  &  & 4.79e-05\\ 
+Input: CUTOFF Lube oil, at plant [CUTOFF Flows] (kg) & \dependency &  &  &  & 8.75e-07\\ 
+Input: CUTOFF Treatment gases, unspecified, at plant [CUTOFF Flows] (kg) & \dependency &  &  &  & 0.003\\ 
+Input: CUTOFF Alloying additives, at plant [CUTOFF Flows] (kg) & \dependency &  &  &  & 0.021\\ 
+Input: CUTOFF Chemicals, unspecified, used for wastewater treatment [CUTOFF Flows] (kg) & \dependency &  &  &  & 0.008\\ 
+Input: CUTOFF Grain refiners, at plant [CUTOFF Flows] (kg) & \dependency &  &  &  & 0.0003\\ 
+Input: CUTOFF Treatment salts, unspecified, at plant [CUTOFF Flows] (kg) & \dependency &  &  &  & 0.009\\ 
+Input: CUTOFF Packaging, unspecified, at plant [CUTOFF Flows] (kg) & \dependency &  &  &  & 1.67e-05\\ 
+Input: CUTOFF Aluminum scrap, automotive [CUTOFF Flows] (kg) & \dependency &  &  &  &  1.03\\ 
 \hline
 \hline
-Background Dependencies \rule[-3pt]{0pt}{12pt} & 0 & 1 & 2 & 3 & $\tilde{a_d}$\\ 
+Background Dependencies -- $A_d$ \rule[-3pt]{0pt}{12pt} & 0 & 1 & 2 & 3 & $\tilde{a_d}$\\ 
 \hline
-Diesel, combusted in industrial boiler (l) [RNA] &  &  & \dependency & \dependency & 4.79e-08\\ 
-Transport, train, diesel powered (t*km) [RNA] &  & \dependency & \dependency &  & 0.0415\\ 
-Electricity, at grid, US, 2000 (kWh) [RNA] & \dependency &  & \dependency & \dependency & 0.668\\ 
-Transport, combination truck, diesel powered (t*km) [RNA] &  & \dependency & \dependency &  & 0.374\\ 
-Natural gas, combusted in industrial boiler (m3) [RNA] & \dependency &  & \dependency & \dependency & 0.223\\ 
-Bituminous coal, combusted in industrial boiler (kg) [RNA] &  &  & \dependency & \dependency & 4.04e-06\\ 
-Gasoline, combusted in equipment (l) [RNA] &  &  &  & \dependency & 2.25e-09\\ 
-Liquefied petroleum gas, combusted in industrial boiler (l) [RNA] &  &  & \dependency &  & 7.57e-10\\ 
-Transport, barge, average fuel mix (t*km) [RNA] &  &  & \dependency &  & 5.66e-07\\ 
+Transport, barge, average fuel mix [RNA] (t*km) &  &  & \dependency &  & 5.66e-07\\ 
+Liquefied petroleum gas, combusted in industrial boiler [RNA] (l) &  &  & \dependency &  & 7.57e-10\\ 
+Transport, combination truck, diesel powered [RNA] (t*km) &  & \dependency & \dependency &  & 0.374\\ 
+Diesel, combusted in industrial boiler [RNA] (l) &  &  & \dependency & \dependency & 4.79e-08\\ 
+Natural gas, combusted in industrial boiler [RNA] (m3) & \dependency &  & \dependency & \dependency & 0.223\\ 
+Transport, train, diesel powered [RNA] (t*km) &  & \dependency & \dependency &  & 0.0415\\ 
+Electricity, at grid, US, 2000 [RNA] (kWh) & \dependency &  & \dependency & \dependency & 0.668\\ 
+Bituminous coal, combusted in industrial boiler [RNA] (kg) &  &  & \dependency & \dependency & 4.04e-06\\ 
+Gasoline, combusted in equipment [RNA] (l) &  &  &  & \dependency & 2.25e-09\\ 
 \hline
-Foreground Emissions \rule[-3pt]{0pt}{12pt} & 0 & 1 & 2 & 3 & $\tilde{b_f}$\\ 
+Foreground Emissions -- $B_f$ \rule[-3pt]{0pt}{12pt} & 0 & 1 & 2 & 3 & $\tilde{b_f}$\\ 
 \hline
-Output: Lead [air, unspecified] & \dependency &  &  &  & 2.16e-07\\ 
-Output: Suspended solids, unspecified [water, unspecified] & \dependency &  &  &  & 2.56e-05\\ 
-Output: Particulates, unspecified [air, unspecified] & \dependency &  & \dependency & \dependency & 1.78e-07\\ 
-Output: NMVOC, non-methane volatile organic compounds [air, unspecified] & \dependency &  &  &  & 4.7e-05\\ 
-Output: BOD5, Biological Oxygen Demand [water, unspecified] & \dependency &  &  &  & 1.35e-09\\ 
-Output: COD, Chemical Oxygen Demand [water, unspecified] & \dependency &  &  &  & 8.3e-07\\ 
-Output: Sulfur dioxide  [air, unspecified] &  &  & \dependency &  & 3.52e-09\\ 
-Output: Dissolved solids [water, unspecified] & \dependency &  &  &  & 2.38e-08\\ 
-Output: carbon dioxide [air, unspecified] &  &  & \dependency &  & 1.8e-05\\ 
-Input: Limestone [resource, ground-] &  &  &  & \dependency & 4.39e-05\\ 
-Output: Heavy metals, unspecified [water, unspecified] & \dependency &  &  &  & 2.25e-05\\ 
-Output: Organic substances, unspecified [water, unspecified] & \dependency &  &  &  & 1.29e-06\\ 
-Output: Acids, unspecified [air, unspecified] & \dependency &  &  &  & 4.31e-05\\ 
+Output: Lead [air, unspecified] (kg) & \dependency &  &  &  & 2.16e-07\\ 
+Output: Suspended solids, unspecified [water, unspecified] (kg) & \dependency &  &  &  & 2.56e-05\\ 
+Output: Particulates, unspecified [air, unspecified] (kg) & \dependency &  & \dependency & \dependency & 1.78e-07\\ 
+Output: NMVOC, non-methane volatile organic compounds [air, unspecified] (kg) & \dependency &  &  &  & 4.7e-05\\ 
+Output: BOD5, Biological Oxygen Demand [water, unspecified] (kg) & \dependency &  &  &  & 1.35e-09\\ 
+Output: COD, Chemical Oxygen Demand [water, unspecified] (kg) & \dependency &  &  &  & 8.3e-07\\ 
+Output: Sulfur dioxide  [air, unspecified] (kg) &  &  & \dependency &  & 3.52e-09\\ 
+Output: Dissolved solids [water, unspecified] (kg) & \dependency &  &  &  & 2.38e-08\\ 
+Output: carbon dioxide [air, unspecified] (kg) &  &  & \dependency &  & 1.8e-05\\ 
+Input: Limestone [resource, ground-] (kg) &  &  &  & \dependency & 4.39e-05\\ 
+Output: Heavy metals, unspecified [water, unspecified] (kg) & \dependency &  &  &  & 2.25e-05\\ 
+Output: Organic substances, unspecified [water, unspecified] (kg) & \dependency &  &  &  & 1.29e-06\\ 
+Output: Acids, unspecified [air, unspecified] (kg) & \dependency &  &  &  & 4.31e-05\\ 
 \hline
 \end{tabularx}
 }
