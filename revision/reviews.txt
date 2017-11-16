@@ -29,9 +29,9 @@ X10. When you apparently define A'=I-A, and start to partition A' in eq (3), it 
 
 X11. Eq (3) contains B', but so far (eq (1) and (2)) we had only B, not B'. What's up? It also contradicts the text in page 7, line 41. And it contradicts eq (4). Just a typo?
 
-X12. Page 7, line 49 until page 9, line  4, "The following formulation is equivalent to Eq. 3: ... where Bx=B*..." Please supply a proof (you may use an appendix for that).
+12. Page 7, line 49 until page 9, line  4, "The following formulation is equivalent to Eq. 3: ... where Bx=B*..." Please supply a proof (you may use an appendix for that).
 
-???13. Similar for page 9, line 6: "Eq. 2 can be written ...", this needs a proof.
+13. Similar for page 9, line 6: "Eq. 2 can be written ...", this needs a proof.
 
 X14. Eq (5) and page 9, line 16 mention y_f, "final demand of the foreground processes". I guess you partition y into [y_f, 0], correct? Please do so explicitly.
 
