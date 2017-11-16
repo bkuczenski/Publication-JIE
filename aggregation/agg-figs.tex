@@ -1,0 +1,60 @@
+\documentclass[12pt]{article}
+
+\input{formatting}
+\usepackage[round]{natbib}
+\bibliographystyle{authordate1}
+
+\usepackage{tabularx}
+
+\input{psstyle}
+%\thispagestyle{empty}
+
+%\usepackage{lineno}
+
+\title{Structured Publication of Life Cycle Assessment Models and Results}
+\author{Brandon Kuczenski\\
+Institute for Social, Behavioral, and Economic Research\\
+University of California, Santa Barbara}
+\date{\mydate\today}
+
+\begin{document}
+
+\input{../manuscript/draw-matrices}
+
+
+\let\oldtimes\times
+\let\times\cdot
+\let\showgrid\relax
+\pagestyle{empty}
+\thispagestyle{empty}
+%\maketitle
+
+%\input{publication-abstract}
+%\clearpage
+
+%\begin{center}
+%Tables and Figure Captions
+%\end{center}
+
+
+%% \input{../figures/fig1-matrices.fig}
+
+%% \input{../figures/fig1-foreground.fig}
+
+%% \input{fig4-aggregation.fig}
+
+\input{fig5-private.fig}
+
+
+%%%%%%%%%%%%%%
+
+%\input{fig_fragments}
+
+%\input{fig_uslci}
+
+%\input{fig_ecoinvent}
+
+%\input{fig_aggregation}
+
+\end{document}
+
