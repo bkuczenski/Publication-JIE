@@ -127,7 +127,7 @@ Noted: "The aggregated result can also be computed from the aggregated foregroun
 
 + P31L41: “Generally, any directed graph can be represented in Af ,…” That is not correct. Af can only contain bipartite graphs with a 1:1 correspondence between industries and nodes, that means, an industrial inventory (SUT) after allocation. Cf. DOI 10.1111/jiec.12306 for the argument.
 
-Noted: "Generally, the foreground matrix $A_f$ can represent any process-flow model with a 1:1 correspondence between processes and flows, i.e. any allocated supply-and-use table..."
+Noted: "Generally, the foreground matrix A_f can represent any process-flow model with a 1:1 correspondence between processes and flows, i.e. any allocated supply-and-use table..."
 
 + Figures 4 and 5: Units are missing. Is the rightmost column the row sum of the detailed exchange table? Please provide more explanations in the Table caption. The symbols A_f, B_f, etc. that are frequently used in the text should be displayed here as well.
 
@@ -138,16 +138,33 @@ NEED MORE FINISH HERE
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 R3-
 
-Why JIE and not JLCA? short reason- better community for 'scary new' ideas. but I can't just say that...
-
-(1) Page 17 line 12: To my knowledge, this short sentence question the potential usefulness of the approach developed in the article. Data confidentiality in the proposed research object should be discussed more thoroughly, in particular with respect to the current critical review process in ISO LCA.
-
-We take the author to refer to page 17 of the PDF proof, which is manuscript page 15.  Line 12 reads "...for reasons of privacy, an author may wish to conceal some or all data points, or include the data points but exclude the actual data values. This is allowable if it is consistent with the author’s goal, and it will accordingly limit the ability of a data user to reproduce the model."
-
-Definitely. OK.
++  The objective of the article is clear and the case for it well made. Despites minor mistakes the article is also well written. However, the article focuses on a very specific aspect of LCA and the results might be more suitable for the Int. J LCA. 
 
 
+Thank you for your positive review.  I have considered submission to JLCA but I feel the JIE readership and editorial staff is more aligned with the paper's objectives of advancing disclosure and transparency at the present time.  Additionally I was not happy with the formatting of the mathematics obtained in Kuczenski (2015), "Partial ordering of life cycle inventory databases", which I published in JLCA.
 
++ That said I found the paper interesting and I have some general comments which focus mostly on the discussion. ....
++ The added value of the proposed structured publication of results from a machine reading perspective is obvious. However its value added for the review process, comparison across models, benchmarking, etc. in the context of private data must be addressed from the outset. Otherwise the relevance and practicality of the proposed structure seems unclear.
 
-(2) Page 17 line 40: Similarly, data confidentiality might result in a very sparse entity map. Can such a research object be organized in order to safeguard confidentiality and allow reproducibility of the results?
+Your commentary on the discussion was the most influential regarding the path I took with the revision.  I strongly agree with your argument that overriding concerns about confidentiality and critical review both affect the usefulness of the proposed framework.  Therefore in the revision I focused less on "publication" of the results and introduced both privacy protection and critical review as fundamental concerns.
 
++ The mathematical formulation is straightforward and shows a minimal set of data which should be included in a “research object”.
+
+Please note that in the revision I have used the term 'disclosure' to refer to the "research object" of the initial manuscript.
+
++ 1)      Page 17 line 12: To my knowledge, this short sentence question the potential usefulness of the approach developed in the article. Data confidentiality in the proposed research object should be discussed more thoroughly, in particular with respect to the current critical review process in ISO LCA.
+
+The referenced sentence was, "This is allowable if it is consistent with the author’s goal, and it will accordingly limit the ability of a data user to reproduce the model."
+
+In the revision, the perspective taken is best summarized on p. X l. XX, "the reviewer must be granted access to
+both the public and private partitions in order to confirm that the partitioning is valid according
+to Eq. 9, and that b priv was computed correctly. However, the private information used in the
+computation can still be withheld from the disclosure."  Here the reviewer, rather than the data user, is the primary audience, which is more consistent with current practice.  The "disclosure completeness" metric (Eq. 13) also provides a measure of how much of the model's impacts are disclosed, which at least provides some intelligence to the general reader about the degree of transparency.  If this metric is close to (or equal to) 0, then no significant information is disclosed.  THis may not be desirable, but at least it is clear.
+
++ 2)      Page 17 line 40: Similarly, data confidentiality might result in a very sparse entity map. Can such a research object be organized in order to safeguard confidentiality and allow reproducibility of the results?
+
+In the revision, this question is somewhat out of scope.  Again, I agree with you and the focus is more on what the author chooses to disclose, for better or worse.
+
++ 3)      Page 24 line 26: This is where it gets interesting, especially when the readers move to the supplementary information and pages 44 and 45, sections 2.4 and 2.5. Here the proposed research object is compared to current practice and the aggregation of foreground results for the sake of confidentiality.
+
+Thank you for these comments. The material you referenced on "pages 44 and 45" was of course in the supplementary materials in the first version, and has now been moved to the main paper.  Additionally, "section 2.4", which dealt with partial background aggregation, has been expanded into a new main body section entitled "Reviewable Private Aggregation."  I look forward with great interest to hear your thoughts on the revised version.
