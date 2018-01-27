@@ -1,0 +1,151 @@
+==========
+Fri Jan 26 16:11:15 -0800 2018
+
+Reviewer(s)' Comments to Author:
+Reviewer: 1
+
+Comments to the Author
+Thanks for this revision. I still think the paper is important, but unfortunately there are too many puzzling parts for an acceptance. Before exposing a few of these puzzles, one overall comment.
+
+In the response to the reviewers I read: "I have adopted the input-output notation exclusively in the revision". That is true. There are no longer formulas with A^-1, only with the IO-style (I-A)^-1. Unfortunately this has weakened the relevance of the paper quite a bit. Let me explain. There are two ways of doing LCA: process-based and IO-based.  A major example of a process-based background database is Ecoinvent, a major example of an IO-based background database is Exiobase. The issue which this paper addresses (proprietary licensed data in the background) is the case for Ecoinvent, but not for Exiobase. So the paper makes a wrong choice in explaining how to protect non-proprietary data from IO but not explaining how to protect proprietary data from process-based DBs. I have no clue why you are making this choice, except one debatable statement that the IO-approach "is computationally more efficient" (which I personally doubt, but moreover is irrelevant for the present paper). As a matter of fact, most software for LCA (so page 7 line 49 is definitely wrong) is process-based, and so are the standards from ISO (in which the "unit process" assumes a core role). I strongly urge to phrase the paper entirely in process-based style, using A^-1 instead of (I-A)^-1. Editorially speaking it is a small change, but it increases the relevance of the paper tremendously.
+
+
+
+
+I thank the reviewer for his/her deep insights into the paper, which have led to great improvements.  However, the above criticism is inaccurate in two respects.
+
+First, the reviewer inappropriately conflates the mathematical representation of an inventory database, be it process-based or input-output based, with the contents of the database.  The mathematical formulations of the technology matrix versus the Leontief matrix are simply representations, and a given database can be put into either format.  This is discussed with excellent depth in Pauliuk et al (2015; DOI: 10.1111/jiec.12306, p.732), but has been known since the earliest days of analytic LCA.  Heijungs, in his colorful thesis (1994), writes:
+
+"Clearly, the make matrix and use matrix can be used to calculate the technology matrix. The
+converse is, however, not true. The technology matrix can not be used to compile the make matrix
+and the use matrix, because it provides only information about net outputs, and lacks information
+about output flows that are partly used as an input flow. It can be questioned whether this is a
+problem: internal flows are from a phenomenological point of view uninteresting as long as we
+define a process by its resulting flows, without any attempt of describing what is inside." (p.70)
+
+It is of course trivial to write a Leontief matrix as a technology matrix: if the Leontief matrix (A) is written in the form (I-A), then it satisfies the requirement of a technology matrix.  But a technology matrix can also be written as a make-use table simply by separating the positive values (outputs) and negative values (inputs) into the separate V' and U matrices respectively.  Heijungs' point is that the information encoded in the technology matrix /by itself/ is inadequate to independently reproduce the complete make and use tables that led to its generation, but this is not true of life cycle inventory databases in general.  Any database that is stored as a collection of unit process files rather than as a formulated matrix can easily avoid this shortcoming.
+
+In ecoinvent in particular, un-allocated datasets take the form of a set of dispersed make and use tables, with each un-allocated multi-output process reporting its products (outputGroup) and consumption (inputGroup) separately.  The un-allocated datasets are not suitable for computation, and the linked ecoinvent system models are stored as collections of normalized, single-output EcoSpold v2 files, which are trivial to compile in either technology-matrix or input-output form.
+
+This brings me to the second point, about the prevalence of various computational methods for commercial LCA.  SimaPro, the leading worldwide software system for scientific LCA, converted to using an iterative Leontief inverse for Version 8, as disclosed in a whitepaper published in 2014 (https://www.pre-sustainability.com/news/new-calculation-engine-simapro-8).  OpenLCA, the open-source alternative, also reported a dramatic reduction in memory usage and computation time around the release of version 1.4 in 2014, coincident with a revised algorithm "optimized for huge databases" (http://www.openlca.org/openlca-beta-1-4-released-optimised-for-huge-databases/) which is highly suggestive of a switch to an iterative approach.  GaBi, the more industrially oriented alternative, does not use a matrix formulation at all, instead computing activity levels iteratively at the plan level (this is not documented but was learned through correspondence with thinkstep personnel).  
+
+I did take care to change the wording slightly to highlight the difference between the computational representation and the data store.  But as the disclosure structure in my paper depends strongly on describing unit processes in terms of their direct requirements, I have retained the input-output formulation in the paper.
+
+
+
+
+
+
+
+
+Then a selection of puzzles from pages 8-10.
+* page 8 line 32 "The simplest conceivable foreground is simply the final demand y, in other words the list of background processes invoked by the study and their activity levels." I have no idea what this sentence means. The foreground is a collection of processes, but the final demand is not a process, so how can the final demand be a foreground? And as to the second part: what is the relation between the foreground and the list of background processes?
+* On page 8 line 48 I see a matrix ~A with a 0 in the top-left corner. Page 9 generalizes this, but suddenly has a matrix (A_f) at that place. This shift from page 8 to page 9 should be justified, because this is a major change.
+* The same matrix ~A on page 8 line 48 contains a bold 0, which suggests a column of zeros, but actually is a row of zeros. Adding the subscript T would help here.
+* Page 10 line 12 says "The augmented ~A and ~B, makes up an LCA foreground study". I am wondering if something went wrong. Two grammatical errors (the spurious comma and the singular verb) suggest an editorial mistake. But the meaning is also unclear: ~A and ~B contain foreground and background, so why is this a "foreground study"? What is a foreground study anyhow?
+* Page 10 line 12 also speaks of "the canonical functional unit". Can you define the term canonical?
+* Page 10 line 27 rewrites ~A as ~A_flat. What is the relation between these two symbols? Of course you may define a new symbol ~A_flat, but I even don't know what you intend do with ~A_flat: I see no equation in which it is used (like for instance ~A is used in eq (2)).
+* Page 10 line 37 "the final demand vector has been replaced with a canonical functional unit and no longer needs to be explicitly reported". Of course my critique depends on the missing definition of "canonical", but even then, do I understand that you write that case studies do no longer need to report a functional unit? That would be a revolutionary statement, so please expand or revise.
+
+In conclusion, I think that you must revise the text with a more critical mindset. I am sure the paper has potential, but mathematical texts need more attention than non-mathematical texts.
+
+Reviewer: 2
+
+Comments to the Author
+Overview:
+
+The resubmitted version prepared by the author represents a major improvement compared to the previous version in terms of clarity and conveyance of the message. I had a good time while reading the manuscript.
+The derivation of the canonical LCA computation equation, the simplifications and data arrangements, the listing of the six data components d-i to d-vi, and the data privacy arrangement are convincing and clear.
+
+Still, while reading and checking the manuscript I ran into a number of issues that need clarification, and I recommend acceptance after major revision.
+
+Major issue:
+
++ I have only one major issue with the framework presented: It starts with the A-matrix, which already includes a major modelling step: the conversion of raw unallocated processes data, including production volumes, etc. to 1:1 product-to-industry coefficients. What about the documentation of the raw, unallocated process data, which are the most valuable?
+Including this part of the data work into the disclosure framework is crucial to its eventual success in my (and many others’) view. It may be beyond the scope of the current paper, but I still think the paper here must position itself. I therefore
++ request to comment on the issue in the manuscript, e.g., in the discussion,
+and
++ suggest to spend a couple of pages in the SI describing the issue.
+
+In the simplest case, study authors could supply their raw data in form of supply and use tables, for which a different product and industry labelling system might apply than d-i, and describe in words or simple equations how they build the A-matrix from V and U. In the advanced case, the study authors would have to provide the matrix operator(s) that converts U and V into A. Like A = U x \hat{V}^{-1}, just more sophisticated, cf. Majeau-Bettez et al. (2014). You should definitely build a stronger link to the principles laid out by Guillaume, in particular, related to the importance of properly recording raw process data.
+
+Detailed comments:
+
+P4: “In the context of this paper, an “LCA Study” should be understood as …” is not very clear, please rephrase.
+
+P5: “On the basis of transparency, the framework… “ -> write ‘product system model disclosure framework” or something else that is more explicit.
+
+P6: “The task of procedure can be described in two steps: making …” Please link these steps to the ISO standard.
+
+Equation 1: I recommend using c instead of e, since e is often used as summation vector, i.e., a vector that contains only 1 as elements.
+
+Equation1 and in general: Please be consistent throughout the entire manuscript which variables contain flows (at scale) and which contain coefficients. Any jargon in that regard must be avoided, e.g., referring to B as ‘elementary flow matrix’, where, in reality, it is a normalized (per unit) elementary flow matrix.
+
+Another jargon phrase to be clarified:
+“the foreground systems themselves cannot be computed without the background.” (P8)
+
+P9: I think that at latest at this stage, many readers will wonder how the system you propose applies to cases where process descriptions in the background matrix are altered (also related to the comment of one of the reviewers regarding the zero-ness of the upper right corner of \tilde{A}. I think you should anticipate that question early on to keep your readers on board. In my opinion, and this is what I teach to students, the background matrix should never be altered, as it is usually a released and thus static database version. Instead, the processes therein should be copied to a new instance, which is part of the foreground and where those process copies can be altered. In the other extreme case, which would be a massive hybridisation of background with foreground the whole hybrid would need to be documented/exported, meaning that Af contains all info and A is null.
+
+Equation 4 is not a re-written version of equation 3! Please rephrase.
+
+P10: I have never heard of the rank of a vector. Do you simply mean its length?
+
+P11: The term ‘aggregated foreground’ needs more introduction/explanation. At least the name, dimension, meaning, and unit (coefficient or flow??) of each of the newly introduced variables should be listed. That could be done in the SI, in a table listing the four features above for ALL system variables and model parameters.
+It would be nice to see Equation 6 as part of a larger ‘master equation’, for example, adding a bit more detail at the bottom of Figure 2.
+
+P10, “where ˜yf is a canonical functional unit vector …”, and P11: “The foreground matrix Af, dependency matrix Ad, and foreground emission matrix Bf now contain all study-specific information.”
+That means that you are using the ‘canonical’ y vector all throughout your system, and that fact should be make more clear not that readers think that you forgot about y. Does ‘canonical’ here mean that yf is always [1,0,0,0, …., 0]? If so, that should be made clear on P10.
+
+P12: “The disclosure includes only information for which the study is the primary source.” To me that does not often seem to be the case, as also in the foreground, data from the literature and sometimes even recycled data from ecoinvent itself are used, e.g., when background inventories are copied into the foreground and modified there.
+I think that the statement on the foreground system description as ‘primary source’ should be toned down/modified.
+
+P13: “Objectives in critical review vary… ” I recommend sharpening this paragraph. Reviewers should be held responsible for checking the model correctness and data/model/system structure as well, and a canonical PSM structure like the one proposed here would greatly facilitate the completion of this task. What is common now is clearly insufficient.
+
+P13: “These nodes typically represent unit processes, but they can also indicate exchanges across an implicit system boundary that encloses the foreground.” I don’t understand the second part. What is an implicit system boundary here? How can A-matrix columns describe unit processes and exchanges at the same time? I thought the latter is coded in Bf? Clarification needed.
+
+P14: “… it must either be “terminated” in the dependency matrix… ” What is the dependency matrix here? Ad? Please specify.
+
+P15: “In a matrix representation, each unit process must have exactly one reference flow, which
+corresponds to its row and column in Af.” That is a crucial LCA-matrix feature and should be described a bit more in detail: The whole A-matrix thing works only, if
+a) Rows and columns have a 1:1 correspondence both in labels (steel <-> steel making) and n their position/ordering [that is mentioned]
+b) The unit of the normalised flows reported in a row is the same as the unit of the reference product in the corresponding column. [that is not clear yet and should be mentioned]
+In short: Each A-matrix column refers to the making 1 reference product AND unit, and exactly this reference product and unit is then used by other processes.
+
+In general, when writing about the classifications d-i, d-ii, and d-iii the importance of units should be stressed at some point in the manuscript.
+
+Figure 3: A legend must be provided, explaining the meaning of the blue boxes, the dashed-line boxes, and the star. The variable \tilde{a}_f is new to me and I don’t understand its shape. Notation in Fig. 2, 3, and equation six must be checked for consistency. Else the figure is very informative and clear!
+
+P16: “A fragment of the PSM can also be published as a complete foreground.” I don’t understand, please explain.
+
+P16: “Any co-production treatment, such as an allocation or system expansion, can only be fully expressed as a foreground fragment, because it intrinsically involves a collection of linked unit processes.” I don’t understand, please explain.
+
+P17: “A publication of the aggregated foreground is identical to the publication of a unit process, except that the result was derived through aggregation” I don’t understand, please explain.
+
+Section 5.4. Consider citing DOI 10.1111/jiec.12245.
+I suggest to include another brief section 5.5., containing a comment on the role of the ISIE (it’s their journal!) or the SETAC group in facilitating the establishment of science-wide classifications. What about the responsibility of the database and LCIA-method providers?
+
+
+
+Reviewer: 3
+
+Comments to the Author
+Please see attached file:
+
+Review of Manuscript ID 17-JIE-5822
+First of all, the new title is much clearer and to the point.
+The scope of the new version of the article is also clearer and more consistent with the
+objectives. I am satisfied with the responses to my comments on the earlier version as well as
+that of the other reviewers.
+One additional comment in the form of a suggestion is the following. From my point of view, the
+core result in this article is presented in section 2.4 with the list of elements from the PSM which
+should be disclosed:
+1. This list could be represented graphically, similar to a “disclosure card” such as a
+simplified versions of Figures S2 or S3.
+2. A reference to the examples derived in the annexes would make the demonstration
+more concrete (there were several in the previous version of the article?).
+This would help in emphasizing the next steps, especially if the results draw on discussions
+within the SETAC working group, and possibly answer the question of whether this could
+become part of future LCA standards.
+A small comment on the spelling, I have seen several ‘of’ instead of ‘or’ and other spelling
+errors, the article should be proofread before publication.
+I look forward to citing this article.
