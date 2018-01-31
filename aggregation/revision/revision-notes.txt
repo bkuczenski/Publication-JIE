@@ -121,7 +121,7 @@ P16: “Any co-production treatment, such as an allocation or system expansion, 
 
 P17: “A publication of the aggregated foreground is identical to the publication of a unit process, except that the result was derived through aggregation” I don’t understand, please explain.
 
-Section 5.4. Consider citing DOI 10.1111/jiec.12245.
+Section 5.4. Consider citing DOI 10.1111/jiec.12245. (Speck et al 2015)
 I suggest to include another brief section 5.5., containing a comment on the role of the ISIE (it’s their journal!) or the SETAC group in facilitating the establishment of science-wide classifications. What about the responsibility of the database and LCIA-method providers?
 
 
