@@ -7,3 +7,14 @@ I should write a new supplemental section that does not wholeheartedly invoke GM
 
 Then I only need to make minor adjustments to the main text to refer to the section.
 
+Wed 2018-01-31 14:52:30 -0800
+
+What exactly is the difference between AAA and PSA?
+
+AAA: create an additional matrix that is cumulative with the main use matrix-- consistent with adding an additional column I think.
+
+
+PSA: add a dependency with a negative sign to the primary production:
+
+PSA would recast this activity as supplying only grain (not straw), but also requiring negative inputs of switchgrass.
+
