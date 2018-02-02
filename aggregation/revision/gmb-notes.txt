@@ -1,0 +1,20 @@
+==========
+Tue Jan 30 16:10:50 -0800 2018
+
+OK, finished with GMB paper.  Now I understand (a) his 3-dimensional production recipe matrices (Z) and (b) the basic strategy for modeling different allocation treatments (partitioning; classical system expansion; alternate activity allocation; product substitution allocation).  
+
+I should write a new supplemental section that does not wholeheartedly invoke GMB's cumbersome notation, but instead endorses his general approach, and show how each approach could be conceived in a foreground model consisting of just the multifunctional process.
+
+Then I only need to make minor adjustments to the main text to refer to the section.
+
+Wed 2018-01-31 14:52:30 -0800
+
+What exactly is the difference between AAA and PSA?
+
+AAA: create an additional matrix that is cumulative with the main use matrix-- consistent with adding an additional column I think.
+
+
+PSA: add a dependency with a negative sign to the primary production:
+
+PSA would recast this activity as supplying only grain (not straw), but also requiring negative inputs of switchgrass.
+
