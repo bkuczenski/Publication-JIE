@@ -1,0 +1,166 @@
+\subsection{Multi-Output Foreground Configurations}
+
+The treatment of multi-functional activities in LCA is a topic of constant discussion among practitioners and theorists.  While the question of the correct, appropriate, or ideal method of apportioning impacts among co-products cannot be resolved in general, the utility of a disclosure framework must be to \textit{express} transparently how co-production was resolved within a given foreground model.  Majeau-Bettez et al. (2014) recently provided a general framework (referred to hereafter as MWS14) for describing the treatment of co-products, and I adopt that framework here to show how the technique used to handle co-production can be disclosed transparently for foreground processes.
+
+\subsubsection{Example System}
+
+In all strategies, an abbreviated example system drawn from Ecoinvent, reporting chlor-alkali electrolysis using a membrane cell, is used.  The un-allocated system is shown in Table~\ref{tbl:chlor-alkali}.
+
+\begin{table}
+  \begin{center}
+  \caption{Chlor-Alkali Electrolysis, membrane cell [RER] (Ecoinvent 3.2; excerpt)}
+  \label{tbl:chlor-alkali}
+  \begin{tabular}{rccl}
+    \toprule
+    \bf Flow & \bf Unit & \bf Direction & \bf Value \\
+    \midrule
+    \multicolumn{4}{l}{Reference:} \\
+    Chlorine, gaseous & kg & Output & 1 \\
+    Hydrogen, liquid & kg & Output & 0.028 \\
+    Sodium hydroxide & kg dry & Output & 1.13 \\
+    \midrule
+    \multicolumn{4}{l}{Requirements:} \\
+    Electricity, medium voltage & kWh & Input & 2.97 \\
+    Sodium chloride, powder & kg & Input & 1.75 \\
+    Chemical factory, organics & unit & Input & 4e-10 \\
+    Sludge, NaCl electrolysis & kg & Output & 0.0153 \\[1ex]
+    \multicolumn{4}{l}{Emissions:} \\
+    Chloride [16887-00-6], surface water & kg & Output & 0.015 \\
+    Carbon dioxide [124-38-9], urban air & kg & Output & 0.0031 \\
+    \bottomrule
+  \end{tabular}
+  \end{center}
+\end{table}
+
+The objective is to disclose explicitly how the multi-output system was resolved to single-output activities for the purposes of review, reproduction, or modification.  Therefore, the raw (un-allocated) process inventory is included in all cases.  Examples are provided for partitioning allocation, classical system expansion, and consequential system expansion.
+
+\subsubsection{Partitioning Allocation}
+
+According to MWS14, Partitioning allocation (PA) is a ``production-balanced model that artificially splits the requirements of an activity across its different outputs.''  The exact manner of the partitioning need not be specified, as long as the parts sum up to the whole.  In other words, for a process with $n$ outputs the modeler has $n-1$ degrees of freedom in specifying the allocated inventories, with the requirement that the $n$th inventory equals the remainder.
+
+In the disclosure framework, any manner of production-balanced partitioning can be represented by including the raw, un-allocated inventory as one foreground column, choosing any output as the reference.  The other $n-1$ outputs are then included as arbitrarily-specified allocated inventories in additional columns, for a total of $n$ columns.  Each column must be normalized to a unit reference.  The reference flow not explicitly specified will simply be computed as the remainder when the allocated inventories are subtracted from the un-allocated inventory.
+
+\begin{table}
+  \begin{center}
+  \caption{Chlor-Alkali Electrolysis as a foreground model, partitioning allocation}
+  \label{tbl:partition}
+  \footnotesize\sffamily
+  \begin{tabular}{l|ccc}
+    \midrule
+    \bf $A_f$ & 0 & 1 & 2 \\
+    \midrule
+    \textbf{Chlorine, gaseous (kg)} & $\ast$ & & \\
+    Hydrogen, liquid (kg) & -0.028 & $\ast$ & \\
+    Sodium hydroxide (kg dry) & -1.13 & & $\ast$ \\
+    \midrule
+    \bf $A_d$ & 0 & 1 & 2 \\
+    \midrule
+    Electricity, medium voltage (kWh) & 2.97 & 1.38 & 1.38 \\
+    Sodium chloride, powder (kg) & 1.75 & 0.811 & 0.811 \\
+    Chemical factory, organics (unit) & 4e-10 & 1.9e-10 & 1.9e-10 \\
+    Sludge, NaCl electrolysis (kg) & 0.0153 & 0.00709 & 0.00709 \\
+    \midrule
+    \bf $B_f$ & 0 & 1 & 2 \\
+    \midrule
+    Chloride, to surface water (kg) & 0.015 & 0.00695 & 0.00695 \\
+    Carbon dioxide, to urban air (kg) & 0.0031 & 0.00144 & 0.00144 \\
+    \midrule
+  \end{tabular}
+  \end{center}
+\end{table}
+    
+
+Table~\ref{tbl:partition} illustrates this for the chlor-alkali example, for conventional allocation by mass.  The un-altered inventory is shown in column $0$, corresponding to the reference product of gaseous chlorine.  Co-products are shown as additional foreground flows, with negative signs indicating that the flows are outputs.  The reference for each column is indicated by an asterisk.
+
+The inventories themselves are shown as entries in the $A_d$ and $B_f$ matrices. Because all co-products are already reported in mass, the allocated inventories for the two co-products are both the same and represent a scaling-down of the un-allocated inventory by the total mass of outputs (about 2.16 kg).
+
+Using the foreground in Table~\ref{tbl:partition}, LCA computation using the canonical functional unit will automatically compute the self-consistent single-output result for 1 kg of chlorine gas because the allocated inventories for hydrogen and sodium hydroxide will be subtracted from the total.  The foreground activity levels for the system are:
+
+\begin{equation}
+  \tilde{\mathbf{x}} = [1,\,-0.028,\,-1.13]^T
+\end{equation}
+
+with the resulting aggregated dependency and emission vectors being, again, the same as the normalized and allocated inventories:
+
+\begin{eqnarray}
+  \tilde{\mathbf{a}}_d = A_d\times \tilde{\mathbf{x}} = & [1.38,\, 0.811,\,\num{1.9e-10},\,0.00709]^T \\
+  \tilde{\mathbf{b}}_f = B_f\times \tilde{\mathbf{x}} = & [0.00695,\, 0.00144]^T
+\end{eqnarray}
+
+At the same time, LCA computation using a functional unit of one of the co-products will simply make use of the allocated inventory.  In this example, all processes are identical on a mass basis, but any other partitioning allocation can be automatically rendered self-consistent through this approach.  A reviewer would be able to inspect the foreground model to determine whether the allocation was performed as described in the report.
+
+\subsubsection{``Classical'' System Expansion}
+
+Although the term `system expansion' is often used to refer to product substitution and/or alternate activity allocation, these modeling techniques are distinct and should be referred to with different names, as noted in GWS14.  In the original definition of system expansion, the foreground model is simply enlarged to include all co-products.  Representation of such a system is trivial and is shown in Table~\ref{tbl:cse}.
+
+\begin{table}[h]
+  \begin{center}
+  \caption{Chlor-Alkali Electrolysis as a foreground model, classical system expansion}
+  \label{tbl:cse}
+  \footnotesize\sffamily
+  \begin{tabular}{l|ccc}
+    \midrule
+    \bf $A_f$ & 0 & 1 & 2 \\
+    \midrule
+    \textbf{Chlorine, gaseous (kg)} & $\ast$ & & \\
+    Hydrogen, liquid (kg) & -0.028 & $\ast$ & \\
+    Sodium hydroxide (kg dry) & -1.13 & & $\ast$ \\
+    \midrule
+    \bf $A_d$ & 0 & 1 & 2 \\
+    \midrule
+    Electricity, medium voltage (kWh) & 2.97 &  &  \\
+    Sodium chloride, powder (kg) & 1.75 &  & \\
+    Chemical factory, organics (unit) & 4e-10 &  &  \\
+    Sludge, NaCl electrolysis (kg) & 0.0153 &  &  \\
+    \midrule
+    \bf $B_f$ & 0 & 1 & 2 \\
+    \midrule
+    Chloride, to surface water (kg) & 0.015 &  &  \\
+    Carbon dioxide, to urban air (kg) & 0.0031 &  &  \\
+    \midrule
+  \end{tabular}
+  \end{center}
+\end{table}
+
+In the classical system expansion case, the canonical functional unit, production of 1 kg of chlorine gas, will result in two cutoff flows corresponding to outputs of liquid hydrogen and sodium hydroxide.  Equivalently, an expanded functional unit of 1 kg chlorine, plus 0.028 kg hydrogen and 1.13 kg of sodium hydroxide, will result in the same activity of the un-allocated process, but will generate no cutoff flows at net.
+
+\subsubsection{Consequential System Expansion}
+
+The foreground disclosure framework is also well suited to describe consequential system expansion through product substitution or ``alternate activity allocation,'' which are the terms used in MWS14.  An example illustrating these methods is shown in Table~\ref{tbl:exp}
+
+\begin{table}[t]
+  \begin{center}
+  \caption{Chlor-Alkali Electrolysis as a foreground model, consequential system expansion.  An inventory for the electrolysis of water (shown in blue) is provided as an alternate activity to produce hydrogen, while the sodium hydroxide product is assumed to substitute for for magnesium hydroxide (shown in red).}
+  \label{tbl:exp}
+  \footnotesize\sffamily
+  \psset{unit=0.5cm}
+  \begin{tabular}{l|cccc}
+    \midrule
+    \bf $A_f$ & 0 & 1 & 2 & \blue\textit{3} \\
+    \midrule
+    \textbf{Chlorine, gaseous (kg)} & $\ast$ & & &\\
+    Hydrogen, liquid (kg) & -0.028 & $\ast$ & &\\
+    Sodium hydroxide (kg dry) & -1.13 & & $\ast$ & \\
+    \blue\textit{Hydrogen, electrolysis (kg)} & & \blue\textit{1} & & $\ast$ \\
+    \midrule
+    \bf $A_d$ & 0 & 1 & 2 & \blue\textit{3}\\
+    \midrule
+    Electricity, medium voltage (kWh) & 2.97 &  & & \blue\textit{50} \\
+    Sodium chloride, powder (kg) & 1.75 &  & & \\
+    Chemical factory, organics (unit) & 4e-10 &  & &  \\
+    Sludge, NaCl electrolysis (kg) & 0.0153 &  & & \\
+    \blue\textit{Water, distilled} (kg) & & & & \blue\textit{9} \\
+    \red\textit{Magnesium hydroxide (kg dry)} & & & \red\textit{0.8} & \\
+    \midrule
+    \bf $B_f$ & 0 & 1 & 2 & \blue\textit{3}\\
+    \midrule
+    Chloride, to surface water (kg) & 0.015 &  & & \\
+    Carbon dioxide, to urban air (kg) & 0.0031 &  & & \\
+    \midrule
+  \end{tabular}
+  \end{center}
+\end{table}
+
+Here an alternate activity, namely electrolysis of water, is specified for liquid hydrogen production and is specified at index 3 in the foreground  (shown in blue).  The inventory converts 9 kg of water to 1 kg of hydrogen using 50 kWh of electricity.  The hydrogen produced from the multi-output process is then (somewhat dubiously) taken to displace hydrogen produced through electrolysis by introducing a unity coefficient in row 3, column 1 of $A_f$.
+
+Meanwhile, sodium hydroxide from the process is assumed to substitute the production of magnesium hydroxide through the introduction of a new row and a new nonzero coefficient in column 2 of $A_d$ (shown in red). Here the match is inexact, and because magnesium hydroxide is more effective in some applications, 1 kg of sodium hydroxide is taken to displace only 0.8 kg of magnesium hydroxide.

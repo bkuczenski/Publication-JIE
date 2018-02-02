@@ -1,17 +1,17 @@
 
 
 
-\subsection{Meeting the Disclosure Objectives}
+\section{Meeting the Disclosure Objectives}
 
-\subsubsection{Transparency}
+\subsection{Transparency}
 
 The objective for transparency was identified as requiring computability, completeness, and reproducibility.  These requirements can be met by a disclosure that clearly describes the identities of each row or column of $A_f$, $A_d$, and $B_f$ containing non-zero entries, and the locations and values of those entries.  In principle, a reader with this information would have the capability to construct the augmented LCIDB and perform the computation in Eq.~\ref{eqn:study}.  In actuality, while it is easy to reproduce a set of sparse matrices, there is considerable potential for ambiguity in stating the identities of the rows and columns of those matrices.
 
-The foreground nodes, which make up the columns of $A_f$, can be chosen freely by the study author according to the objectives of the study.  Large studies may contain hundreds of foreground nodes, and the nodes can correspond to physical activities, logical operations, unit conversions, accumulation or distribution points, or any other aspect of model construction that can be reflected in a process-flow diagram.  The only requirement on their disclosure is that the identity of each node's reference flow, including its unit of measure, is clearly stated.  In formalizing the study as a normalized direct requirements matrix, the activity level of each foreground node necessarily equals the magnitude of the total reference flow emanating from the node.
+The foreground nodes, which make up the columns of $A_f$, can be chosen freely by the study author according to the objectives of the study.  Large studies may contain hundreds of foreground nodes, and the nodes can correspond to physical activities, logical operations, unit conversions, accumulation or distribution points, or any other aspect of model construction that can be reflected in a process-flow diagram.  The only requirement on their disclosure is that the identity of each node's reference flow, including its unit of measure, is clearly stated.  
 
 For each row in $A_d$ containing a non-zero entry, the author must unambiguously identify the exact dataset used, including the version of the database, as well as the exact process and reference flow selected; the dimension (reference quantity or unit) of each reference flow must be specified; and the sign of the numeric entry in $A_d$ must be consistent with the implementation of the process in the background database.  Similarly, for each row in $B_f$ containing a non-zero entry, the author must unambiguously identify the substance being exchanged with the environment, the compartment or context into which it is being exchanged, and the reference quantity or unit associated with the flow.  Sign consistency must also be assured.  If LCIA indicator results are included, the author must also unambiguously identify the method computed (identity of $\mathbf{e}$).
 
-\subsubsection{Authority and Primacy}
+\subsection{Authority and Primacy}
 
 It may be observed that many LCA studies make use of data sources that have been previously published but that have not been included in any LCI reference or background database.  As long as these data sources can be integrated seamlessly into an LCA computation, it is not necessary to reproduce them in a disclosure.  However, in most applications, previously published data must be re-implemented by the author in the LCA software context, and often this re-implementation requires a re-interpretation of the data source as a unit process inventory, where one exchange is recognized as a reference flow and other exchange values are reported in proportionality to the reference flow.
 

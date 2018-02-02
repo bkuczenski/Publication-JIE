@@ -1,4 +1,31 @@
 ==========
+Thu Feb 01 11:50:25 -0800 2018
+
+Responding to Stefan's and R1's comments require:
+
+ * rewriting the intro LCA math section to start with supply + use (Done)
+
+ * an enriched discussion in 3.1 about preparing a coefficient matrix, with deference to S.I. for details
+
+ * a hefty S.I. section to address multioutput
+
+All other changes are incidental.
+
+
+
+
+
+Now- perhaps we can shorten the introduction somewhat?  let's look at all the cites in the intro that are duplicated in the SETAC paper:
+
+ * Heath and Mann, 2012
+ * Kuczenski 2016/7
+ * Fet and Skaar; Subramanian; Modahl
+ * Fomel and Claerbout; Mesirov
+
+That's the section to clear out
+
+
+==========
 Fri Jan 26 16:11:15 -0800 2018
 
 Reviewer(s)' Comments to Author:
@@ -27,7 +54,7 @@ It is of course trivial to write a Leontief matrix as a technology matrix: if th
 
 In ecoinvent in particular, un-allocated datasets take the form of a set of dispersed make and use tables, with each un-allocated multi-output process reporting its products (outputGroup) and consumption (inputGroup) separately.  The un-allocated datasets are not suitable for computation, and the linked ecoinvent system models are stored as collections of normalized, single-output EcoSpold v2 files, which are trivial to compile in either technology-matrix or input-output form.
 
-This brings me to the second point, about the prevalence of various computational methods for commercial LCA.  SimaPro, the leading worldwide software system for scientific LCA, converted to using an iterative Leontief inverse for Version 8, as disclosed in a whitepaper published in 2014 (https://www.pre-sustainability.com/news/new-calculation-engine-simapro-8).  OpenLCA, the open-source alternative, also reported a dramatic reduction in memory usage and computation time around the release of version 1.4 in 2014, coincident with a revised algorithm "optimized for huge databases" (http://www.openlca.org/openlca-beta-1-4-released-optimised-for-huge-databases/) which is highly suggestive of a switch to an iterative approach.  GaBi, the more industrially oriented alternative, does not use a matrix formulation at all, instead computing activity levels iteratively at the plan level (this is not documented but was learned through correspondence with thinkstep personnel).  
+This brings me to the second point, about the prevalence of various computational methods for commercial LCA.  SimaPro, the leading worldwide software system for scientific LCA, converted to using an iterative Leontief inverse for Version 8, as disclosed in a whitepaper published in 2014 (https://www.pre-sustainability.com/news/new-calculation-engine-simapro-8), realizing significant speed and memory usage improvements.  OpenLCA, the open-source alternative, also reported a dramatic reduction in memory usage and computation time around the release of version 1.4 in 2014, coincident with a revised algorithm "optimized for huge databases" (http://www.openlca.org/openlca-beta-1-4-released-optimised-for-huge-databases/) which is highly suggestive of a switch to an iterative approach.  GaBi, the more industrially oriented alternative, does not use a matrix formulation at all, instead computing activity levels iteratively at the plan level.  
 
 I did take care to change the wording slightly to highlight the difference between the computational representation and the data store.  But as the disclosure structure in my paper depends strongly on describing unit processes in terms of their direct requirements, I have retained the input-output formulation in the paper.
 

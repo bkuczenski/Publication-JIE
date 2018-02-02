@@ -7,9 +7,12 @@
 
 \usepackage{tabularx}
 \usepackage[round]{natbib}
+\usepackage{siunitx}
+
 \bibliographystyle{authordate_bk}
 
 \renewcommand{\topfraction}{0.7}
+\renewcommand{\bottomfraction}{0.7}
 
 %\thispagestyle{empty}
 
@@ -109,10 +112,12 @@ When an LCA study result is computed, the foreground and background matrices are
 
   \input{proofs}
 
+  \input{agg-foreground} % Af and graph/matrix equivalency
+    
+  \input{agg-multioutput}
+
   \input{agg-requirements}
 
-  \input{agg-foreground} % Af and graph/matrix equivalency
-  
   \input{publication-example}
   
 %  \input{publication-si-spreadsheet}

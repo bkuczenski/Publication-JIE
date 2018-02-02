@@ -1,9 +1,20 @@
+\section{Preparing the Foreground Matrix}
 
-\section{Foreground Configurations}
+The development in the main text assumes the product system model is already described as a symmetric collection of single-output processes (activities) and flows (commodities) related by coefficients.  In concrete terms, this means that:
+\begin{itemize}
+\item each node in the foreground (column shared by $A_f$, $A_d$, and $B_f$) corresponds to a particular flow in the model's foreground (row of $A_f$);
+\item a unit activity of each node in the foreground corresponds to a unit output of each flow;
+\item the coefficients in $A_f$, $A_d$, and $B_f$ are ratios expressing the quantity of the flow (row), in its native unit, exchanged per unit of the reference flow (column). 
+\end{itemize}
+
+In short: each foreground column has both an intrinsic reference flow and a unit of measure, and the use of this flow by other processes must be made with regard to this measure.  The activity level of each foreground node necessarily equals the magnitude of the total reference flow emanating from the node.  For background dependencies and emissions (rows of $A_d$ and $B_f$, respectively), the modeler must take care to use the units established by the references, but in the foreground case the modeler must ensure to be self-consistent in preparing the $A_f$ matrix. 
+
+
+\subsection{Single-Output Foreground Configurations}
 
 \input{fig_fragments}
 
-Figure~\ref{fig:fragments} illustrates the structure of some basic foreground configurations.  Most product system models would include many of these elements mixed together.  
+Figure~\ref{fig:fragments} illustrates the structure of some basic foreground configurations.  Most product system models would include many of these elements mixed together.  All the activities in these examples are single-output.
 The first (a) is a sequential model, in which each node requires one foreground input and generates one output. This model is equivalent to a ``gate to gate'' model.  Here the weights $k_i$ indicate the amount of the preceding reference flow that is required by the subsequent node.  Figure~\ref{fig:fragments}(b) shows an additive model, in which the outputs of several foreground nodes are added together, equivalent to a ``mixer'' or a horizontal average.  In this arrangement the weights %represent the relative weights of each input, and
 should add up to a unit output of the reference node.  Finally, Figure~\ref{fig:fragments}(c) shows a foreground model with a cyclic dependency, where some of the reference output is consumed by another foreground node.
 
