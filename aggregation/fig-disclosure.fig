@@ -1,0 +1,77 @@
+\newpsstyle{listentry}{linewidth=0.8pt,linecolor=gray}
+\newpsstyle{dataentry}{style=process}
+
+\def\mindthegap{5pt}
+
+\newcommand{\listelement}[3][0pt]{%
+  %%
+  %%
+  %%
+  \rnode{#2}{
+    \psframebox[style=listentry]{%
+      \parbox{2.2cm}{\fontsize{7pt}{8pt}\selectfont\raggedleft
+        #3\\
+        $\vdots$\hspace{1cm}
+        \vspace{#1}
+      \phantom{.}}
+    }
+  }
+}
+
+\begin{pspicture}(0,0)(8.5,10)\showgrid
+  \sffamily
+  \pnode(3.4,6){pStart}
+
+  % d-i
+  \rput(pStart){\listelement{ndi}{%
+      \textbf{Functional Unit --}\\
+      Foreground Flow --\\
+      Foreground Flow --}}
+
+  \rput[r]([angle=180,nodesep=3pt]ndi){\textit{d-i}}
+
+  \pnode([angle=180]ndi|0,0){nleft}
+  \pnode([angle=0,nodesep=\mindthegap]ndi|0,0){nright}
+  \rput(nright){\pnode(0.8,0){pMid}}
+  \rput(nright){\pnode(1.6,0){pEdge}}
+  \pnode(0,0|[angle=90]ndi){ntop}
+  \pnode(0,0|[angle=270]ndi){nboti}
+  \rput(nboti){\pnode(0,-\mindthegap){nnext}}
+
+  \rput(ndi|ntop){\rput[b](0,7pt){List Items}}
+  \rput(pMid|ntop){\rput[b](0,7pt){Data Items}}
+
+  % d-ii
+  \rput[tl](nleft|nnext){\listelement[1.2cm]{ndii}{%
+      Background Flow --\\
+      Background Flow --}}
+    
+  \rput[r]([angle=180,nodesep=3pt]ndii){\textit{d-ii}}
+
+  \pnode(0,0|[angle=270]ndii){nbotii}
+  \rput(nbotii){\pnode(0,-\mindthegap){nlast}}
+    
+  % d-iii
+  \rput[tl](nleft|nlast){\listelement[0.76cm]{ndiii}{%
+      Emission Flow --\\
+      Emission Flow --}}
+    
+  \rput[r]([angle=180,nodesep=3pt]ndiii){\em d-iii}
+  \pnode(0,0|[angle=270]ndiii){nbotiii}
+
+  % d-iv
+  \psframe[style=dataentry](nright|ntop)(pEdge|nboti)
+  \rput(pMid|ndi){$A_f$}
+  \rput[l]([angle=0,nodesep=3pt]pEdge|ndi){\em d-iv}
+  
+  % d-v
+  \psframe[style=dataentry](nright|nnext)(pEdge|nbotii)
+  \rput(pMid|ndii){$A_d$}
+  \rput[l]([angle=0,nodesep=3pt]pEdge|ndii){\em d-v}
+  
+  % d-vi
+  \psframe[style=dataentry](nright|nlast)(pEdge|nbotiii)
+  \rput(pMid|ndiii){$B_f$}
+  \rput[l]([angle=0,nodesep=3pt]pEdge|ndiii){\em d-vi}
+  
+\end{pspicture}
