@@ -3,11 +3,11 @@ Thu Feb 01 11:50:25 -0800 2018
 
 Responding to Stefan's and R1's comments require:
 
- * rewriting the intro LCA math section to start with supply + use (Done)
+ X rewriting the intro LCA math section to start with supply + use (Done)
 
  * an enriched discussion in 3.1 about preparing a coefficient matrix, with deference to S.I. for details
 
- * a hefty S.I. section to address multioutput
+ X a hefty S.I. section to address multioutput
 
 All other changes are incidental.
 
