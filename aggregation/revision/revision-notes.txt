@@ -66,8 +66,8 @@ I did take care to change the wording slightly to highlight the difference betwe
 
 
 Then a selection of puzzles from pages 8-10.
-* page 8 line 32 "The simplest conceivable foreground is simply the final demand y, in other words the list of background processes invoked by the study and their activity levels." I have no idea what this sentence means. The foreground is a collection of processes, but the final demand is not a process, so how can the final demand be a foreground? And as to the second part: what is the relation between the foreground and the list of background processes?
-* On page 8 line 48 I see a matrix ~A with a 0 in the top-left corner. Page 9 generalizes this, but suddenly has a matrix (A_f) at that place. This shift from page 8 to page 9 should be justified, because this is a major change.
+RR* page 8 line 32 "The simplest conceivable foreground is simply the final demand y, in other words the list of background processes invoked by the study and their activity levels." I have no idea what this sentence means. The foreground is a collection of processes, but the final demand is not a process, so how can the final demand be a foreground? And as to the second part: what is the relation between the foreground and the list of background processes?
+RR* On page 8 line 48 I see a matrix ~A with a 0 in the top-left corner. Page 9 generalizes this, but suddenly has a matrix (A_f) at that place. This shift from page 8 to page 9 should be justified, because this is a major change.
 * The same matrix ~A on page 8 line 48 contains a bold 0, which suggests a column of zeros, but actually is a row of zeros. Adding the subscript T would help here.
 * Page 10 line 12 says "The augmented ~A and ~B, makes up an LCA foreground study". I am wondering if something went wrong. Two grammatical errors (the spurious comma and the singular verb) suggest an editorial mistake. But the meaning is also unclear: ~A and ~B contain foreground and background, so why is this a "foreground study"? What is a foreground study anyhow?
 * Page 10 line 12 also speaks of "the canonical functional unit". Can you define the term canonical?
