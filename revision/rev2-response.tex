@@ -1,0 +1,36 @@
+\documentclass[11pt,letterpaper]{article}
+\input{formatting}
+
+\title{Disclosure of Product System Models in Life Cycle Assessment: Achieving Transparency and Privacy}
+\author{Brandon Kuczenski\\
+Institute for Social, Behavioral, and Economic Research\\
+University of California, Santa Barbara}
+\date{\mydate\today}
+
+\begin{document}
+\maketitle
+
+\section*{Response to Reviewers}
+
+Thank you again to the reviewers for their robust reading of my revised manuscript.  I appreciate that all reviewers found the article to be engaging and important.  Their comments helped me to clarify the presentation of the methodology and to improve the connection to current scholarship, notably Majeau-Bettez et al (2014).  I have taken all of the reviewers' recommendations to heart.  Below I respond to each individually.
+
+\subsection*{Reviewer \#1}
+
+\emph{In the response to the reviewers I read: "I have adopted the input-output notation exclusively in the revision". That is true. There are no longer formulas with A^-1, only with the IO-style (I-A)^-1. Unfortunately this has weakened the relevance of the paper quite a bit. Let me explain. There are two ways of doing LCA: process-based and IO-based.  A major example of a process-based background database is Ecoinvent, a major example of an IO-based background database is Exiobase. The issue which this paper addresses (proprietary licensed data in the background) is the case for Ecoinvent, but not for Exiobase. So the paper makes a wrong choice in explaining how to protect non-proprietary data from IO but not explaining how to protect proprietary data from process-based DBs. I have no clue why you are making this choice, except one debatable statement that the IO-approach "is computationally more efficient" (which I personally doubt, but moreover is irrelevant for the present paper). As a matter of fact, most software for LCA (so page 7 line 49 is definitely wrong) is process-based, and so are the standards from ISO (in which the "unit process" assumes a core role). I strongly urge to phrase the paper entirely in process-based style, using A^-1 instead of (I-A)^-1. Editorially speaking it is a small change, but it increases the relevance of the paper tremendously.}
+
+I thank the reviewer for his/her deep insights into the paper, which have led to a complete rewrite of the section of the manuscript dealing with the core LCA computation.  I now tie this strongly to the supply-and-use framework. (p.5-7 in the revision).
+
+I note that the reviewer inaccurately conflates the \textit{contents} of an inventory database with their mathematical \textit{representation.}  In fact, both Ecoinvent and Exiobase are best represented using the supply-and-use framework.  It is only when preparing the LCA computation for matrix inversion that the supply and use values are placed into coefficient form.  In Ecoinvent, each unit process is described in terms of distinct products (outputGroup) and consumption (inputGroup) separately.  The un-allocated datasets are not suitable for computation, and the linked ecoinvent system models are stored as collections of normalized, single-output EcoSpold v2 files, which are trivial to compile in either technology-matrix or input-output form.  I have emphasized this in the revision.  The point of the article was to demonstrate how foreground models may be built on top of, and subsequently separated from, a background database, and the development applies equally well to a foreground model based on either Ecoinvent or Exiobase.  
+
+Regarding the computational efficiency of iteration vs inversion, I agree that the performance aspects are out of scope for the current paper.  However, the reviewer should note that in fact the Leontief inverse is the standard.  SimaPro, the leading worldwide software system for scientific LCA, converted to using an iterative Leontief inverse for Version 8, as disclosed in a whitepaper published in 2014 (https://www.pre-sustainability.com/news/new-calculation-engine-simapro-8), realizing significant speed and memory usage improvements.  OpenLCA, the open-source alternative, also reported a dramatic reduction in memory usage and computation time around the release of version 1.4 in 2014, coincident with a revised algorithm "optimized for huge databases" (http://www.openlca.org/openlca-beta-1-4-released-optimised-for-huge-databases/) which is highly suggestive of a switch to an iterative approach.  GaBi, the more industrially oriented alternative, does not use a matrix formulation at all, but has always computed activity levels using iteration at the plan level.  
+
+\emph{page 8 line 32 "The simplest conceivable foreground is simply the final demand y, in other words the list of background processes invoked by the study and their activity levels." I have no idea what this sentence means. The foreground is a collection of processes, but the final demand is not a process, so how can the final demand be a foreground? And as to the second part: what is the relation between the foreground and the list of background processes?}
+
+The problematic sentence has been removed in revision, and the whole section has been revised to illustrate exactly how foreground models may be built.
+
+* On page 8 line 48 I see a matrix ~A with a 0 in the top-left corner. Page 9 generalizes this, but suddenly has a matrix (A_f) at that place. This shift from page 8 to page 9 should be justified, because this is a major change.
+* The same matrix ~A on page 8 line 48 contains a bold 0, which suggests a column of zeros, but actually is a row of zeros. Adding the subscript T would help here.
+* Page 10 line 12 says "The augmented ~A and ~B, makes up an LCA foreground study". I am wondering if something went wrong. Two grammatical errors (the spurious comma and the singular verb) suggest an editorial mistake. But the meaning is also unclear: ~A and ~B contain foreground and background, so why is this a "foreground study"? What is a foreground study anyhow?
+* Page 10 line 12 also speaks of "the canonical functional unit". Can you define the term canonical?
+* Page 10 line 27 rewrites ~A as ~A_flat. What is the relation between these two symbols? Of course you may define a new symbol ~A_flat, but I even don't know what you intend do with ~A_flat: I see no equation in which it is used (like for instance ~A is used in eq (2)).
+* Page 10 line 37 "the final demand vector has been replaced with a canonical functional unit and no longer needs to be explicitly reported". Of course my critique depends on the missing definition of "canonical", but even then, do I understand that you write that case studies do no longer need to report a functional unit? That would be a revolutionary statement, so please expand or revise. 
