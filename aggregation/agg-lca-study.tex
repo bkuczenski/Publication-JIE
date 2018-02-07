@@ -7,8 +7,8 @@ To understand how a foreground study is constructed on top of a background datab
 The same result can be obtained by relocating the $\mathbf{y}$ vector into an augmented $A$ matrix, augmenting the $B$ matrix with a vector of zeros, and replacing the final demand with a vector $\tilde{\mathbf{y}}$ in which the first entry is 1 and all successive entries are 0:
 \begin{equation}
   \begin{array}{cc}
-s =& \mathbf{e}^T\times B\times\left(I-A\right)^{-1}\times\mathbf{y} \\
- =& \mathbf{e}^{T}\times\tilde{B}\times\left(I-\tilde{A}\right)^{-1}\times\tilde{\mathbf{y}}
+s =& \mathbf{c}^T\times B\times\left(I-A\right)^{-1}\times\mathbf{y} \\
+ =& \mathbf{c}^{T}\times\tilde{B}\times\left(I-\tilde{A}\right)^{-1}\times\tilde{\mathbf{y}}
   \end{array}
   \label{eqn:canonical}
 \end{equation}
@@ -17,7 +17,7 @@ $\tilde{A} = \left[\begin{smallmatrix} 0 & \mathbf{0}^T \\ \mathbf{y} & A  \end{
 $\tilde{B} = [ \mathbf{0},\, B ]$, and $\tilde{\mathbf{y}} =  [ 1,\, 0,\, 0 ,\,\ldots,\, 0]^{T}$.
 It can easily be shown that Eq.~\ref{eqn:canonical} holds for any $\mathbf{y}$  (A proof is provided in the electronic supporting information).  This is intuitively true because the $\tilde{\mathbf{y}}$ selects the first column of the augmented $\tilde{A}$ matrix as the ``final demand,'' but the ``direct requirements'' of that column are precisely the final demand from the prior, un-augmented $A$ matrix.  
 
-This same workflow can be repeated to build a more elaborate foreground.  For instance, a model of private vehicle travel may make use of reference processes for vehicle production and decommissioning, road maintenance, fuel retail, and a model of direct emissions from fuel combustion.  This model could occupy an additional column of $\tilde{A}$, with the coefficients for fuel combustion emissions being contained in the corresponding column of $\tilde{B}$.  A process for brewing coffee could be created in a third column that requires coffee beans, water, and electricity. Finally, a fourth column could be added that invokes the first three columns in proportion to describe the activity of traveling to a coffeeshop to work\footnote{No prizes for guessing where this passage was written.}.
+This same workflow can be repeated to build a more elaborate foreground.  For instance, a model of private vehicle travel may make use of reference processes for vehicle production and decommissioning, road maintenance, fuel retail, and a model of direct emissions from fuel combustion.  This model could occupy an additional column of $\tilde{A}$, with the coefficients for fuel combustion emissions being contained in the corresponding column of $\tilde{B}$.  A process for brewing coffee could be created in a third column that requires coffee beans, water, and electricity. Finally, a fourth column could be added that invokes the first three columns in proportion to describe the activity of traveling to a coffeeshop to work.%\footnote{No prizes for guessing where this passage was written.}.
 
 In general, a product system model may be constructed through the successive augmentation of a background database with foreground content.  As long as the background database is not altered to depend on the newly created foreground, such a study can be written in block triangular form \citep{Kuczenski_JLCA_2015}:
 \begin{equation}
@@ -50,7 +50,7 @@ Using the notation $B_x = B \times (I - A)^{-1}$ to represent the pre-computed b
 %% Using the ordered matrices, 
 Eq.~\ref{eqn:leontief} can be written so that the foreground matrix inversion is  performed separately from the computationally costly background computation:
 \begin{equation}
-s = \mathbf{e}^T \times (B_f + B_x\times A_d) \times (I - A_f)^{-1} \times \tilde{\mathbf{y}}_f
+s = \mathbf{c}^T \times (B_f + B_x\times A_d) \times (I - A_f)^{-1} \times \tilde{\mathbf{y}}_f
 \label{eqn:study}
 \end{equation}
 where $\tilde{\mathbf{y}}_f$ is a canonical functional unit vector whose length is the same as the rank of $A_f$. Eq.~\ref{eqn:study} is derived in the supporting information.
@@ -71,8 +71,8 @@ Here $\tilde{\mathbf{a}}_d$ reports the aggregated foreground's dependency on ba
 The aggregated result can also be computed from the aggregated foreground:
 \begin{equation}
 \begin{array}{rl}
-s & = \mathbf{e}^T \times( B_f + B_x \times A_d) \times \tilde{\mathbf{x}} \\
-  & = \mathbf{e}^T \times( \tilde{\mathbf{b}}_f + B_x \times\tilde{\mathbf{a}}_d) \\
-  & = \mathbf{e}^T \times( \tilde{\mathbf{b}}_f + \tilde{\mathbf{b}}_x) \\
+s & = \mathbf{c}^T \times( B_f + B_x \times A_d) \times \tilde{\mathbf{x}} \\
+  & = \mathbf{c}^T \times( \tilde{\mathbf{b}}_f + B_x \times\tilde{\mathbf{a}}_d) \\
+  & = \mathbf{c}^T \times( \tilde{\mathbf{b}}_f + \tilde{\mathbf{b}}_x) \\
 \end{array}
 \end{equation}

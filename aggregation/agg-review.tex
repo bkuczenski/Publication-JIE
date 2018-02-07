@@ -17,7 +17,7 @@ Partial aggregation is already used in practice to conceal private data, but cur
 
 A further advantage to this approach is that the reader can evaluate easily what fraction of the overall impact score is accounted for by the public versus the private portions of the model.  A ``disclosure completeness'' metric $\varphi$ can be defined as the fraction of the overall score which is accounted for by the disclosed portion of the PSM:
 \begin{equation}
-  \varphi =  \frac{\mathbf{e}^T\cdot(\mathbf{b} - \mathbf{b}_{priv})}{\mathbf{e}^T\cdot\mathbf{b}} = 1 - \frac{\mathbf{e}^T\cdot\mathbf{b}_{priv}}{\mathbf{e}^T\cdot\mathbf{b}}
+  \varphi =  \frac{\mathbf{c}^T\cdot(\mathbf{b} - \mathbf{b}_{priv})}{\mathbf{c}^T\cdot\mathbf{b}} = 1 - \frac{\mathbf{c}^T\cdot\mathbf{b}_{priv}}{\mathbf{c}^T\cdot\mathbf{b}}
   \label{eqn:metric}
 \end{equation}
 where $\mathbf{b}$ is the complete life cycle inventory.  The value of this metric can provide an indication of the level of transparency of the disclosure with respect to a given impact category indicator.  

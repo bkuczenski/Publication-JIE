@@ -17,11 +17,11 @@
 
   % E matrix
   \rput[lB](pEleft){\newmatrix{nE}{\dimt}{\dimm}}
-  \leftlabel{nE}{$\mathbf{e}^T$}
+  \leftlabel{nE}{$\mathbf{c}^T$}
   
   %\leftbrace{nE}{$t$}{ptlabel}
   \topbrace{nE}{$m$}{pEtopBr}
-  \bottomlabel{nE}{\footnotesize Characterization vector}
+  \bottomlabel{nE}{\rput[t](0,-2pt){\footnotesize Characterization vector}}
 
   % b vector - bottom-left
   \pnode[\cornerskip,0.75cm]([angle=0]nE|[angle=90]nE){pblb}
@@ -69,9 +69,9 @@
   % summary equation
   
   \rput[B](pStilde|pEquation){\large $s =$}
-  \rput[B](nEBtimes|pEquation){ $\mathbf{e}^T\times \mathbf{b}$}
-  \rput[B](nBXtimes|pEquation){ $\mathbf{e}^T\times B \times \mathbf{x}$}
-  \rput[B](nX|pEquation){ $\mathbf{e}^T\times B \times (I-A)^{-1}$}
+  \rput[B](nEBtimes|pEquation){ $\mathbf{c}^T\times \mathbf{b}$}
+  \rput[B](nBXtimes|pEquation){ $\mathbf{c}^T\times B \times \mathbf{x}$}
+  \rput[B](nX|pEquation){ $\mathbf{c}^T\times B \times (I-A)^{-1}$}
   \rput[B](py|pEquation){ $\mathbf{y}$}
 
   % narrative

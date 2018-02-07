@@ -4,10 +4,10 @@ In the most general terms, the LCA problem concerns the interaction of a collect
 
 A symmetric input output table can be written as a table of coefficients, in which each column of the matrix provides a ``recipe'' for creating the corresponding commodity by consuming other commodities (and, if applicable, producing other co-products), equivalent to a ``unit process'' in ISO LCA, except that the reference flow is implicit in the column's index.  The table of coefficients, commonly known as a \textit{direct requirements matrix}, can be used to compute the output from all activities that is necessary to produce a given commodity.  That vector of outputs can then be combined with a second table of coefficients, known as an \textit{emission matrix}, that reports exchanges with the environment associated with the production of each commodity, to determine the cumulative environmental emissions associated with the production of the commodity over its life cycle.  Those emissions are individually \textit{characterized} with respect to an environmental impact category of interest, and the characterized emissions summed to report the \textit{impact score} or category indicator, which is the result of the study.  The formulation may be summarized:
 \begin{equation}
-s = \mathbf{e}^T \cdot B \cdot \left(I - A\right)^{-1} \cdot \mathbf{y}
+s = \mathbf{c}^T \cdot B \cdot \left(I - A\right)^{-1} \cdot \mathbf{y}
 \label{eqn:leontief}
 \end{equation}
-Here $A$ represents the direct requirements; $B$ is the emission matrix;  $\mathbf{e}$ is a column vector of characterization factors for the environmental emissions; $\mathbf{y}$ is the externally specified final demand; and $s$ is the numerical impact score or category indicator.  For simplicity, we will consider the computation of a single impact result.  However, it is straightforward to imagine the more typical case, in which $E$ is a matrix of characterization vectors, and $\mathbf{s}$ is a vector of results.  Eq.~\ref{eqn:leontief} is visualized in Figure~\ref{fig:lca}.
+Here $A$ represents the direct requirements; $B$ is the emission matrix;  $\mathbf{c}$ is a column vector of characterization factors for the environmental emissions; $\mathbf{y}$ is the externally specified final demand; and $s$ is the numerical impact score or category indicator.  For simplicity, we will consider the computation of a single impact result.  However, it is straightforward to imagine the more typical case, in which $C$ is a matrix of characterization vectors, and $\mathbf{s}$ is a vector of results.  Eq.~\ref{eqn:leontief} is visualized in Figure~\ref{fig:lca}.
 \input{fig_lca}
 
 The term $(I-A)$ is equivalent to a normalized \textit{technology matrix}, and in certain cases can be computed from the difference between the supply and use tables, $(V'-U)$, with equivalent results \citep{Suh_JIE_2010}. 
@@ -16,7 +16,7 @@ Differences in convention have led to both the direct requirements matrix $A$, a
 \begin{itemize}
 \item $\mathbf{x} = \left(I-A\right)^{-1}\cdot\mathbf{y}$, the activity level vector;
 \item $\mathbf{b} = B\cdot\mathbf{x}$, the life cycle inventory;
-\item $s = \mathbf{e}^T\cdot\mathbf{b}$, the life cycle impact category indicator, the study result.
+\item $s = \mathbf{c}^T\cdot\mathbf{b}$, the life cycle impact category indicator, the study result.
 \end{itemize}
 
 Some LCA software systems have the capacity to export the $A$ and $B$ matrices for a given study model.  However, the contents of commercial LCIDBs are proprietary and subject to licensing restrictions, and moreover are not usually modified by study authors.  Thus exporting $A$ and $B$ does not meet our authority and primacy objectives.  Additionally, replicating the entire LCIDB is cumbersome because of the large size of the matrices.   As a consequence, the matrix formulation in Eq.~\ref{eqn:leontief} is unsuitable as a disclosure framework.
