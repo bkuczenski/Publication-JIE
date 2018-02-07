@@ -18,7 +18,7 @@
   }
 }
 
-\begin{pspicture}(0,0)(8.5,10)\showgrid
+\begin{pspicture}(0,0)(8.5,7.5)\showgrid
   \sffamily
   \pnode(3.4,6){pStart}
 
@@ -34,6 +34,7 @@
   \pnode([angle=0,nodesep=\mindthegap]ndi|0,0){nright}
   \rput(nright){\pnode(0.8,0){pMid}}
   \rput(nright){\pnode(1.6,0){pEdge}}
+  \rput(nright){\pnode(2.8,0){pAgg}
   \pnode(0,0|[angle=90]ndi){ntop}
   \pnode(0,0|[angle=270]ndi){nboti}
   \rput(nboti){\pnode(0,-\mindthegap){nnext}}

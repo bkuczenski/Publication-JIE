@@ -1,8 +1,8 @@
 \subsection{Foreground Study}
 
-In practice, most LCA studies contain foreground information that is not present in a background database, and LCA software systems generally allow users to augment the standard LCIDBs with foreground models.  To meet our disclosure objectives, it is important to be able to distinguish foreground content from background content in the computation.  Background databases are prepared independently of any study and do not typically vary across the studies in which they are used.  However, the foreground systems themselves cannot be computed without the background.  Put another way, the foreground depends on the background but the background does not depend on the foreground.  This condition allows the processes in an LCIDB to be partially ordered to group foreground processes together \citep{Kuczenski_JLCA_2015}.  
+In practice, most LCA studies contain information that is not present in a background database, and LCA software systems generally allow users to augment the standard LCIDBs with their own modeling information, known as the study foreground.  To meet our disclosure objectives, it is important to be able to distinguish foreground content from background content in the computation.  Background databases are prepared independently of any study and do not typically vary across the studies in which they are used.  However, the results of a study with foreground content cannot generally be computed without knowledge of the background.  %Put another way, the foreground results depend on the background but the background results do not depend on the foreground.  This condition allows the processes in an LCIDB to be partially ordered to group foreground processes together \citep{Kuczenski_JLCA_2015}.
 
-The simplest conceivable foreground is simply the final demand $\mathbf{y}$, in other words the list of background processes invoked by the study and their activity levels.  For an LCA computation as expressed in Eq.~\ref{eqn:leontief}, the same result can be obtained by relocating the $\mathbf{y}$ vector into an augmented $A$ matrix, augmenting the $B$ matrix with a vector of zeros, and replacing the final demand with a vector $\tilde{\mathbf{y}}$ in which the first entry is 1 and all successive entries are 0:
+To understand how a foreground study is constructed on top of a background database, imagine a simple product system that can be fully described only making reference to processes that exist in a background database.  For instance, the use of a computer may be modeled using a reference process for producing and disposing the computer, and a reference process for electricity production.  Assuming those reference processes are available in a background database, the product system can be represented entirely by specifying a final demand vector $\mathbf{y}$ whose nonzero values correspond to computer production, computer disposal, and electricity.  The LCIA results can be computed using Eq.~\ref{eqn:leontief}.  However, the same result can be obtained by relocating the $\mathbf{y}$ vector into an augmented $A$ matrix, augmenting the $B$ matrix with a vector of zeros, and replacing the final demand with a vector $\tilde{\mathbf{y}}$ in which the first entry is 1 and all successive entries are 0:
 \begin{equation}
   \begin{array}{cc}
 s =& \mathbf{e}^T\times B\times\left(I-A\right)^{-1}\times\mathbf{y} \\
@@ -10,14 +10,14 @@ s =& \mathbf{e}^T\times B\times\left(I-A\right)^{-1}\times\mathbf{y} \\
   \end{array}
   \label{eqn:canonical}
 \end{equation}
-where $\tilde{A} = \left[\begin{smallmatrix}
- 0 & \mathbf{0} \\
- \mathbf{y} & A
-  \end{smallmatrix}\right]$, $\tilde{B} = [ \mathbf{0},\, B ]$, and $\tilde{\mathbf{y}} =  [ 1,\, 0,\, 0 ,\,\ldots,\, 0]^{T}$.
+where
+$\tilde{A} = \left[\begin{smallmatrix} 0 & \mathbf{0}^T \\ \mathbf{y} & A  \end{smallmatrix}\right]$,
+$\tilde{B} = [ \mathbf{0},\, B ]$, and $\tilde{\mathbf{y}} =  [ 1,\, 0,\, 0 ,\,\ldots,\, 0]^{T}$.
 It can easily be shown that Eq.~\ref{eqn:canonical} holds for any $\mathbf{y}$.  \textit{author's note: a proof for this equality is provided in the electronic supplementary information.}  This is intuitively true because the $\tilde{\mathbf{y}}$ selects the first column of the augmented $\tilde{A}$ matrix as the ``final demand,'' but the ``direct requirements'' of that column are precisely the final demand from the prior, un-augmented $A$ matrix.  
 
-\input{fig_foreground}
-Of course, most studies have a more elaborate foreground than simply the demand for processes in the background database, and in these cases the $A$ and $B$ matrices can be further augmented with additional foreground content.  An LCA study augmented with foreground information can be written in block-triangular form:
+This same process can be repeated to build a more elaborate foreground.  For instance, a model of private vehicle travel may make use of reference processes for vehicle production and decommissioning, road maintenance, fuel retail, and a model of direct emissions from fuel combustion.  This model could occupy an additional column of $\tilde{A}$, with the coefficients for fuel combustion emissions being contained in the corresponding column of $\tilde{B}$.  A process for brewing coffee could be created in a third column that requires coffee beans, water, and electricity. Finally, a fourth column could be added that invokes the first three columns in proportion to describe the activity of traveling to a coffeeshop to work\footnote{No prizes for guessing where this passage was written.}.
+
+In general, a product system model may be constructed through the successive augmentation of a background database with foreground content.  As long as the background database is not altered to depend on the newly created foreground, such a study can be written in block triangular form:
 \begin{equation}
 \tilde{A} = \left[\begin{array}{cc}
 A_f & 0 \\
@@ -27,13 +27,14 @@ A_d &  A
   \tilde{B} = \left[\begin{array}{cc} B_f & B   \end{array}\right]
 \label{eqn:foreground}
 \end{equation}
-Here, the submatrix $A_f$ represents the foreground (the first column of which delivers the functional unit of the study); $A$ represents the background, and the rectangular matrix $A_d$ represents the dependency of the foreground on the background.  The ordered $\tilde{B}$ matrix is similarly partitioned into $B_f$, which includes foreground emissions, and $B$ which includes background emissions. The constitutive characteristic of this formulation is that the submatrix in the top right corner of $\tilde{A}$ is zero.  As long as this is the case, all computations regarding the background are invariant with respect to any foreground, and they can be computed in advance. However, it does not apply for so-called ``integrated hybrid'' models, in which all quadrants contain non-zero cells (for instance, \cite{Gibon_2015}).
+Here, the submatrix $A_f$ represents the foreground; $A$ represents the background, and the rectangular matrix $A_d$ represents the dependency of the foreground on the background.  The ordered $\tilde{B}$ matrix is similarly partitioned into $B_f$, which includes foreground emissions, and $B$ which includes background emissions. The constitutive characteristic of this formulation is that the submatrix in the top right corner of $\tilde{A}$ is zero.  The augmented $\tilde{A}$ and $\tilde{B}$ together make up an \emph{LCA foreground study}.  This formulation can be applied to the vast majority of LCA case studies, and very likely to all case studies prepared using commercial LCA software.\footnote{It does not apply to cases in which the background database must be altered to adjust for double counting, such as in so-called ``integrated hybrid'' models in which all quadrants contain non-zero cells \citep{Suh2004}.  These models are more complex than the models typically built by LCA practitioners, and in conventional LCA practice it is inadvisable to alter background databases to adapt them to study conditions.  Instead, background processes can be replicated in the foreground, where they can be adapted as needed (cf. \cite{Bourgault_JLCA_2013}), without affecting the integrity of the background database.}
 
-%For clarity, I will call thein which the foreground content always appears to the left of the background content; the first column delivers the study's functional unit; and the background does not depend on the foreground; to be an
+Without loss of generality, it is possible to construct the study such that the \textit{first} column of $\tilde{A}$ delivers the functional unit of the study.  This allows us to designate the vector $\tilde{\mathbf{y}} =  [ 1,\, 0,\, 0 ,\,\ldots,\, 0]^{T}$ as the \textit{canonical functional unit} of a foreground study, which allows us to introduce convenient notation later on.  
 
-The augmented $\tilde{A}$ and $\tilde{B}$, makes up an \emph{LCA foreground study}, for which $\tilde{\mathbf{y}}$ is the canonical functional unit.  This formulation can be applied to the vast majority of LCA case studies, and very likely to all case studies prepared using commercial LCA software.  
-
-It is currently common practice for background database maintainers to pre-compute the life cycle inventory results for their databases.  Using the notation $B_x = B \times (I - A)^{-1}$ to represent the pre-computed background LCI database, Eq.s~\ref{eqn:foreground} can be rewritten as:
+\input{fig_foreground}
+It is currently common practice for background database maintainers to pre-compute the life cycle inventory results for their databases.  In cases where the background database is used without modification, including the contents of $A$ in $\tilde{A}$ becomes unnecessary.
+Using the notation $B_x = B \times (I - A)^{-1}$ to represent the pre-computed background LCI database, $\tilde{A}$ can be ``flattened'' so that it no longer includes inventories for background processes \citep{Kuczenski_JLCA_2015}.
+Eq.s~\ref{eqn:foreground} can be recast as:
 \begin{equation}
  \tilde{A}_{flat} = \left[\begin{array}{cc} 
 A_f &  0 \\
@@ -41,23 +42,18 @@ A_d & 0
    \end{array}\right];\;\;\;  \tilde{B}_{flat} = \left[\begin{array}{cc} B_f & B_x \end{array}\right ]
 \label{eqn:fg_bg}
 \end{equation}
-The proof of the equivalency of results derived from Eq.s~\ref{eqn:foreground} and \ref{eqn:fg_bg} is provided in the supplementary materials.  In this form, the main content of the LCIDB has been removed from the $\tilde{A}$ matrix, and the only information remaining in $\tilde{A}_{flat}$ pertains to the study foreground.  Furthermore, the final demand vector has been replaced with a canonical functional unit and no longer needs to be explicitly reported.
+The proof of the equivalency of results derived from Eq.s~\ref{eqn:foreground} and \ref{eqn:fg_bg} is provided in the supplementary materials.  In this form, the only information remaining in $\tilde{A}_{flat}$ pertains to the study foreground.  
 
 Using the ordered matrices, Eq.~\ref{eqn:leontief} can be written so that the computationally costly foreground and background inversions can be performed separately:
 \begin{equation}
 s = \mathbf{e}^T \times (B_f + B_x\times A_d) \times (I - A_f)^{-1} \times \tilde{\mathbf{y}}_f
 \label{eqn:study}
 \end{equation}
-where $\tilde{\mathbf{y}}_f$ is a canonical functional unit vector having the same rank as $A_f$. Eq.~\ref{eqn:study} is derived in the supplementary materials.
+where $\tilde{\mathbf{y}}_f$ is a canonical functional unit vector whose length is the same as the rank of $A_f$. Eq.~\ref{eqn:study} is derived in the supplementary materials.
 Eq.~\ref{eqn:study} is visualized in Figure~\ref{fig:foreground}, with the background technology matrix $A$, having been subsumed into $B_x$, represented by an identity matrix $I$.  
 
 The activity levels of the foreground nodes are represented by $\tilde{\mathbf{x}}$, which is the result of $\tilde{\mathbf{y}}_f$ selecting the first column of $(I-A_f)^{-1}$.
-%% An important intermediate result is the vector of activity levels for the foreground nodes $\tilde{\mathbf{x}}$, also visualized in Figure~\ref{fig:foreground}:
-%% \begin{equation}
-%% \tilde{\mathbf{x}} = (I - A_f)^{-1} \times \tilde{\mathbf{y}}
-%% \label{eqn:inv}
-%% \end{equation}
-This vector can be used to describe an \emph{aggregated foreground}:
+This vector can be used to describe an \emph{aggregated foreground} in coefficient form, which delivers the same results as the foreground study given in Eq.~\ref{eqn:foreground}, but without disclosing any details of the construction of the foreground:
 \begin{equation}
 \begin{array}{rl}
     \tilde{\mathbf{b}}_f & = B_f \times \tilde{\mathbf{x}} \\
@@ -66,6 +62,8 @@ This vector can be used to describe an \emph{aggregated foreground}:
 \end{array}
 \label{eqn:agg}
 \end{equation}
+Here $\tilde{\mathbf{a}}_d$ reports the aggregated foreground's dependency on background processes in background flows per canonical functional unit;  $\tilde{\mathbf{b}}_f$ reports foreground emissions per functional unit; and $\tilde{\mathbf{b}}_x$ reports the aggregated background life cycle emissions per functional unit.
+
 The aggregated result can also be computed from the aggregated foreground:
 \begin{equation}
 \begin{array}{rl}
