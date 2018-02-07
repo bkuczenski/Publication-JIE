@@ -19,19 +19,22 @@
       
       \rput[tr](16.5,-5pt){
         \psframebox[style=stock]{\psset{unit=8pt}%
-          \footnotesize
-            \begin{tabular}{cclccl}
-            \pnode(0,0){nrf}\phantom{top} & --- & Reference flow placeholder \phantom{tops}  &
-            \pnode(0,0){nnz}\phantom{top} & --- & Non-zero value\\
-            \pnode(0,0){nfu} & --- & Canonical functional unit &
-            \pnode(0,0){nxv} & --- & Excerpted value\\ & & & 
-            \pnode(0,0){nfv} & --- & Full (LCI) data vector
-          \end{tabular}
+          LEGEND~~~~{\footnotesize%
+            \begin{tabular}[t]{ccl}
+              \pnode(0,0){nnz}\phantom{top} & --- & Non-zero value\\
+              \pnode(0,0){nxv} & --- & Omitted value\\
+              \pnode(0,0){nfv} & --- & Full (LCI) data vector
+            \end{tabular}%
+            \begin{tabular}[t]{ccl}
+            \pnode(0,0){nrf}\phantom{top} & --- & Reference flow placemarker \phantom{tops} \\
+            \pnode(0,0){nfu} & --- & Canonical functional unit \\
+            & & 
+            \end{tabular}%
           \legit{nrf}{\plotframe{refplot}}
-          \legit{nfu}{$\ast$}
+          \legit{nfu}{\rput[l](-2.5pt,0){$\ast$~~~$\tilde{y}$}}
           \legit{nnz}{\plotframe{upr}}
           \legit{nxv}{\plotframe{exchplot}}
           \legit{nfv}{\psframe[style=upr](-1,-.43)(1,.43)}
-        }
+        }}
       }
     \end{pspicture}

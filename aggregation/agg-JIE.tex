@@ -9,6 +9,26 @@
 \usepackage[round]{natbib}
 \usepackage{siunitx}
 
+\makeatletter
+\let\oldsection\section
+\renewcommand\section{\@startsection {section}{1}{\z@}%
+                                   {-3.5ex \@plus -1ex \@minus -.2ex}%
+                                   {2.3ex \@plus.2ex}%
+                                   {\normalfont\Large\bfseries <Level 1> }*}
+\renewcommand\subsection{\@startsection{subsection}{2}{\z@}%
+                                     {-3.25ex\@plus -1ex \@minus -.2ex}%
+                                     {1.5ex \@plus .2ex}%
+                                     {\normalfont\large\bfseries <Level 2> }*}
+\renewcommand\subsubsection{\@startsection{subsubsection}{3}{\z@}%
+                                     {-3.25ex\@plus -1ex \@minus -.2ex}%
+                                     {1.5ex \@plus .2ex}%
+                                     {\normalfont\normalsize\bfseries <Level 3> }*}
+
+\makeatother
+
+\usepackage{endnotes}
+\let\footnote=\endnote
+
 \bibliographystyle{authordate_bk}
 
 \renewcommand{\topfraction}{0.7}
@@ -58,15 +78,13 @@ University of California, Santa Barbara}
 
 \section{Reviewing Product System Models}
 
-Objectives in critical review vary with the study and the reviewer, but they generally include consistency with the ISO 14044 standard, the validity of methods, appropriateness of data used, correctness of interpretations, and transparency of reporting \citep[Section 6.1]{iso14044}.  Although the object of critical review is typically a written report, the use of a structured disclosure of a PSM introduces the possibility that reviewers can inspect the model itself and even verify the computations and reported results.  This section discusses how a disclosure in the format described above can enable robust review of a product system model.  Note that, for purposes of critical review, the objective for data privacy can be omitted because the reviewer may be granted privileged access to confidential data.  We return to the data privacy requirement in the next section.
+Objectives in critical review vary with the study and the reviewer, but they generally include consistency with the ISO 14044 standard, the validity of methods, appropriateness of data used, correctness of interpretations, and transparency of reporting \citep[Section 6.1]{iso14044}.  Although the object of critical review is typically a written report, this level of review is not sufficient to ensure the correctness of quantitative results.
+The use of a structured disclosure of a PSM introduces the possibility that reviewers can inspect the model itself and even verify the computations and reported results.  This section discusses how a disclosure in the format described above can enable robust review of a product system model. %\footnote{Although ISO 14071 makes explicit that reviewers are not required to review the system model, it is the opinion of both the author and at least one anonymous reviewer that the status quo is insufficient.}
+Note that, for purposes of critical review, the objective for data privacy can be omitted because the reviewer may be granted privileged access to confidential data.  We return to the data privacy requirement in the next section.
 
-\subsection{Interpreting the Foreground}
+\input{agg-foreground}
 
-The foreground of an LCA study is a collection of nodes that represent points in the inventory model where flows are exchanged.  The foreground matrix $A_f$ describes in precise terms what components are included in the product system and how they connect to one another.  The foreground is modelled as a weighted directed graph in which there is a 1:1 correspondence between nodes and product flows.  The foreground matrix $A_f$ reports the adjacency and weights of edges in the graph, and thus describes the relationships among these nodes.  These nodes typically represent unit processes, but they can also indicate exchanges across an implicit system boundary that encloses the foreground.  Generally, the foreground matrix $A_f$ can represent any process-flow model with a 1:1 correspondence between processes and flows, i.e. any allocated supply-and-use table, but some fundamental designs are common.  Some simple foreground models are shown in the supplementary materials.
-
-{\red here-- multioutput?}
-
-  \input{agg-deps}       % Ad and Bf
+\input{agg-deps}       % Ad and Bf
 
 \section{Foreground Aggregation}
 
@@ -82,6 +100,8 @@ When an LCA study result is computed, the foreground and background matrices are
 
   \input{agg-semantic}   % the need for stable references
 
+%  \input{agg-community}
+
   \input{agg-conclusion}
   
 %  \input{publication-foreground}
@@ -94,7 +114,15 @@ When an LCA study result is computed, the foreground and background matrices are
 
 %  \input{publication-acknowledgments}
 
+\let\section\oldsection
+    \section*{Acknowledgments}
+
+Many thanks to the anonymous reviewers for significant improvement of the manuscript. This work was partially supported by the US National Science Foundation (CCF-1442966).
+
  \singlespacing
+ 
+ \theendnotes
+
  \bibliography{jabref}
 }
 
@@ -116,7 +144,7 @@ When an LCA study result is computed, the foreground and background matrices are
 
   \input{agg-requirements}
 
-  \input{agg-foreground} % Af and graph/matrix equivalency
+  \input{agg-preparing} % Af and graph/matrix equivalency
     
   \input{agg-multioutput}
 

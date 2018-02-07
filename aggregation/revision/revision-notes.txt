@@ -68,11 +68,11 @@ I did take care to change the wording slightly to highlight the difference betwe
 Then a selection of puzzles from pages 8-10.
 RR* page 8 line 32 "The simplest conceivable foreground is simply the final demand y, in other words the list of background processes invoked by the study and their activity levels." I have no idea what this sentence means. The foreground is a collection of processes, but the final demand is not a process, so how can the final demand be a foreground? And as to the second part: what is the relation between the foreground and the list of background processes?
 RR* On page 8 line 48 I see a matrix ~A with a 0 in the top-left corner. Page 9 generalizes this, but suddenly has a matrix (A_f) at that place. This shift from page 8 to page 9 should be justified, because this is a major change.
-* The same matrix ~A on page 8 line 48 contains a bold 0, which suggests a column of zeros, but actually is a row of zeros. Adding the subscript T would help here.
+MM* The same matrix ~A on page 8 line 48 contains a bold 0, which suggests a column of zeros, but actually is a row of zeros. Adding the subscript T would help here.
 * Page 10 line 12 says "The augmented ~A and ~B, makes up an LCA foreground study". I am wondering if something went wrong. Two grammatical errors (the spurious comma and the singular verb) suggest an editorial mistake. But the meaning is also unclear: ~A and ~B contain foreground and background, so why is this a "foreground study"? What is a foreground study anyhow?
-* Page 10 line 12 also speaks of "the canonical functional unit". Can you define the term canonical?
-* Page 10 line 27 rewrites ~A as ~A_flat. What is the relation between these two symbols? Of course you may define a new symbol ~A_flat, but I even don't know what you intend do with ~A_flat: I see no equation in which it is used (like for instance ~A is used in eq (2)).
-* Page 10 line 37 "the final demand vector has been replaced with a canonical functional unit and no longer needs to be explicitly reported". Of course my critique depends on the missing definition of "canonical", but even then, do I understand that you write that case studies do no longer need to report a functional unit? That would be a revolutionary statement, so please expand or revise.
+00* Page 10 line 12 also speaks of "the canonical functional unit". Can you define the term canonical?
+XX* Page 10 line 27 rewrites ~A as ~A_flat. What is the relation between these two symbols? Of course you may define a new symbol ~A_flat, but I even don't know what you intend do with ~A_flat: I see no equation in which it is used (like for instance ~A is used in eq (2)).
+MM* Page 10 line 37 "the final demand vector has been replaced with a canonical functional unit and no longer needs to be explicitly reported". Of course my critique depends on the missing definition of "canonical", but even then, do I understand that you write that case studies do no longer need to report a functional unit? That would be a revolutionary statement, so please expand or revise.
 
 In conclusion, I think that you must revise the text with a more critical mindset. I am sure the paper has potential, but mathematical texts need more attention than non-mathematical texts.
 
@@ -98,58 +98,59 @@ In the simplest case, study authors could supply their raw data in form of suppl
 
 Detailed comments:
 
-P4: “In the context of this paper, an “LCA Study” should be understood as …” is not very clear, please rephrase.
+XXP4: “In the context of this paper, an “LCA Study” should be understood as …” is not very clear, please rephrase.
 
-P5: “On the basis of transparency, the framework… “ -> write ‘product system model disclosure framework” or something else that is more explicit.
+MMP5: “On the basis of transparency, the framework… “ -> write ‘product system model disclosure framework” or something else that is more explicit.
 
-P6: “The task of procedure can be described in two steps: making …” Please link these steps to the ISO standard.
+XXP6: “The task of procedure can be described in two steps: making …” Please link these steps to the ISO standard.
 
 Equation 1: I recommend using c instead of e, since e is often used as summation vector, i.e., a vector that contains only 1 as elements.
 
-Equation1 and in general: Please be consistent throughout the entire manuscript which variables contain flows (at scale) and which contain coefficients. Any jargon in that regard must be avoided, e.g., referring to B as ‘elementary flow matrix’, where, in reality, it is a normalized (per unit) elementary flow matrix.
+XXEquation1 and in general: Please be consistent throughout the entire manuscript which variables contain flows (at scale) and which contain coefficients. Any jargon in that regard must be avoided, e.g., referring to B as ‘elementary flow matrix’, where, in reality, it is a normalized (per unit) elementary flow matrix.
 
-Another jargon phrase to be clarified:
+XXAnother jargon phrase to be clarified:
 “the foreground systems themselves cannot be computed without the background.” (P8)
 
-P9: I think that at latest at this stage, many readers will wonder how the system you propose applies to cases where process descriptions in the background matrix are altered (also related to the comment of one of the reviewers regarding the zero-ness of the upper right corner of \tilde{A}. I think you should anticipate that question early on to keep your readers on board. In my opinion, and this is what I teach to students, the background matrix should never be altered, as it is usually a released and thus static database version. Instead, the processes therein should be copied to a new instance, which is part of the foreground and where those process copies can be altered. In the other extreme case, which would be a massive hybridisation of background with foreground the whole hybrid would need to be documented/exported, meaning that Af contains all info and A is null.
+MMP9: I think that at latest at this stage, many readers will wonder how the system you propose applies to cases where process descriptions in the background matrix are altered (also related to the comment of one of the reviewers regarding the zero-ness of the upper right corner of \tilde{A}. I think you should anticipate that question early on to keep your readers on board. In my opinion, and this is what I teach to students, the background matrix should never be altered, as it is usually a released and thus static database version. Instead, the processes therein should be copied to a new instance, which is part of the foreground and where those process copies can be altered. In the other extreme case, which would be a massive hybridisation of background with foreground the whole hybrid would need to be documented/exported, meaning that Af contains all info and A is null.
 
-Equation 4 is not a re-written version of equation 3! Please rephrase.
+XXEquation 4 is not a re-written version of equation 3! Please rephrase.
 
-P10: I have never heard of the rank of a vector. Do you simply mean its length?
+MMP10: I have never heard of the rank of a vector. Do you simply mean its length?
 
-P11: The term ‘aggregated foreground’ needs more introduction/explanation. At least the name, dimension, meaning, and unit (coefficient or flow??) of each of the newly introduced variables should be listed. That could be done in the SI, in a table listing the four features above for ALL system variables and model parameters.
+MMP11: The term ‘aggregated foreground’ needs more introduction/explanation. At least the name, dimension, meaning, and unit (coefficient or flow??) of each of the newly introduced variables should be listed. That could be done in the SI, in a table listing the four features above for ALL system variables and model parameters.
 It would be nice to see Equation 6 as part of a larger ‘master equation’, for example, adding a bit more detail at the bottom of Figure 2.
 
-P10, “where ˜yf is a canonical functional unit vector …”, and P11: “The foreground matrix Af, dependency matrix Ad, and foreground emission matrix Bf now contain all study-specific information.”
+MMP10, “where ˜yf is a canonical functional unit vector …”, and P11: “The foreground matrix Af, dependency matrix Ad, and foreground emission matrix Bf now contain all study-specific information.”
 That means that you are using the ‘canonical’ y vector all throughout your system, and that fact should be make more clear not that readers think that you forgot about y. Does ‘canonical’ here mean that yf is always [1,0,0,0, …., 0]? If so, that should be made clear on P10.
 
-P12: “The disclosure includes only information for which the study is the primary source.” To me that does not often seem to be the case, as also in the foreground, data from the literature and sometimes even recycled data from ecoinvent itself are used, e.g., when background inventories are copied into the foreground and modified there.
+MMP12: “The disclosure includes only information for which the study is the primary source.” To me that does not often seem to be the case, as also in the foreground, data from the literature and sometimes even recycled data from ecoinvent itself are used, e.g., when background inventories are copied into the foreground and modified there.
 I think that the statement on the foreground system description as ‘primary source’ should be toned down/modified.
 
-P13: “Objectives in critical review vary… ” I recommend sharpening this paragraph. Reviewers should be held responsible for checking the model correctness and data/model/system structure as well, and a canonical PSM structure like the one proposed here would greatly facilitate the completion of this task. What is common now is clearly insufficient.
+++P13: “Objectives in critical review vary… ” I recommend sharpening this paragraph. Reviewers should be held responsible for checking the model correctness and data/model/system structure as well, and a canonical PSM structure like the one proposed here would greatly facilitate the completion of this task. What is common now is clearly insufficient.
 
-P13: “These nodes typically represent unit processes, but they can also indicate exchanges across an implicit system boundary that encloses the foreground.” I don’t understand the second part. What is an implicit system boundary here? How can A-matrix columns describe unit processes and exchanges at the same time? I thought the latter is coded in Bf? Clarification needed.
+XXP13: “These nodes typically represent unit processes, but they can also indicate exchanges across an implicit system boundary that encloses the foreground.” I don’t understand the second part. What is an implicit system boundary here? How can A-matrix columns describe unit processes and exchanges at the same time? I thought the latter is coded in Bf? Clarification needed.
 
-P14: “… it must either be “terminated” in the dependency matrix… ” What is the dependency matrix here? Ad? Please specify.
+XXP14: “… it must either be “terminated” in the dependency matrix… ” What is the dependency matrix here? Ad? Please specify.
 
-P15: “In a matrix representation, each unit process must have exactly one reference flow, which
+XXP15: “In a matrix representation, each unit process must have exactly one reference flow, which
 corresponds to its row and column in Af.” That is a crucial LCA-matrix feature and should be described a bit more in detail: The whole A-matrix thing works only, if
 a) Rows and columns have a 1:1 correspondence both in labels (steel <-> steel making) and n their position/ordering [that is mentioned]
 b) The unit of the normalised flows reported in a row is the same as the unit of the reference product in the corresponding column. [that is not clear yet and should be mentioned]
 In short: Each A-matrix column refers to the making 1 reference product AND unit, and exactly this reference product and unit is then used by other processes.
 
-In general, when writing about the classifications d-i, d-ii, and d-iii the importance of units should be stressed at some point in the manuscript.
+MMIn general, when writing about the classifications d-i, d-ii, and d-iii the importance of units should be stressed at some point in the manuscript.
 
-Figure 3: A legend must be provided, explaining the meaning of the blue boxes, the dashed-line boxes, and the star. The variable \tilde{a}_f is new to me and I don’t understand its shape. Notation in Fig. 2, 3, and equation six must be checked for consistency. Else the figure is very informative and clear!
+MMFigure 3: A legend must be provided, explaining the meaning of the blue boxes, the dashed-line boxes, and the star. The variable \tilde{a}_f is new to me and I don’t understand its shape. Notation in Fig. 2, 3, and equation six must be checked for consistency. Else the figure is very informative and clear!
 
-P16: “A fragment of the PSM can also be published as a complete foreground.” I don’t understand, please explain.
+XXP16: “A fragment of the PSM can also be published as a complete foreground.” I don’t understand, please explain.
 
-P16: “Any co-production treatment, such as an allocation or system expansion, can only be fully expressed as a foreground fragment, because it intrinsically involves a collection of linked unit processes.” I don’t understand, please explain.
+MMP16: “Any co-production treatment, such as an allocation or system expansion, can only be fully expressed as a foreground fragment, because it intrinsically involves a collection of linked unit processes.” I don’t understand, please explain.
 
-P17: “A publication of the aggregated foreground is identical to the publication of a unit process, except that the result was derived through aggregation” I don’t understand, please explain.
+MMP17: “A publication of the aggregated foreground is identical to the publication of a unit process, except that the result was derived through aggregation” I don’t understand, please explain.
 
-Section 5.4. Consider citing DOI 10.1111/jiec.12245. (Speck et al 2015)
-I suggest to include another brief section 5.5., containing a comment on the role of the ISIE (it’s their journal!) or the SETAC group in facilitating the establishment of science-wide classifications. What about the responsibility of the database and LCIA-method providers?
+XXSection 5.4. Consider citing DOI 10.1111/jiec.12245. (Speck et al 2015)
+
+**I suggest to include another brief section 5.5., containing a comment on the role of the ISIE (it’s their journal!) or the SETAC group in facilitating the establishment of science-wide classifications. What about the responsibility of the database and LCIA-method providers?
 
 
 

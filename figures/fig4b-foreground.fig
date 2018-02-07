@@ -1,4 +1,4 @@
-\def\fgmatrix{32pt}%
+\def\fgmatrix{40pt}%
 \def\coordstep{8pt}%
 \def\depmatrix{120pt}%
 \def\bmatrix{60pt}%
@@ -8,8 +8,8 @@
 %\newpsstyle{exchplot}{framearc=0.15,linestyle=solid,linewidth=0.6pt,fillstyle=solid,fillcolor=gray,opacity=0.15}
 
 
-\begin{pspicture}(0.65,0)(3.35,10)\showgrid
-  \pnode(2,8){pAf}
+\begin{pspicture}(0.51,0)(3.35,10)\showgrid
+  \pnode(2,8.14){pAf}
   \pnode(2,5){pAd}
   \pnode(2,1.5){pBf}
   \pnode(2,9.9){pTitle}
@@ -25,7 +25,7 @@
   \rput(pBf){\newmatrix{nBf}{\bmatrix}{\fgmatrix}}
   \leftlabel{nBf}{$B_f$}
 
-  \refs{nAf}{\coordstep}{4}
+  \refs{nAf}{\coordstep}{5}
   {\scriptsize  \canonicalref{nAf}{\coordstep}}
 
   \newpsstyle{upline}{linestyle=dashed,linecolor=black,dash=6pt 0.8pt,linewidth=0.6pt}
@@ -48,6 +48,7 @@
   \plotmatrix[\coordstep]{\plotframe{upr}}{nAf}{3}{2}
   \plotmatrix[\coordstep]{\plotframe{upr}}{nAf}{4}{2}
 
+  \plotmatrix[\coordstep]{\plotframe{upr}}{nAf}{5}{1}
   %% Ad
   % col 1
   \plotmatrix[\coordstep]{\plotframe{upr}}{nAd}{1}{1}

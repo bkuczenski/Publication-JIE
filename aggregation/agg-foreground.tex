@@ -1,26 +1,10 @@
-\section{Preparing the Foreground Matrix}
+\subsection{The Foreground System Boundary and Cut-off Flows}
 
-The development in the main text assumes the product system model is already described as a symmetric collection of single-output processes (activities) and flows (commodities) related by coefficients.  In concrete terms, this means that:
-\begin{itemize}
-\item each node in the foreground (column shared by $A_f$, $A_d$, and $B_f$) corresponds to a particular flow in the model's foreground (row of $A_f$);
-\item a unit activity of each node in the foreground corresponds to a unit output of each flow;
-\item the coefficients in $A_f$, $A_d$, and $B_f$ are ratios expressing the quantity of the flow (row), in its native unit, exchanged per unit of the reference flow (column). 
-\end{itemize}
+The foreground of an LCA study is a collection of nodes that represent points in the inventory model where flows are exchanged.  The foreground matrix $A_f$ describes in precise terms what components are included in the product system and how they connect to one another.  The foreground is modelled as a weighted directed graph in which there is a 1:1 correspondence between nodes and product flows.  The foreground matrix $A_f$ reports the adjacency and weights of edges in the graph, and thus describes the relationships among these nodes.  Some simple foregrounds are described in the supporting information.
 
-In short: each foreground column has both an intrinsic reference flow and a unit of measure, and the use of this flow by other processes must be made with regard to this measure.  The activity level of each foreground node necessarily equals the magnitude of the total reference flow emanating from the node.  For background dependencies and emissions (rows of $A_d$ and $B_f$, respectively), the modeler must take care to use the units established by the references, but in the foreground case the modeler must ensure to be self-consistent in preparing the $A_f$ matrix. 
+Generally, the direct requirements matrix can represent any process-flow model with a 1:1 correspondence between processes and flows.  Normally this is understood as a requirement to include only allocated single-output processes.  However, the foreground disclosure framework is also well suited to documenting how multi-output processes are transformed into single-output processes through either partitioning allocation or different forms of system expansion.  Different approaches for creating foregrounds to model multi-output process are presented in the supporting information.
 
+An implicit ``foreground system boundary'' can be imagined to contain all the nodes in $A_f$.  Non-zero values in this matrix represent exchanges inside this boundary.  If a column in $A_f$ is nonempty, then the corresponding node has exchanges with other nodes in the foreground.  On the other hand, if a column in $A_f$ is empty, then that is an indication that the corresponding product flow is crossing the foreground system boundary.  In order for this flow to contribute any impacts, it must either be linked to a background process in the dependency matrix, or represented as an emission. 
 
-\subsection{Single-Output Foreground Processes}
-
-\input{fig_fragments}
-
-Figure~\ref{fig:fragments} illustrates the structure of some basic foreground configurations.  Most product system models would include many of these elements mixed together.  All the activities in these examples are single-output.
-The first (a) is a sequential model, in which each node requires one foreground input and generates one output. This model is equivalent to a ``gate to gate'' model.  Here the weights $k_i$ indicate the amount of the preceding reference flow that is required by the subsequent node.  Figure~\ref{fig:fragments}(b) shows an additive model, in which the outputs of several foreground nodes are added together, equivalent to a ``mixer'' or a horizontal average.  In this arrangement the weights %represent the relative weights of each input, and
-should add up to a unit output of the reference node.  Figure~\ref{fig:fragments}(c) shows a foreground model with a cyclic dependency, where some of the reference output is consumed by another foreground node.
-
-A typical PSM may contain multiple modules or fragments that are interconnected.  An example of foreground composed of several fragments is illustrated in Figure~\ref{fig:fragments}(d).  Here, the nodes labeled 1--5 represent one fragment, which generates the foreground's canonical reference flow $\tilde{y}$. This fragment requires two interior flows from separate fragments ($y_0$ and $y_1$), and has two unconnected flows (4 and 5).  The reference $y_0$ is supplied by a second fragment, made up of nodes 6-8.  The reference $y_1$ is supplied by another fragment made of only one node (9). The reference flow $y_1$ is consumed in two different places by the other fragments.
-
-As noted, a reviewer with access to items \ref{itm:fg} and \ref{itm:af} in the disclosure would be able to construct $A_f$ and automatically create a process-flow diagram, annotated with information about each node.
-
-
+A flow whose entire column consists of 0s throughout $A_f$, $A_d$, and $B_f$ is a ``cut-off'' that exits the model with zero burdens.  Specifying cut-off criteria and reporting of cut-off flows is an important part of system boundary definition.  Thus, reviewing cut-off flows (including evaluating their significance) is a crucial part of review that is facilitated by having a structured disclosure of the model.
 
