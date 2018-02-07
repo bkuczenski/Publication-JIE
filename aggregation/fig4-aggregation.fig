@@ -5,7 +5,7 @@
          {\scriptsize  \canonicalref{#2}{\coordstep}}
      \plotmatrix[\coordstep]{\plotframe{upr}}{naf}{2}{1}
   }
-    \begin{pspicture}(0,0)(16.5,10)\showgrid
+    \begin{pspicture}(0,-2)(16.5,10)\showgrid
       \let\showgrid\relax
       \rput[tl](0,10){\input{../figures/fig4a-unitprocess.fig}}
       \rput[tl](2.7,10){\input{../figures/fig4b-foreground.fig}}
@@ -13,4 +13,25 @@
       \rput[tl](8.1,10){\input{../figures/fig4dn-partial-bg-agg.fig}}
       \rput[tl](11.6,10){\input{../figures/fig4en-full-agg.fig}}
       \rput[tl](15.1,10){\input{../figures/fig4f-lci.fig}}
+
+      \def\legit#1#2{%
+        \rput(#1){\rput(1ex,0.7ex){#2}}}
+      
+      \rput[tr](16.5,-5pt){
+        \psframebox[style=stock]{\psset{unit=8pt}%
+          \footnotesize
+            \begin{tabular}{cclccl}
+            \pnode(0,0){nrf}\phantom{top} & --- & Reference flow placeholder \phantom{tops}  &
+            \pnode(0,0){nnz}\phantom{top} & --- & Non-zero value\\
+            \pnode(0,0){nfu} & --- & Canonical functional unit &
+            \pnode(0,0){nxv} & --- & Excerpted value\\ & & & 
+            \pnode(0,0){nfv} & --- & Full (LCI) data vector
+          \end{tabular}
+          \legit{nrf}{\plotframe{refplot}}
+          \legit{nfu}{$\ast$}
+          \legit{nnz}{\plotframe{upr}}
+          \legit{nxv}{\plotframe{exchplot}}
+          \legit{nfv}{\psframe[style=upr](-1,-.43)(1,.43)}
+        }
+      }
     \end{pspicture}
