@@ -24,16 +24,16 @@
   %\rput[tr](pLabel){\large c.}
 
   \rput(pad){\newmatrix{nad}{\depmatrix}{\coordstep}}
-  \leftlabel{nad}{\rput[r](0,0.65cm){$\tilde{a}_d'$}}
+  \leftlabel{nad}{\rput[r](0,0.65cm){$\tilde{\mathbf{a}}_d'$}}
   \rput(padagg){\newmatrix{nadagg}{\depmatrix}{\coordstep}}
-  \leftlabel{nadagg}{\rput[r](0,0.65cm){$(\tilde{a}_{d,priv})$}}
+  \leftlabel{nadagg}{\rput[r](0,0.65cm){$(\tilde{\mathbf{a}}_{d,priv})$}}
   \rput(pbf){\newmatrix{nbf}{\bmatrix}{\coordstep}}
-  \leftlabel{nbf}{$\tilde{b}_f$}
+  \leftlabel{nbf}{$\tilde{\mathbf{b}}_f$}
 
   \aggfg{paf}{naf}
 
   \rput(pbx){\newmatrix{nbx}{\bmatrix}{\coordstep}}
-  \leftlabel{nbx}{$\tilde{b}_x$}
+  \leftlabel{nbx}{$\tilde{\mathbf{b}}_x$}
   \fillmatrix{nbx}
   
   %\pnode(0.8,-0.5){psx}

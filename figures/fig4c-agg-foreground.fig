@@ -29,9 +29,9 @@
   %% \leftlabel{nBf}{$B_f$}
 
   \rput(pad){\newmatrix{nad}{\depmatrix}{\coordstep}}
-  \leftlabel{nad}{$\tilde{a}_d$}
+  \leftlabel{nad}{$\tilde{\mathbf{a}}_d$}
   \rput(pbf){\newmatrix{nbf}{\bmatrix}{\coordstep}}
-  \leftlabel{nbf}{$\tilde{b}_f$}
+  \leftlabel{nbf}{$\tilde{\mathbf{b}}_f$}
 
   \aggfg{paf}{naf}
 

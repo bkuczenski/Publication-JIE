@@ -22,7 +22,7 @@
   %% \rput(pad){\newmatrix{nad}{\depmatrix}{\coordstep}}
   %% \leftlabel{nad}{$\tilde{a}_d'$}
   \rput(pbf){\newmatrix{nbx}{\bmatrix}{\coordstep}}
-  \leftlabel{nbx}{$\tilde{b}$}
+  \leftlabel{nbx}{$\tilde{\mathbf{b}}$}
 
   \aggfg{paf}{naf}
 

@@ -10,13 +10,16 @@
   \pnode([angle=-90,nodesep=13pt]nad){pEquation}
 }
 \def\topequation{%
-  \pnode(0,0.1){pEquation}
+  \pnode(0,-0.9){pEquation}
+}
+\def\newequation{%
+  \pnode(0,-0.1){pEquation}
 }
 \def\bottomequation{%
-  \pnode(0,-0.8){pEquation}
+  \pnode(0,-1.7){pEquation}
 }
 
-\begin{pspicture}(0,-1)(16,9)\showgrid
+\begin{pspicture}(0,-1.9)(16,9.5)\showgrid
   \sffamily
   \pnode(0.7,0.7){pStilde}
   %\largeequal{pStilde}{pEmgn}
@@ -121,16 +124,18 @@
 
   % Af and y~
   % B matrix - left of b
+  \newequation
   \newequal[]{nxtilde}{pAf}
   \rput[B](pOp){$=$} % HACK
+  \rput[B](pOp|pEquation){$\times$} % HACK
 
   \rput[l](pAf){\newmatrix[]{nAf}{\dimp}{\dimp}}
   \fillmatrix[foreground]{nAf}
   \fillmatrix[foreground-over]{nAf}
   \rput(nAf){\scriptsize$I-${\blue$A_f$}}
   {\scriptsize \invertmatrix{nAf}}
-  \newequal[]{[angle=0]nAf}{py}
-  \rput[B](pOp){$\times$} % HACK
+  \newequal[$\times$]{[angle=0]nAf}{py}
+  %\rput[B](pOp){$\times$} % HACK
   \rput(py){$\tilde{\mathbf{y}}_f$}
   %\bottomlabel{nAf}{\scriptsize Foreground}
 
@@ -150,6 +155,16 @@
 
   
   % summary equation
+
+  \newequation
+  \rput[B](pStilde|pEquation){\large $s =$}
+  \rput[B](nEBtimes|pEquation){ $\mathbf{c}^T\times \left(\phantom{B_f}\right.$}
+  \rput[B](nB|pEquation){$B_x \times A_d$}
+  \rput[B](nX|pEquation){$+$}
+  
+  \rput[B](nBf|pEquation){ $ \left.B_f\right)$}
+  \rput[B](nAf|pEquation){ $(I-A_f)^{-1}$}
+  \rput[B](py|pEquation){ $\tilde{\mathbf{y}}_f$}
   
   \bottomequation
   \rput[B](pStilde|pEquation){\large $s =$}

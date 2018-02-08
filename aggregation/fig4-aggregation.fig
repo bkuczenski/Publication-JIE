@@ -1,6 +1,6 @@
   \def\aggfg#1#2{%
     \rput[b](#1){\newmatrix{#2}{16pt}{\coordstep}}
-    \leftlabel{#2}{$\tilde{a}_f$}
+    \leftlabel{#2}{$\tilde{\mathbf{a}}_f$}
     \refs{#2}{\coordstep}{1}
          {\scriptsize  \canonicalref{#2}{\coordstep}}
      \plotmatrix[\coordstep]{\plotframe{upr}}{naf}{2}{1}
