@@ -38,7 +38,7 @@ The objective is to disclose explicitly how the multi-output system was resolved
 
 According to MWS14, Partitioning allocation (PA) is a ``production-balanced model that artificially splits the requirements of an activity across its different outputs.''  The exact manner of the partitioning need not be specified, as long as the parts sum up to the whole.  In other words, for a process with $n$ outputs the modeler has $n-1$ degrees of freedom in specifying the allocated inventories, with the requirement that the $n$th inventory equals the remainder.
 
-In the disclosure framework, any manner of production-balanced partitioning can be represented by including the raw, un-allocated inventory as one foreground column, choosing any output as the reference.  The other $n-1$ outputs are then included as arbitrarily-specified allocated inventories in additional columns, for a total of $n$ columns.  Each column must be normalized to a unit reference.  The reference flow not explicitly specified will simply be computed as the remainder when the allocated inventories are subtracted from the un-allocated inventory.
+In the disclosure framework, any manner of production-balanced partitioning can be represented by including the raw, un-allocated inventory as one foreground column, choosing any output as the reference.  The other $n-1$ outputs are then included as arbitrarily-specified allocated inventories in additional columns, for a total of $n$ columns.  Each column must be normalized to a unit reference.  The reference flow not explicitly allocated will simply be computed as the remainder when the allocated inventories are subtracted from the un-allocated inventory.
 
 \begin{table}
   \begin{center}
@@ -87,11 +87,11 @@ with the resulting aggregated dependency and emission vectors being, again, the 
   \tilde{\mathbf{b}}_f = B_f\times \tilde{\mathbf{x}} = & [0.00695,\, 0.00144]^T
 \end{eqnarray}
 
-At the same time, LCA computation using a functional unit of one of the co-products will simply make use of the allocated inventory.  In this example, all processes are identical on a mass basis, but any other partitioning allocation can be automatically rendered self-consistent through this approach.  A reviewer would be able to inspect the foreground model to determine whether the allocation was performed as described in the report.
+At the same time, LCA computation using a functional unit of one of the co-products will simply make use of the allocated inventory.  In this example, all processes are identical on a mass basis, but any other partitioning allocation can also be automatically rendered self-consistent through this approach.  A reviewer would be able to inspect the foreground model to determine whether the allocation was performed as described in the report.
 
 \subsubsection{``Classical'' System Expansion}
 
-Although the term `system expansion' is often used to refer to product substitution and/or alternate activity allocation, these modeling techniques are distinct and should be referred to with different names, as noted in GWS14.  In the original definition of system expansion, the foreground model is simply enlarged to include all co-products.  Representation of such a system is trivial and is shown in Table~\ref{tbl:cse}.
+Although the term `system expansion' is often used to refer to product substitution and/or alternate activity allocation, these modeling techniques are distinct and should be referred to with different names, as noted in GWS14.  In the original definition of system expansion, the functional unit is simply enlarged to include all co-products.  Representation of such a system is trivial and is shown in Table~\ref{tbl:cse}.
 
 \begin{table}[h]
   \begin{center}
@@ -122,7 +122,7 @@ Although the term `system expansion' is often used to refer to product substitut
   \end{center}
 \end{table}
 
-In the classical system expansion case, the canonical functional unit, production of 1 kg of chlorine gas, will result in two cutoff flows corresponding to outputs of liquid hydrogen and sodium hydroxide.  Equivalently, an expanded functional unit of 1 kg chlorine, plus 0.028 kg hydrogen and 1.13 kg of sodium hydroxide, will result in the same activity of the un-allocated process, but will generate no cutoff flows at net.
+In the classical system expansion case, applying the expanded functional unit of 1 kg chlorine, plus 0.028 kg hydrogen and 1.13 kg of sodium hydroxide, will result in a unit activity of the reference process, without any cut-off flows..  Equivalently, the canonical functional unit, production of 1 kg of chlorine gas, will result in the same process activity level, and will also generate the co-products as cutoff flows.
 
 \subsubsection{Consequential System Expansion}
 
@@ -161,6 +161,6 @@ The foreground disclosure framework is also well suited to describe consequentia
   \end{center}
 \end{table}
 
-Here an alternate activity, namely electrolysis of water, is specified for liquid hydrogen production and is specified at index 3 in the foreground  (shown in blue).  The inventory converts 9 kg of water to 1 kg of hydrogen using 50 kWh of electricity.  The hydrogen produced from the multi-output process is then (somewhat dubiously) taken to displace hydrogen produced through the alternate activity by introducing a unity coefficient in row 3, column 1 of $A_f$.
+Here an alternate activity, namely electrolysis of water, is included for liquid hydrogen production and is specified at index 3 in the foreground  (shown in blue).  The inventory converts 9 kg of water to 1 kg of hydrogen using 50 kWh of electricity.  The hydrogen produced from the multi-output reference process is (somewhat dubiously) taken to displace hydrogen produced through the alternate activity by introducing a unity coefficient in row 3, column 1 of $A_f$.
 
-Meanwhile, sodium hydroxide from the process is assumed to substitute the production of magnesium hydroxide through the introduction of a new row and a new nonzero coefficient in column 2 of $A_d$ (shown in red). Here the match is inexact, and because magnesium hydroxide is more effective in some applications, 1 kg of sodium hydroxide is taken to displace only 0.8 kg of magnesium hydroxide.
+Meanwhile, sodium hydroxide from the reference process is modeled to substitute the production of magnesium hydroxide through the introduction of a new row and a new nonzero coefficient in column 2 of $A_d$ (shown in red). Here the match is inexact, and because magnesium hydroxide is more effective in some applications, 1 kg of sodium hydroxide is taken to displace only 0.8 kg of magnesium hydroxide.

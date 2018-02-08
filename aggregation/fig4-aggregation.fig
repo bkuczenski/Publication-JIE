@@ -19,7 +19,8 @@
       
       \rput[tr](16.5,-5pt){
         \psframebox[style=stock]{\psset{unit=8pt}%
-          LEGEND~~~~{\footnotesize%
+%          LEGEND%
+          ~~~~{\footnotesize%
             \begin{tabular}[t]{ccl}
               \pnode(0,0){nnz}\phantom{top} & --- & Non-zero value\\
               \pnode(0,0){nxv} & --- & Omitted value\\

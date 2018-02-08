@@ -9,8 +9,21 @@
 \usepackage[round]{natbib}
 \usepackage{siunitx}
 
-\makeatletter
+
+%% To build supporting information:
+%% - uncomment supportingfalse
+%% - in the document uncomment both mainpaper and supporting
+%% - latex agg-JIE
+%% - in the document comment mainpaper
+%% - maketex -x -o supp.pdf agg-JIE
+\newif\ifsupporting
+\supportingtrue
+%\supportingfalse
+
 \let\oldsection\section
+\ifsupporting
+\else
+\makeatletter
 \renewcommand\section{\@startsection {section}{1}{\z@}%
                                    {-3.5ex \@plus -1ex \@minus -.2ex}%
                                    {2.3ex \@plus.2ex}%
@@ -25,6 +38,7 @@
                                      {\normalfont\normalsize\bfseries <Level 3> }*}
 
 \makeatother
+\fi
 
 \usepackage{endnotes}
 \let\footnote=\endnote
@@ -168,8 +182,13 @@ Many thanks to the anonymous reviewers for significant improvement of the manusc
 
 \begin{document}
 
+\ifsupporting
+%\mainpaper
+\supporting
+\else
 \mainpaper
-%\supporting
+\fi
+
 
 %% %\unused
 
