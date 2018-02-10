@@ -14,11 +14,11 @@
 %% - uncomment supportingfalse
 %% - in the document uncomment both mainpaper and supporting
 %% - latex agg-JIE
-%% - in the document comment mainpaper
+%% - in the document [bottom] inside \ifsupporting, comment mainpaper
 %% - maketex -x -o supp.pdf agg-JIE
 \newif\ifsupporting
 \supportingtrue
-%\supportingfalse
+\supportingfalse
 
 \let\oldsection\section
 \ifsupporting
@@ -114,7 +114,7 @@ When an LCA study result is computed, the foreground and background matrices are
 
   \input{agg-semantic}   % the need for stable references
 
-%  \input{agg-community}
+  \input{agg-community}
 
   \input{agg-conclusion}
   
@@ -187,6 +187,7 @@ Many thanks to the anonymous reviewers for significant improvement of the manusc
 \supporting
 \else
 \mainpaper
+%\input{agg-community}
 \fi
 
 

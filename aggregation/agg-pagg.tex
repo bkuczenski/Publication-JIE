@@ -15,9 +15,9 @@ The $A_d$ and $B_f$ matrices are then partitioned into two components that sum t
   \end{equation}
 This is illustrated in Fig.~\ref{fig:private}b.  Substituted back into Eq.~\ref{eqn:study}, the private portions are aggregated into a private life cycle inventory vector $\mathbf{b}_{priv}$, while the public portions remain disaggregated:
 \begin{align}
+  \mathbf{b}_{priv} =\; & (B_{f,priv} + B_x\times A_{d,priv})\times \tilde{\mathbf{x}}\\
   s =\; & \mathbf{c}^T\times\left((B_{f,pub} + B_{f,priv}) + B_x\times (A_{d,pub} + A_{d,priv})\right)\times\tilde{\mathbf{x}}\\
-  =\; & \mathbf{c}^T\times\left((B_{f,pub} + B_x\times A_{d,pub})\times\tilde{\mathbf{x}} + \mathbf{b}_{priv}\right)\label{eqn:private}\\
-  \mathbf{b}_{priv} =\; & (B_{f,priv} + B_x\times A_{d,priv})\times \tilde{\mathbf{x}}
+  =\; & \mathbf{c}^T\times\left((B_{f,pub} + B_x\times A_{d,pub})\times\tilde{\mathbf{x}} + \mathbf{b}_{priv}\right)\label{eqn:private}
 \end{align}
 Any foreground nodes that are completely contained within the private partition can be omitted from the disclosed foreground.  The aggregation result can then be included as a separate foreground node with a unit weight, and the aggregated inventory vector included as the corresponding column of $B_f$.  This is illustrated in Fig.~\ref{fig:private}c.
 

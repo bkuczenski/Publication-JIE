@@ -1,9 +1,63 @@
-\subsection{Advancing LCA Practice}
+\subsection{Recommendations for Advancing LCA Practice}
+
+The most transformative aspect of the disclosure framework is its ability to describe the productive output of LCA modeling in a way that transcends differences in software environments and databases.  %In current practice, there is no way to separate the PSM from the computational environment used to create it; however, the formalism allows a study to be put into terms that are software independent.
+%The construction and and computation of Eq.~\ref{eqn:study} is equivalent to the operation of all LCA software that employs static background databases.
+A product system model described in the disclosure framework can %thus
+be implemented in any software system, though the manner of doing so, as well as availability of advanced features for analysis and visualization, varies widely.
+
+To advance LCA practice, the community should embrace the notion of a software-independent PSM description and consider how to best achieve it.  The SETAC North America roadmap module for PSM description and revision \citep{Kuczenski_JLCA_2018} includes milestones toward this goal.  The disclosure framework presented here is offered as a candidate for Milestone 2.1, ``a minimal description of a PSM.''  The community should give this proposal a robust critical evaluation, and researchers should consider how to conceptualize their own models in terms of the framework.  Other milestones and cross-cutting issues are of crucial interest:
+\begin{enumerate}[label=(\alph*)]
+\item LCI database providers must provide their users with unambiguous, static, resolvable references to background datasets (Milestone 1.1) so that their use in a model may be documented precisely (Milestone 3.1);
+\item The transformation of multi-functional processes to single-function processes should be described using the framework (Milestones 1.2 and 1.4);
+\item Software makers should enable their users to automatically generate lists of foreground, background, and emission flows a model foreground (disclosure items \ref{itm:fg} through \ref{itm:em}) and to export foreground matrices (disclosure items \ref{itm:af} through \ref{itm:bf}) from a model in a concise format (Milestones 2.2 and 3.4);
+\item During ISO critical review, practitioners and reviewers should strive to come to agreement on the formal structure and contents of the model being reviewed;
+\item The LCA research community, including interested parties within the International Society for Industrial Ecology, the UNEP/SETAC Life Cycle Initiative, and other organizations, should collectively pursue consistent, shared definitions of quantities of measure, flows, and contexts used in LCIA.  %These definitions should be published and curated using Semantic Web techniques and practices.
+LCIA method developers should immediately begin using these consensus definitions instead of their own internal lists when publishing flow characterization data, so that software providers can interpret the publications correctly.  %A characterization of a flow defined privately, into a context defined privately, cannot be interpreted meaningfully by the public.
+\end{enumerate}
+As these milestones are pursued and achieved, it will be possible for a standalone description of a PSM to be computed and extended by another party, regardless of the software used to construct the model originally.  This will tremendously improve the capacity for critical review and reuse of LCA models.
+
+\endinput
+
+
+Reproducing a study described in the disclosure framework is equivalent to constructing and computing Eq.~\ref{eqn:study}, which I assert is universally found in LCA computations using static background databases.
+
+
+
+
+
+A PSM fully defined in concise textual terms can be shared and distributed without 
+
+
+The disclosure framework forproduct system models can advance LCA practice by transcending differences in modeling across databases and software systems.  
+
+
+can advance LCA practice by 
+
+
 
 
 
 
 \endinput
+
+
+* Role of ISIE or SETAC group
+
+- unclear
+it seems like we would need buy-in before going any farther.
+What can people do?
+
+
+* Responsibility of database and LCIA method providers
+
+
+* Next steps-- part of standards?
+
+
+* Potential for distributed LCA computation
+
+
+
 
 The need for a shareable product system model not dependent on any single software system was identified as a key objective for advancing the state of the art in LCA \citep{Kuczenski_JLCA_2018}.  The framework introduced in this article contributes to several milestones in that document, namely the ability to identify what datasets are used in a model and how they are linked together.  The framework can also be used to document how allocation was performed.  \emph{This does not really answer the question}
 
@@ -48,3 +102,13 @@ LCIA method providers are responsible for: using community-defined flows instead
 What is all this good for?
 
  - we want to better
+
+ ---------
+
+ most important innovation here is separating bg from fg data
+ if in fact bg data are static, and become referenceable via the Internet,
+
+
+ Distributed LCA
+
+ 
