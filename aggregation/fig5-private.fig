@@ -5,7 +5,7 @@
   %%        {\scriptsize  \canonicalref{#2}{\coordstep}}
   %%    \plotmatrix[\coordstep]{\plotframe{upr}}{naf}{2}{1}
   %% }
-    \begin{pspicture}(0,0)(16.5,11.5)%\showgrid
+    \begin{pspicture}(0,-1.8)(16.5,11)\showgrid
       %\let\showgrid\relax
       \rput[bl](0.5,0){\input{../figures/fig5a-private-study.fig}}
       \rput[bl](4.22,0){\input{../figures/fig5b-partition.fig}}
@@ -15,4 +15,31 @@
       %\rput[tl](8.1,10){\input{../figures/fig4dn-partial-bg-agg.fig}}
       %\rput[tl](11.6,10){\input{../figures/fig4en-full-agg.fig}}
       %\rput[tl](15.1,10){\input{../figures/fig4f-lci.fig}}
+
+      \def\legit#1#2{%
+        \rput(#1){\rput(1ex,0.7ex){#2}}}
+
+      \rput[tr](16.5,-5pt){
+        \psframebox[style=stock]{\psset{unit=8pt}%
+          ~~~~{\footnotesize%
+            \begin{tabular}[t]{ccl}
+              \pnode(0,0){nnz}\phantom{top} & --- & Non-zero value\\
+              \pnode(0,0){nrf} & --- & Reference flow placemarker  \\
+              \pnode(0,0){ndc} & --- & Disclosure constraint 
+            \end{tabular}%
+            \begin{tabular}[t]{ccl}
+              \pnode(0,0){npv}\phantom{top} & --- & Private data point\\
+              \pnode(0,0){nfv} & --- & Aggregated private data vector\\
+              \pnode(0,0){nun} & --- & Unit-weighted aggregation node
+            \end{tabular}%
+          \legit{nnz}{\plotframe{upr}}
+          \legit{npv}{\plotframe{upred}}
+          \legit{nrf}{\plotframe{refplot}}
+          \legit{ndc}{\psline[style=vshade,linewidth=1](-0.5,0)(0.5,0)}
+          \legit{nfv}{\psframe[style=upred](-1,-.43)(1,.43)}
+          \legit{nun}{\scriptsize\darkred 1}
+          }}
+      }
+
+ 
     \end{pspicture}
