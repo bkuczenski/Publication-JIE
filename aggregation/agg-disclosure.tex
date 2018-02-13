@@ -3,7 +3,7 @@
 The foreground matrix $A_f$, dependency matrix $A_d$, and foreground emission matrix $B_f$ now contain all study-specific information.  Assuming that the appropriate background LCIDB $B_x$, and the vector of characterization factors $\mathbf{c}$ (or their product $\mathbf{c}\times B_x$) are available and held in common between the author and the reader, then a disclosure that precisely describes $A_f$, $A_d$ and $B_f$ is sufficient to reproduce the study result, as formulated in Eq.~\ref{eqn:study}.  These three submatrices together can be considered a complete representation of the PSM.
 
 \input{fig_disclosure}
-Thus, the problem of how to disclose an LCA study design is reduced to the problem of how to communicate the contents of these submatrices accurately.  Recognizing that all three matrices are likely to be sparse (that is, that most of the entries are zero), the most efficient disclosure would be to only report non-zero entries.  A sparse matrix can be represented by a list of 3-tuples indicating (row, column, value) for each non-zero entry.  Thus, a formal disclosure of the PSM can be stated in six parts, including three lists of entities and three sets of data values:
+Thus, the problem of how to disclose an LCA study design is reduced to the problem of how to communicate the contents of these submatrices accurately.  Recognizing that all three matrices are likely to be sparse (that is, that most of the entries are zero), the most efficient disclosure would be to only report non-zero entries.  A sparse matrix can be represented by a list of 3-tuples indicating (row, column, value) for each non-zero entry.  A formal disclosure of the PSM can be stated in six parts, including three lists of entities and three sets of data values:
 \begin{enumerate}[label={\em d-\roman*}., ref={\em d-\roman*}]
 \item\label{itm:fg} An ordered list of foreground nodes, beginning with the functional unit (rows/columns of $A_f$);
 \item\label{itm:bg} An ordered list of background flows, each making reference to a particular background dataset (rows of $A_d$, mapping to columns of $B_x$);
@@ -13,7 +13,7 @@ Thus, the problem of how to disclose an LCA study design is reduced to the probl
 \item\label{itm:bf} a set of 3-tuples for nonzero elements of $B_f$, in which the rows are indices into Item~\ref{itm:em} and the columns are indices into Item~\ref{itm:fg}.
 \end{enumerate}
 Each entity included in items \ref{itm:fg} through \ref{itm:em} describes a flow of some kind, and its unit of measure must be reported in the disclosure.
-In both items~\ref{itm:bg} and~\ref{itm:em}, only rows containing non-zero entries need to be mentioned, since the index of each row is common information.  The contents of a disclosure are represented graphically in Fig.~\ref{fig:disclosure}., and two example disclosures drawn from reference databases can be found in the supporting information .
+In both items~\ref{itm:bg} and~\ref{itm:em}, only rows containing non-zero entries need to be mentioned, since the index of each row is common information.  The contents of a disclosure are represented graphically in Fig.~\ref{fig:disclosure}, and two example disclosures drawn from reference databases can be found in the supporting information.
 
 A disclosure containing these six elements satisfies most of the requirements established at the top of this section (the exception is ensuring the privacy of confidential data, which is treated later in the article):
 \begin{itemize}
