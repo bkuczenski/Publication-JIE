@@ -1,0 +1,56 @@
+\section{List of Mathematical Symbols}
+
+The symbols  used in the text are defined in Table~\ref{tbl:symbols}.
+
+\begin{table}[p]
+  \caption{List of Mathematical Symbols}
+  \label{tbl:symbols}
+\small\sffamily
+  \def\gap{0.85ex}
+\begin{tabularx}{\textwidth}{cclXl}
+  \toprule
+  \textbf{Symbol} & \textbf{Formula} & \textbf{Size} & \textbf{Description} & \textbf{ref.} \\
+  \midrule
+  \multicolumn{5}{l}{Dimensions} \\[\gap]
+  $m$ &  & scalar & Number of emissions & Eq.~\ref{eqn:leontief} \\
+  $n$ &  & scalar & Number of process outputs in background database & Eq.~\ref{eqn:leontief} \\
+  $p$ &  & scalar & Number of nodes in foreground model & Fig.~\ref{fig:foreground}\\
+  $\phantom{'}p'$ & & scalar & Number of cut-off nodes in foreground & Fig.~\ref{fig:aggregation}c \\
+  $N$ & $n+p$ & scalar & size of augmented matrix & n.a. \\[\gap]
+  \multicolumn{5}{l}{Classical LCA} \\[\gap]
+  $A$ & & $n\oldtimes n$ & Direct requirements matrix (Leontief) & Eq.~\ref{eqn:leontief} \\
+  $I-A$ & & $n\oldtimes n$ & Technology matrix & " \\%Eq.~\ref{eqn:leontief} \\
+  $B$ & & $m\oldtimes n$ & Emission matrix & " \\%Eq.~\ref{eqn:leontief} \\
+  $\mathbf{y}$ & & $n \oldtimes 1$ & Final demand vector & " \\%Eq.~\ref{eqn:leontief} \\
+  $\mathbf{x}$ & $(I-A)^{-1}\times \mathbf{y}$ & $m \oldtimes 1$ & Activity level vector & Fig.~\ref{fig:lca} \\
+  $\mathbf{b}$ & $B\times \mathbf{x}$ & $m \oldtimes 1$ & Life cycle inventory & " \\%Fig.~\ref{fig:lca} \\
+  $\mathbf{c}$ & & $m \oldtimes 1$ & Characterization vector & Eq.~\ref{eqn:leontief} \\
+  $s$ & $\mathbf{c}^T\times\mathbf{b}$ & scalar &  LCIA Result & " \\[\gap]%Eq.~\ref{eqn:leontief} \\[\gap]
+  \multicolumn{5}{l}{Product System Model} \\[\gap]
+  $\tilde{\mathbf{y}}$ & $[ 1,\, 0,\, 0 ,\,\ldots,\, 0]^{T}$ & $N\oldtimes 1$ & Canonical functional unit vector & Eq.~\ref{eqn:canonical} \\
+  $\tilde{A}$ & & $N\oldtimes N$ &  Augmented $A$ matrix & Eq.~\ref{eqn:foreground} \\ 
+  $\tilde{B}$ & & $m\oldtimes N$ &  Augmented $B$ matrix & " \\%Eq.~\ref{eqn:foreground} \\
+  $A_f$ & & $p\oldtimes p$ &  Foreground matrix & " \\%Eq.~\ref{eqn:foreground} \\ 
+  $A_d$ & & $n\oldtimes p$ &  Background dependency matrix & " \\%Eq.~\ref{eqn:foreground} \\ 
+  $B_f$ & & $m\oldtimes p$ &  Foreground emission matrix & " \\%Eq.~\ref{eqn:foreground} \\
+  $B_x$ & $B\times(I-A)^{-1}$ & $m\oldtimes n$ &  Background LCI database matrix & Eq.~\ref{eqn:study} \\
+  $\tilde{\mathbf{y}}_f$ & $[ 1,\, 0,\, 0 ,\,\ldots,\, 0]^{T}$ & $p\oldtimes 1$ & Canonical foreground functional unit & " \\%Eq.~\ref{eqn:study} \\
+  $\tilde{\mathbf{x}}$ & $(I-A_f)^{-1}\times\tilde{\mathbf{y}}_f$ & $p\oldtimes 1$ & Foreground activity vector & Fig.~\ref{fig:foreground} \\[\gap]
+  \multicolumn{5}{l}{Foreground Aggregation} \\[\gap]
+  $\tilde{\mathbf{b}}_f$ & $B_f\times\tilde{\mathbf{x}}$ & $m\oldtimes 1$ & Aggregated foreground emissions & Eq.~\ref{eqn:agg}\\
+  $\tilde{\mathbf{a}}_d$ & $A_d\times\tilde{\mathbf{x}}$ & $n\oldtimes 1$ & Aggregated dependencies & " \\%Eq.~\ref{eqn:agg}\\
+  $\tilde{\mathbf{b}}_x$ & $B_x\times\tilde{\mathbf{a}}_d$ & $m\oldtimes 1$ & Aggregated background & " \\%Eq.~\ref{eqn:agg}\\
+  $\tilde{\mathbf{a}}_f$ & & $p'\oldtimes 1$ & Vector of foreground cut-off flows & Fig.~\ref{fig:aggregation}c \\
+  $\tilde{\mathbf{b}}$ & $\tilde{\mathbf{b}}_x+\tilde{\mathbf{b}}_f$ & $m\oldtimes 1$ & Aggregated life cycle inventory & Fig.~\ref{fig:aggregation}f\\[\gap]
+  \multicolumn{5}{l}{Private Aggregation} \\[\gap]
+  $\tilde{\mathbf{a}}_{d,priv}$ & & $n\oldtimes 1$ & Private dependencies & Eq.~\ref{eqn:partial} \\
+  $\tilde{\mathbf{a}}_d'$ & $\tilde{\mathbf{a}}_d-\tilde{\mathbf{a}}_{d,priv}$& $n\oldtimes 1$ & Disclosed dependencies & " \\%Eq.~\ref{eqn:partial} \\
+  $A_{d,priv}$ & & $n\oldtimes p$ & Private dependency matrix & Eq.~\ref{eqn:partition}\\
+  $A_{d,pub}$ & $A_d - A_{d,priv}$ & $n\oldtimes p$ & Public dependency matrix & " \\%Eq.~\ref{eqn:partition}\\
+  $B_{b,priv}$ & & $m\oldtimes p$ & Private foreground emission matrix & " \\%Eq.~\ref{eqn:partition}\\
+  $B_{f,pub}$ & $B_f - B_{f,priv}$& $m\oldtimes p$ & Public foreground emission matrix & " \\%Eq.~\ref{eqn:partition}\\
+  $\mathbf{b}_{priv}$ & $(B_{f,priv} + B_x\cdot A_{d,priv})\cdot\tilde{\mathbf{x}}$ & $ m\oldtimes 1$ & Private life cycle inventory & Eq.~\ref{eqn:bpriv}\\
+  $\varphi$ & Eq.~\ref{eqn:metric} & scalar & Disclosure completeness metric & Eq.~\ref{eqn:metric}\\[\gap]
+  \bottomrule
+\end{tabularx}
+\end{table}

@@ -2,9 +2,9 @@
 
 Figure~\ref{fig:foreground} illustrates the LCA computation in various successive aggregation steps, from full matrices to vectors to a scalar value.  The level of aggregation provided in a disclosure will constrain what review objectives can be met by the reader of a study.  Different aggregation forms are illustrated in Figure~\ref{fig:aggregation}.
 
-\subsubsection{Unit Process Inventory}
+\subsubsection{Single-Output Unit Process}
 
-A unit process makes up a single shared column of $A_f$, $A_d$, and $B_f$, as depicted in Figure~\ref{fig:aggregation}a.  Documentation of unit processes is specified in ISO 14048, and several compliant formats exist, the most well-known being the ILCD and Ecospold XML formats.  ISO 14048 specifies a distinction between intermediate and elementary flows, but does not include the concept of a model foreground.  In a matrix representation, each unit process must have exactly one reference flow, which corresponds to its row and column in $A_f$.
+A single-output unit process makes up a single shared column of $A_f$, $A_d$, and $B_f$, as depicted in Figure~\ref{fig:aggregation}a.  Documentation of unit processes is specified in ISO 14048, and several compliant formats exist, the most well-known being the ILCD and Ecospold XML formats.  ISO 14048 specifies a distinction between intermediate and elementary flows, but does not include the concept of a model foreground.  In a matrix representation, each unit process must have exactly one reference flow, which corresponds to its row and column in $A_f$.
 Please see the supporting information for more detail on preparing the $A_f$ matrix.
 
 \input{fig_aggregation}
@@ -28,6 +28,7 @@ See Figure~\ref{fig:aggregation}d.  Using this approach, the
  aggregated dependency vector is split into two parts that sum to the original:
 \begin{equation}
  \tilde{\mathbf{a}}_d = \tilde{\mathbf{a}}_{d,priv} + \tilde{\mathbf{a}}_d'
+\label{eqn:partial}
 \end{equation}
 The disclosed dependencies $\tilde{\mathbf{a}}_d'$ are reported, and the private dependencies $\tilde{\mathbf{a}}_{d,priv}$ are replaced with an aggregated background inventory derived from the background database, $\tilde{\mathbf{b}}_{x,agg}$.  This approach can be used when a reader lacks access to the background inventory sets referred to in $\tilde{\mathbf{a}}_{d,priv}$, or when the author wishes not to disclose the private dependencies.  Foreground emissions $\tilde{\mathbf{b}}_f$ can be reported separately from the aggregation result, but often in current practice they are not distinguished from the background flows.  
 

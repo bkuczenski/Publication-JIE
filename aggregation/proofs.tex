@@ -5,7 +5,7 @@
 This is a proof of Equation~2 in the manuscript.  
 
 Given a life cycle inventory database (LCIDB) containing input-output matrix $A$ and emission matrix $B$, and a final demand vector $\mathbf{y}$, construct an augmented inventory database
-$\tilde{A} = \left[\begin{smallmatrix} 0 & \mathbf{0} \\ \mathbf{y} & A \end{smallmatrix}\right]$,
+$\tilde{A} = \left[\begin{smallmatrix} 0 & \mathbf{0}^T \\ \mathbf{y} & A \end{smallmatrix}\right]$,
 $\tilde{B} = [ \mathbf{0},\, B ]$, and canonical functional unit $\tilde{\mathbf{y}} =  [ 1,\, 0,\, 0 ,\,\ldots,\, 0]^{T}$.  Show that
 \begin{equation} B\times\left(I-A\right)^{-1}\times\mathbf{y} = \tilde{B}\times\left(I-\tilde{A}\right)^{-1}\times\tilde{\mathbf{y}}
 \end{equation}
@@ -13,17 +13,17 @@ $\tilde{B} = [ \mathbf{0},\, B ]$, and canonical functional unit $\tilde{\mathbf
 We begin by constructing $(I-\tilde{A})^{-1}$.  Because the matrix is block triangular, we only need to determine the value of $\mathbf{q}$ in the matrix below:
 \begin{eqnarray}
   I &=&  (I-\tilde{A})^{-1}\times(I-\tilde{A})\\
-  \left[\begin{array}{cc} 1 & \mathbf{0} \\
+  \left[\begin{array}{cc} 1 & \mathbf{0}^T \\
     \mathbf{0} & I
   \end{array}\right] &=&
-  \left[\begin{array}{cc} 1 & \mathbf{0} \\
+  \left[\begin{array}{cc} 1 & \mathbf{0}^T \\
       \mathbf{q} & (I-A)^{-1}
   \end{array}\right]\times
-  \left[\begin{array}{cc} 1 & \mathbf{0} \\
+  \left[\begin{array}{cc} 1 & \mathbf{0}^T \\
       -\mathbf{y} & (I-A)
         \end{array}\right]
 \end{eqnarray}
-It can be seen that $\mathbf{q}-(I-A)^{-1}\times\mathbf{y}=0$ is a necessary condition to satisfy the equality, and thus $\mathbf{q}=(I-A)^{-1}\times\mathbf{y}$.
+It can be seen that $\mathbf{q}-(I-A)^{-1}\times\mathbf{y}=\mathbf{0}$ is a necessary condition to satisfy the equality, and thus $\mathbf{q}=(I-A)^{-1}\times\mathbf{y}$.
 
 We know that $\tilde{\mathbf{y}}$ selects the first column of its argument, so:
 \begin{equation}

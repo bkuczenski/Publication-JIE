@@ -36,9 +36,9 @@ The objective is to disclose explicitly how the multi-output system was resolved
 
 \subsubsection{Partitioning Allocation}
 
-According to MWS14, Partitioning allocation (PA) is a ``production-balanced model that artificially splits the requirements of an activity across its different outputs.''  The exact manner of the partitioning need not be specified, as long as the parts sum up to the whole.  In other words, for a process with $n$ outputs the modeler has $n-1$ degrees of freedom in specifying the allocated inventories, with the requirement that the $n$th inventory equals the remainder.
+According to MWS14, Partitioning allocation (PA) is a ``production-balanced model that artificially splits the requirements of an activity across its different outputs.''  The exact manner of the partitioning need not be specified, as long as the parts sum up to the whole.  In the disclosure framework, any manner of production-balanced partitioning can be represented by including the raw, un-allocated inventory as one foreground column, choosing any output as the reference.  The other $n-1$ outputs are then included as allocated inventories in additional columns, for a total of $n$ columns.  Each column must be normalized to a unit reference.
 
-In the disclosure framework, any manner of production-balanced partitioning can be represented by including the raw, un-allocated inventory as one foreground column, choosing any output as the reference.  The other $n-1$ outputs are then included as arbitrarily-specified allocated inventories in additional columns, for a total of $n$ columns.  Each column must be normalized to a unit reference.  The reference flow not explicitly allocated will simply be computed as the remainder when the allocated inventories are subtracted from the un-allocated inventory.
+Note that, although it is customary for allocated process inventories to be derived as a uniform partition of the un-allocated process based on some parameter such as mass, price or energy content, this is not necessary.  For a process with $n$ outputs the modeler has $n-1$ degrees of freedom in specifying the allocated inventories, with the requirement that the $n$th inventory equals the remainder.  In the framework presented, the modeler must provide the $n-1$ allocated inventories explicitly.  The reference flow for the $n$th process will simply be computed as the remainder when the allocated inventories are subtracted from the un-allocated inventory.
 
 \begin{table}
   \begin{center}
@@ -74,7 +74,7 @@ Table~\ref{tbl:partition} illustrates this for the chlor-alkali example, for con
 
 The inventories themselves are shown as entries in the $A_d$ and $B_f$ matrices. Because all co-products are already reported in mass, the allocated inventories for the two co-products are both the same and represent a scaling-down of the un-allocated inventory by the total mass of outputs (about 2.16 kg).
 
-Using the foreground in Table~\ref{tbl:partition}, LCA computation using the canonical functional unit will automatically compute the self-consistent single-output result for 1 kg of chlorine gas because the allocated inventories for hydrogen and sodium hydroxide will be subtracted from the total.  The foreground activity levels for the system are:
+Using the foreground in Table~\ref{tbl:partition}, LCA computation using the canonical functional unit (see main text, Eq.~\ref{eqn:foreground}) will automatically compute the self-consistent single-output result for 1 kg of chlorine gas because the allocated inventories for hydrogen and sodium hydroxide will be subtracted from the total.  The foreground activity levels for the system are:
 
 \begin{equation}
   \tilde{\mathbf{x}} = [1,\,-0.028,\,-1.13]^T
@@ -122,7 +122,7 @@ Although the term `system expansion' is often used to refer to product substitut
   \end{center}
 \end{table}
 
-In the classical system expansion case, applying the expanded functional unit of 1 kg chlorine, plus 0.028 kg hydrogen and 1.13 kg of sodium hydroxide, will result in a unit activity of the reference process, without any cut-off flows..  Equivalently, the canonical functional unit, production of 1 kg of chlorine gas, will result in the same process activity level, and will also generate the co-products as cutoff flows.
+In the classical system expansion case, applying the expanded functional unit of 1 kg chlorine, plus 0.028 kg hydrogen and 1.13 kg of sodium hydroxide, will result in a unit activity of the reference process, without any cut-off flows.  Equivalently, the canonical functional unit, production of 1 kg of chlorine gas, will result in the same process activity level, and will also generate the co-products as cutoff flows.
 
 \subsubsection{Consequential System Expansion}
 

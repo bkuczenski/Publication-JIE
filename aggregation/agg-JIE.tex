@@ -40,8 +40,12 @@
 \makeatother
 \fi
 
+\ifsupporting
+\let\theendnotes\relax
+\else
 \usepackage{endnotes}
 \let\footnote=\endnote
+\fi
 
 \bibliographystyle{authordate_bk}
 
@@ -69,7 +73,7 @@ University of California, Santa Barbara}
 \def\mainpaper{
 
   \maketitle
-  \emph{Submitted after revision to the Journal of Industrial Ecology; February 2018}
+  \emph{Submitted after revision to the Journal of Industrial Ecology; April 2018}
 
   \input{agg-abstract}
 
@@ -152,9 +156,12 @@ Many thanks to the anonymous reviewers for significant improvement of the manusc
     \Large Supporting Information
   \end{center}
 
-%  \doublespacing
+  %  \doublespacing
+  \input{symbols}
 
   \input{proofs}
+
+  \input{equivalence}
 
   \input{agg-requirements}
 
