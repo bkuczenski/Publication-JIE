@@ -1,0 +1,150 @@
+==========
+Fri Apr 20 10:09:31 -0700 2018
+
+20-Apr-2018
+
+Dear Dr. Kuczenski:
+
+Thank you for your efforts in revising your paper, Disclosure of Product System Models in Life Cycle Assessment: Achieving Transparency and Privacy (Manuscript ID 17-JIE-5822.R1).  Your revisions addressed the concerns raised with respect to the earlier version of your paper. There are only some minor clarifications needed at this point, based on the comments of reviewer 2 (which will then also take care of the comment of reviewer 1).
+
+...
+
+Once again, thank you for submitting your manuscript to the Journal of Industrial Ecology and I look forward to receiving your revision.
+
+Sincerely,
+Stefanie
+Associate Editor, Journal of Industrial Ecology
+stefanie.hellweg@ifu.baug.ethz.ch
+
+Reviewer(s)' Comments to Author:
+Reviewer: 1
+
+Comments to the Author
+Thanks for this revision. The article has improved quite a bit.
+
+I do regret that you choose for keeping the "I-A" structure. While I do understand your point of departure, the supply-use tables and the constructs derived from that, the final step to the IO-format is unfortunate and inconssistent.
+a) It is unfortunate because the standard computational stucture of LCA is process-based using A^-1, and not IO-based using (I-A)^-1. Just read SETAC and ISO: classical LCA is process-based. This is not only in the Heijungs & Suh book, but also in many subsequent articles. Of course there are articles on the basis of IO-based (I-A)^-1, but this is a minority, and almost never a reference to classical LCA.
+b) It is inconsistent because, indeed as is written on page 6 line 8, the IO-framework is either "commodity-by-commodity or industry-by-industry". But your system  is commodity-by-process. This is for instance clear from page 9 lines 12-26, where columns are processes and rows are commodities.
+Indeed, classical/ISO/SETAC/process-based LCA uses A^-1, not (I-A)^-1, and its format is commodity-by-process. In the first version version I commenented on an inconsistent treatment, in the second version you chose for the wrong repair, and now you seem to go even deeper in this wrong repair. I simply can't understand this choice, and it creates a major limitation for the usefulness and acceptance of the rest of the paper.
+
+I am still puzzled about the canonical functional unit. Although it is clearer now, I am in particular concerned if (and how) your approach would work if the functional unit of a study is not 1 bread or 1 kWh electricity, but 1000 breads of 100000 kWh electricity. Please discuss and demonstrate that you can do this. Otherwise, your approach will again be useless.
+
+I would highly appreciate a list of symbols. This list could contain the symbol, a description if its meaning, and possibly its size(s), e.g. products*processes or so.
+
+There are still several places where the notation is not consistent. For instance, in the SI:
+* page 12 line 35, bold 0 should be bold 0 transpose
+* page 12 line 47 likewise
+* page 12 line 50 "=0" should have a bold "0"
+* page 2 line 31 "0" should be bold 0 transpose
+* page 2 line 33 "0" should be bold 0 transpose
+* page 2 line 34 "0" should be bold 0
+* page 2 line 43 likewise
+* etc
+Please check the SI carefully.
+
+Reviewer: 2
+
+Comments to the Author
+The author has prepared a comprehensive revision of the manuscript, which has now reached a very high level of quality. My concerns from the last review were satisfactorily addressed, but I found two issues that should be fixed before final acceptance. I recommend accepting this manuscript after minor revision, and I do not need to see the revised version again.
+
+1) The examples provided for multi-output foreground processes in Section 3.2 in the SI are very instructive, however, their description lacks conciseness. There are a number of phrases like ‘arbitrarily-specific allocated inventories’, ‘explicitly allocated’, ‘canonical functional unit’, etc., that should be better explained or avoided. SI section 3.2 would benefit from more concise language and a few more descriptions.
+
+2) In the response letter, I saw that reviewer 1 emphasized the difference between the mathematical framework for process and IO-based LCA, referring to Suh and Heijung’s A^-1 and Leontief’s (I-A)^-1. (note that the two A’s are different matrices with a different meaning). I am not aware of a reference that shows that both approaches are equivalent, maybe it can be shown in the SI, while at the same time explaining to the reader that the A matrix used here is not the S&H A matrix but the Leontief A-matrix. There seems to be a gap here both in the literature and in general understanding, but filling it may be too much for this paper.
+
+
+------------
+
+This is perplexing to me. Surely Pauliuk has read Suh (2010)?  doesn't he cite it?
+
+He says "SUTs have already been promoted for LCA (Suh et al 2010)" but Suh et al's abstract asserts "the article shows that the partitioning method in LCA is equivalent to the industry-technology
+model in input−output economics, and system expansion in LCA is equivalent to the by-product-technology model in input−output output economics."
+
+And indeed the article does succeed in showing that, concluding that "the two data types can be hybridized without the loss of methodological consistency."
+
+OK. Going forward:
+
+ * Change 'primacy' to 'originality'
+
+ * Otherwise make very focused changes to directly address reviewer comments.
+
+   First, to the common confusion regarding the equivalence of classical and input-output LCA, a new section has been added discussing this in the supplementary materials.
+
+   There is a level of confusion about the differing implications of process-based LCA inventory analysis as described in Heijungs and Suh (2002), and input-output analysis using a Leontief matrix.  In fact, these two techniques were shown to be equivalent in Suh et al, 2010 (10.1111/j.1530-9290.2010.00235.x; see full text for citation), whose abstract declares: "the article shows that the partitioning method in LCA is equivalent to the industry-technology model in input−output economics, and system expansion in LCA is equivalent to the by-product-technology model in input−output output economics."  The article shows convincingly that "the two data types can be hybridized without the loss of methodological consistency" (p.345).
+
+   Both the technology matrix $A$ in LCA and the Leontief matrix $(I-A)$ in input output analysis are ways of encoding the relationships between the products that some processes "make" and other processes "use."  In either the classical or input-output formulation, both matrices must be put into symmetric form to be invertible, and this means describing each column as having a single, reference output.  This is done either through disaggregation (i.e. dividing a process by its various outputs) or aggregation (i.e. combining products to form a market or industry).  Once this is accomplished, the only substantive difference between the various approaches is one of column scaling: whether the entries describe real outputs, unit outputs, or unit activity levels.  The convention in LCA is for a column to represent a unit activity level.
+   
+   Suh et al, after a rich investigation of the literature, a thorough mathematical development, and a worked example, conclude that "even very large-scale LCI problems, such as those in commercial LCI databases, can be computed with a consistent mathematical framework..." that being the make-and-use framework, "... which can avoid numerous hardly traceable manual handlings" (p. 349).\footnote{Here Suh et al are exhibiting some wishful thinking, as the transformation of data into a normalized technology matrix unavoidably includes "manual handling." But the point is still made.}  In effect, the different mathematical approaches can be made equivalent.  The equivalency can be made very plain by simply reinterpreting the input-output expressions \textit{as} technology matrices.  In other words, (in Suh et al) the expressions $(I-A_I)$ (eq. 6), $(I-A_C)$ (eq. 9), $(I-A_B)$ (eq. 12), and $(V'-U)$ (eq. 17) can simply be interpreted as \textit{different ways to formulate} the process-based technology matrix, up to a columnwise normalization.
+
+   To use the input-output coefficient approach, as in the present article, the columns must be scaled to a unit reference output.  This reference output is then omitted from the $A$ matrix, and is instead supplied by the $I$ in the expression $(I-A)$.  This formulation is completely consistent with any other matrix-based formulation of LCA, including classical process LCA as traditionally practiced.  In particular, the approaches described here apply equally well to LCA models using both process-based databases such as Ecoinvent, input-output databases such as Exiobase, and background databases such as the GaBi databases.
+
+   Interested readers should note that SimaPro, the leading worldwide software system for scientific LCA, converted to using an iterative Leontief inverse for Version 8, as disclosed in a whitepaper published in 2014 (https://www.pre-sustainability.com/news/new-calculation-engine-simapro-8), realizing significant speed and memory usage improvements.  OpenLCA, the open-source alternative, also reported a dramatic reduction in memory usage and computation time around the release of version 1.4 in 2014, coincident with a revised algorithm "optimized for huge databases" (http://www.openlca.org/openlca-beta-1-4-released-optimised-for-huge-databases/). This is highly suggestive of a switch to an iterative approach.  GaBi, the more industrially oriented software, does not use a matrix formulation at all, but has always computed activity levels using iteration at the plan level.
+
+   R1:
+   (a) The reviewer's "unfortunate" complaint that "classical LCA is process based" is only semantic, or else based on habit or custom more than rigor or requirement.  Processes, after all, have inputs and outputs, essentially their only characteristic in the 14044 standard.  The ISO standard has very little to say about how LCA results are computed, and never mentions matrices at all except in an annex discussing life cycle interpretation.  Any ascription of a preferred mathematical formulation to some amorphous "SETAC and ISO" is only a projection of preference.  Moreover, having seen in my previous response that the major LCA software systems now use input-output techniqes, the reviewer's comment seems anachronistic.
+
+   (b) The comments about "inconsistency" are more relevant and have led me to make clarifying changes to the text. To the point, the $A$ matrix must be symmetric to be invertible, and in the case where every process has a single output, the distinction between processes and commodities is once again only semantic.  In the present text, it is more accurate to say the technology matrix is allocated-commodity by allocated-commodity.  I have made a few changes on page 12 and throughout the text to highlight this distinction.
+
+   Regarding the canonical functional unit, I have added another endnote on p.10: "Of course, the 'functional unit' does not need to be limited to a unit of any given output. For instance, if the functional unit is 1,000 loaves of bread, and one loaf of bread weighs 0.454 kg, and the unit output from row/column 567 of the A matrix is 1 kg of bread, then the canonical functional unit would be realized by entering 454 in column 1, row 567, leaving the rest of that column zero."
+
+   Regarding the table of symbols, this has been added to the supporting and includes the following symbols:
+
+   dimensions
+   m
+   n
+   p
+   classical LCA
+   A
+   I-A
+   B
+   c
+   s
+   x
+   y
+   foreground model
+   \tilde{A}
+   \tilde{B}
+   \tilde{x}
+   \tilde{y}f
+   \tilde{y}
+   Af
+   Ad
+   Bf
+   Bx
+   foreground aggregation
+   \tilde{a}f
+   \tilde{a}d
+   \tilde{b}f
+   \tilde{b}x
+   \tilde{b}
+   private aggregation
+   \tilde{a}d,priv
+   \tilde{a}d'
+   \tilde{b}x,agg
+   Ad,pub
+   Ad,priv
+   Bf,pub
+   Bf,priv
+   bpriv
+   varphi
+
+   The failure to properly use a bold 0 and transpose symbols around the 0-vector in the SI has also been corrected.
+
+   R2:
+   The reviewer states that the descriptive examples added to Supplementary section 3.2 lack conciseness, and notes the use of phrases ‘arbitrarily-specified allocated inventories’, ‘explicitly allocated’, and ‘canonical functional unit.'  I note the significance that allocation parameters be arbitrarily specified is a key characteristic of Majeau-Bettez et al, 2014, on which the section is based.  I have tried to make modifications for clarity, but style cannot override correctness.
+
+   Regarding the comment about the Leontief matrix, I have made a small addition on p. 7 to clarify, and referenced the above new section in the supplementary materials.
+
+   
+   
+  
+   
+
+we should do this this weekend and submit on Monday.
+
+ X p. 7 V'-U -> refer to SI
+ X change primacy/primary to originality/original
+ 0 some twiddles on p. 9 and 15-18 regarding 'process' vs 'allocated commodity'
+ X SI: table
+ X SI: new section
+ X SI: bold 0s
+
