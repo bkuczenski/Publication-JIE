@@ -17,8 +17,8 @@
 %% - in the document [bottom] inside \ifsupporting, comment mainpaper
 %% - maketex -x -o supp.pdf agg-JIE
 \newif\ifsupporting
-\supportingtrue
-%\supportingfalse
+%\supportingtrue
+\supportingfalse
 
 \let\oldsection\section
 \ifsupporting
@@ -62,7 +62,7 @@
 \author{Brandon Kuczenski\\
 Institute for Social, Behavioral, and Economic Research\\
 University of California, Santa Barbara}
-\date{\mydate\today}
+\date{Submitted after revision, 23 Apr 2018}
 
 \usepackage{lineno}
 \let\showgrid\relax
@@ -73,7 +73,8 @@ University of California, Santa Barbara}
 \def\mainpaper{
 
   \maketitle
-  \emph{Submitted after revision to the Journal of Industrial Ecology; April 2018}
+  %\emph{Submitted after revision to the Journal of Industrial Ecology; April 2018}\\
+  \emph{Accepted for publication: 16 May 2018} 
 
   \input{agg-abstract}
 
