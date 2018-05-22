@@ -4,3 +4,20 @@ Thu May 17 17:09:06 -0700 2018
 1- acknowledgments: working group?
 
 2- p.26 (c) .. emission flows IN a model foreground (disclosure...
+
+3- p.6 "A symmetric input output ... the column's index." very long sentence.
+
+4- p.23 "b_priv was computed correctly" (reference Eq. 9)
+
+5- p.22 italcize or bold "functional definition of study scope"
+
+
+d-list:
+x Suh
+ Hertwich
+x Ciroth
+x Lesage
+x Plevin
+ Gibon
+ Hanes ?
+ 
