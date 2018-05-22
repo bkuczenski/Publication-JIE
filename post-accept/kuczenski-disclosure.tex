@@ -1,0 +1,479 @@
+\documentclass[12pt]{article}
+
+%% formatting
+\pagestyle{plain}
+\usepackage[margin=1in]{geometry}
+
+%% font selection
+\usepackage{mathptmx}
+\renewcommand\sfdefault{phv}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{textcomp}
+
+\usepackage{setspace}
+\usepackage{textcase}
+\usepackage{amsmath,amssymb,mathrsfs}
+\usepackage{booktabs}
+\usepackage{array}
+
+\usepackage{enumitem}
+\setlist[enumerate,2]{label=(\alph*)}
+\setlist[enumerate,3]{label=\roman*.}
+
+%% pdf foo
+\usepackage[svgnames]{xcolor}
+
+\definecolor{hyperblue}{rgb}{0.01 0.04 0.45}
+\usepackage{thumbpdf}
+
+\usepackage[hyphens]{url}
+
+\RequirePackage[colorlinks,breaklinks=true,hyperindex,plainpages=false,%
+linkcolor=hyperblue,urlcolor=hyperblue,anchorcolor=hyperblue,%
+citecolor=black,%
+pdfstartview=FitH,pdfpagemode=UseOutlines,%
+bookmarksopen=false]{hyperref}
+\def\pdfBorderAttrs{/Border [0 0 0] } % No border arround Links
+\setlength{\pdfpagewidth}{\paperwidth}
+\setlength{\pdfpageheight}{\paperheight}
+\usepackage{breakurl}
+\urlstyle{same}
+
+%% Appearance
+
+\usepackage{parskip}
+\setlength{\parindent}{0pt}
+
+\newcommand{\doi}[1]{\mbox{doi:~\href{http://dx.doi.org/#1}{\small\texttt{#1}}}}
+\newcommand{\email}[1]{\texttt{\href{mailto:#1}{#1}}}
+\newcommand{\overbar}[1]{\mkern
+  1.5mu\overline{\mkern-1.5mu#1\mkern-1.5mu}\mkern 1.5mu}
+
+\let\oldtimes\times
+\let\times\cdot
+
+
+%\lhead{\sffamily Disclosure of product system models}
+%\rhead{\sffamily Kuczenski -- 2017}
+
+\usepackage{tabularx}
+\usepackage[round]{natbib}
+\usepackage{siunitx}
+
+
+%% To build supporting information:
+%% - uncomment supportingfalse
+%% - in the document uncomment both mainpaper and supporting
+%% - latex agg-JIE
+%% - in the document [bottom] inside \ifsupporting, comment mainpaper
+%% - maketex -x -o supp.pdf agg-JIE
+
+\let\oldsection\section
+\makeatletter
+\renewcommand\section{\@startsection {section}{1}{\z@}%
+                                   {-3.5ex \@plus -1ex \@minus -.2ex}%
+                                   {2.3ex \@plus.2ex}%
+                                   {\normalfont\Large\bfseries <Level 1> }*}
+\renewcommand\subsection{\@startsection{subsection}{2}{\z@}%
+                                     {-3.25ex\@plus -1ex \@minus -.2ex}%
+                                     {1.5ex \@plus .2ex}%
+                                     {\normalfont\large\bfseries <Level 2> }*}
+\renewcommand\subsubsection{\@startsection{subsubsection}{3}{\z@}%
+                                     {-3.25ex\@plus -1ex \@minus -.2ex}%
+                                     {1.5ex \@plus .2ex}%
+                                     {\normalfont\normalsize\bfseries <Level 3> }*}
+
+\makeatother
+
+\usepackage{endnotes}
+\let\footnote=\endnote
+
+\bibliographystyle{authordate_bk}
+
+
+\title{Disclosure of Product System Models in Life Cycle Assessment: Achieving Transparency and Privacy}
+\author{Brandon Kuczenski\\
+Institute for Social, Behavioral, and Economic Research\\
+University of California, Santa Barbara}
+\date{Submitted after revision, 23 Apr 2018}
+
+\usepackage{lineno}
+
+
+\def\mainpaper{
+
+  \maketitle
+  %\emph{Submitted after revision to the Journal of Industrial Ecology; April 2018}\\
+  \emph{Accepted for publication: 16 May 2018} 
+
+  \begin{abstract}
+  Many of the challenges facing knowledge synthesis from life cycle assessment (LCA) studies stem from the inability of study authors and readers to formally agree on the structure and content of the product system models used to perform LCA computations.
+  This article presents a framework for formally disclosing the foreground of an LCA study in a way that permits the computations to be inspected, verified, and reproduced by a reader, provided that the reader has access to the same life cycle inventory and impact characterization resources as the author.
+  The framework can also be used to partition a study into public and private portions, allowing both portions to be critically reviewed but omitting the private information from the disclosure.
+  A disclosure is made up of six components, including three lists of entities in the model and three sparse matrices describing their interconnections.  The entity lists make reference to previously-published resources, including background inventory databases and characterized elementary flows, and the disclosure framework requires both author and reader to agree on the meaning of each of these references.
+  The framework contributes to ongoing efforts within and beyond industrial ecology to improve the reproducibility and verifiability of scholarly works, and if implemented, plots a course toward distributed, platform-independent computation and validation of LCA results.
+\end{abstract}
+
+
+  \doublespacing
+  %\linenumbers
+
+
+\section{Introduction}
+
+Life cycle assessment (LCA) is a standard methodology to estimate the potential environmental impacts of products or services by modeling the network of industrial processes that must occur to deliver 
+them to a consumer.  The technique is well-established, widely practiced, and draws on an extensive body of standardization and scholarship.
+Increasingly, the results of LCA studies are appearing in environmental declarations, corporate sustainability reports, and product marketing information.  LCA is also gaining prominence as a tool for developing and evaluating environmental policy.  
+%
+At the core of an LCA study is a model of a ``product system,'' which represents a collection of ``processes $\ldots$ performing one or more defined functions'', that describes the life cycle of a product \citep{iso14044}.  The product system model, or PSM, encodes information about how a product is manufactured, distributed, used by the consumer, and what happens to it after it is disposed.  A product system can be divided into a foreground, which denotes the portions of the life cycle whose operations are directly modeled by the study, and a background, which represents the global industrial system \citep{SETAC_inventory_1998}.  While the foreground is often modeled from direct observation or other primary data, background processes are typically drawn from a life cycle inventory (LCI) database prepared by a third party.
+
+Although there has been considerable effort to normalize and harmonize 
+LCI database design methodology and data interchange \citep{UNEP_2011, JRC_ILCD_ELCD_2013, Mila_e_Canals_2015, Ingwersen_JLCA_2015}, less attention has been paid to harmonizing PSMs.  These models are often highly complex and include countless modeling decisions, approximations, and assumptions made by a study author \citep{Lloyd2007, reap2008_I}.
+Factors such as co-production strategy \citep{Finnveden_1999, Pelletier_2014} can also render study findings unreliable or highly contingent.  Consequently, while comparative evaluations can be made regarding alternative cases or scenarios within a single study, comparisons across studies are much more challenging \citep{Heath2012, Henriksson2014}.  Even when relatively simple and homogeneous systems are considered, wide variations can be found in the results of studies from different authors \citep{van_der_Harst_2013, Turconi_2013}.
+A lack of transparency in reporting, particularly regarding definitions of study scope and system boundary,
+is a crucial challenge to the interpretation of results in comparative analysis \citep{Cleary2009, Laurent_2014}.  A further challenge to transparency can be found in the use of input data that are confidential or proprietary \citep{Kuczenski_ESD_2017}.  One consequence of all these challenges is the high cost and uneven rigor of critical review, in which the complexities of LCA come face to face with the limitations of current practice \citep{Curran2014}.  
+
+
+As LCA gains prominence, particularly in the policy realm, these problems become more acute.  If LCA is to be used in policy, it will necessarily have the effect of recommending certain product systems, technologies, or approaches at the expense of others; yet in that event it is critically important that there be a consensus among stakeholders that the quantitative results are credible and well-supported \citep{Rainville_2015, McManus_2015}.  As noted above, this level of consensus is hard to realize, in part because of the conflicting implications inherent in different analytic modes.
+Plevin et al.\ famously observed in the strongest terms that careless reporting of attributional LCA study results can distort the significance of findings in a policy context \citep{Plevin_2013}, a shortcoming that can be found in other modes as well \citep{Brandao_2014}.  
+
+An LCA study result is ultimately an assertion that for some constructed PSM, the delivery of a particular reference flow is associated with a certain amount of environmental impact or potential impact.  But if the PSM itself is ambiguously stated, then the significance of the result is ambiguous as well.  Often the structure and contents of the model are never stated precisely; instead they are \emph{described} in a written report, and the description must be interpreted by a reader.  When a study is reviewed, it is often the written report and \emph{not} the PSM itself that is the object of review.  \cite{iso14071}, which provides guidelines on critical review, emphasizes that review of the PSM or individual datasets is optional.  
+%A common theme in all these controversies is the inability for authors and their readers to formally agree on the structure and content of the PSM.
+Although the general structure for life cycle assessment can be stated formally, there is no current practice for formally describing the PSM and thus, no automatic mechanisms for interpretation or review of published LCA studies.  Moreover, there is no current practice that permits a reviewer to verify the correctness of the computations inherent in an LCA study if access to the PSM itself is not available.  
+
+Because of the diversity of software and techniques for performing LCA, it is important to develop methods for communicating the structure of the PSM that is not dependent on any particular software or database \citep{Kuczenski_JLCA_2018}.    The purpose of this paper is to advance a framework for the formal description of PSM that would allow for sharing, revision, and critical review of models while also enabling authors to protect the privacy of confidential information.  This objective is also in line with the broader imperative throughout industrial ecology to improve transparency and reproducibility of computed results \citep{Hertwich_JIE_2018}.  
+
+  
+\section{Disclosing the Product System Model}
+
+\subsection{Objectives}
+
+The task of computing life cycle impact assessment (LCIA) results from a product system model can be described as an ``aggregation,'' in which the data in large, sparse models are combined through linear algebra operations into a small set of numeric scores.  Although several equivalent methods for computing aggregated LCI and/or LCIA results have been described in the literature \citep{Suh2005a, Peters_JLCA_2007}, the computational representation of and exchange of product system models, and the generation of aggregated results, remains software-specific.  
+
+Reporting the results of an LCA study implies the existence of two parties with different information: the study author has full knowledge of the product system model; and the reader only has knowledge of what the author has disclosed.  Obviously, the level of detail of the disclosure will determine how useful it is to the reader.  In this context, the reader will want to know the answers to various review objectives.  
+At the same time the author may have constraints that limit what can be disclosed.  The main goal of the framework presented here is to give form to the disclosure so that the requirements of various review objectives, and restrictions associated with various disclosure contraints, can be evaluated clearly.
+
+On the basis of transparency, the framework for disclosure of the PSM should meet the following objectives:
+\begin{itemize}
+\item \textbf{Computability}. The result should be computed using only the disclosure, plus resources available independently to the reader.  The computation should follow the consensus understanding of process LCA computation.
+\item \textbf{Completeness / Minimality}.  The computation should use all of the information provided in the disclosure.
+\item \textbf{Reproducibility}.  The result obtained by the reader should match the result provided by the author.
+\end{itemize}
+One key objective of disclosure is to inspect the work of the author.  Consequently, the disclosure should be made up of the author's own work product and should exclude, for instance, data that were drawn from a reference database or other independent source and used in an unmodified form.  The purpose of this is twofold: to focus the efforts of the reader on the work of the author, and to enable the reader to obtain and inspect the third-party data independently, thus ensuring its integrity.
+\begin{itemize}
+\item \textbf{Authority}.  The contents of the disclosure should authentically represent the outcomes of the author's labor in constructing the PSM.
+\item \textbf{Originality}.  The disclosure should exclude information that is made available by a third party.  (It must, however, still include previously-published data that were re-implemented by the author in the study.)
+\end{itemize}
+In addition, because of the ubiquity of confidential and sensitive information in LCA, any operational disclosure framework must also meet the following:
+\begin{itemize}
+\item \textbf{Privacy}.  The disclosure should protect information that is held in confidence by the author.
+\end{itemize}
+  
+\subsection{Mathematical Formulation of LCA}
+
+In the most general terms, the LCA problem concerns the interaction of a collection of activities and commodities described by a supply-and-use inventory, in which $U$ is a table of the use of each commodity by each activity (inputs) and $V$ is a table of the supply of each commodity by each activity (outputs) \citep{Pauliuk_2015_framework}.  Such an account can always be transformed into a \textit{symmetric} table of inputs and outputs on a commodity-by-commodity or industry-by-industry basis \citep{Eurostat_2008}. Doing so requires the application of various assumptions and transformations to the data, the details of which are not in scope of this paper, but which have recently been reviewed in depth \citep{Majeau_Bettez_2014}.  Although they originated independently, the ``classical'' process-based approach and the input-output approach have been shown to be equivalent for the purposes of LCA computation \citep{Suh_JIE_2010}.  Please see the Supporting information for a discussion about this equivalency.
+
+A symmetric input output table can be written as a table of coefficients, in which each column of the matrix provides a ``recipe'' for creating the corresponding commodity by consuming other commodities (and, if applicable, producing other co-products). Each column is equivalent to a ``unit process'' in ISO LCA, except that the process must have exactly one reference flow, the identity of which is implicit in the column's index.  The table of coefficients, commonly known as a \textit{direct requirements matrix}, can be used to compute the output from all activities that is necessary to produce a given commodity.  That vector of outputs can then be combined with a second table of coefficients, known as an \textit{emission matrix}, that reports exchanges with the environment associated with the production of each commodity, to determine the cumulative environmental emissions associated with the production of the commodity over its life cycle.  Those emissions are individually \textit{characterized} with respect to an environmental impact category of interest, and the characterized emissions summed to report the \textit{impact score} or category indicator, which is the result of the study.  The formulation may be summarized:
+\begin{equation}
+s = \mathbf{c}^T \cdot B \cdot \left(I - A\right)^{-1} \cdot \mathbf{y}
+\label{eqn:leontief}
+\end{equation}
+Here $A$ represents the direct requirements, sometimes known as the \textit{Leontief matrix}; $B$ is the emission matrix;  $\mathbf{c}$ is a column vector of characterization factors for the environmental emissions; $\mathbf{y}$ is the externally specified final demand; and $s$ is the numerical impact score or category indicator.  For simplicity, we will consider the computation of a single impact result.  However, it is straightforward to imagine the more typical case, in which $C$ is a matrix of characterization vectors, and $\mathbf{s}$ is a vector of results.  Eq.~\ref{eqn:leontief} is visualized in Figure~1.
+%\input{fig_lca}
+
+The term $(I-A)$ is equivalent to a \textit{technology matrix} in traditional LCA, normalized by column so that each column represents a unit output of a single reference product, and each row represents the use of the corresponding product. 
+The coefficient matrices $A$ (or $I-A$) and $B$ together are called a \textit{life cycle inventory database} (LCIDB), and the functional unit of a study is given by the final demand vector $\mathbf{y}$, which is the product or service whose delivery is to be assessed.
+Intermediate results of this computation include:
+\begin{itemize}
+\item $\mathbf{x} = \left(I-A\right)^{-1}\cdot\mathbf{y}$, the activity level vector;
+\item $\mathbf{b} = B\cdot\mathbf{x}$, the life cycle inventory;
+\item $s = \mathbf{c}^T\cdot\mathbf{b}$, the life cycle impact category indicator, the study result.
+\end{itemize}
+
+Some LCA software systems have the capacity to export the $A$ and $B$ matrices for a given study model.  However, the contents of commercial LCIDBs are proprietary and subject to licensing restrictions, and moreover are not usually modified by study authors.  Thus exporting $A$ and $B$ does not meet our authority and originality objectives.  Additionally, replicating the entire LCIDB is cumbersome because of the large size of the matrices.   As a consequence, the matrix formulation in Eq.~\ref{eqn:leontief} is unsuitable as a disclosure framework.
+  
+\subsection{Foreground Study}
+
+In practice, most LCA studies contain information that is not present in a background database, and LCA software systems generally allow users to augment the standard LCIDBs with their own modeling information, known as the study foreground.  To meet our disclosure objectives, it is important to be able to distinguish foreground content from background content in the computation.  Background databases are prepared independently of any study and do not typically vary across the studies in which they are used.  However, the results of a study with foreground content cannot generally be computed without knowledge of the background.  
+
+To understand how a foreground study is constructed on top of a background database, imagine a simple product system that can be fully described by only making reference to processes that exist in a background database.  For instance, the use of a computer may be modeled using reference processes for producing and disposing the computer, and a reference process for electricity consumption.  Assuming those reference processes are available in a background database, the product system can be represented entirely by specifying a final demand vector $\mathbf{y}$ whose nonzero values correspond to computer production, computer disposal, and electricity.  The LCIA results can be computed using Eq.~\ref{eqn:leontief}.
+
+The same result can be obtained by relocating the $\mathbf{y}$ vector into an augmented $A$ matrix, augmenting the $B$ matrix with a vector of zeros, and replacing the final demand with a vector $\tilde{\mathbf{y}}$ in which the first entry is 1 and all successive entries are 0:
+\begin{equation}
+  \begin{array}{cc}
+s =& \mathbf{c}^T\times B\times\left(I-A\right)^{-1}\times\mathbf{y} \\
+ =& \mathbf{c}^{T}\times\tilde{B}\times\left(I-\tilde{A}\right)^{-1}\times\tilde{\mathbf{y}}
+  \end{array}
+  \label{eqn:canonical}
+\end{equation}
+where
+$\tilde{A} = \left[\begin{smallmatrix} 0 & \mathbf{0}^T \\ \mathbf{y} & A  \end{smallmatrix}\right]$,
+$\tilde{B} = [ \mathbf{0},\, B ]$, and $\tilde{\mathbf{y}} =  [ 1,\, 0,\, 0 ,\,\ldots,\, 0]^{T}$.
+It can easily be shown that Eq.~\ref{eqn:canonical} holds for any $\mathbf{y}$  (A proof is provided in the electronic supporting information).  This is intuitively true because the $\tilde{\mathbf{y}}$ selects the first column of the augmented $\tilde{A}$ matrix as the ``final demand,'' but the ``direct requirements'' of that column are precisely the final demand from the prior, un-augmented $A$ matrix.  
+
+This same workflow can be repeated to build a more elaborate foreground.  For instance, a model of private vehicle travel may make use of reference processes for vehicle production and decommissioning, road maintenance, fuel retail, and a model of direct emissions from fuel combustion.  This model could occupy an additional column of $\tilde{A}$, with the coefficients for fuel combustion emissions being contained in the corresponding column of $\tilde{B}$.  A process for brewing coffee could be created in a third column that requires coffee beans, water, and electricity. Finally, a fourth column could be added that invokes the products from the first three columns in proportion to describe the reference product of traveling to a coffeeshop to work.
+
+In general, a product system model may be constructed through the successive augmentation of a background database with foreground content.  As long as the background database is not altered to depend on the newly created foreground, such a study can be written in block triangular form \citep{Kuczenski_JLCA_2015}:
+\begin{equation}
+\tilde{A} = \left[\begin{array}{cc}
+A_f & 0 \\
+A_d &  A
+  \end{array}
+\right];\;\;\;
+  \tilde{B} = \left[\begin{array}{cc} B_f & B   \end{array}\right]
+\label{eqn:foreground}
+\end{equation}
+Here, the submatrix $A_f$ represents the foreground; $A$ represents the background; the rectangular matrix $A_d$ represents the dependency of the foreground on the background; and the top right submatrix is zero.  The ordered $\tilde{B}$ matrix is similarly partitioned into $B_f$, which includes foreground emissions, and $B$, which includes background emissions. 
+The augmented $\tilde{A}$ and $\tilde{B}$ together make up an \emph{LCA foreground study}.  This formulation can be applied to the vast majority of LCA case studies, and very likely to all case studies prepared using commercial LCA software.\footnote{It does not apply to cases in which the background database must be altered to adjust for double counting, such as in so-called ``integrated hybrid'' models in which all quadrants contain non-zero cells \citep{Suh2004}.  These models are more complex than the models typically built by LCA practitioners, and require more sophisticated computation.  In conventional LCA practice it is inadvisable to alter background databases to adapt them to study conditions.  Instead, background processes can be replicated in the foreground, where they can be adapted as needed (cf. \cite{Bourgault_JLCA_2013}), without affecting the integrity of the background database.}
+
+Without loss of generality, it is possible to construct the study such that the \textit{first} column of $\tilde{A}$ delivers the functional unit of the study.  We thereby designate the vector $\tilde{\mathbf{y}} =  [ 1,\, 0,\, 0 ,\,\ldots,\, 0]^{T}$ as the \textit{canonical functional unit} of a foreground study, which allows us to introduce convenient notation later on.\footnote{Of course, the ``functional unit'' does not need to be limited to a unit of any given output---instead, it \textit{defines} a unit of output. For instance, if the functional unit of a study is 1,000 loaves of bread, and one loaf of bread weighs 0.454 kg, and the unit output from column 567 of the A matrix is 1 kg of bread, then the canonical functional unit would be realized by entering \texttt{454} in column 1, row 567, leaving the rest of that column zero.}
+
+%\input{fig_foreground}
+It is currently common practice for background database maintainers to pre-compute the life cycle inventory results for their databases.  In cases where the background database is used without modification, including the contents of $A$ in $\tilde{A}$ becomes unnecessary.
+Using the notation $B_x = B \times (I - A)^{-1}$ to represent the pre-computed background LCI database, Eq.~\ref{eqn:leontief} can be written so that the foreground matrix inversion is  performed separately from the computationally costly background computation:
+\begin{equation}
+s = \mathbf{c}^T \times (B_f + B_x\times A_d) \times (I - A_f)^{-1} \times \tilde{\mathbf{y}}_f
+\label{eqn:study}
+\end{equation}
+where $\tilde{\mathbf{y}}_f$ is a canonical functional unit vector whose length is the same as the rank of $A_f$. Eq.~\ref{eqn:study} is derived in the supporting information.
+Eq.~\ref{eqn:study} is visualized in Figure~2, with the background technology matrix $A$ subsumed into $B_x$ and replaced by an identity matrix $I$.  
+
+The activity levels of the foreground nodes are represented by $\tilde{\mathbf{x}}$, which is the result of $\tilde{\mathbf{y}}_f$ selecting the first column of $(I-A_f)^{-1}$.
+This vector can be used to describe an \emph{aggregated foreground} in coefficient form, which delivers the same results as the foreground study given in Eq.~\ref{eqn:foreground}, but without disclosing any details of the construction of the foreground:
+\begin{equation}
+\begin{array}{rl}
+    \tilde{\mathbf{b}}_f & = B_f \times \tilde{\mathbf{x}} \\
+    \tilde{\mathbf{a}}_d & = A_d \times \tilde{\mathbf{x}} \\
+    \tilde{\mathbf{b}}_x & = B_x \times \tilde{\mathbf{a}}_d
+\end{array}
+\label{eqn:agg}
+\end{equation}
+Here $\tilde{\mathbf{a}}_d$ reports the aggregated foreground's dependency on background processes in background flows per canonical functional unit;  $\tilde{\mathbf{b}}_f$ reports foreground emissions per functional unit; and $\tilde{\mathbf{b}}_x$ reports the aggregated background life cycle emissions per functional unit.
+
+The aggregated result can also be computed from the aggregated foreground:
+\begin{equation}
+\begin{array}{rl}
+s & = \mathbf{c}^T \times( B_f + B_x \times A_d) \times \tilde{\mathbf{x}} \\
+  & = \mathbf{c}^T \times( \tilde{\mathbf{b}}_f + B_x \times\tilde{\mathbf{a}}_d) \\
+  & = \mathbf{c}^T \times( \tilde{\mathbf{b}}_f + \tilde{\mathbf{b}}_x) \\
+\end{array}
+\end{equation}
+
+
+
+  \subsection{Contents of a Disclosure}
+
+The foreground matrix $A_f$, dependency matrix $A_d$, and foreground emission matrix $B_f$ now contain all study-specific information.  Assuming that the appropriate background LCIDB $B_x$, and the vector of characterization factors $\mathbf{c}$ (or their product $\mathbf{c}\times B_x$) are available and held in common between the author and the reader, then a disclosure that precisely describes $A_f$, $A_d$ and $B_f$ is sufficient to reproduce the study result, as formulated in Eq.~\ref{eqn:study}.  These three submatrices together can be considered a complete representation of the PSM.
+
+%\input{fig_disclosure}
+Thus, the problem of how to disclose an LCA study design is reduced to the problem of how to communicate the contents of these submatrices accurately.  Recognizing that all three matrices are likely to be sparse (that is, that most of the entries are zero), the most efficient disclosure would be to only report non-zero entries.  A sparse matrix can be represented by a list of 3-tuples indicating (row, column, value) for each non-zero entry.  A formal disclosure of the PSM can be stated in six parts, including three lists of entities and three sets of data values:
+\begin{enumerate}[label={\em d-\roman*}., ref={\em d-\roman*}]
+\item\label{itm:fg} An ordered list of foreground nodes, beginning with the functional unit (rows/columns of $A_f$);
+\item\label{itm:bg} An ordered list of background flows, each making reference to a particular background dataset (rows of $A_d$, mapping to columns of $B_x$);
+\item\label{itm:em} An ordered list of exchanges with the environment (rows of $B_f$, mapping to entries in $\mathbf{c}$);
+\item\label{itm:af} A set of 3-tuples for nonzero elements of $A_f$, in which the row and column are indices into Item~\ref{itm:fg};
+\item\label{itm:ad} a set of 3-tuples for nonzero elements of $A_d$, in which the rows are indices into Item~\ref{itm:bg} and the columns are indices into Item~\ref{itm:fg};
+\item\label{itm:bf} a set of 3-tuples for nonzero elements of $B_f$, in which the rows are indices into Item~\ref{itm:em} and the columns are indices into Item~\ref{itm:fg}.
+\end{enumerate}
+Each entity included in items \ref{itm:fg} through \ref{itm:em} describes a flow of some kind, and its unit of measure must be reported in the disclosure.
+In both items~\ref{itm:bg} and~\ref{itm:em}, only rows containing non-zero entries need to be mentioned, since the index of each row is common information.  The contents of a disclosure are represented graphically in Fig.~3, and two example disclosures drawn from reference databases can be found in the supporting information.
+
+A disclosure containing these six elements satisfies most of the requirements established at the top of this section (the exception is ensuring the privacy of confidential data, which is treated later in the article):
+\begin{itemize}
+  \item The result is \textbf{computable} using Eq.~\ref{eqn:study};
+  \item the computation is \textbf{complete} and \textbf{minimal} because all components are required and no superfluous components are included;
+  \item The results are \textbf{reproducible} if the reader is able to accurately interpret the author's references in \ref{itm:bg} and \ref{itm:em};
+  \item The disclosure includes only information for which the author can claim \textbf{authority};
+  \item The disclosure includes all information specific to the study, or for which the study is the \textbf{original} source, including re-implementations of already-published data. 
+\end{itemize}
+As mentioned, the proper interpretation of the disclosure requires that the reader accurately interprets the author's references to background databases and elementary flows, including mutually consistent implementation of the LCIA vector $\mathbf{c}$.  These aspects are out of scope for the purposes of this paper, and we will assume that a shared understanding between author and reader can be reached.  However, the challenges of operationalizing this requirement are complex (see the discussion and supporting information).  
+
+
+\section{Reviewing Product System Models}
+
+Objectives in critical review vary with the study and the reviewer, but they generally include consistency with the ISO 14044 standard, the validity of methods, appropriateness of data used, correctness of interpretations, and transparency of reporting \citep[Section 6.1]{iso14044}.  Although the object of critical review is typically a written report, this level of review is not sufficient to ensure the correctness of quantitative results.
+The use of a structured disclosure of a PSM introduces the possibility that reviewers can inspect the model itself and even verify the computations and reported results.  This section discusses how a disclosure in the format described above can enable robust review of a product system model. Note that, for purposes of critical review, the objective for data privacy can be omitted because the reviewer may be granted privileged access to confidential data.  We return to the data privacy requirement later in this section.
+
+\subsection{The Foreground System Boundary and Cut-off Flows}
+
+The foreground of an LCA study is a collection of nodes that represent points in the inventory model where flows are exchanged.  The foreground matrix $A_f$ describes in precise terms what components are included in the product system and how they connect to one another.  The foreground is modelled as a weighted directed graph in which there is a 1:1 correspondence between nodes and product flows.  The foreground matrix $A_f$ reports the adjacency and weights of edges in the graph, and thus describes the relationships among these nodes.  Some simple foregrounds are described in the supporting information.
+
+Generally, the direct requirements matrix can represent any process-flow model with a 1:1 correspondence between processes and flows.  Normally this is understood as a requirement to include only allocated single-output processes.  However, the foreground disclosure framework is also well suited to documenting how multi-output processes are transformed into single-output processes through either partitioning allocation or different forms of system expansion.  Different approaches for creating foregrounds to model multi-output process are presented in the supporting information.
+
+An implicit ``foreground system boundary'' can be imagined to contain all the nodes in $A_f$.  Non-zero values in this matrix represent exchanges inside this boundary.  If a column in $A_f$ is nonempty, then the corresponding node has exchanges with other nodes in the foreground.  On the other hand, if a column in $A_f$ is empty, then that is an indication that the corresponding product flow is crossing the foreground system boundary.  In order for this flow to contribute any impacts, it must either be linked to a background process in the dependency matrix, or represented as an emission. 
+
+A flow whose entire column consists of 0s throughout $A_f$, $A_d$, and $B_f$ is a ``cut-off'' that exits the model with zero burdens.  Specifying cut-off criteria and reporting of cut-off flows is an important part of system boundary definition.  Thus, reviewing cut-off flows (including evaluating their significance) is a crucial part of review that is facilitated by having a structured disclosure of the model.
+
+
+\subsection{Dependencies and Emissions}
+
+The foreground matrix only describes the structure of the PSM; it does not provide any information about inventory or impacts.  The inventory requirements and environmental burdens associated with the model are all described in the dependency matrix $A_d$ and the foreground emission matrix $B_f$.  The dependency matrix shows how foreground nodes depend on activities provided by processes in a background database; the emission matrix shows direct exchanges with the environment.  In both cases, the respective columns of $A_d$ and $B_f$ correspond with columns in $A_f$ and denote dependencies and/or emissions of the corresponding nodes.  If columns of $A_d$ and/or $B_f$ are empty, then the node is simply a pass-through process that serves to connect different foreground elements.  However, if $A_d$ and/or $B_f$ have nonzero entries in that column, then that indicates some transformation process or emission is occurring at that point in the foreground.  
+
+Review of the dependencies of foreground nodes must include review of the selection of background processes to which they are connected (i.e. the identities of the columns of $B_x$ referred to in disclosure item~\ref{itm:bg}, the list of background flows). Likewise, the identities of the emissions (entries in disclosure item~\ref{itm:em}) must also be reviewed.
+
+
+\section{Foreground Aggregation}
+
+When an LCA study result is computed, the foreground and background matrices are aggregated into a scalar indicator score (or a small vector of a few scores).  The formulation in Eq.~\ref{eqn:study} and the illustration in Fig.~2 provides a framework for reporting results at varying levels of aggregation.  In this section, I present several different aggregation computations that provide equivalent results for an LCA study.   After that, I show how a foreground containing private data can be partitioned into public and private portions, each of which can be comprehensively checked by a reviewer having privileged access, and subsequently disclosed in a manner that protects the private data.
+
+\subsection{Forms of Aggregation}
+
+Figure~2 illustrates the LCA computation in various successive aggregation steps, from full matrices to vectors to a scalar value.  The level of aggregation provided in a disclosure will constrain what review objectives can be met by the reader of a study.  Different aggregation forms are illustrated in Figure~4.
+
+\subsubsection{Single-Output Unit Process}
+
+A single-output unit process makes up a single shared column of $A_f$, $A_d$, and $B_f$, as depicted in Figure~4a.  Documentation of unit processes is specified in ISO 14048, and several compliant formats exist, the most well-known being the ILCD and Ecospold XML formats.  ISO 14048 specifies a distinction between intermediate and elementary flows, but does not include the concept of a model foreground.  In a matrix representation, each unit process must have exactly one reference flow, which corresponds to its row and column in $A_f$.
+Please see the supporting information for more detail on preparing the $A_f$ matrix.
+
+%\input{fig_aggregation}
+
+\subsubsection{Complete Foreground}
+
+See Figure~4b.  A foreground can be viewed as a linked set of unit processes.  The collection of processes themselves make up the foreground of the study, and so exchanges among them are recorded in $A_f$, and exchanges outside the foreground are represented in $A_d$ or $B_f$.  A complete foreground represents
+the full disclosure of a model, and a reader can replicate and extend it independently.
+Any modeling technique used to treat a multi-functional process, such as an allocation or system expansion, can only be fully expressed as a foreground with at least as many columns as outputs.  For examples of multi-output processes represented as foreground models, please see the supporting information.  The example shown in Figure~4b shows five nodes, including one cut-off flow.
+
+\subsubsection{Aggregated Foreground}
+
+See Figure~4c. Any collection of foreground nodes can also be expressed in aggregated form by performing the computations in Eq.~\ref{eqn:agg}.  A disclosure of an aggregated foreground resembles the description of a unit process.  As in the unit process case, the aggregated foreground has exactly one reference flow, the canonical functional unit $\tilde{\mathbf{y}}$.  The aggregated foreground still reports explicit links between the model and a background database and can thus be used to review data set selection.
+
+An aggregated foreground with cut-off flows resembles a multi-output process.  After aggregation, foreground flows that correspond to cut-offs must still be reported in a disclosure, while foreground flows interior to the model can be omitted.  This is done with the introduction of a new vector, $\tilde{\mathbf{a}}_f$, which includes the reference flow plus any entries from $\tilde{\mathbf{x}}$ that correspond to cut-off flows.  
+
+\subsubsection{Partial Background Aggregation}
+
+See Figure~4d.  Using this approach, the
+ aggregated dependency vector is split into two parts that sum to the original:
+\begin{equation}
+ \tilde{\mathbf{a}}_d = \tilde{\mathbf{a}}_{d,priv} + \tilde{\mathbf{a}}_d'
+\label{eqn:partial}
+\end{equation}
+The disclosed dependencies $\tilde{\mathbf{a}}_d'$ are reported, and the private dependencies $\tilde{\mathbf{a}}_{d,priv}$ are replaced with an aggregated background inventory derived from the background database, $\tilde{\mathbf{b}}_{x,agg}$.  This approach can be used when a reader lacks access to the background inventory sets referred to in $\tilde{\mathbf{a}}_{d,priv}$, or when the author wishes not to disclose the private dependencies.  Foreground emissions $\tilde{\mathbf{b}}_f$ can be reported separately from the aggregation result, but often in current practice they are not distinguished from the background flows.  
+
+\subsubsection{Full Background Aggregation and LCI}
+
+See Figure~4e and f. At this level of aggregation, the entire dependency vector is replaced with an aggregated life cycle inventory vector $\tilde{\mathbf{b}}_x$ derived from the background LCIDB.  The reader no longer requires access to any background database to perform the computation, but all dependency information is concealed.  As mentioned above, foreground emissions are often not distinguished from the aggregation result; if foreground and background emissions are added together, the disclosure is as shown in Figure~4f.  The life cycle inventory $\tilde{\mathbf{b}}$ provides the most aggregated form of the study that can still be independently validated with an external characterization vector $\mathbf{c}$.  
+
+
+  
+\subsection{Reviewable Private Aggregation}
+
+%\input{fig_private}
+
+Often, a study author may wish to make a partial disclosure of a PSM that retains the privacy of confidential data, while still permitting comprehensive critical review of the complete model.  In this case it is necessary to grant a reviewer privileged access to the private data in order to meet the review objectives.  The study formulation in Eq.~\ref{eqn:study} may be used to partition a foreground into public and private portions in order to comply with any applicable constraints on what may be disclosed.  The approach is illustrated in Figure~5.
+
+The first step is to identify the constraints on the disclosure.  In the framework presented here, constraints may include the locations or values of any subset of nonzero entries in the $A_d$ and $B_f$ matrices, as well as any subset of nodes in $A_f$.  Fig.~5a shows a PSM in which disclosure constraints are indicated by shaded regions of the matrices.  In this case the nodes represented by the three rightmost columns of $A_f$, as well as one entire row of $A_d$, are to remain secret.  
+
+The $A_d$ and $B_f$ matrices are then partitioned into two components that sum to the original:
+\begin{equation}\begin{aligned}
+  A_d =\; & A_{d,pub} + A_{d,priv} \\
+  B_f =\; & B_{f,pub} + B_{f,priv}
+  \label{eqn:partition}
+  \end{aligned}
+  \end{equation}
+This is illustrated in Fig.~5b.  Substituted back into Eq.~\ref{eqn:study}, the private portions are aggregated into a private life cycle inventory vector $\mathbf{b}_{priv}$:
+\begin{equation}
+  \mathbf{b}_{priv} = (B_{f,priv} + B_x\times A_{d,priv})\times \tilde{\mathbf{x}}
+  \label{eqn:bpriv}
+\end{equation}
+while the public portions remain disaggregated:
+\begin{align}
+  s =\; & \mathbf{c}^T\times\left((B_{f,pub} + B_{f,priv}) + B_x\times (A_{d,pub} + A_{d,priv})\right)\times\tilde{\mathbf{x}}\\
+  =\; & \mathbf{c}^T\times\left((B_{f,pub} + B_x\times A_{d,pub})\times\tilde{\mathbf{x}} + \mathbf{b}_{priv}\right)\label{eqn:private}
+\end{align}
+Any foreground nodes that are completely contained within the private partition can be omitted from the disclosed foreground.  The aggregation result can then be included as a separate foreground node with a unit weight, and the aggregated inventory vector included as the corresponding column of $B_f$.  This is illustrated in Fig.~5c.
+
+
+The author may relax the disclosure constraints by reporting the locations of some or all non-zero entries in $A_{d,priv}$ and $B_{f,priv}$ but not disclosing their values, or disclosing a range that includes the actual value.  This would enable a reader to understand \emph{that} a certain background process or emission was included in the model (and checked by the critical reviewer) without knowing how much, which may jointly satisfy review objectives and disclosure constraints in some cases.  
+
+\section{Discussion}
+
+\subsection{Comparative Review: Formalizing Model Scope}
+
+The disclosure of a PSM contains six parts, including three lists and three tables of sparse matrix data.  The graph structure encoded in the foreground matrices can be automatically rendered as a process-flow diagram, supplementing or supplanting the hand-crafted system diagrams that currently accompany ISO reports. While the numeric data are required to critically evaluate and reproduce the study results, substantial information about the study design can be found in the list of background dependencies (\ref{itm:bg}) and emissions (\ref{itm:em}).  These lists report all the distinct sources of environmental impacts in the model.  The cut-off flows, which are foreground nodes that have no nonzero entries in $A_f$, $A_d$, or $B_f$, report on the other hand what aspects were explicitly excluded from the model.
+
+Together, these lists can be considered a \emph{functional definition of the study scope} that can be used to conduct a qualitative comparison of multiple studies by different authors.  Background database choice, dataset selection, and version information can all be made available in disclosure item~\ref{itm:bg}, thereby streamlining what is presently an interpretive and study-specific process of extracting this information from written text.  Similarly, the set of elementary flows explicitly modeled in the study foreground (item~\ref{itm:em}) expose whether any study-specific modeling of direct emissions was performed and what flows were included.
+
+Moreover, because the disclosure of the PSM includes only references to background data without including the data themselves, it is trivial for item~\ref{itm:bg} to include references to a variety of background databases without adding any additional requirements.  For instance, a study that makes reference to a set of EPDs published by one firm, while using a background LCI database from another firm, can express both dependencies in an analogous way, even if the two sources are published independently.  
+
+
+\subsection{Privacy and Partial Aggregation} 
+
+Partial aggregation is already used in practice to conceal private data, but current methods do not provide a way for a reviewer to validate the result.  If a study containing confidential information is split into public and private partitions as in Eq.~\ref{eqn:private} and Fig.~5, then the results of the computation can be validated directly by the reviewer.  To achieve this, the reviewer must be able to confirm that the partitioning is valid according to Eq.~\ref{eqn:partition}, and that $\mathbf{b}_{priv}$ was computed correctly (Eq.~\ref{eqn:bpriv}).  This requires that the reviewer be granted access to both the public and private partitions.  However, the private information used in the computation can still be withheld from the disclosure.
+
+A further advantage to this approach is that the reader can evaluate easily what fraction of the overall impact score is accounted for by the public versus the private portions of the model.  A ``disclosure completeness'' metric $\varphi$ can be defined as the fraction of the overall score which is accounted for by the disclosed portion of the PSM:
+\begin{equation}
+  \varphi =  \frac{\mathbf{c}^T\cdot(\mathbf{b} - \mathbf{b}_{priv})}{\mathbf{c}^T\cdot\mathbf{b}} = 1 - \frac{\mathbf{c}^T\cdot\mathbf{b}_{priv}}{\mathbf{c}^T\cdot\mathbf{b}}
+  \label{eqn:metric}
+\end{equation}
+where $\mathbf{b}$ is the complete life cycle inventory.  The value of this metric can provide an indication of the level of transparency of the disclosure with respect to a given impact category indicator.  
+
+\subsection{Attacks on Privacy}
+
+It is not thought possible for a reader to discern any information about a disaggregated system solely from an aggregated disclosure such as $\mathbf{b}_{priv}$ \citep[Ch. 3]{UNEP_2011}, although that assumption has never been rigorously tested.  Compressed sensing is a signal processing technique that seeks solutions to an underdetermined linear system, in which there are more unknowns than equations, based on the assumption that the solution is sparse \citep{Donoho_2006}.  A form of linear optimization called ``basis pursuit'' can be used to try to detect the signal.
+
+In the LCA case, if the private LCI result $\mathbf{b}_{priv}$ includes inventory data from a background database but no foreground emissions, then it can be written as:
+\begin{equation}
+  \mathbf{b}_{priv} = B_x\times \mathbf{a}_{d,priv}
+\end{equation}
+Typically this equation is highly underdetermined (In ecoinvent, for instance, $B_x$ has roughly 1,800 rows and over 12,000 columns).  If the private input $\mathbf{a}_{d,priv}$ contains only a few nonzero elements, and the identity of $B_x$ is known, then $\mathbf{a}_{d,priv}$ may be vulnerable to a basis pursuit attack.  Further research is required to evaluate whether this attack can be implemented in a real situation, and how it may be defended against.  
+%10.1109/TIT.2006.871582
+
+\subsection{Stable Semantic References to Study Elements}
+
+In practice, while it is easy to reproduce a set of sparse matrices, there is considerable potential for ambiguity in identifying the background datasets and emissions to which those matrix entries correspond.
+In order to achieve the transparency and reproducibility promised by this disclosure framework, it must be possible for study authors and readers to agree on the meaning of the references contained in items~\ref{itm:bg} and \ref{itm:em}.
+The FAIR guiding principles, which were designed to help scientists organize data for Findability, Accessibility, Interoperability, and Reusability \citep{Wilkinson_2016}, provide valuable perspective on this goal.
+
+Central to many of the FAIR guidelines is the use of linked semantic data \citep{Bizer_2009}, in which an object to be interpreted is signified by a link to a resource on the World Wide Web, typically referred to as a Uniform Resource Identifier (URI) or a hyperlink.  This link serves as a unique identifier and a resolvable reference to metadata, and the linked content can be  curated by the study authors and other members of the community \citep{Khan_2011}.
+
+Before the goal of easily reproducible foreground models can be realized, this linked data foundation must be laid.  Background database providers should ensure that their users have access to \emph{stable semantic references} for publicly available datasets that denote a particular activity in a particular database version and configuration.  These references should take the form of URIs that can be accessed using any Internet browser and can provide both author and reader with documentary information describing the referred dataset, including version information; database configuration; the available reference flows and their dimensions (quantitative units of measure); and a mechanism for the reader to obtain access to the exchange data or LCI/LCIA computations for the purposes of model validation.  A dependency reference in disclosure item~\ref{itm:bg} should include both an activity and a reference flow.
+
+
+Similarly, 
+elementary flows and contexts should be given stable references that are held in commomn across data providers. Current research has revealed widespread challenges to finding consistency on the identities of elementary flows despite the community's longstanding awareness of the problem \citep{Speck_2015,Herrmann_2015}, and several mutually inconsistent reference flow sets now exist \citep{Edelen_2017}.  The conventional understanding of a ``flow'' as comprising a substance and a context together (e.g. methane, emissions to air) causes a combinatorial increase in the number of flows in a database, and also multiplies the potential points of disagreement across sources.  I reiterate Edelen et al.'s (ibid.) suggestion to explicitly regard substances (which can easily include non-material ``flowables'' such as land occupation and transformation) and contexts as independent semantic classes.  In this case, an elementary flow entry in the disclosure item~\ref{itm:em} would require both a flowable and a context.
+
+\subsection{Recommendations for Advancing LCA Practice}
+
+The most transformative aspect of the disclosure framework is its ability to describe the productive output of LCA modeling in a way that transcends differences in software environments and databases.  A product system model described in the disclosure framework can %thus
+be implemented in any software system, though the manner of doing so, as well as availability of advanced features for analysis and visualization, varies widely.
+
+To advance LCA practice, the community should embrace the notion of a software-independent PSM description and consider how to best achieve it.  The SETAC North America roadmap module for PSM description and revision \citep{Kuczenski_JLCA_2018} includes milestones toward this goal.  The disclosure framework presented here is offered as a candidate for Milestone 2.1, ``a minimal description of a PSM.''  The community should give this proposal a robust critical evaluation, and researchers should consider how to conceptualize their own models in terms of the framework.  Other milestones and cross-cutting issues are of crucial interest:
+\begin{enumerate}[label=(\alph*)]
+\item LCI database providers must provide their users with unambiguous, static, resolvable references to background datasets (Milestone 1.1) so that their use in a model may be documented precisely (Milestone 3.1);
+\item The transformation of multi-functional processes to single-function processes should be described using the framework (Milestones 1.2 and 1.4; see supporting information);
+\item Software makers should enable their users to automatically generate lists of foreground, background, and emission flows in a model foreground (disclosure items \ref{itm:fg} through \ref{itm:em}) and to export foreground matrices (disclosure items \ref{itm:af} through \ref{itm:bf}) from a model in a concise format (Milestones 2.2 and 3.4);
+\item During ISO critical review, practitioners and reviewers should strive to come to agreement on the formal structure and contents of the model being reviewed;
+\item The LCA research community, including interested parties within the International Society for Industrial Ecology, the UNEP/SETAC Life Cycle Initiative, and other organizations, should collectively pursue consistent, shared definitions of quantities of measure, flows, and contexts used in LCIA.  LCIA method developers should immediately begin using these consensus definitions instead of their own internal lists when publishing flow characterization data, so that software makers can interpret the publications correctly.  
+\end{enumerate}
+As these milestones are pursued and achieved, it will be possible for a standalone description of a PSM to be computed and extended by another party, regardless of the software used to construct the model originally.  This will tremendously improve the capacity for critical review and reuse of LCA models.
+
+\section{Conclusion} 
+
+The current practice of documenting a PSM with a written report sharply limits the ability of readers to interpret and reuse the data.  It also results in the model being frozen to a particular configuration or set of configurations used to generate the published results.  Any review objectives involving sensitivity of the model to parameter variations and/or alternative scenarios are limited to the selections considered by the author.
+When a study result is published in an aggregated form, often it is beyond the capacity of the critical reviewer to validate the aggregation result, even if the reviewer has privileged access to confidential materials used in preparing the report. 
+
+This paper presents a possible solution by providing a mathematical formalization of the foreground of an LCA study and a functional specification for disclosing the PSM.  The non-quantitative portions of the disclosure make up a formal definition of study scope and the boundary of the foreground system.  The disclosure framework also allows modelers to express precisely how multi-functionality is handled through allocation or system expansion.  A data user or critical reviewer with access to the six disclosure elements, and also adequate access to background datasets and elementary flows used in the model, can reproduce the LCA computation in Eq.~\ref{eqn:study}, and ensure the reported result is correct.  Once equipped with the PSM, the reviewer or data user can potentially go much further.  Practitioners who are able to reproduce the PSM from the disclosure can also modify it, adding or removing elements, altering dataset selections, applying other impact assessment methods, and considering alternative allocation methods. Portions of the model which have been pre-aggregated can remain private in the disclosure. Further research is required to determine whether or under what conditions aggregation results can be reverse-engineered.
+
+If data providers also make available stable semantic references to background data sets and elementary flow characterizations, then it becomes possible for a stand-alone description of a PSM to be used to reproduce an LCA result.  The same description can be extended or incorporated into subsequent studies by other authors. From this prescription, a framework for distributed, platform-independent LCA computation can be imagined.
+  
+
+\let\section\oldsection
+    \section*{Acknowledgments}
+
+Many thanks to the anonymous reviewers for significant improvement of the manuscript. This work was partially supported by the US National Science Foundation (CCF-1442966).
+
+ \singlespacing
+ 
+ \theendnotes
+
+ \bibliography{kuczenski-disclosure}
+}
+
+
+\begin{document}
+
+\mainpaper
+
+\end{document}
