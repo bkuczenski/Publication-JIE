@@ -11,14 +11,16 @@
 
 
 %% To build supporting information:
-%% - uncomment supportingfalse
+%% - switch to supportingtrue
+%% - in the document [bottom] inside \ifsupporting, UNcomment mainpaper
 %% - in the document uncomment both mainpaper and supporting
 %% - latex agg-JIE
-%% - in the document [bottom] inside \ifsupporting, comment mainpaper
+%% - in the document [bottom] inside \ifsupporting, REcomment mainpaper
+%% - bibtex agg-JIE
 %% - maketex -x -o supp.pdf agg-JIE
 \newif\ifsupporting
-%\supportingtrue
-\supportingfalse
+\supportingtrue
+%\supportingfalse
 
 \let\oldsection\section
 \ifsupporting
@@ -146,10 +148,15 @@ Many thanks to the anonymous reviewers for significant improvement of the manusc
 }
 
 \def\supporting{
+  \date{Updated \usdate\today}
   \setcounter{figure}{0}
   \setcounter{table}{0}
+  \setcounter{page}{2}
+  \setcounter{equation}{0}
   \renewcommand{\thefigure}{S\arabic{figure}}
   \renewcommand{\thetable}{S\arabic{table}}
+  \renewcommand{\theequation}{S\arabic{equation}}
+  \renewcommand{\thepage}{S-\arabic{page}}
 
   \maketitle
 
@@ -181,7 +188,7 @@ Many thanks to the anonymous reviewers for significant improvement of the manusc
 %  \input{publication-si-openaccess}
 
   \singlespacing
-  %\bibliography{jabref}
+  \bibliography{jabref}
 }
 
 \def\unused{
