@@ -1,3 +1,4 @@
+% 2018-07-09 Edited BK - et~al not italic
 % 2014-02-18 Edited BK - remove trailing space after et~al.
 %
 %  This BibTeX 0.99 style file is intended for documents that use the
@@ -268,7 +269,7 @@ FUNCTION {format.names}
         { namesleft #1 >
             { ", " * t * }
             { t "others" =
-                { ", {\em et~al.}\relax" * }   % BK 2014-02-18
+                { ", et~al.\relax" * }   % BK 2014-02-18 % BK 2018-07-09
                 { ", \& " * t * }                           %  Butcher, pages
               if$                                           %  186-189.
             }
@@ -1049,11 +1050,11 @@ FUNCTION {format.lab.names}
   s #1 "{vv~}{ll}" format.name$
   s num.names$ duplicate$
   #2 >
-    { pop$ " {\em et~al.}\relax" * }  % BK 2014-02-18
+    { pop$ " et~al.\relax" * }  % BK 2014-02-18 % BK 2018-07-09
     { #2 <
         'skip$
         { s #2 "{ff }{vv }{ll}{ jj}" format.name$ "others" =
-            { " {\em et~al.}\relax" * } % BK 2014-02-18
+            { " et~al.\relax" * } % BK 2014-02-18 % BK 2018-07-09
             { " \& " * s #2 "{vv~}{ll}" format.name$ * }
           if$
         }
